@@ -1,0 +1,1414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C423CAF91B63CDDC00FCC18C /* UITableView+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C423CAF81B63CDDC00FCC18C /* UITableView+LYZExtension.m */; };
+		C4410E151AE3A4D0000691F6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C4410E141AE3A4D0000691F6 /* Reachability.m */; };
+		C4410E211AE40AF4000691F6 /* LYZNetworkReachable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4410E201AE40AF4000691F6 /* LYZNetworkReachable.m */; };
+		C44CBD991B399787009A10C9 /* LYZArrangeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CBD981B399787009A10C9 /* LYZArrangeListViewController.m */; };
+		C44CBD9C1B39983C009A10C9 /* LYZProjectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CBD9B1B39983C009A10C9 /* LYZProjectListViewController.m */; };
+		C44CBD9F1B399A86009A10C9 /* LYZProjectTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CBD9E1B399A86009A10C9 /* LYZProjectTasksViewController.m */; };
+		C44CBDA21B399AFA009A10C9 /* LYZAddTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CBDA11B399AFA009A10C9 /* LYZAddTaskTableViewCell.m */; };
+		C44CBDA51B399BC8009A10C9 /* LYZTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CBDA41B399BC8009A10C9 /* LYZTaskTableViewCell.m */; };
+		C44CBDA81B399E08009A10C9 /* LYZAddListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44CBDA71B399E08009A10C9 /* LYZAddListTableViewCell.m */; };
+		C44D520C1BAAEEBC0035E9B2 /* LYZTravelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D520B1BAAEEBC0035E9B2 /* LYZTravelViewController.m */; };
+		C4576DD91B28864A00A01BFF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4576DC11B28864A00A01BFF /* Info.plist */; };
+		C4576DDA1B28864B00A01BFF /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DC31B28864A00A01BFF /* MASCompositeConstraint.m */; };
+		C4576DDB1B28864B00A01BFF /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DC61B28864A00A01BFF /* MASConstraint.m */; };
+		C4576DDC1B28864B00A01BFF /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DC81B28864A00A01BFF /* MASConstraintMaker.m */; };
+		C4576DDD1B28864B00A01BFF /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DCA1B28864A00A01BFF /* MASLayoutConstraint.m */; };
+		C4576DDE1B28864B00A01BFF /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DCE1B28864A00A01BFF /* MASViewAttribute.m */; };
+		C4576DDF1B28864B00A01BFF /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DD01B28864A00A01BFF /* MASViewConstraint.m */; };
+		C4576DE01B28864B00A01BFF /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DD21B28864A00A01BFF /* NSArray+MASAdditions.m */; };
+		C4576DE11B28864B00A01BFF /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DD51B28864A00A01BFF /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		C4576DE21B28864B00A01BFF /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4576DD71B28864A00A01BFF /* View+MASAdditions.m */; };
+		C45A18DF1AC1BD1A0025A370 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A18DE1AC1BD1A0025A370 /* main.m */; };
+		C45A18EA1AC1BD1A0025A370 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45A18E91AC1BD1A0025A370 /* Images.xcassets */; };
+		C45A18ED1AC1BD1A0025A370 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45A18EB1AC1BD1A0025A370 /* LaunchScreen.xib */; };
+		C45A18F91AC1BD1A0025A370 /* AppProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C45A18F81AC1BD1A0025A370 /* AppProjectTests.m */; };
+		C47380421AD2C59F008D8C00 /* LYZTimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = C473801F1AD2C59F008D8C00 /* LYZTimerHolder.m */; };
+		C47380431AD2C59F008D8C00 /* LYZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C47380291AD2C59F008D8C00 /* LYZLocationManager.m */; };
+		C47380441AD2C59F008D8C00 /* LYZLocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C473802B1AD2C59F008D8C00 /* LYZLocationRequest.m */; };
+		C47BD75D1B3C36930039647C /* XLFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD70D1B3C36930039647C /* XLFormBaseCell.m */; };
+		C47BD75E1B3C36930039647C /* XLFormButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD70F1B3C36930039647C /* XLFormButtonCell.m */; };
+		C47BD75F1B3C36930039647C /* XLFormCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7111B3C36930039647C /* XLFormCheckCell.m */; };
+		C47BD7601B3C36930039647C /* XLFormDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7131B3C36930039647C /* XLFormDateCell.m */; };
+		C47BD7611B3C36930039647C /* XLFormDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7151B3C36930039647C /* XLFormDatePickerCell.m */; };
+		C47BD7621B3C36930039647C /* XLFormInlineSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7191B3C36930039647C /* XLFormInlineSelectorCell.m */; };
+		C47BD7631B3C36930039647C /* XLFormLeftRightSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD71B1B3C36930039647C /* XLFormLeftRightSelectorCell.m */; };
+		C47BD7641B3C36930039647C /* XLFormPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD71D1B3C36930039647C /* XLFormPickerCell.m */; };
+		C47BD7651B3C36930039647C /* XLFormSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD71F1B3C36930039647C /* XLFormSegmentedCell.m */; };
+		C47BD7661B3C36930039647C /* XLFormSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7211B3C36930039647C /* XLFormSelectorCell.m */; };
+		C47BD7671B3C36930039647C /* XLFormSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7231B3C36930039647C /* XLFormSliderCell.m */; };
+		C47BD7681B3C36930039647C /* XLFormStepCounterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7251B3C36930039647C /* XLFormStepCounterCell.m */; };
+		C47BD7691B3C36930039647C /* XLFormSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7271B3C36930039647C /* XLFormSwitchCell.m */; };
+		C47BD76A1B3C36930039647C /* XLFormTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7291B3C36930039647C /* XLFormTextFieldCell.m */; };
+		C47BD76B1B3C36930039647C /* XLFormTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD72B1B3C36930039647C /* XLFormTextViewCell.m */; };
+		C47BD76C1B3C36930039647C /* XLFormOptionsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD72E1B3C36930039647C /* XLFormOptionsObject.m */; };
+		C47BD76D1B3C36930039647C /* XLFormOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7301B3C36930039647C /* XLFormOptionsViewController.m */; };
+		C47BD76E1B3C36930039647C /* XLFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7331B3C36930039647C /* XLFormViewController.m */; };
+		C47BD76F1B3C36930039647C /* XLFormDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7361B3C36930039647C /* XLFormDescriptor.m */; };
+		C47BD7701B3C36930039647C /* XLFormRowDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7391B3C36930039647C /* XLFormRowDescriptor.m */; };
+		C47BD7711B3C36930039647C /* XLFormSectionDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD73B1B3C36930039647C /* XLFormSectionDescriptor.m */; };
+		C47BD7721B3C36930039647C /* NSArray+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD73E1B3C36930039647C /* NSArray+XLFormAdditions.m */; };
+		C47BD7731B3C36930039647C /* NSExpression+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7401B3C36930039647C /* NSExpression+XLFormAdditions.m */; };
+		C47BD7741B3C36930039647C /* NSObject+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7421B3C36930039647C /* NSObject+XLFormAdditions.m */; };
+		C47BD7751B3C36930039647C /* NSPredicate+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7441B3C36930039647C /* NSPredicate+XLFormAdditions.m */; };
+		C47BD7761B3C36930039647C /* NSString+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7461B3C36930039647C /* NSString+XLFormAdditions.m */; };
+		C47BD7771B3C36930039647C /* UIView+XLFormAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7481B3C36930039647C /* UIView+XLFormAdditions.m */; };
+		C47BD7781B3C36930039647C /* XLFormRightDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD74B1B3C36930039647C /* XLFormRightDetailCell.m */; };
+		C47BD7791B3C36930039647C /* XLFormRightImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD74D1B3C36930039647C /* XLFormRightImageButton.m */; };
+		C47BD77A1B3C36930039647C /* XLFormRowNavigationAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD74F1B3C36930039647C /* XLFormRowNavigationAccessoryView.m */; };
+		C47BD77B1B3C36930039647C /* XLFormTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7511B3C36930039647C /* XLFormTextView.m */; };
+		C47BD77C1B3C36930039647C /* XLFormRegexValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7541B3C36930039647C /* XLFormRegexValidator.m */; };
+		C47BD77D1B3C36930039647C /* XLFormValidationStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7561B3C36930039647C /* XLFormValidationStatus.m */; };
+		C47BD77E1B3C36930039647C /* XLFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD7581B3C36930039647C /* XLFormValidator.m */; };
+		C47BD77F1B3C36930039647C /* XLForm.m in Sources */ = {isa = PBXBuildFile; fileRef = C47BD75B1B3C36930039647C /* XLForm.m */; };
+		C47BD7801B3C36930039647C /* XLForm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C47BD75C1B3C36930039647C /* XLForm.bundle */; };
+		C4822EDD1B0B699000B6EB75 /* bloom.caf in Resources */ = {isa = PBXBuildFile; fileRef = C4822ED61B0B699000B6EB75 /* bloom.caf */; };
+		C4822EDE1B0B699000B6EB75 /* fold.caf in Resources */ = {isa = PBXBuildFile; fileRef = C4822ED71B0B699000B6EB75 /* fold.caf */; };
+		C4822EDF1B0B699000B6EB75 /* selected.caf in Resources */ = {isa = PBXBuildFile; fileRef = C4822ED81B0B699000B6EB75 /* selected.caf */; };
+		C4822F1E1B0B7E5B00B6EB75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4822F1D1B0B7E5B00B6EB75 /* Images.xcassets */; };
+		C49DC86B1AEA6B5F00735515 /* LYZMulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C49DC86A1AEA6B5F00735515 /* LYZMulticastDelegate.m */; };
+		C4CBFB541AC5B18500F28168 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = C4CBFB531AC5B18500F28168 /* ReadMe */; };
+		C4E07BD41AE7CF630046073F /* LYZHardwareAvailable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E07BD31AE7CF630046073F /* LYZHardwareAvailable.m */; };
+		C4E216B81B0CBF4000014CE0 /* DCPathButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E216B31B0CBF4000014CE0 /* DCPathButton.m */; };
+		C4E216BA1B0CBF4000014CE0 /* DCPathItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E216B71B0CBF4000014CE0 /* DCPathItemButton.m */; };
+		C4E507781AE3606400727B18 /* LYZFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E507691AE3606400727B18 /* LYZFileCache.m */; };
+		C4E507791AE3606400727B18 /* LYZKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5076B1AE3606400727B18 /* LYZKeyChain.m */; };
+		C4E5077A1AE3606400727B18 /* LYZMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5076D1AE3606400727B18 /* LYZMemoryCache.m */; };
+		C4E5077B1AE3606400727B18 /* LYZUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E5076F1AE3606400727B18 /* LYZUserDefault.m */; };
+		C4E5077C1AE3606400727B18 /* LYZDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E507721AE3606400727B18 /* LYZDeviceInfo.m */; };
+		C4E5077D1AE3606400727B18 /* LYZFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E507741AE3606400727B18 /* LYZFileManager.m */; };
+		C4E908D11B5417980009809E /* LYZApplicationShared.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E908D01B5417980009809E /* LYZApplicationShared.m */; };
+		C4E933701B31ADE900C37FE6 /* LYZSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E9336F1B31ADE900C37FE6 /* LYZSwipeViewController.m */; };
+		C4EA2FFA1B554CC300AE4C0D /* LYZJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA2FF91B554CC300AE4C0D /* LYZJSONSerialization.m */; };
+		C4EA2FFD1B554CD600AE4C0D /* LYZXMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EA2FFC1B554CD600AE4C0D /* LYZXMLSerialization.m */; };
+		C4EAE3D81B22E8FB00C97702 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAE3D51B22E8FB00C97702 /* MGSwipeButton.m */; };
+		C4EAE3D91B22E8FB00C97702 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAE3D71B22E8FB00C97702 /* MGSwipeTableCell.m */; };
+		C4EAE3DF1B22F7E900C97702 /* LYZSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAE3DE1B22F7E900C97702 /* LYZSwipeTableCell.m */; };
+		C4EAE3E21B232D6100C97702 /* LYZSwipeTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EAE3E11B232D6100C97702 /* LYZSwipeTableData.m */; };
+		C4EB5F691B5684BE00DAD479 /* NSData+LYZCodeSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F571B5684BE00DAD479 /* NSData+LYZCodeSecurity.m */; };
+		C4EB5F6A1B5684BE00DAD479 /* NSDate+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F591B5684BE00DAD479 /* NSDate+LYZExtension.m */; };
+		C4EB5F6B1B5684BE00DAD479 /* NSObject+LYZTypeConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F5B1B5684BE00DAD479 /* NSObject+LYZTypeConvert.m */; };
+		C4EB5F6C1B5684BE00DAD479 /* NSString+LYZCodeSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F5D1B5684BE00DAD479 /* NSString+LYZCodeSecurity.m */; };
+		C4EB5F6D1B5684BE00DAD479 /* NSString+LYZRegexMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F5F1B5684BE00DAD479 /* NSString+LYZRegexMatch.m */; };
+		C4EB5F6E1B5684BE00DAD479 /* NSTimer+LYZBlockSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F611B5684BE00DAD479 /* NSTimer+LYZBlockSupport.m */; };
+		C4EB5F6F1B5684BE00DAD479 /* UIImage+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F641B5684BE00DAD479 /* UIImage+LYZExtension.m */; };
+		C4EB5F711B5684BE00DAD479 /* UIView+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F681B5684BE00DAD479 /* UIView+LYZExtension.m */; };
+		C4EB5F741B5689E900DAD479 /* NSObject+LYZRuntimeMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F731B5689E900DAD479 /* NSObject+LYZRuntimeMethod.m */; };
+		C4EB5F7A1B5690AB00DAD479 /* NSString+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F791B5690AB00DAD479 /* NSString+LYZExtension.m */; };
+		C4EB5F7D1B56AA3300DAD479 /* NSNumber+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB5F7C1B56AA3300DAD479 /* NSNumber+LYZExtension.m */; };
+		C4EB8CC61BA9B1A800457DF7 /* LYZTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EB8CC51BA9B1A800457DF7 /* LYZTaskViewController.m */; };
+		C4EC5BAC1B528F080039FAA3 /* LYZPerformanceAnalyze.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EC5BAB1B528F080039FAA3 /* LYZPerformanceAnalyze.m */; };
+		C4EC5BC21B52BB2B0039FAA3 /* LYZApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EC5BC11B52BB2B0039FAA3 /* LYZApplicationInfo.m */; };
+		C4EC5BC81B52BFE90039FAA3 /* LYZSystemRealInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EC5BC71B52BFE90039FAA3 /* LYZSystemRealInfo.m */; };
+		C4ECB7561B589A6A00C41C0E /* LYZWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECB7551B589A6A00C41C0E /* LYZWeakProxy.m */; };
+		C4ECB7591B58A63300C41C0E /* NSData+LYZEncodeAndDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECB7581B58A63300C41C0E /* NSData+LYZEncodeAndDecode.m */; };
+		C4ECB75C1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECB75B1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.m */; };
+		C4ECB7611B58AAF400C41C0E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C4ECB75F1B58AA2600C41C0E /* libz.dylib */; };
+		C4ECB7671B590BE600C41C0E /* UIScrollView+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECB7661B590BE600C41C0E /* UIScrollView+LYZExtension.m */; };
+		C4ECB7D91B594D7500C41C0E /* LYZMathMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECB7D81B594D7500C41C0E /* LYZMathMethod.m */; };
+		C4ECB7DC1B59536F00C41C0E /* UIColor+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ECB7DB1B59536F00C41C0E /* UIColor+LYZExtension.m */; };
+		C4ED9D3B1B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4ED9D3A1B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.m */; };
+		C4F0AE6A1B2BE736000F011E /* UIView+LYZMasonyCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0AE691B2BE736000F011E /* UIView+LYZMasonyCategory.m */; };
+		C4F119031B207F7000EC44DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F119021B207F7000EC44DD /* AppDelegate.m */; };
+		C4F119061B2080CC00EC44DD /* LYZMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F119051B2080CC00EC44DD /* LYZMainTabBarController.m */; };
+		C4F1190F1B20846400EC44DD /* LYZContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F1190E1B20846400EC44DD /* LYZContactsViewController.m */; };
+		C4F119121B2084F700EC44DD /* LYZMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F119111B2084F700EC44DD /* LYZMoreViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C45A18F31AC1BD1A0025A370 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C45A18D11AC1BD1A0025A370 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C45A18D81AC1BD1A0025A370;
+			remoteInfo = AppProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C423CAF71B63CDDC00FCC18C /* UITableView+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+LYZExtension.h"; sourceTree = "<group>"; };
+		C423CAF81B63CDDC00FCC18C /* UITableView+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LYZExtension.m"; sourceTree = "<group>"; };
+		C4410E131AE3A4D0000691F6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		C4410E141AE3A4D0000691F6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		C4410E1F1AE40AF4000691F6 /* LYZNetworkReachable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZNetworkReachable.h; sourceTree = "<group>"; };
+		C4410E201AE40AF4000691F6 /* LYZNetworkReachable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZNetworkReachable.m; sourceTree = "<group>"; };
+		C44CBD971B399787009A10C9 /* LYZArrangeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZArrangeListViewController.h; sourceTree = "<group>"; };
+		C44CBD981B399787009A10C9 /* LYZArrangeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZArrangeListViewController.m; sourceTree = "<group>"; };
+		C44CBD9A1B39983C009A10C9 /* LYZProjectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZProjectListViewController.h; sourceTree = "<group>"; };
+		C44CBD9B1B39983C009A10C9 /* LYZProjectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZProjectListViewController.m; sourceTree = "<group>"; };
+		C44CBD9D1B399A86009A10C9 /* LYZProjectTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZProjectTasksViewController.h; sourceTree = "<group>"; };
+		C44CBD9E1B399A86009A10C9 /* LYZProjectTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZProjectTasksViewController.m; sourceTree = "<group>"; };
+		C44CBDA01B399AFA009A10C9 /* LYZAddTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZAddTaskTableViewCell.h; sourceTree = "<group>"; };
+		C44CBDA11B399AFA009A10C9 /* LYZAddTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZAddTaskTableViewCell.m; sourceTree = "<group>"; };
+		C44CBDA31B399BC8009A10C9 /* LYZTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZTaskTableViewCell.h; sourceTree = "<group>"; };
+		C44CBDA41B399BC8009A10C9 /* LYZTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZTaskTableViewCell.m; sourceTree = "<group>"; };
+		C44CBDA61B399E08009A10C9 /* LYZAddListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZAddListTableViewCell.h; sourceTree = "<group>"; };
+		C44CBDA71B399E08009A10C9 /* LYZAddListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZAddListTableViewCell.m; sourceTree = "<group>"; };
+		C44D520A1BAAEEBC0035E9B2 /* LYZTravelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZTravelViewController.h; sourceTree = "<group>"; };
+		C44D520B1BAAEEBC0035E9B2 /* LYZTravelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZTravelViewController.m; sourceTree = "<group>"; };
+		C4576DC11B28864A00A01BFF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4576DC21B28864A00A01BFF /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		C4576DC31B28864A00A01BFF /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		C4576DC41B28864A00A01BFF /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		C4576DC51B28864A00A01BFF /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		C4576DC61B28864A00A01BFF /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		C4576DC71B28864A00A01BFF /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		C4576DC81B28864A00A01BFF /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		C4576DC91B28864A00A01BFF /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		C4576DCA1B28864A00A01BFF /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		C4576DCB1B28864A00A01BFF /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		C4576DCC1B28864A00A01BFF /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		C4576DCD1B28864A00A01BFF /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		C4576DCE1B28864A00A01BFF /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		C4576DCF1B28864A00A01BFF /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		C4576DD01B28864A00A01BFF /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		C4576DD11B28864A00A01BFF /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		C4576DD21B28864A00A01BFF /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		C4576DD31B28864A00A01BFF /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		C4576DD41B28864A00A01BFF /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		C4576DD51B28864A00A01BFF /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		C4576DD61B28864A00A01BFF /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		C4576DD71B28864A00A01BFF /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		C4576DD81B28864A00A01BFF /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		C45A18D91AC1BD1A0025A370 /* AppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C45A18DD1AC1BD1A0025A370 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45A18DE1AC1BD1A0025A370 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C45A18E91AC1BD1A0025A370 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C45A18EC1AC1BD1A0025A370 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C45A18F21AC1BD1A0025A370 /* AppProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C45A18F71AC1BD1A0025A370 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C45A18F81AC1BD1A0025A370 /* AppProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppProjectTests.m; sourceTree = "<group>"; };
+		C473801E1AD2C59F008D8C00 /* LYZTimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZTimerHolder.h; sourceTree = "<group>"; };
+		C473801F1AD2C59F008D8C00 /* LYZTimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZTimerHolder.m; sourceTree = "<group>"; };
+		C47380271AD2C59F008D8C00 /* LYZLocationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationDefine.h; sourceTree = "<group>"; };
+		C47380281AD2C59F008D8C00 /* LYZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationManager.h; sourceTree = "<group>"; };
+		C47380291AD2C59F008D8C00 /* LYZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZLocationManager.m; sourceTree = "<group>"; };
+		C473802A1AD2C59F008D8C00 /* LYZLocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationRequest.h; sourceTree = "<group>"; };
+		C473802B1AD2C59F008D8C00 /* LYZLocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZLocationRequest.m; sourceTree = "<group>"; };
+		C47BD70C1B3C36930039647C /* XLFormBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormBaseCell.h; sourceTree = "<group>"; };
+		C47BD70D1B3C36930039647C /* XLFormBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormBaseCell.m; sourceTree = "<group>"; };
+		C47BD70E1B3C36930039647C /* XLFormButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormButtonCell.h; sourceTree = "<group>"; };
+		C47BD70F1B3C36930039647C /* XLFormButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormButtonCell.m; sourceTree = "<group>"; };
+		C47BD7101B3C36930039647C /* XLFormCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormCheckCell.h; sourceTree = "<group>"; };
+		C47BD7111B3C36930039647C /* XLFormCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormCheckCell.m; sourceTree = "<group>"; };
+		C47BD7121B3C36930039647C /* XLFormDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormDateCell.h; sourceTree = "<group>"; };
+		C47BD7131B3C36930039647C /* XLFormDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormDateCell.m; sourceTree = "<group>"; };
+		C47BD7141B3C36930039647C /* XLFormDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormDatePickerCell.h; sourceTree = "<group>"; };
+		C47BD7151B3C36930039647C /* XLFormDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormDatePickerCell.m; sourceTree = "<group>"; };
+		C47BD7161B3C36930039647C /* XLFormDescriptorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormDescriptorCell.h; sourceTree = "<group>"; };
+		C47BD7171B3C36930039647C /* XLFormInlineRowDescriptorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormInlineRowDescriptorCell.h; sourceTree = "<group>"; };
+		C47BD7181B3C36930039647C /* XLFormInlineSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormInlineSelectorCell.h; sourceTree = "<group>"; };
+		C47BD7191B3C36930039647C /* XLFormInlineSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormInlineSelectorCell.m; sourceTree = "<group>"; };
+		C47BD71A1B3C36930039647C /* XLFormLeftRightSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormLeftRightSelectorCell.h; sourceTree = "<group>"; };
+		C47BD71B1B3C36930039647C /* XLFormLeftRightSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormLeftRightSelectorCell.m; sourceTree = "<group>"; };
+		C47BD71C1B3C36930039647C /* XLFormPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormPickerCell.h; sourceTree = "<group>"; };
+		C47BD71D1B3C36930039647C /* XLFormPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormPickerCell.m; sourceTree = "<group>"; };
+		C47BD71E1B3C36930039647C /* XLFormSegmentedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormSegmentedCell.h; sourceTree = "<group>"; };
+		C47BD71F1B3C36930039647C /* XLFormSegmentedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormSegmentedCell.m; sourceTree = "<group>"; };
+		C47BD7201B3C36930039647C /* XLFormSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormSelectorCell.h; sourceTree = "<group>"; };
+		C47BD7211B3C36930039647C /* XLFormSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormSelectorCell.m; sourceTree = "<group>"; };
+		C47BD7221B3C36930039647C /* XLFormSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormSliderCell.h; sourceTree = "<group>"; };
+		C47BD7231B3C36930039647C /* XLFormSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormSliderCell.m; sourceTree = "<group>"; };
+		C47BD7241B3C36930039647C /* XLFormStepCounterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormStepCounterCell.h; sourceTree = "<group>"; };
+		C47BD7251B3C36930039647C /* XLFormStepCounterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormStepCounterCell.m; sourceTree = "<group>"; };
+		C47BD7261B3C36930039647C /* XLFormSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormSwitchCell.h; sourceTree = "<group>"; };
+		C47BD7271B3C36930039647C /* XLFormSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormSwitchCell.m; sourceTree = "<group>"; };
+		C47BD7281B3C36930039647C /* XLFormTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormTextFieldCell.h; sourceTree = "<group>"; };
+		C47BD7291B3C36930039647C /* XLFormTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormTextFieldCell.m; sourceTree = "<group>"; };
+		C47BD72A1B3C36930039647C /* XLFormTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormTextViewCell.h; sourceTree = "<group>"; };
+		C47BD72B1B3C36930039647C /* XLFormTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormTextViewCell.m; sourceTree = "<group>"; };
+		C47BD72D1B3C36930039647C /* XLFormOptionsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormOptionsObject.h; sourceTree = "<group>"; };
+		C47BD72E1B3C36930039647C /* XLFormOptionsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormOptionsObject.m; sourceTree = "<group>"; };
+		C47BD72F1B3C36930039647C /* XLFormOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormOptionsViewController.h; sourceTree = "<group>"; };
+		C47BD7301B3C36930039647C /* XLFormOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormOptionsViewController.m; sourceTree = "<group>"; };
+		C47BD7311B3C36930039647C /* XLFormRowDescriptorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormRowDescriptorViewController.h; sourceTree = "<group>"; };
+		C47BD7321B3C36930039647C /* XLFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormViewController.h; sourceTree = "<group>"; };
+		C47BD7331B3C36930039647C /* XLFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormViewController.m; sourceTree = "<group>"; };
+		C47BD7351B3C36930039647C /* XLFormDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormDescriptor.h; sourceTree = "<group>"; };
+		C47BD7361B3C36930039647C /* XLFormDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormDescriptor.m; sourceTree = "<group>"; };
+		C47BD7371B3C36930039647C /* XLFormDescriptorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormDescriptorDelegate.h; sourceTree = "<group>"; };
+		C47BD7381B3C36930039647C /* XLFormRowDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormRowDescriptor.h; sourceTree = "<group>"; };
+		C47BD7391B3C36930039647C /* XLFormRowDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormRowDescriptor.m; sourceTree = "<group>"; };
+		C47BD73A1B3C36930039647C /* XLFormSectionDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormSectionDescriptor.h; sourceTree = "<group>"; };
+		C47BD73B1B3C36930039647C /* XLFormSectionDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormSectionDescriptor.m; sourceTree = "<group>"; };
+		C47BD73D1B3C36930039647C /* NSArray+XLFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+XLFormAdditions.h"; sourceTree = "<group>"; };
+		C47BD73E1B3C36930039647C /* NSArray+XLFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+XLFormAdditions.m"; sourceTree = "<group>"; };
+		C47BD73F1B3C36930039647C /* NSExpression+XLFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSExpression+XLFormAdditions.h"; sourceTree = "<group>"; };
+		C47BD7401B3C36930039647C /* NSExpression+XLFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSExpression+XLFormAdditions.m"; sourceTree = "<group>"; };
+		C47BD7411B3C36930039647C /* NSObject+XLFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+XLFormAdditions.h"; sourceTree = "<group>"; };
+		C47BD7421B3C36930039647C /* NSObject+XLFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+XLFormAdditions.m"; sourceTree = "<group>"; };
+		C47BD7431B3C36930039647C /* NSPredicate+XLFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPredicate+XLFormAdditions.h"; sourceTree = "<group>"; };
+		C47BD7441B3C36930039647C /* NSPredicate+XLFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPredicate+XLFormAdditions.m"; sourceTree = "<group>"; };
+		C47BD7451B3C36930039647C /* NSString+XLFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XLFormAdditions.h"; sourceTree = "<group>"; };
+		C47BD7461B3C36930039647C /* NSString+XLFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XLFormAdditions.m"; sourceTree = "<group>"; };
+		C47BD7471B3C36930039647C /* UIView+XLFormAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XLFormAdditions.h"; sourceTree = "<group>"; };
+		C47BD7481B3C36930039647C /* UIView+XLFormAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XLFormAdditions.m"; sourceTree = "<group>"; };
+		C47BD74A1B3C36930039647C /* XLFormRightDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormRightDetailCell.h; sourceTree = "<group>"; };
+		C47BD74B1B3C36930039647C /* XLFormRightDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormRightDetailCell.m; sourceTree = "<group>"; };
+		C47BD74C1B3C36930039647C /* XLFormRightImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormRightImageButton.h; sourceTree = "<group>"; };
+		C47BD74D1B3C36930039647C /* XLFormRightImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormRightImageButton.m; sourceTree = "<group>"; };
+		C47BD74E1B3C36930039647C /* XLFormRowNavigationAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormRowNavigationAccessoryView.h; sourceTree = "<group>"; };
+		C47BD74F1B3C36930039647C /* XLFormRowNavigationAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormRowNavigationAccessoryView.m; sourceTree = "<group>"; };
+		C47BD7501B3C36930039647C /* XLFormTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormTextView.h; sourceTree = "<group>"; };
+		C47BD7511B3C36930039647C /* XLFormTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormTextView.m; sourceTree = "<group>"; };
+		C47BD7531B3C36930039647C /* XLFormRegexValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormRegexValidator.h; sourceTree = "<group>"; };
+		C47BD7541B3C36930039647C /* XLFormRegexValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormRegexValidator.m; sourceTree = "<group>"; };
+		C47BD7551B3C36930039647C /* XLFormValidationStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormValidationStatus.h; sourceTree = "<group>"; };
+		C47BD7561B3C36930039647C /* XLFormValidationStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormValidationStatus.m; sourceTree = "<group>"; };
+		C47BD7571B3C36930039647C /* XLFormValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormValidator.h; sourceTree = "<group>"; };
+		C47BD7581B3C36930039647C /* XLFormValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormValidator.m; sourceTree = "<group>"; };
+		C47BD7591B3C36930039647C /* XLFormValidatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormValidatorProtocol.h; sourceTree = "<group>"; };
+		C47BD75A1B3C36930039647C /* XLForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLForm.h; sourceTree = "<group>"; };
+		C47BD75B1B3C36930039647C /* XLForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLForm.m; sourceTree = "<group>"; };
+		C47BD75C1B3C36930039647C /* XLForm.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XLForm.bundle; sourceTree = "<group>"; };
+		C4822ED61B0B699000B6EB75 /* bloom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloom.caf; sourceTree = "<group>"; };
+		C4822ED71B0B699000B6EB75 /* fold.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fold.caf; sourceTree = "<group>"; };
+		C4822ED81B0B699000B6EB75 /* selected.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = selected.caf; sourceTree = "<group>"; };
+		C4822F1D1B0B7E5B00B6EB75 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C49DC8691AEA6B5F00735515 /* LYZMulticastDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMulticastDelegate.h; sourceTree = "<group>"; };
+		C49DC86A1AEA6B5F00735515 /* LYZMulticastDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZMulticastDelegate.m; sourceTree = "<group>"; };
+		C4CBFB531AC5B18500F28168 /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		C4E07BD21AE7CF630046073F /* LYZHardwareAvailable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZHardwareAvailable.h; sourceTree = "<group>"; };
+		C4E07BD31AE7CF630046073F /* LYZHardwareAvailable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZHardwareAvailable.m; sourceTree = "<group>"; };
+		C4E216B21B0CBF4000014CE0 /* DCPathButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCPathButton.h; sourceTree = "<group>"; };
+		C4E216B31B0CBF4000014CE0 /* DCPathButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCPathButton.m; sourceTree = "<group>"; };
+		C4E216B61B0CBF4000014CE0 /* DCPathItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCPathItemButton.h; sourceTree = "<group>"; };
+		C4E216B71B0CBF4000014CE0 /* DCPathItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCPathItemButton.m; sourceTree = "<group>"; };
+		C4E507671AE3606400727B18 /* LYZCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZCacheProtocol.h; sourceTree = "<group>"; };
+		C4E507691AE3606400727B18 /* LYZFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZFileCache.m; sourceTree = "<group>"; };
+		C4E5076A1AE3606400727B18 /* LYZKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZKeyChain.h; sourceTree = "<group>"; };
+		C4E5076B1AE3606400727B18 /* LYZKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZKeyChain.m; sourceTree = "<group>"; };
+		C4E5076C1AE3606400727B18 /* LYZMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMemoryCache.h; sourceTree = "<group>"; };
+		C4E5076D1AE3606400727B18 /* LYZMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZMemoryCache.m; sourceTree = "<group>"; };
+		C4E5076E1AE3606400727B18 /* LYZUserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZUserDefault.h; sourceTree = "<group>"; };
+		C4E5076F1AE3606400727B18 /* LYZUserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZUserDefault.m; sourceTree = "<group>"; };
+		C4E507711AE3606400727B18 /* LYZDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZDeviceInfo.h; sourceTree = "<group>"; };
+		C4E507721AE3606400727B18 /* LYZDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZDeviceInfo.m; sourceTree = "<group>"; };
+		C4E507731AE3606400727B18 /* LYZFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZFileManager.h; sourceTree = "<group>"; };
+		C4E507741AE3606400727B18 /* LYZFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZFileManager.m; sourceTree = "<group>"; };
+		C4E908CF1B5417980009809E /* LYZApplicationShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZApplicationShared.h; sourceTree = "<group>"; };
+		C4E908D01B5417980009809E /* LYZApplicationShared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZApplicationShared.m; sourceTree = "<group>"; };
+		C4E9336E1B31ADE900C37FE6 /* LYZSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LYZSwipeViewController.h; path = ../LYZSwipeViewController.h; sourceTree = "<group>"; };
+		C4E9336F1B31ADE900C37FE6 /* LYZSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LYZSwipeViewController.m; path = ../LYZSwipeViewController.m; sourceTree = "<group>"; };
+		C4EA2FF81B554CC300AE4C0D /* LYZJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZJSONSerialization.h; sourceTree = "<group>"; };
+		C4EA2FF91B554CC300AE4C0D /* LYZJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZJSONSerialization.m; sourceTree = "<group>"; };
+		C4EA2FFB1B554CD600AE4C0D /* LYZXMLSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZXMLSerialization.h; sourceTree = "<group>"; };
+		C4EA2FFC1B554CD600AE4C0D /* LYZXMLSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZXMLSerialization.m; sourceTree = "<group>"; };
+		C4EAE3D41B22E8FB00C97702 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
+		C4EAE3D51B22E8FB00C97702 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
+		C4EAE3D61B22E8FB00C97702 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
+		C4EAE3D71B22E8FB00C97702 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
+		C4EAE3DD1B22F7E900C97702 /* LYZSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LYZSwipeTableCell.h; path = ../LYZSwipeTableCell.h; sourceTree = "<group>"; };
+		C4EAE3DE1B22F7E900C97702 /* LYZSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LYZSwipeTableCell.m; path = ../LYZSwipeTableCell.m; sourceTree = "<group>"; };
+		C4EAE3E01B232D6100C97702 /* LYZSwipeTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LYZSwipeTableData.h; path = ../LYZSwipeTableData.h; sourceTree = "<group>"; };
+		C4EAE3E11B232D6100C97702 /* LYZSwipeTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LYZSwipeTableData.m; path = ../LYZSwipeTableData.m; sourceTree = "<group>"; };
+		C4EB5F561B5684BE00DAD479 /* NSData+LYZCodeSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+LYZCodeSecurity.h"; sourceTree = "<group>"; };
+		C4EB5F571B5684BE00DAD479 /* NSData+LYZCodeSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+LYZCodeSecurity.m"; sourceTree = "<group>"; };
+		C4EB5F581B5684BE00DAD479 /* NSDate+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LYZExtension.h"; sourceTree = "<group>"; };
+		C4EB5F591B5684BE00DAD479 /* NSDate+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LYZExtension.m"; sourceTree = "<group>"; };
+		C4EB5F5A1B5684BE00DAD479 /* NSObject+LYZTypeConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LYZTypeConvert.h"; sourceTree = "<group>"; };
+		C4EB5F5B1B5684BE00DAD479 /* NSObject+LYZTypeConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYZTypeConvert.m"; sourceTree = "<group>"; };
+		C4EB5F5C1B5684BE00DAD479 /* NSString+LYZCodeSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LYZCodeSecurity.h"; sourceTree = "<group>"; };
+		C4EB5F5D1B5684BE00DAD479 /* NSString+LYZCodeSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LYZCodeSecurity.m"; sourceTree = "<group>"; };
+		C4EB5F5E1B5684BE00DAD479 /* NSString+LYZRegexMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LYZRegexMatch.h"; sourceTree = "<group>"; };
+		C4EB5F5F1B5684BE00DAD479 /* NSString+LYZRegexMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LYZRegexMatch.m"; sourceTree = "<group>"; };
+		C4EB5F601B5684BE00DAD479 /* NSTimer+LYZBlockSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+LYZBlockSupport.h"; sourceTree = "<group>"; };
+		C4EB5F611B5684BE00DAD479 /* NSTimer+LYZBlockSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+LYZBlockSupport.m"; sourceTree = "<group>"; };
+		C4EB5F631B5684BE00DAD479 /* UIImage+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LYZExtension.h"; sourceTree = "<group>"; };
+		C4EB5F641B5684BE00DAD479 /* UIImage+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LYZExtension.m"; sourceTree = "<group>"; };
+		C4EB5F671B5684BE00DAD479 /* UIView+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYZExtension.h"; sourceTree = "<group>"; };
+		C4EB5F681B5684BE00DAD479 /* UIView+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYZExtension.m"; sourceTree = "<group>"; };
+		C4EB5F721B5689E900DAD479 /* NSObject+LYZRuntimeMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LYZRuntimeMethod.h"; sourceTree = "<group>"; };
+		C4EB5F731B5689E900DAD479 /* NSObject+LYZRuntimeMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYZRuntimeMethod.m"; sourceTree = "<group>"; };
+		C4EB5F781B5690AB00DAD479 /* NSString+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LYZExtension.h"; sourceTree = "<group>"; };
+		C4EB5F791B5690AB00DAD479 /* NSString+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LYZExtension.m"; sourceTree = "<group>"; };
+		C4EB5F7B1B56AA3300DAD479 /* NSNumber+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+LYZExtension.h"; sourceTree = "<group>"; };
+		C4EB5F7C1B56AA3300DAD479 /* NSNumber+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+LYZExtension.m"; sourceTree = "<group>"; };
+		C4EB8CC41BA9B1A800457DF7 /* LYZTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZTaskViewController.h; sourceTree = "<group>"; };
+		C4EB8CC51BA9B1A800457DF7 /* LYZTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZTaskViewController.m; sourceTree = "<group>"; };
+		C4EC5BA71B516B3B0039FAA3 /* LYZDebugMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZDebugMacro.h; sourceTree = "<group>"; };
+		C4EC5BA81B516B3B0039FAA3 /* LYZMathMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMathMacro.h; sourceTree = "<group>"; };
+		C4EC5BAA1B528F080039FAA3 /* LYZPerformanceAnalyze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZPerformanceAnalyze.h; sourceTree = "<group>"; };
+		C4EC5BAB1B528F080039FAA3 /* LYZPerformanceAnalyze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZPerformanceAnalyze.m; sourceTree = "<group>"; };
+		C4EC5BC01B52BB2B0039FAA3 /* LYZApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZApplicationInfo.h; sourceTree = "<group>"; };
+		C4EC5BC11B52BB2B0039FAA3 /* LYZApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZApplicationInfo.m; sourceTree = "<group>"; };
+		C4EC5BC61B52BFE90039FAA3 /* LYZSystemRealInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZSystemRealInfo.h; sourceTree = "<group>"; };
+		C4EC5BC71B52BFE90039FAA3 /* LYZSystemRealInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZSystemRealInfo.m; sourceTree = "<group>"; };
+		C4ECB7541B589A6A00C41C0E /* LYZWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZWeakProxy.h; sourceTree = "<group>"; };
+		C4ECB7551B589A6A00C41C0E /* LYZWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZWeakProxy.m; sourceTree = "<group>"; };
+		C4ECB7571B58A63300C41C0E /* NSData+LYZEncodeAndDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+LYZEncodeAndDecode.h"; sourceTree = "<group>"; };
+		C4ECB7581B58A63300C41C0E /* NSData+LYZEncodeAndDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+LYZEncodeAndDecode.m"; sourceTree = "<group>"; };
+		C4ECB75A1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LYZEncodeAndDecode.h"; sourceTree = "<group>"; };
+		C4ECB75B1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LYZEncodeAndDecode.m"; sourceTree = "<group>"; };
+		C4ECB75F1B58AA2600C41C0E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C4ECB7651B590BE600C41C0E /* UIScrollView+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+LYZExtension.h"; sourceTree = "<group>"; };
+		C4ECB7661B590BE600C41C0E /* UIScrollView+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+LYZExtension.m"; sourceTree = "<group>"; };
+		C4ECB7D71B594D7500C41C0E /* LYZMathMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMathMethod.h; sourceTree = "<group>"; };
+		C4ECB7D81B594D7500C41C0E /* LYZMathMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZMathMethod.m; sourceTree = "<group>"; };
+		C4ECB7DA1B59536F00C41C0E /* UIColor+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LYZExtension.h"; sourceTree = "<group>"; };
+		C4ECB7DB1B59536F00C41C0E /* UIColor+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LYZExtension.m"; sourceTree = "<group>"; };
+		C4ECB7DD1B59602A00C41C0E /* LYZSingletonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYZSingletonMacro.h; sourceTree = "<group>"; };
+		C4ED9D391B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+LYZExtension.h"; sourceTree = "<group>"; };
+		C4ED9D3A1B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+LYZExtension.m"; sourceTree = "<group>"; };
+		C4EDBADB1B6A4F6500AFF707 /* LYZFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZFileCache.h; sourceTree = "<group>"; };
+		C4F0AE681B2BE736000F011E /* UIView+LYZMasonyCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYZMasonyCategory.h"; sourceTree = "<group>"; };
+		C4F0AE691B2BE736000F011E /* UIView+LYZMasonyCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYZMasonyCategory.m"; sourceTree = "<group>"; };
+		C4F119011B207F7000EC44DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C4F119021B207F7000EC44DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C4F119041B2080CC00EC44DD /* LYZMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMainTabBarController.h; sourceTree = "<group>"; };
+		C4F119051B2080CC00EC44DD /* LYZMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZMainTabBarController.m; sourceTree = "<group>"; };
+		C4F1190D1B20846400EC44DD /* LYZContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZContactsViewController.h; sourceTree = "<group>"; };
+		C4F1190E1B20846400EC44DD /* LYZContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZContactsViewController.m; sourceTree = "<group>"; };
+		C4F119101B2084F700EC44DD /* LYZMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMoreViewController.h; sourceTree = "<group>"; };
+		C4F119111B2084F700EC44DD /* LYZMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZMoreViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C45A18D61AC1BD1A0025A370 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4ECB7611B58AAF400C41C0E /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45A18EF1AC1BD1A0025A370 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A1AD7DD89E0E89236C447FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4ECB75F1B58AA2600C41C0E /* libz.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4410E0B1AE36228000691F6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C4410E1F1AE40AF4000691F6 /* LYZNetworkReachable.h */,
+				C4410E201AE40AF4000691F6 /* LYZNetworkReachable.m */,
+				C4E908CF1B5417980009809E /* LYZApplicationShared.h */,
+				C4E908D01B5417980009809E /* LYZApplicationShared.m */,
+				C4EA2FFB1B554CD600AE4C0D /* LYZXMLSerialization.h */,
+				C4EA2FFC1B554CD600AE4C0D /* LYZXMLSerialization.m */,
+				C4EA2FF81B554CC300AE4C0D /* LYZJSONSerialization.h */,
+				C4EA2FF91B554CC300AE4C0D /* LYZJSONSerialization.m */,
+				C4410E121AE3A4D0000691F6 /* Vendor */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C4410E121AE3A4D0000691F6 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C4410E131AE3A4D0000691F6 /* Reachability.h */,
+				C4410E141AE3A4D0000691F6 /* Reachability.m */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C4576DC01B28864A00A01BFF /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				C4576DC11B28864A00A01BFF /* Info.plist */,
+				C4576DC21B28864A00A01BFF /* MASCompositeConstraint.h */,
+				C4576DC31B28864A00A01BFF /* MASCompositeConstraint.m */,
+				C4576DC41B28864A00A01BFF /* MASConstraint+Private.h */,
+				C4576DC51B28864A00A01BFF /* MASConstraint.h */,
+				C4576DC61B28864A00A01BFF /* MASConstraint.m */,
+				C4576DC71B28864A00A01BFF /* MASConstraintMaker.h */,
+				C4576DC81B28864A00A01BFF /* MASConstraintMaker.m */,
+				C4576DC91B28864A00A01BFF /* MASLayoutConstraint.h */,
+				C4576DCA1B28864A00A01BFF /* MASLayoutConstraint.m */,
+				C4576DCB1B28864A00A01BFF /* Masonry.h */,
+				C4576DCC1B28864A00A01BFF /* MASUtilities.h */,
+				C4576DCD1B28864A00A01BFF /* MASViewAttribute.h */,
+				C4576DCE1B28864A00A01BFF /* MASViewAttribute.m */,
+				C4576DCF1B28864A00A01BFF /* MASViewConstraint.h */,
+				C4576DD01B28864A00A01BFF /* MASViewConstraint.m */,
+				C4576DD11B28864A00A01BFF /* NSArray+MASAdditions.h */,
+				C4576DD21B28864A00A01BFF /* NSArray+MASAdditions.m */,
+				C4576DD31B28864A00A01BFF /* NSArray+MASShorthandAdditions.h */,
+				C4576DD41B28864A00A01BFF /* NSLayoutConstraint+MASDebugAdditions.h */,
+				C4576DD51B28864A00A01BFF /* NSLayoutConstraint+MASDebugAdditions.m */,
+				C4576DD61B28864A00A01BFF /* View+MASAdditions.h */,
+				C4576DD71B28864A00A01BFF /* View+MASAdditions.m */,
+				C4576DD81B28864A00A01BFF /* View+MASShorthandAdditions.h */,
+				C4F0AE681B2BE736000F011E /* UIView+LYZMasonyCategory.h */,
+				C4F0AE691B2BE736000F011E /* UIView+LYZMasonyCategory.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		C45A18D01AC1BD1A0025A370 = {
+			isa = PBXGroup;
+			children = (
+				C45A18DB1AC1BD1A0025A370 /* AppProject */,
+				C45A18F51AC1BD1A0025A370 /* AppProjectTests */,
+				C45A18DA1AC1BD1A0025A370 /* Products */,
+				4A1AD7DD89E0E89236C447FB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C45A18DA1AC1BD1A0025A370 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C45A18D91AC1BD1A0025A370 /* AppProject.app */,
+				C45A18F21AC1BD1A0025A370 /* AppProjectTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C45A18DB1AC1BD1A0025A370 /* AppProject */ = {
+			isa = PBXGroup;
+			children = (
+				C47380091AD2C59F008D8C00 /* LYZFoundation */,
+				C4F119011B207F7000EC44DD /* AppDelegate.h */,
+				C4F119021B207F7000EC44DD /* AppDelegate.m */,
+				C4F119041B2080CC00EC44DD /* LYZMainTabBarController.h */,
+				C4F119051B2080CC00EC44DD /* LYZMainTabBarController.m */,
+				C4EB11F81B385D7F001F5949 /* ViewControllers */,
+				C4F1190D1B20846400EC44DD /* LYZContactsViewController.h */,
+				C4F1190E1B20846400EC44DD /* LYZContactsViewController.m */,
+				C4F119101B2084F700EC44DD /* LYZMoreViewController.h */,
+				C4F119111B2084F700EC44DD /* LYZMoreViewController.m */,
+				C4EB11F91B385D7F001F5949 /* Views */,
+				C4EB11FA1B385DD8001F5949 /* Unused */,
+				C45A18E91AC1BD1A0025A370 /* Images.xcassets */,
+				C45A18EB1AC1BD1A0025A370 /* LaunchScreen.xib */,
+				C45A18DC1AC1BD1A0025A370 /* Supporting Files */,
+				C4CBFB531AC5B18500F28168 /* ReadMe */,
+			);
+			path = AppProject;
+			sourceTree = "<group>";
+		};
+		C45A18DC1AC1BD1A0025A370 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C45A18DD1AC1BD1A0025A370 /* Info.plist */,
+				C45A18DE1AC1BD1A0025A370 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C45A18F51AC1BD1A0025A370 /* AppProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				C45A18F81AC1BD1A0025A370 /* AppProjectTests.m */,
+				C45A18F61AC1BD1A0025A370 /* Supporting Files */,
+			);
+			path = AppProjectTests;
+			sourceTree = "<group>";
+		};
+		C45A18F61AC1BD1A0025A370 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C45A18F71AC1BD1A0025A370 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C47380091AD2C59F008D8C00 /* LYZFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				C473800A1AD2C59F008D8C00 /* Core */,
+				C4EB5F541B5684BE00DAD479 /* Category */,
+				C47380161AD2C59F008D8C00 /* General */,
+				C47380221AD2C59F008D8C00 /* Sections */,
+				C47380251AD2C59F008D8C00 /* Services */,
+				C473802C1AD2C59F008D8C00 /* Vendors */,
+			);
+			path = LYZFoundation;
+			sourceTree = SOURCE_ROOT;
+		};
+		C473800A1AD2C59F008D8C00 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C4E507701AE3606400727B18 /* Common */,
+				C4410E0B1AE36228000691F6 /* Network */,
+				C4E507661AE3606400727B18 /* Cache */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C47380161AD2C59F008D8C00 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC5BA61B516B3B0039FAA3 /* Macro */,
+				C473801A1AD2C59F008D8C00 /* Helper */,
+				C47380171AD2C59F008D8C00 /* Base */,
+				C47380191AD2C59F008D8C00 /* CustomUI */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		C47380171AD2C59F008D8C00 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C47380191AD2C59F008D8C00 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				C4822ECC1B0B699000B6EB75 /* DCPathButton */,
+				C4EAE3D31B22E8FB00C97702 /* MGSwipeTableCell */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		C473801A1AD2C59F008D8C00 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C473801E1AD2C59F008D8C00 /* LYZTimerHolder.h */,
+				C473801F1AD2C59F008D8C00 /* LYZTimerHolder.m */,
+				C49DC8691AEA6B5F00735515 /* LYZMulticastDelegate.h */,
+				C49DC86A1AEA6B5F00735515 /* LYZMulticastDelegate.m */,
+				C4ECB7541B589A6A00C41C0E /* LYZWeakProxy.h */,
+				C4ECB7551B589A6A00C41C0E /* LYZWeakProxy.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C47380221AD2C59F008D8C00 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				C47380231AD2C59F008D8C00 /* Login */,
+				C47380241AD2C59F008D8C00 /* Setting */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		C47380231AD2C59F008D8C00 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C47380241AD2C59F008D8C00 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		C47380251AD2C59F008D8C00 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C47380261AD2C59F008D8C00 /* LocationManager */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C47380261AD2C59F008D8C00 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				C47380271AD2C59F008D8C00 /* LYZLocationDefine.h */,
+				C473802A1AD2C59F008D8C00 /* LYZLocationRequest.h */,
+				C473802B1AD2C59F008D8C00 /* LYZLocationRequest.m */,
+				C47380281AD2C59F008D8C00 /* LYZLocationManager.h */,
+				C47380291AD2C59F008D8C00 /* LYZLocationManager.m */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		C473802C1AD2C59F008D8C00 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD7091B3C36930039647C /* XLForm */,
+				C4576DC01B28864A00A01BFF /* Masonry */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		C47BD7091B3C36930039647C /* XLForm */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD70A1B3C36930039647C /* XL */,
+				C47BD75C1B3C36930039647C /* XLForm.bundle */,
+			);
+			path = XLForm;
+			sourceTree = "<group>";
+		};
+		C47BD70A1B3C36930039647C /* XL */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD70B1B3C36930039647C /* Cell */,
+				C47BD72C1B3C36930039647C /* Controllers */,
+				C47BD7341B3C36930039647C /* Descriptors */,
+				C47BD73C1B3C36930039647C /* Helpers */,
+				C47BD7521B3C36930039647C /* Validation */,
+				C47BD75A1B3C36930039647C /* XLForm.h */,
+				C47BD75B1B3C36930039647C /* XLForm.m */,
+			);
+			path = XL;
+			sourceTree = "<group>";
+		};
+		C47BD70B1B3C36930039647C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD70C1B3C36930039647C /* XLFormBaseCell.h */,
+				C47BD70D1B3C36930039647C /* XLFormBaseCell.m */,
+				C47BD70E1B3C36930039647C /* XLFormButtonCell.h */,
+				C47BD70F1B3C36930039647C /* XLFormButtonCell.m */,
+				C47BD7101B3C36930039647C /* XLFormCheckCell.h */,
+				C47BD7111B3C36930039647C /* XLFormCheckCell.m */,
+				C47BD7121B3C36930039647C /* XLFormDateCell.h */,
+				C47BD7131B3C36930039647C /* XLFormDateCell.m */,
+				C47BD7141B3C36930039647C /* XLFormDatePickerCell.h */,
+				C47BD7151B3C36930039647C /* XLFormDatePickerCell.m */,
+				C47BD7161B3C36930039647C /* XLFormDescriptorCell.h */,
+				C47BD7171B3C36930039647C /* XLFormInlineRowDescriptorCell.h */,
+				C47BD7181B3C36930039647C /* XLFormInlineSelectorCell.h */,
+				C47BD7191B3C36930039647C /* XLFormInlineSelectorCell.m */,
+				C47BD71A1B3C36930039647C /* XLFormLeftRightSelectorCell.h */,
+				C47BD71B1B3C36930039647C /* XLFormLeftRightSelectorCell.m */,
+				C47BD71C1B3C36930039647C /* XLFormPickerCell.h */,
+				C47BD71D1B3C36930039647C /* XLFormPickerCell.m */,
+				C47BD71E1B3C36930039647C /* XLFormSegmentedCell.h */,
+				C47BD71F1B3C36930039647C /* XLFormSegmentedCell.m */,
+				C47BD7201B3C36930039647C /* XLFormSelectorCell.h */,
+				C47BD7211B3C36930039647C /* XLFormSelectorCell.m */,
+				C47BD7221B3C36930039647C /* XLFormSliderCell.h */,
+				C47BD7231B3C36930039647C /* XLFormSliderCell.m */,
+				C47BD7241B3C36930039647C /* XLFormStepCounterCell.h */,
+				C47BD7251B3C36930039647C /* XLFormStepCounterCell.m */,
+				C47BD7261B3C36930039647C /* XLFormSwitchCell.h */,
+				C47BD7271B3C36930039647C /* XLFormSwitchCell.m */,
+				C47BD7281B3C36930039647C /* XLFormTextFieldCell.h */,
+				C47BD7291B3C36930039647C /* XLFormTextFieldCell.m */,
+				C47BD72A1B3C36930039647C /* XLFormTextViewCell.h */,
+				C47BD72B1B3C36930039647C /* XLFormTextViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C47BD72C1B3C36930039647C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD72D1B3C36930039647C /* XLFormOptionsObject.h */,
+				C47BD72E1B3C36930039647C /* XLFormOptionsObject.m */,
+				C47BD72F1B3C36930039647C /* XLFormOptionsViewController.h */,
+				C47BD7301B3C36930039647C /* XLFormOptionsViewController.m */,
+				C47BD7311B3C36930039647C /* XLFormRowDescriptorViewController.h */,
+				C47BD7321B3C36930039647C /* XLFormViewController.h */,
+				C47BD7331B3C36930039647C /* XLFormViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C47BD7341B3C36930039647C /* Descriptors */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD7351B3C36930039647C /* XLFormDescriptor.h */,
+				C47BD7361B3C36930039647C /* XLFormDescriptor.m */,
+				C47BD7371B3C36930039647C /* XLFormDescriptorDelegate.h */,
+				C47BD7381B3C36930039647C /* XLFormRowDescriptor.h */,
+				C47BD7391B3C36930039647C /* XLFormRowDescriptor.m */,
+				C47BD73A1B3C36930039647C /* XLFormSectionDescriptor.h */,
+				C47BD73B1B3C36930039647C /* XLFormSectionDescriptor.m */,
+			);
+			path = Descriptors;
+			sourceTree = "<group>";
+		};
+		C47BD73C1B3C36930039647C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD73D1B3C36930039647C /* NSArray+XLFormAdditions.h */,
+				C47BD73E1B3C36930039647C /* NSArray+XLFormAdditions.m */,
+				C47BD73F1B3C36930039647C /* NSExpression+XLFormAdditions.h */,
+				C47BD7401B3C36930039647C /* NSExpression+XLFormAdditions.m */,
+				C47BD7411B3C36930039647C /* NSObject+XLFormAdditions.h */,
+				C47BD7421B3C36930039647C /* NSObject+XLFormAdditions.m */,
+				C47BD7431B3C36930039647C /* NSPredicate+XLFormAdditions.h */,
+				C47BD7441B3C36930039647C /* NSPredicate+XLFormAdditions.m */,
+				C47BD7451B3C36930039647C /* NSString+XLFormAdditions.h */,
+				C47BD7461B3C36930039647C /* NSString+XLFormAdditions.m */,
+				C47BD7471B3C36930039647C /* UIView+XLFormAdditions.h */,
+				C47BD7481B3C36930039647C /* UIView+XLFormAdditions.m */,
+				C47BD7491B3C36930039647C /* Views */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C47BD7491B3C36930039647C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD74A1B3C36930039647C /* XLFormRightDetailCell.h */,
+				C47BD74B1B3C36930039647C /* XLFormRightDetailCell.m */,
+				C47BD74C1B3C36930039647C /* XLFormRightImageButton.h */,
+				C47BD74D1B3C36930039647C /* XLFormRightImageButton.m */,
+				C47BD74E1B3C36930039647C /* XLFormRowNavigationAccessoryView.h */,
+				C47BD74F1B3C36930039647C /* XLFormRowNavigationAccessoryView.m */,
+				C47BD7501B3C36930039647C /* XLFormTextView.h */,
+				C47BD7511B3C36930039647C /* XLFormTextView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C47BD7521B3C36930039647C /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				C47BD7531B3C36930039647C /* XLFormRegexValidator.h */,
+				C47BD7541B3C36930039647C /* XLFormRegexValidator.m */,
+				C47BD7551B3C36930039647C /* XLFormValidationStatus.h */,
+				C47BD7561B3C36930039647C /* XLFormValidationStatus.m */,
+				C47BD7571B3C36930039647C /* XLFormValidator.h */,
+				C47BD7581B3C36930039647C /* XLFormValidator.m */,
+				C47BD7591B3C36930039647C /* XLFormValidatorProtocol.h */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		C4822ECC1B0B699000B6EB75 /* DCPathButton */ = {
+			isa = PBXGroup;
+			children = (
+				C4E216B11B0CBF4000014CE0 /* Classes */,
+				C4822ED51B0B699000B6EB75 /* Sounds */,
+				C4822F1D1B0B7E5B00B6EB75 /* Images.xcassets */,
+			);
+			path = DCPathButton;
+			sourceTree = "<group>";
+		};
+		C4822ED51B0B699000B6EB75 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C4822ED61B0B699000B6EB75 /* bloom.caf */,
+				C4822ED71B0B699000B6EB75 /* fold.caf */,
+				C4822ED81B0B699000B6EB75 /* selected.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		C4E216B11B0CBF4000014CE0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C4E216B21B0CBF4000014CE0 /* DCPathButton.h */,
+				C4E216B31B0CBF4000014CE0 /* DCPathButton.m */,
+				C4E216B61B0CBF4000014CE0 /* DCPathItemButton.h */,
+				C4E216B71B0CBF4000014CE0 /* DCPathItemButton.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C4E507661AE3606400727B18 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				C4E507671AE3606400727B18 /* LYZCacheProtocol.h */,
+				C4EDBADB1B6A4F6500AFF707 /* LYZFileCache.h */,
+				C4E507691AE3606400727B18 /* LYZFileCache.m */,
+				C4E5076C1AE3606400727B18 /* LYZMemoryCache.h */,
+				C4E5076D1AE3606400727B18 /* LYZMemoryCache.m */,
+				C4E5076E1AE3606400727B18 /* LYZUserDefault.h */,
+				C4E5076F1AE3606400727B18 /* LYZUserDefault.m */,
+				C4E5076A1AE3606400727B18 /* LYZKeyChain.h */,
+				C4E5076B1AE3606400727B18 /* LYZKeyChain.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		C4E507701AE3606400727B18 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C4ECB7D71B594D7500C41C0E /* LYZMathMethod.h */,
+				C4ECB7D81B594D7500C41C0E /* LYZMathMethod.m */,
+				C4E507731AE3606400727B18 /* LYZFileManager.h */,
+				C4E507741AE3606400727B18 /* LYZFileManager.m */,
+				C4E507711AE3606400727B18 /* LYZDeviceInfo.h */,
+				C4E507721AE3606400727B18 /* LYZDeviceInfo.m */,
+				C4EC5BC61B52BFE90039FAA3 /* LYZSystemRealInfo.h */,
+				C4EC5BC71B52BFE90039FAA3 /* LYZSystemRealInfo.m */,
+				C4EC5BC01B52BB2B0039FAA3 /* LYZApplicationInfo.h */,
+				C4EC5BC11B52BB2B0039FAA3 /* LYZApplicationInfo.m */,
+				C4E07BD21AE7CF630046073F /* LYZHardwareAvailable.h */,
+				C4E07BD31AE7CF630046073F /* LYZHardwareAvailable.m */,
+				C4EC5BAA1B528F080039FAA3 /* LYZPerformanceAnalyze.h */,
+				C4EC5BAB1B528F080039FAA3 /* LYZPerformanceAnalyze.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C4EAE3D31B22E8FB00C97702 /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				C4EAE3D41B22E8FB00C97702 /* MGSwipeButton.h */,
+				C4EAE3D51B22E8FB00C97702 /* MGSwipeButton.m */,
+				C4EAE3D61B22E8FB00C97702 /* MGSwipeTableCell.h */,
+				C4EAE3D71B22E8FB00C97702 /* MGSwipeTableCell.m */,
+			);
+			path = MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
+		C4EB11F81B385D7F001F5949 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C44CBD971B399787009A10C9 /* LYZArrangeListViewController.h */,
+				C44CBD981B399787009A10C9 /* LYZArrangeListViewController.m */,
+				C44CBD9A1B39983C009A10C9 /* LYZProjectListViewController.h */,
+				C44CBD9B1B39983C009A10C9 /* LYZProjectListViewController.m */,
+				C44CBD9D1B399A86009A10C9 /* LYZProjectTasksViewController.h */,
+				C44CBD9E1B399A86009A10C9 /* LYZProjectTasksViewController.m */,
+				C4EB8CC41BA9B1A800457DF7 /* LYZTaskViewController.h */,
+				C4EB8CC51BA9B1A800457DF7 /* LYZTaskViewController.m */,
+				C44D520A1BAAEEBC0035E9B2 /* LYZTravelViewController.h */,
+				C44D520B1BAAEEBC0035E9B2 /* LYZTravelViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4EB11F91B385D7F001F5949 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C44CBDA61B399E08009A10C9 /* LYZAddListTableViewCell.h */,
+				C44CBDA71B399E08009A10C9 /* LYZAddListTableViewCell.m */,
+				C44CBDA01B399AFA009A10C9 /* LYZAddTaskTableViewCell.h */,
+				C44CBDA11B399AFA009A10C9 /* LYZAddTaskTableViewCell.m */,
+				C44CBDA31B399BC8009A10C9 /* LYZTaskTableViewCell.h */,
+				C44CBDA41B399BC8009A10C9 /* LYZTaskTableViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4EB11FA1B385DD8001F5949 /* Unused */ = {
+			isa = PBXGroup;
+			children = (
+				C4EAE3DD1B22F7E900C97702 /* LYZSwipeTableCell.h */,
+				C4EAE3DE1B22F7E900C97702 /* LYZSwipeTableCell.m */,
+				C4EAE3E01B232D6100C97702 /* LYZSwipeTableData.h */,
+				C4EAE3E11B232D6100C97702 /* LYZSwipeTableData.m */,
+				C4E9336E1B31ADE900C37FE6 /* LYZSwipeViewController.h */,
+				C4E9336F1B31ADE900C37FE6 /* LYZSwipeViewController.m */,
+			);
+			path = Unused;
+			sourceTree = "<group>";
+		};
+		C4EB5F541B5684BE00DAD479 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C4EB5F551B5684BE00DAD479 /* Foundation */,
+				C4EB5F621B5684BE00DAD479 /* UIKit */,
+			);
+			name = Category;
+			path = General/Category;
+			sourceTree = "<group>";
+		};
+		C4EB5F551B5684BE00DAD479 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				C4EB5F721B5689E900DAD479 /* NSObject+LYZRuntimeMethod.h */,
+				C4EB5F731B5689E900DAD479 /* NSObject+LYZRuntimeMethod.m */,
+				C4EB5F5A1B5684BE00DAD479 /* NSObject+LYZTypeConvert.h */,
+				C4EB5F5B1B5684BE00DAD479 /* NSObject+LYZTypeConvert.m */,
+				C4EB5F561B5684BE00DAD479 /* NSData+LYZCodeSecurity.h */,
+				C4EB5F571B5684BE00DAD479 /* NSData+LYZCodeSecurity.m */,
+				C4ECB7571B58A63300C41C0E /* NSData+LYZEncodeAndDecode.h */,
+				C4ECB7581B58A63300C41C0E /* NSData+LYZEncodeAndDecode.m */,
+				C4EB5F5C1B5684BE00DAD479 /* NSString+LYZCodeSecurity.h */,
+				C4EB5F5D1B5684BE00DAD479 /* NSString+LYZCodeSecurity.m */,
+				C4EB5F5E1B5684BE00DAD479 /* NSString+LYZRegexMatch.h */,
+				C4EB5F5F1B5684BE00DAD479 /* NSString+LYZRegexMatch.m */,
+				C4ECB75A1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.h */,
+				C4ECB75B1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.m */,
+				C4EB5F781B5690AB00DAD479 /* NSString+LYZExtension.h */,
+				C4EB5F791B5690AB00DAD479 /* NSString+LYZExtension.m */,
+				C4EB5F581B5684BE00DAD479 /* NSDate+LYZExtension.h */,
+				C4EB5F591B5684BE00DAD479 /* NSDate+LYZExtension.m */,
+				C4EB5F7B1B56AA3300DAD479 /* NSNumber+LYZExtension.h */,
+				C4EB5F7C1B56AA3300DAD479 /* NSNumber+LYZExtension.m */,
+				C4EB5F601B5684BE00DAD479 /* NSTimer+LYZBlockSupport.h */,
+				C4EB5F611B5684BE00DAD479 /* NSTimer+LYZBlockSupport.m */,
+				C4ED9D391B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.h */,
+				C4ED9D3A1B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		C4EB5F621B5684BE00DAD479 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				C4EB5F671B5684BE00DAD479 /* UIView+LYZExtension.h */,
+				C4EB5F681B5684BE00DAD479 /* UIView+LYZExtension.m */,
+				C4ECB7DA1B59536F00C41C0E /* UIColor+LYZExtension.h */,
+				C4ECB7DB1B59536F00C41C0E /* UIColor+LYZExtension.m */,
+				C4EB5F631B5684BE00DAD479 /* UIImage+LYZExtension.h */,
+				C4EB5F641B5684BE00DAD479 /* UIImage+LYZExtension.m */,
+				C4ECB7651B590BE600C41C0E /* UIScrollView+LYZExtension.h */,
+				C4ECB7661B590BE600C41C0E /* UIScrollView+LYZExtension.m */,
+				C423CAF71B63CDDC00FCC18C /* UITableView+LYZExtension.h */,
+				C423CAF81B63CDDC00FCC18C /* UITableView+LYZExtension.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		C4EC5BA61B516B3B0039FAA3 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				C4EC5BA71B516B3B0039FAA3 /* LYZDebugMacro.h */,
+				C4EC5BA81B516B3B0039FAA3 /* LYZMathMacro.h */,
+				C4ECB7DD1B59602A00C41C0E /* LYZSingletonMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C45A18D81AC1BD1A0025A370 /* AppProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45A18FC1AC1BD1A0025A370 /* Build configuration list for PBXNativeTarget "AppProject" */;
+			buildPhases = (
+				C45A18D51AC1BD1A0025A370 /* Sources */,
+				C45A18D61AC1BD1A0025A370 /* Frameworks */,
+				C45A18D71AC1BD1A0025A370 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppProject;
+			productName = AppProject;
+			productReference = C45A18D91AC1BD1A0025A370 /* AppProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C45A18F11AC1BD1A0025A370 /* AppProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C45A18FF1AC1BD1A0025A370 /* Build configuration list for PBXNativeTarget "AppProjectTests" */;
+			buildPhases = (
+				C45A18EE1AC1BD1A0025A370 /* Sources */,
+				C45A18EF1AC1BD1A0025A370 /* Frameworks */,
+				C45A18F01AC1BD1A0025A370 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C45A18F41AC1BD1A0025A370 /* PBXTargetDependency */,
+			);
+			name = AppProjectTests;
+			productName = AppProjectTests;
+			productReference = C45A18F21AC1BD1A0025A370 /* AppProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C45A18D11AC1BD1A0025A370 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "刘育哲";
+				TargetAttributes = {
+					C45A18D81AC1BD1A0025A370 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					C45A18F11AC1BD1A0025A370 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = C45A18D81AC1BD1A0025A370;
+					};
+				};
+			};
+			buildConfigurationList = C45A18D41AC1BD1A0025A370 /* Build configuration list for PBXProject "AppProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C45A18D01AC1BD1A0025A370;
+			productRefGroup = C45A18DA1AC1BD1A0025A370 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C45A18D81AC1BD1A0025A370 /* AppProject */,
+				C45A18F11AC1BD1A0025A370 /* AppProjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C45A18D71AC1BD1A0025A370 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47BD7801B3C36930039647C /* XLForm.bundle in Resources */,
+				C4576DD91B28864A00A01BFF /* Info.plist in Resources */,
+				C4CBFB541AC5B18500F28168 /* ReadMe in Resources */,
+				C4822F1E1B0B7E5B00B6EB75 /* Images.xcassets in Resources */,
+				C4822EDD1B0B699000B6EB75 /* bloom.caf in Resources */,
+				C45A18ED1AC1BD1A0025A370 /* LaunchScreen.xib in Resources */,
+				C4822EDF1B0B699000B6EB75 /* selected.caf in Resources */,
+				C4822EDE1B0B699000B6EB75 /* fold.caf in Resources */,
+				C45A18EA1AC1BD1A0025A370 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45A18F01AC1BD1A0025A370 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C45A18D51AC1BD1A0025A370 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44CBD9C1B39983C009A10C9 /* LYZProjectListViewController.m in Sources */,
+				C47BD7661B3C36930039647C /* XLFormSelectorCell.m in Sources */,
+				C4410E151AE3A4D0000691F6 /* Reachability.m in Sources */,
+				C47BD7641B3C36930039647C /* XLFormPickerCell.m in Sources */,
+				C47BD75D1B3C36930039647C /* XLFormBaseCell.m in Sources */,
+				C4EB5F6E1B5684BE00DAD479 /* NSTimer+LYZBlockSupport.m in Sources */,
+				C47BD76B1B3C36930039647C /* XLFormTextViewCell.m in Sources */,
+				C47BD7671B3C36930039647C /* XLFormSliderCell.m in Sources */,
+				C4ECB7D91B594D7500C41C0E /* LYZMathMethod.m in Sources */,
+				C47BD7791B3C36930039647C /* XLFormRightImageButton.m in Sources */,
+				C47BD77A1B3C36930039647C /* XLFormRowNavigationAccessoryView.m in Sources */,
+				C47BD7621B3C36930039647C /* XLFormInlineSelectorCell.m in Sources */,
+				C4EB5F741B5689E900DAD479 /* NSObject+LYZRuntimeMethod.m in Sources */,
+				C4F119031B207F7000EC44DD /* AppDelegate.m in Sources */,
+				C44CBD9F1B399A86009A10C9 /* LYZProjectTasksViewController.m in Sources */,
+				C47BD7631B3C36930039647C /* XLFormLeftRightSelectorCell.m in Sources */,
+				C47380421AD2C59F008D8C00 /* LYZTimerHolder.m in Sources */,
+				C47BD7691B3C36930039647C /* XLFormSwitchCell.m in Sources */,
+				C47BD7601B3C36930039647C /* XLFormDateCell.m in Sources */,
+				C4E07BD41AE7CF630046073F /* LYZHardwareAvailable.m in Sources */,
+				C4576DE21B28864B00A01BFF /* View+MASAdditions.m in Sources */,
+				C4E5077D1AE3606400727B18 /* LYZFileManager.m in Sources */,
+				C44CBD991B399787009A10C9 /* LYZArrangeListViewController.m in Sources */,
+				C4576DDF1B28864B00A01BFF /* MASViewConstraint.m in Sources */,
+				C4EC5BAC1B528F080039FAA3 /* LYZPerformanceAnalyze.m in Sources */,
+				C4576DE01B28864B00A01BFF /* NSArray+MASAdditions.m in Sources */,
+				C4E216B81B0CBF4000014CE0 /* DCPathButton.m in Sources */,
+				C49DC86B1AEA6B5F00735515 /* LYZMulticastDelegate.m in Sources */,
+				C47BD7701B3C36930039647C /* XLFormRowDescriptor.m in Sources */,
+				C47BD7771B3C36930039647C /* UIView+XLFormAdditions.m in Sources */,
+				C44CBDA21B399AFA009A10C9 /* LYZAddTaskTableViewCell.m in Sources */,
+				C47BD76E1B3C36930039647C /* XLFormViewController.m in Sources */,
+				C47BD7781B3C36930039647C /* XLFormRightDetailCell.m in Sources */,
+				C47BD77C1B3C36930039647C /* XLFormRegexValidator.m in Sources */,
+				C4EB5F6D1B5684BE00DAD479 /* NSString+LYZRegexMatch.m in Sources */,
+				C4EB5F7D1B56AA3300DAD479 /* NSNumber+LYZExtension.m in Sources */,
+				C4EB5F6F1B5684BE00DAD479 /* UIImage+LYZExtension.m in Sources */,
+				C4576DDD1B28864B00A01BFF /* MASLayoutConstraint.m in Sources */,
+				C4E507791AE3606400727B18 /* LYZKeyChain.m in Sources */,
+				C4EB5F6B1B5684BE00DAD479 /* NSObject+LYZTypeConvert.m in Sources */,
+				C4E908D11B5417980009809E /* LYZApplicationShared.m in Sources */,
+				C4576DDA1B28864B00A01BFF /* MASCompositeConstraint.m in Sources */,
+				C47BD76F1B3C36930039647C /* XLFormDescriptor.m in Sources */,
+				C4F1190F1B20846400EC44DD /* LYZContactsViewController.m in Sources */,
+				C4E5077B1AE3606400727B18 /* LYZUserDefault.m in Sources */,
+				C4ECB75C1B58A6B200C41C0E /* NSString+LYZEncodeAndDecode.m in Sources */,
+				C47BD7711B3C36930039647C /* XLFormSectionDescriptor.m in Sources */,
+				C47380441AD2C59F008D8C00 /* LYZLocationRequest.m in Sources */,
+				C47BD7651B3C36930039647C /* XLFormSegmentedCell.m in Sources */,
+				C423CAF91B63CDDC00FCC18C /* UITableView+LYZExtension.m in Sources */,
+				C47BD7761B3C36930039647C /* NSString+XLFormAdditions.m in Sources */,
+				C4EB5F6C1B5684BE00DAD479 /* NSString+LYZCodeSecurity.m in Sources */,
+				C4EB5F7A1B5690AB00DAD479 /* NSString+LYZExtension.m in Sources */,
+				C47BD7731B3C36930039647C /* NSExpression+XLFormAdditions.m in Sources */,
+				C4EA2FFD1B554CD600AE4C0D /* LYZXMLSerialization.m in Sources */,
+				C47BD76A1B3C36930039647C /* XLFormTextFieldCell.m in Sources */,
+				C4EA2FFA1B554CC300AE4C0D /* LYZJSONSerialization.m in Sources */,
+				C4E933701B31ADE900C37FE6 /* LYZSwipeViewController.m in Sources */,
+				C4EB5F691B5684BE00DAD479 /* NSData+LYZCodeSecurity.m in Sources */,
+				C47BD7751B3C36930039647C /* NSPredicate+XLFormAdditions.m in Sources */,
+				C47BD77F1B3C36930039647C /* XLForm.m in Sources */,
+				C47BD7681B3C36930039647C /* XLFormStepCounterCell.m in Sources */,
+				C45A18DF1AC1BD1A0025A370 /* main.m in Sources */,
+				C47BD77E1B3C36930039647C /* XLFormValidator.m in Sources */,
+				C4ED9D3B1B6FB6F40027A9AF /* NSNotificationCenter+LYZExtension.m in Sources */,
+				C4ECB7671B590BE600C41C0E /* UIScrollView+LYZExtension.m in Sources */,
+				C4ECB7DC1B59536F00C41C0E /* UIColor+LYZExtension.m in Sources */,
+				C4EC5BC21B52BB2B0039FAA3 /* LYZApplicationInfo.m in Sources */,
+				C4EAE3DF1B22F7E900C97702 /* LYZSwipeTableCell.m in Sources */,
+				C4576DDE1B28864B00A01BFF /* MASViewAttribute.m in Sources */,
+				C4E507781AE3606400727B18 /* LYZFileCache.m in Sources */,
+				C4576DDB1B28864B00A01BFF /* MASConstraint.m in Sources */,
+				C47BD76D1B3C36930039647C /* XLFormOptionsViewController.m in Sources */,
+				C47BD75E1B3C36930039647C /* XLFormButtonCell.m in Sources */,
+				C4E5077C1AE3606400727B18 /* LYZDeviceInfo.m in Sources */,
+				C4EAE3D81B22E8FB00C97702 /* MGSwipeButton.m in Sources */,
+				C4576DDC1B28864B00A01BFF /* MASConstraintMaker.m in Sources */,
+				C4E216BA1B0CBF4000014CE0 /* DCPathItemButton.m in Sources */,
+				C4EAE3E21B232D6100C97702 /* LYZSwipeTableData.m in Sources */,
+				C4EB5F6A1B5684BE00DAD479 /* NSDate+LYZExtension.m in Sources */,
+				C47BD7741B3C36930039647C /* NSObject+XLFormAdditions.m in Sources */,
+				C4410E211AE40AF4000691F6 /* LYZNetworkReachable.m in Sources */,
+				C4F119061B2080CC00EC44DD /* LYZMainTabBarController.m in Sources */,
+				C47380431AD2C59F008D8C00 /* LYZLocationManager.m in Sources */,
+				C44CBDA51B399BC8009A10C9 /* LYZTaskTableViewCell.m in Sources */,
+				C47BD7611B3C36930039647C /* XLFormDatePickerCell.m in Sources */,
+				C4EAE3D91B22E8FB00C97702 /* MGSwipeTableCell.m in Sources */,
+				C4EB5F711B5684BE00DAD479 /* UIView+LYZExtension.m in Sources */,
+				C47BD75F1B3C36930039647C /* XLFormCheckCell.m in Sources */,
+				C4ECB7591B58A63300C41C0E /* NSData+LYZEncodeAndDecode.m in Sources */,
+				C4ECB7561B589A6A00C41C0E /* LYZWeakProxy.m in Sources */,
+				C4576DE11B28864B00A01BFF /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				C4F119121B2084F700EC44DD /* LYZMoreViewController.m in Sources */,
+				C47BD76C1B3C36930039647C /* XLFormOptionsObject.m in Sources */,
+				C47BD77D1B3C36930039647C /* XLFormValidationStatus.m in Sources */,
+				C4EB8CC61BA9B1A800457DF7 /* LYZTaskViewController.m in Sources */,
+				C4E5077A1AE3606400727B18 /* LYZMemoryCache.m in Sources */,
+				C44CBDA81B399E08009A10C9 /* LYZAddListTableViewCell.m in Sources */,
+				C47BD7721B3C36930039647C /* NSArray+XLFormAdditions.m in Sources */,
+				C47BD77B1B3C36930039647C /* XLFormTextView.m in Sources */,
+				C4F0AE6A1B2BE736000F011E /* UIView+LYZMasonyCategory.m in Sources */,
+				C4EC5BC81B52BFE90039FAA3 /* LYZSystemRealInfo.m in Sources */,
+				C44D520C1BAAEEBC0035E9B2 /* LYZTravelViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C45A18EE1AC1BD1A0025A370 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C45A18F91AC1BD1A0025A370 /* AppProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C45A18F41AC1BD1A0025A370 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C45A18D81AC1BD1A0025A370 /* AppProject */;
+			targetProxy = C45A18F31AC1BD1A0025A370 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C45A18EB1AC1BD1A0025A370 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C45A18EC1AC1BD1A0025A370 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C45A18FA1AC1BD1A0025A370 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		C45A18FB1AC1BD1A0025A370 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SDKROOT}/usr/include/libxml2",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lxml2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C45A18FD1AC1BD1A0025A370 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (3U8W2RUYYX)";
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = AppProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		C45A18FE1AC1BD1A0025A370 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (3U8W2RUYYX)";
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = AppProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+		C45A19001AC1BD1A0025A370 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AppProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppProject.app/AppProject";
+			};
+			name = Debug;
+		};
+		C45A19011AC1BD1A0025A370 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AppProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppProject.app/AppProject";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C45A18D41AC1BD1A0025A370 /* Build configuration list for PBXProject "AppProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45A18FA1AC1BD1A0025A370 /* Debug */,
+				C45A18FB1AC1BD1A0025A370 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45A18FC1AC1BD1A0025A370 /* Build configuration list for PBXNativeTarget "AppProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45A18FD1AC1BD1A0025A370 /* Debug */,
+				C45A18FE1AC1BD1A0025A370 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C45A18FF1AC1BD1A0025A370 /* Build configuration list for PBXNativeTarget "AppProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C45A19001AC1BD1A0025A370 /* Debug */,
+				C45A19011AC1BD1A0025A370 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C45A18D11AC1BD1A0025A370 /* Project object */;
+}

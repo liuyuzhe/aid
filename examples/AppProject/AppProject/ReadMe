@@ -1,0 +1,11 @@
+1、KissXML
+    Header Search Paths 增加 ${SDKROOT}/usr/include/libxml2
+    Other Link Flags 增加 -lxml2
+
+2、LocationManager
+    In iOS 8+, Info.plist must provide a value for either NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription.
+
+3、Unknown class ViewController in Interface Builder file.
+    如果删除掉了Main.storyborad，需要在info.plist中删除掉这条
+    Main storyboard file base name
+    
