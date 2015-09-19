@@ -308,6 +308,15 @@
 		C44D55EC1BAD909D0035E9B2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C44D55F11BAD930E0035E9B2 /* AidMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidMainTabBarController.h; sourceTree = "<group>"; };
 		C44D55F21BAD930E0035E9B2 /* AidMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidMainTabBarController.m; sourceTree = "<group>"; };
+		C44D55F51BAD9B670035E9B2 /* LYZNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZNetwork.h; sourceTree = "<group>"; };
+		C44D55F81BAD9CDD0035E9B2 /* LYZCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZCache.h; sourceTree = "<group>"; };
+		C44D56011BAD9E120035E9B2 /* LYZMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZMacro.h; sourceTree = "<group>"; };
+		C44D56041BAD9E8C0035E9B2 /* LYZHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZHelper.h; sourceTree = "<group>"; };
+		C44D56071BADA1EF0035E9B2 /* LYZCategoryFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZCategoryFoundation.h; sourceTree = "<group>"; };
+		C44D560A1BADA28C0035E9B2 /* LYZCategoryUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZCategoryUIKit.h; sourceTree = "<group>"; };
+		C44D560D1BADA3760035E9B2 /* LYZExpand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZExpand.h; sourceTree = "<group>"; };
+		C44D56101BADA40E0035E9B2 /* LYZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZCategory.h; sourceTree = "<group>"; };
+		C44D56131BADA4CA0035E9B2 /* LYZService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZService.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,10 +401,11 @@
 		C44D53781BAD8B780035E9B2 /* Expand(扩展) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D53791BAD8B780035E9B2 /* Cache(缓存) */,
+				C44D560D1BADA3760035E9B2 /* LYZExpand.h */,
+				C44D53BD1BAD8B780035E9B2 /* Macro(宏) */,
 				C44D53831BAD8B780035E9B2 /* Category(分类) */,
 				C44D53A81BAD8B780035E9B2 /* Helper(助手) */,
-				C44D53BD1BAD8B780035E9B2 /* Macro(宏) */,
+				C44D53791BAD8B780035E9B2 /* Cache(缓存) */,
 				C44D53C11BAD8B780035E9B2 /* Network(网络) */,
 				C44D53CD1BAD8B780035E9B2 /* Service(服务) */,
 			);
@@ -405,6 +415,7 @@
 		C44D53791BAD8B780035E9B2 /* Cache(缓存) */ = {
 			isa = PBXGroup;
 			children = (
+				C44D55F81BAD9CDD0035E9B2 /* LYZCache.h */,
 				C44D537A1BAD8B780035E9B2 /* LYZCacheProtocol.h */,
 				C44D537B1BAD8B780035E9B2 /* LYZFileCache.h */,
 				C44D537C1BAD8B780035E9B2 /* LYZFileCache.m */,
@@ -421,6 +432,7 @@
 		C44D53831BAD8B780035E9B2 /* Category(分类) */ = {
 			isa = PBXGroup;
 			children = (
+				C44D56101BADA40E0035E9B2 /* LYZCategory.h */,
 				C44D53841BAD8B780035E9B2 /* Foundation */,
 				C44D539D1BAD8B780035E9B2 /* UIKit */,
 			);
@@ -430,28 +442,29 @@
 		C44D53841BAD8B780035E9B2 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				C44D53851BAD8B780035E9B2 /* NSData+LYZCodeSecurity.h */,
-				C44D53861BAD8B780035E9B2 /* NSData+LYZCodeSecurity.m */,
-				C44D53871BAD8B780035E9B2 /* NSData+LYZEncodeAndDecode.h */,
-				C44D53881BAD8B780035E9B2 /* NSData+LYZEncodeAndDecode.m */,
-				C44D53891BAD8B780035E9B2 /* NSDate+LYZExtension.h */,
-				C44D538A1BAD8B780035E9B2 /* NSDate+LYZExtension.m */,
-				C44D538B1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.h */,
-				C44D538C1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.m */,
-				C44D538D1BAD8B780035E9B2 /* NSNumber+LYZExtension.h */,
-				C44D538E1BAD8B780035E9B2 /* NSNumber+LYZExtension.m */,
+				C44D56071BADA1EF0035E9B2 /* LYZCategoryFoundation.h */,
 				C44D538F1BAD8B780035E9B2 /* NSObject+LYZRuntimeMethod.h */,
 				C44D53901BAD8B780035E9B2 /* NSObject+LYZRuntimeMethod.m */,
 				C44D53911BAD8B780035E9B2 /* NSObject+LYZTypeConvert.h */,
 				C44D53921BAD8B780035E9B2 /* NSObject+LYZTypeConvert.m */,
+				C44D53851BAD8B780035E9B2 /* NSData+LYZCodeSecurity.h */,
+				C44D53861BAD8B780035E9B2 /* NSData+LYZCodeSecurity.m */,
+				C44D53871BAD8B780035E9B2 /* NSData+LYZEncodeAndDecode.h */,
+				C44D53881BAD8B780035E9B2 /* NSData+LYZEncodeAndDecode.m */,
 				C44D53931BAD8B780035E9B2 /* NSString+LYZCodeSecurity.h */,
 				C44D53941BAD8B780035E9B2 /* NSString+LYZCodeSecurity.m */,
 				C44D53951BAD8B780035E9B2 /* NSString+LYZEncodeAndDecode.h */,
 				C44D53961BAD8B780035E9B2 /* NSString+LYZEncodeAndDecode.m */,
-				C44D53971BAD8B780035E9B2 /* NSString+LYZExtension.h */,
-				C44D53981BAD8B780035E9B2 /* NSString+LYZExtension.m */,
 				C44D53991BAD8B780035E9B2 /* NSString+LYZRegexMatch.h */,
 				C44D539A1BAD8B780035E9B2 /* NSString+LYZRegexMatch.m */,
+				C44D53971BAD8B780035E9B2 /* NSString+LYZExtension.h */,
+				C44D53981BAD8B780035E9B2 /* NSString+LYZExtension.m */,
+				C44D538D1BAD8B780035E9B2 /* NSNumber+LYZExtension.h */,
+				C44D538E1BAD8B780035E9B2 /* NSNumber+LYZExtension.m */,
+				C44D53891BAD8B780035E9B2 /* NSDate+LYZExtension.h */,
+				C44D538A1BAD8B780035E9B2 /* NSDate+LYZExtension.m */,
+				C44D538B1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.h */,
+				C44D538C1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.m */,
 				C44D539B1BAD8B780035E9B2 /* NSTimer+LYZBlockSupport.h */,
 				C44D539C1BAD8B780035E9B2 /* NSTimer+LYZBlockSupport.m */,
 			);
@@ -461,16 +474,17 @@
 		C44D539D1BAD8B780035E9B2 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				C44D560A1BADA28C0035E9B2 /* LYZCategoryUIKit.h */,
 				C44D539E1BAD8B780035E9B2 /* UIColor+LYZExtension.h */,
 				C44D539F1BAD8B780035E9B2 /* UIColor+LYZExtension.m */,
 				C44D53A01BAD8B780035E9B2 /* UIImage+LYZExtension.h */,
 				C44D53A11BAD8B780035E9B2 /* UIImage+LYZExtension.m */,
+				C44D53A61BAD8B780035E9B2 /* UIView+LYZExtension.h */,
+				C44D53A71BAD8B780035E9B2 /* UIView+LYZExtension.m */,
 				C44D53A21BAD8B780035E9B2 /* UIScrollView+LYZExtension.h */,
 				C44D53A31BAD8B780035E9B2 /* UIScrollView+LYZExtension.m */,
 				C44D53A41BAD8B780035E9B2 /* UITableView+LYZExtension.h */,
 				C44D53A51BAD8B780035E9B2 /* UITableView+LYZExtension.m */,
-				C44D53A61BAD8B780035E9B2 /* UIView+LYZExtension.h */,
-				C44D53A71BAD8B780035E9B2 /* UIView+LYZExtension.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -478,24 +492,25 @@
 		C44D53A81BAD8B780035E9B2 /* Helper(助手) */ = {
 			isa = PBXGroup;
 			children = (
+				C44D56041BAD9E8C0035E9B2 /* LYZHelper.h */,
+				C44D53AD1BAD8B780035E9B2 /* LYZFileManager.h */,
+				C44D53AE1BAD8B780035E9B2 /* LYZFileManager.m */,
 				C44D53A91BAD8B780035E9B2 /* LYZApplicationInfo.h */,
 				C44D53AA1BAD8B780035E9B2 /* LYZApplicationInfo.m */,
 				C44D53AB1BAD8B780035E9B2 /* LYZDeviceInfo.h */,
 				C44D53AC1BAD8B780035E9B2 /* LYZDeviceInfo.m */,
-				C44D53AD1BAD8B780035E9B2 /* LYZFileManager.h */,
-				C44D53AE1BAD8B780035E9B2 /* LYZFileManager.m */,
-				C44D53AF1BAD8B780035E9B2 /* LYZHardwareAvailable.h */,
-				C44D53B01BAD8B780035E9B2 /* LYZHardwareAvailable.m */,
-				C44D53B11BAD8B780035E9B2 /* LYZMathMethod.h */,
-				C44D53B21BAD8B780035E9B2 /* LYZMathMethod.m */,
-				C44D53B31BAD8B780035E9B2 /* LYZMulticastDelegate.h */,
-				C44D53B41BAD8B780035E9B2 /* LYZMulticastDelegate.m */,
-				C44D53B51BAD8B780035E9B2 /* LYZPerformanceAnalyze.h */,
-				C44D53B61BAD8B780035E9B2 /* LYZPerformanceAnalyze.m */,
 				C44D53B71BAD8B780035E9B2 /* LYZSystemRealInfo.h */,
 				C44D53B81BAD8B780035E9B2 /* LYZSystemRealInfo.m */,
+				C44D53AF1BAD8B780035E9B2 /* LYZHardwareAvailable.h */,
+				C44D53B01BAD8B780035E9B2 /* LYZHardwareAvailable.m */,
+				C44D53B51BAD8B780035E9B2 /* LYZPerformanceAnalyze.h */,
+				C44D53B61BAD8B780035E9B2 /* LYZPerformanceAnalyze.m */,
+				C44D53B11BAD8B780035E9B2 /* LYZMathMethod.h */,
+				C44D53B21BAD8B780035E9B2 /* LYZMathMethod.m */,
 				C44D53B91BAD8B780035E9B2 /* LYZTimerHolder.h */,
 				C44D53BA1BAD8B780035E9B2 /* LYZTimerHolder.m */,
+				C44D53B31BAD8B780035E9B2 /* LYZMulticastDelegate.h */,
+				C44D53B41BAD8B780035E9B2 /* LYZMulticastDelegate.m */,
 				C44D53BB1BAD8B780035E9B2 /* LYZWeakProxy.h */,
 				C44D53BC1BAD8B780035E9B2 /* LYZWeakProxy.m */,
 			);
@@ -505,9 +520,10 @@
 		C44D53BD1BAD8B780035E9B2 /* Macro(宏) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D53BE1BAD8B780035E9B2 /* LYZDebugMacro.h */,
+				C44D56011BAD9E120035E9B2 /* LYZMacro.h */,
 				C44D53BF1BAD8B780035E9B2 /* LYZMathMacro.h */,
 				C44D53C01BAD8B780035E9B2 /* LYZSingletonMacro.h */,
+				C44D53BE1BAD8B780035E9B2 /* LYZDebugMacro.h */,
 			);
 			path = "Macro(宏)";
 			sourceTree = "<group>";
@@ -515,6 +531,7 @@
 		C44D53C11BAD8B780035E9B2 /* Network(网络) */ = {
 			isa = PBXGroup;
 			children = (
+				C44D55F51BAD9B670035E9B2 /* LYZNetwork.h */,
 				C44D53C21BAD8B780035E9B2 /* LYZApplicationShared.h */,
 				C44D53C31BAD8B780035E9B2 /* LYZApplicationShared.m */,
 				C44D53C41BAD8B780035E9B2 /* LYZJSONSerialization.h */,
@@ -540,6 +557,7 @@
 		C44D53CD1BAD8B780035E9B2 /* Service(服务) */ = {
 			isa = PBXGroup;
 			children = (
+				C44D56131BADA4CA0035E9B2 /* LYZService.h */,
 				C44D53CE1BAD8B780035E9B2 /* LocationManager */,
 			);
 			path = "Service(服务)";
