@@ -9,7 +9,7 @@
 #import "LYZTaskViewController.h"
 #import "Masonry.h"
 
-@interface LYZTaskViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface LYZTaskViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectView;
 
@@ -23,7 +23,6 @@
 - (void)loadView
 {
     UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    contentView.backgroundColor = [UIColor whiteColor];
     self.view = contentView;
 }
 
@@ -57,34 +56,74 @@
 - (void)layoutPageSubviews
 {
     __weak UIView *weakSelf = self.view;
-    
+ 
+    [self.collectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf);
+    }];
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - UICollectionViewDataSource
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//}
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 3;
-//}
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 3;
+}
 
-#pragma mark - UITableViewDelegate
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString * CellIdentifier = @"UICollectionViewCell";
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.backgroundColor = [UIColor colorWithRed:((10 * indexPath.row) / 255.0) green:((20 * indexPath.row)/255.0) blue:((30 * indexPath.row)/255.0) alpha:1.0f];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    label.textColor = [UIColor redColor];
+    
+    if (indexPath.section == 0) {
+        label.text = [NSString stringWithFormat:@"旅游%ld",(long)indexPath.row];
+    }
+    else if (indexPath.section == 1) {
+        label.text = [NSString stringWithFormat:@"效率%ld",(long)indexPath.row];
+    }
+    
+    for (id subView in cell.contentView.subviews) {
+        [subView removeFromSuperview];
+    }
+    [cell.contentView addSubview:label];
+    return cell;
+}
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 50;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//}
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
+#pragma mark --UICollectionViewDelegateFlowLayout
+
+//定义每个Item 的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(60, 60);
+}
+
+//定义每个UICollectionView 的 margin
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(5, 5, 5, 5);
+}
+
+#pragma mark - UICollectionViewDelegate
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+}
+
+//返回这个UICollectionView是否可以被选择
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
 
 #pragma mark - UIScrollViewDelegate
 
@@ -99,11 +138,17 @@
 
 - (UICollectionView *)collectView
 {
-    if (_collectView) {
-        _collectView = [[UICollectionView alloc] initWithFrame:CGRectMake(20, 20, 250, 350)];
-        _collectView.backgroundColor = [UIColor grayColor];
+    if (! _collectView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        [flowLayout setItemSize:CGSizeMake(70, 100)];//设置cell的尺寸
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];//设置其布局方向
+        flowLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);//设置其边界
+        
+        _collectView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+//        _collectView.backgroundColor = [UIColor clearColor];
         _collectView.delegate = self;
         _collectView.dataSource = self;
+        [self.collectView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
     }
     return _collectView;
 }

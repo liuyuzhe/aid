@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.customList = @[@"收件箱", @"星标"];
+    self.customList = @[@"收件箱", @"星标", @"地点", @"提醒"];
     self.timeOfList = @[@"今天", @"明天", @"已排期", @"未排期"];
     self.stateOfList = @[@"未完成", @"已完成", @"所有", @"回收站"];
     
