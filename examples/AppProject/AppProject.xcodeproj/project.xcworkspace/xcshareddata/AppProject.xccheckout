@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A795C083-02A7-4501-8780-8BE556524777</string>
 	<key>IDESourceControlProjectName</key>
-	<string>AppProject</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>00B234BFA13F97CDDF5A1337050EF526BE5FC5B7</key>
 		<string>https://github.com/liuyuzhe/aid.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>examples/AppProject/AppProject.xcodeproj</string>
+	<string>examples/AppProject/AppProject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>00B234BFA13F97CDDF5A1337050EF526BE5FC5B7</key>

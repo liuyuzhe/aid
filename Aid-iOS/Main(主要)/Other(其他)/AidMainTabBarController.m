@@ -7,10 +7,13 @@
 //
 
 #import "AidMainTabBarController.h"
+#import "AidAgendaViewController.h"
+#import "AidThemeViewController.h"
 
 @interface AidMainTabBarController () <UITabBarControllerDelegate>
 
 @end
+
 
 @implementation AidMainTabBarController
 
@@ -20,15 +23,9 @@
 {
     [super viewDidLoad];
     
-    [self setNeedsStatusBarAppearanceUpdate];
-    
     [self setUpAllChildViewController];
     
     self.delegate = self;
-}
-
-- (void)setUpAllChildViewController
-{
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,12 +33,20 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - override super
+#pragma mark - life cycle helper
 
-- (UIStatusBarStyle)preferredStatusBarStyle
+- (void)setUpAllChildViewController
 {
-    return UIStatusBarStyleLightContent;
+    AidAgendaViewController *agendaVC = [[AidAgendaViewController alloc] init];
+    UINavigationController *agendaNav = [[UINavigationController alloc] initWithRootViewController:agendaVC];
+    
+    AidThemeViewController *themeVC = [[AidThemeViewController alloc] init];
+    UINavigationController *themeNav = [[UINavigationController alloc] initWithRootViewController:themeVC];
+    
+    self.viewControllers = @[agendaNav, themeNav];
 }
+
+#pragma mark - override super
 
 #pragma mark - UITabBarControllerDelegate
 

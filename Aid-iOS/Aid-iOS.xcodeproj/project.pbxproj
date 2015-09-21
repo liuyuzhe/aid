@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4442F321BB04B520030E774 /* AidAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F311BB04B520030E774 /* AidAgendaViewController.m */; };
 		C44D53551BAD8B260035E9B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53541BAD8B260035E9B2 /* main.m */; };
 		C44D53581BAD8B260035E9B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53571BAD8B260035E9B2 /* AppDelegate.m */; };
 		C44D53601BAD8B260035E9B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44D535F1BAD8B260035E9B2 /* Images.xcassets */; };
@@ -99,6 +100,8 @@
 		C44D54991BAD8F300035E9B2 /* XLForm.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C44D546A1BAD8F300035E9B2 /* XLForm.bundle */; };
 		C44D55ED1BAD909D0035E9B2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D55EC1BAD909D0035E9B2 /* libz.dylib */; };
 		C44D55F31BAD930E0035E9B2 /* AidMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D55F21BAD930E0035E9B2 /* AidMainTabBarController.m */; };
+		C44D56181BAEABDD0035E9B2 /* AidThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D56171BAEABDD0035E9B2 /* AidThemeViewController.m */; };
+		C44D561E1BAEB9850035E9B2 /* AidAddThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D561D1BAEB9850035E9B2 /* AidAddThemeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4442F301BB04B520030E774 /* AidAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaViewController.h; sourceTree = "<group>"; };
+		C4442F311BB04B520030E774 /* AidAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaViewController.m; sourceTree = "<group>"; };
 		C44D534F1BAD8B260035E9B2 /* Aid-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aid-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D53531BAD8B260035E9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44D53541BAD8B260035E9B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -317,6 +322,10 @@
 		C44D560D1BADA3760035E9B2 /* LYZExpand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZExpand.h; sourceTree = "<group>"; };
 		C44D56101BADA40E0035E9B2 /* LYZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZCategory.h; sourceTree = "<group>"; };
 		C44D56131BADA4CA0035E9B2 /* LYZService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZService.h; sourceTree = "<group>"; };
+		C44D56161BAEABDD0035E9B2 /* AidThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidThemeViewController.h; sourceTree = "<group>"; };
+		C44D56171BAEABDD0035E9B2 /* AidThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidThemeViewController.m; sourceTree = "<group>"; };
+		C44D561C1BAEB9850035E9B2 /* AidAddThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAddThemeView.h; sourceTree = "<group>"; };
+		C44D561D1BAEB9850035E9B2 /* AidAddThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAddThemeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -578,8 +587,8 @@
 		C44D53FA1BAD8BD60035E9B2 /* Main(主要) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D55481BAD8F520035E9B2 /* Theme(主题) */,
 				C44D55391BAD8F520035E9B2 /* Agenda(日程) */,
+				C44D55481BAD8F520035E9B2 /* Theme(主题) */,
 				C44D553E1BAD8F520035E9B2 /* Discover(发现) */,
 				C44D55431BAD8F520035E9B2 /* Me(我的) */,
 				C44D55EE1BAD91BF0035E9B2 /* Other(其他) */,
@@ -771,8 +780,8 @@
 		C44D55391BAD8F520035E9B2 /* Agenda(日程) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D553D1BAD8F520035E9B2 /* View */,
 				C44D553A1BAD8F520035E9B2 /* Controller */,
+				C44D553D1BAD8F520035E9B2 /* View */,
 				C44D553B1BAD8F520035E9B2 /* Model */,
 				C44D553C1BAD8F520035E9B2 /* Other */,
 			);
@@ -782,6 +791,8 @@
 		C44D553A1BAD8F520035E9B2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C4442F301BB04B520030E774 /* AidAgendaViewController.h */,
+				C4442F311BB04B520030E774 /* AidAgendaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -810,8 +821,8 @@
 		C44D553E1BAD8F520035E9B2 /* Discover(发现) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D55421BAD8F520035E9B2 /* View */,
 				C44D553F1BAD8F520035E9B2 /* Controller */,
+				C44D55421BAD8F520035E9B2 /* View */,
 				C44D55401BAD8F520035E9B2 /* Model */,
 				C44D55411BAD8F520035E9B2 /* Other */,
 			);
@@ -849,8 +860,8 @@
 		C44D55431BAD8F520035E9B2 /* Me(我的) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D55471BAD8F520035E9B2 /* View */,
 				C44D55441BAD8F520035E9B2 /* Controller */,
+				C44D55471BAD8F520035E9B2 /* View */,
 				C44D55451BAD8F520035E9B2 /* Model */,
 				C44D55461BAD8F520035E9B2 /* Other */,
 			);
@@ -888,8 +899,8 @@
 		C44D55481BAD8F520035E9B2 /* Theme(主题) */ = {
 			isa = PBXGroup;
 			children = (
-				C44D554C1BAD8F520035E9B2 /* View */,
 				C44D55491BAD8F520035E9B2 /* Controller */,
+				C44D554C1BAD8F520035E9B2 /* View */,
 				C44D554A1BAD8F520035E9B2 /* Model */,
 				C44D554B1BAD8F520035E9B2 /* Other */,
 			);
@@ -899,6 +910,8 @@
 		C44D55491BAD8F520035E9B2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C44D56161BAEABDD0035E9B2 /* AidThemeViewController.h */,
+				C44D56171BAEABDD0035E9B2 /* AidThemeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -920,6 +933,8 @@
 		C44D554C1BAD8F520035E9B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C44D561C1BAEB9850035E9B2 /* AidAddThemeView.h */,
+				C44D561D1BAEB9850035E9B2 /* AidAddThemeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1059,6 +1074,7 @@
 				C44D54711BAD8F300035E9B2 /* MASViewConstraint.m in Sources */,
 				C44D53EB1BAD8B780035E9B2 /* LYZFileManager.m in Sources */,
 				C44D54921BAD8F300035E9B2 /* XLFormRightImageButton.m in Sources */,
+				C44D56181BAEABDD0035E9B2 /* AidThemeViewController.m in Sources */,
 				C44D53E51BAD8B780035E9B2 /* UIImage+LYZExtension.m in Sources */,
 				C44D54861BAD8F300035E9B2 /* XLFormOptionsViewController.m in Sources */,
 				C44D53E41BAD8B780035E9B2 /* UIColor+LYZExtension.m in Sources */,
@@ -1078,11 +1094,13 @@
 				C44D54981BAD8F300035E9B2 /* XLForm.m in Sources */,
 				C44D54941BAD8F300035E9B2 /* XLFormTextView.m in Sources */,
 				C44D53E81BAD8B780035E9B2 /* UIView+LYZExtension.m in Sources */,
+				C44D561E1BAEB9850035E9B2 /* AidAddThemeView.m in Sources */,
 				C44D54741BAD8F300035E9B2 /* UIView+LYZMasonyCategory.m in Sources */,
 				C44D53D91BAD8B780035E9B2 /* NSData+LYZEncodeAndDecode.m in Sources */,
 				C44D53F81BAD8B780035E9B2 /* LYZLocationManager.m in Sources */,
 				C44D54971BAD8F300035E9B2 /* XLFormValidator.m in Sources */,
 				C44D54871BAD8F300035E9B2 /* XLFormViewController.m in Sources */,
+				C4442F321BB04B520030E774 /* AidAgendaViewController.m in Sources */,
 				C44D53DA1BAD8B780035E9B2 /* NSDate+LYZExtension.m in Sources */,
 				C44D547E1BAD8F300035E9B2 /* XLFormSegmentedCell.m in Sources */,
 				C44D53E11BAD8B780035E9B2 /* NSString+LYZExtension.m in Sources */,
@@ -1306,6 +1324,7 @@
 				C44D53741BAD8B260035E9B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C44D53751BAD8B260035E9B2 /* Build configuration list for PBXNativeTarget "Aid-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1314,6 +1333,7 @@
 				C44D53771BAD8B260035E9B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
