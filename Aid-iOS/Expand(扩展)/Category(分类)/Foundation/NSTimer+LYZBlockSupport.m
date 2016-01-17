@@ -9,8 +9,13 @@
 #import "NSTimer+LYZBlockSupport.h"
 #import "NSObject+LYZRuntimeMethod.h"
 
-static NSString * const NSTimerLYZBlockSupportPauseDate = @"NSTimerLYZBlockSupport.PauseDate";
-static NSString * const NSTimerLYZBlockSupportPreviousFireDate = @"NSTimerLYZBlockSupport.PreviousFireDate";
+@interface NSTimer ()
+
+@property (nonatomic, strong) NSDate *pauseDate;
+@property (nonatomic, strong) NSDate *previousFireDate;
+
+@end
+
 
 @implementation NSTimer (LYZBlockSupport)
 
@@ -40,19 +45,15 @@ static NSString * const NSTimerLYZBlockSupportPreviousFireDate = @"NSTimerLYZBlo
 
 - (void)pauseTimer
 {
-    [self setAssociateValue:[NSDate date] withKey:(__bridge const void *)NSTimerLYZBlockSupportPauseDate];
-    [self setAssociateValue:self.fireDate withKey:(__bridge const void *)NSTimerLYZBlockSupportPreviousFireDate];
-
+    self.pauseDate = [NSDate date];
+    self.previousFireDate = self.fireDate;
     self.fireDate = [NSDate distantFuture];
 }
 
 - (void)resumeTimer
 {
-    NSDate *pauseDate = [self getAssociatedValueForKey:(__bridge const void *)NSTimerLYZBlockSupportPauseDate];
-    NSDate *previousFireDate = [self getAssociatedValueForKey:(__bridge const void *)NSTimerLYZBlockSupportPreviousFireDate];
-    
-    const NSTimeInterval pauseTime = fabs([pauseDate timeIntervalSinceNow]);
-    self.fireDate = [NSDate dateWithTimeInterval:pauseTime sinceDate:previousFireDate];
+    const NSTimeInterval pauseTime = fabs([self.pauseDate timeIntervalSinceNow]);
+    self.fireDate = [NSDate dateWithTimeInterval:pauseTime sinceDate:self.previousFireDate];
 }
 
 #pragma mark - LYZBlockSupport helper
@@ -63,6 +64,28 @@ static NSString * const NSTimerLYZBlockSupportPreviousFireDate = @"NSTimerLYZBlo
     if (block) {
         block();
     }
+}
+
+#pragma mark - getters and setters
+
+- (NSDate *)pauseDate
+{
+    return [self getAssociatedValueForKey:@selector(pauseDate)];
+}
+
+- (void)setPauseDate:(NSDate *)pauseDate
+{
+    [self setAssociateValue:pauseDate withKey:@selector(pauseDate)];
+}
+
+- (NSDate *)previousFireDate
+{
+    return [self getAssociatedValueForKey:@selector(previousFireDate)];
+}
+
+- (void)setPreviousFireDate:(NSDate *)previousFireDate
+{
+    [self setAssociateValue:previousFireDate withKey:@selector(previousFireDate)];
 }
 
 @end

@@ -26,9 +26,10 @@
 - (UIImage *)snapshotImage;
 
 /** 设置阴影 */
-- (void)setShadow;
+- (void)setShadow; // Defaults to opaque black
 - (void)setShadow:(UIColor *)color;
 
+//TODO: 圆角相关设置存在问题，需要修改
 /** 设置圆角阴影 */
 - (void)setShadowCorner:(CGFloat)radius;
 - (void)setShadowCorner:(UIColor *)color
@@ -39,6 +40,9 @@
 - (void)setRoundedCorner:(CGFloat)radius;
 - (void)setRoundedCorner:(UIRectCorner)corners radius:(CGFloat)radius;
 
+/** 增加水平删除线 */
+- (void)addHorizontalLineWithColor:(UIColor *)lineColor;
+
 /** 获取某点颜色 */
 - (UIColor *)colorOfPoint:(CGPoint)point;
 
@@ -48,8 +52,5 @@
 - (UIView *)viewWithTagName:(NSString *)name;
 
 - (UIView *)getFirstResponder;
-
-- (void)pauseAnimation;
-- (void)resumeAnimation;
 
 @end

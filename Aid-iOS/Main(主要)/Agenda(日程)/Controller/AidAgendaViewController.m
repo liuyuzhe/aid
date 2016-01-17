@@ -7,28 +7,56 @@
 //
 
 #import "AidAgendaViewController.h"
-#import "Masonry.h"
+#import "AidAgendaChildViewController.h"
 
 @interface AidAgendaViewController ()
 
 @end
 
+
 @implementation AidAgendaViewController
 
 #pragma mark - life cycle
 
+//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        self.hidesBottomBarWhenPushed = YES; // 隐藏tabbar
+//    }
+//    return self;
+//}
+
 - (void)loadView
 {
-    UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    UIView *contentView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view = contentView;
     
     self.title = @"日程";
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [self setUpAllViewController];
     
+    // 滚动视图设置
+    self.titleScrollViewColor = [UIColor grayColor];
+    
+    // 标题设置
+    self.normalColor = [UIColor whiteColor];
+    self.selectColor = [UIColor orangeColor];
+    
+    // 遮盖视图设置
+    self.showTitleCover = YES;
+    self.coverColor = [UIColor colorWithWhite:0.7 alpha:0.4];
+    self.coverCornerRadius = 10;
+    self.delayScrollCover = NO;
+    
+    [super viewDidLoad]; // 必须先构建完所有子视图控制器后,才能调用viewDidLoad
+    
+    [self setupPageNavigation];
+
     [self layoutPageSubviews];
 }
 
@@ -49,6 +77,21 @@
 
 #pragma mark - life cycle helper
 
+- (void)setUpAllViewController
+{
+    NSArray *titleNames = @[@"日", @"一", @"二", @"三", @"四", @"五", @"六"];
+    for (NSString *title in titleNames) {
+        AidAgendaChildViewController *childVC = [[AidAgendaChildViewController alloc] init];
+        childVC.title = title;
+        
+        [self addChildViewController:childVC];
+    }
+}
+
+- (void)setupPageNavigation
+{
+}
+
 - (void)layoutPageSubviews
 {
     __weak UIView *weakSelf = self.view;
@@ -61,12 +104,6 @@
 #pragma mark - UITableViewDelegate
 
 #pragma mark - UIScrollViewDelegate
-
-#pragma mark - AidAddThemeViewDelegate
-
-- (void)addButtonTouched:(UIButton *)button;
-{
-}
 
 #pragma mark - event response
 

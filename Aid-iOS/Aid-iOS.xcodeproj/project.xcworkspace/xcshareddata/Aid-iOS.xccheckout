@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>86572708-AEA8-46D6-85AA-7E9B0FA221DF</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Aid-iOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>00B234BFA13F97CDDF5A1337050EF526BE5FC5B7</key>
 		<string>https://github.com/liuyuzhe/aid.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Aid-iOS/Aid-iOS.xcodeproj/project.xcworkspace</string>
+	<string>Aid-iOS/Aid-iOS.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>00B234BFA13F97CDDF5A1337050EF526BE5FC5B7</key>

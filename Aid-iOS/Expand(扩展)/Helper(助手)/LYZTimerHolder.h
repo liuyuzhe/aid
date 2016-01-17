@@ -12,7 +12,7 @@
 
 @protocol LYZTimerHolderDelegate <NSObject>
 
-@required
+@optional
 - (void)timerDidFire:(LYZTimerHolder *)timeHolder;
 
 @end

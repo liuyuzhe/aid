@@ -8,6 +8,12 @@
 
 #import "UIColor+LYZExtension.h"
 #import "UIImage+LYZExtension.h"
+#import "UIView+LYZAnimation.h"
+#import "UIView+LYZAddGestureBlock.h"
 #import "UIView+LYZExtension.h"
+#import "UIImage+LYZImageEffects.h"
+#import "UIImage+LYZExtension.h"
 #import "UIScrollView+LYZExtension.h"
 #import "UITableView+LYZExtension.h"
+#import "UIBarButtonItem+LYZExtension.h"
+#import "UINavigationBar+LYZExtension.h"

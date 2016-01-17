@@ -1,0 +1,21 @@
+//
+//  AidPrefixHeader.pch
+//  Aid-iOS
+//
+//  Created by 刘育哲 on 15/11/21.
+//  Copyright © 2015年 刘育哲. All rights reserved.
+//
+
+#ifndef AidPrefixHeader_pch
+#define AidPrefixHeader_pch
+
+#import "LYZExpand.h"
+#import "AidCustomMarco.h"
+
+#import "Masonry.h"
+
+
+// go to `Build Phases` and add `sqlite3` into your library list.
+#import "CTPersistance.h"
+
+#endif /* AidPrefixHeader_pch */

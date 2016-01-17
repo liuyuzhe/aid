@@ -24,6 +24,15 @@
     return [UIDevice currentDevice].model;
 }
 
++ (CGFloat)screenHeight
+{
+    return [UIScreen mainScreen].bounds.size.height;
+}
+
++ (CGFloat)screenWidth
+{
+    return [UIScreen mainScreen].bounds.size.width;
+}
 #pragma mark -
 
 + (NSString *)systemName

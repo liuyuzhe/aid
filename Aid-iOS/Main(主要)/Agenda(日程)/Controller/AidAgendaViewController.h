@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AidAgendaViewController : UIViewController
+#import "AidItemsScrollViewController.h"
+
+@interface AidAgendaViewController : AidItemsScrollViewController
 
 @end

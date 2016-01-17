@@ -1,0 +1,53 @@
+//
+//  AidTaskTable.m
+//  Aid-iOS
+//
+//  Created by 刘育哲 on 15/11/22.
+//  Copyright © 2015年 刘育哲. All rights reserved.
+//
+
+#import "AidTaskTable.h"
+
+@implementation AidTaskTable
+
+#pragma mark - CTPersistanceTableProtocol
+
+- (NSString *)tableName
+{
+    return @"theme";
+}
+
+- (NSString *)databaseName
+{
+    return @"ThemeDatabase.sqlite";
+}
+
+- (NSDictionary *)columnInfo
+{
+    return @{
+             @"primaryKey" : @"INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL",
+             @"name" : @"TEXT NOT NULL",
+             @"completeTime" : @"INTEGER",
+             @"completeState" : @"INTEGER",
+             @"alarmState" : @"INTEGER",
+             @"repeatState" : @"INTEGER",
+             @"priorityState" : @"INTEGER",
+             };
+}
+
+- (Class)recordClass
+{
+    return [AidTaskRecord class];
+}
+
+- (NSString *)primaryKeyName
+{
+    return @"primaryKey";
+}
+
+- (void)modifyDatabaseName:(NSString *)databaseName
+{
+    
+}
+
+@end

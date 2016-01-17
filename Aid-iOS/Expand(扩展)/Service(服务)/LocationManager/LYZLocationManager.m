@@ -242,7 +242,7 @@ IS_SINGLETON(LYZLocationManager)
     
 }
 
-#pragma mark - CLLocationManagerDelegate helper
+#pragma mark -
 
 - (void)processLocationRequests
 {

@@ -12,7 +12,7 @@
 
 @protocol LYZLocationRequestDelegate <NSObject>
 
-@required
+@optional
 - (void)locationRequestDidTimeout:(LYZLocationRequest *)locationRequest;
 
 @end

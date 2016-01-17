@@ -130,8 +130,7 @@
 - (UIImage *)snapshotImage
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
-        if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-            
+    if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
         // more (about 15x) faster than `renderInContext`.  available from iOS7.
         [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
     }
@@ -198,10 +197,24 @@
                                 cornerRadii:CGSizeMake(radius, radius)];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = self.bounds;
     maskLayer.path = path.CGPath;
     
     self.layer.mask = maskLayer;
+}
+
+- (void)addHorizontalLineWithColor:(UIColor *)lineColor
+{
+    UIBezierPath *linePath = [UIBezierPath bezierPath];
+    [linePath moveToPoint:CGPointMake(CGRectGetMinX(self.bounds), CGRectGetMidY(self.bounds))];
+    [linePath addLineToPoint:CGPointMake(CGRectGetMaxX(self.bounds), CGRectGetMidY(self.bounds))];
+    
+    CAShapeLayer *line = [CAShapeLayer layer];
+    line.path = linePath.CGPath;
+    line.fillColor = nil;
+    line.opacity = 1.0;
+    line.strokeColor = lineColor.CGColor;
+    
+    [self.layer addSublayer:line];
 }
 
 - (UIColor *)colorOfPoint:(CGPoint)point
@@ -251,23 +264,6 @@
     }
     
     return nil;
-}
-
-- (void)pauseAnimation
-{
-    CFTimeInterval pausedTime = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil];
-    self.layer.speed = 0.0;
-    self.layer.timeOffset = pausedTime;
-}
-
-- (void)resumeAnimation
-{
-    CFTimeInterval pausedTime = [self.layer timeOffset];
-    self.layer.speed = 1.0;
-    self.layer.timeOffset = 0.0;
-    self.layer.beginTime = 0.0;
-    CFTimeInterval timeSincePause = [self.layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
-    self.layer.beginTime = timeSincePause;
 }
 
 @end

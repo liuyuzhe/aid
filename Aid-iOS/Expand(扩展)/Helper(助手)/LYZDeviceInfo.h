@@ -17,6 +17,10 @@
 + (NSString *)deviceName;
 /** @return e.g. @"iPhone" @"iPod touch" */
 + (NSString *)deviceModel;
+/** @return 屏幕高度 */
++ (CGFloat)screenHeight;
+/** @return 屏幕宽度 */
++ (CGFloat)screenWidth;
 
 #pragma mark -
 

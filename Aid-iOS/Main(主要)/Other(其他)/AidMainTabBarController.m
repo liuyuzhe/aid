@@ -7,10 +7,18 @@
 //
 
 #import "AidMainTabBarController.h"
+#import "AidMainNavigationController.h"
+
 #import "AidAgendaViewController.h"
 #import "AidThemeViewController.h"
+#import "AidDiscoverViewController.h"
+#import "AidMineViewController.h"
+
+#import "AidMainTabBar.h"
 
 @interface AidMainTabBarController () <UITabBarControllerDelegate>
+
+@property (nonatomic, strong) AidMainTabBar *mainTabBar;
 
 @end
 
@@ -37,13 +45,31 @@
 
 - (void)setUpAllChildViewController
 {
-    AidAgendaViewController *agendaVC = [[AidAgendaViewController alloc] init];
-    UINavigationController *agendaNav = [[UINavigationController alloc] initWithRootViewController:agendaVC];
-    
     AidThemeViewController *themeVC = [[AidThemeViewController alloc] init];
-    UINavigationController *themeNav = [[UINavigationController alloc] initWithRootViewController:themeVC];
+    [self setupChildViewController:themeVC title:@"主题" imageName:@"icon_tabbar_onsite" seleceImageName:@"icon_tabbar_onsite_selected"];
     
-    self.viewControllers = @[agendaNav, themeNav];
+    AidAgendaViewController *agendaVC = [[AidAgendaViewController alloc] init];
+    [self setupChildViewController:agendaVC title:@"日程" imageName:@"icon_tabbar_homepage" seleceImageName:@"icon_tabbar_homepage_selected"];
+    
+    AidDiscoverViewController *discoverVC = [[AidDiscoverViewController alloc]init];
+    [self setupChildViewController:discoverVC title:@"发现" imageName:@"icon_tabbar_merchant_normal" seleceImageName:@"icon_tabbar_merchant_normal_selected"];
+    
+    AidMineViewController *mineVC = [[AidMineViewController alloc]init];
+    [self setupChildViewController:mineVC title:@"我的" imageName:@"icon_tabbar_mine" seleceImageName:@"icon_tabbar_mine_selected"];
+}
+
+-(void)setupChildViewController:(UIViewController*)controller title:(NSString *)title imageName:(NSString *)imageName seleceImageName:(NSString *)selectImageName
+{
+    controller.tabBarItem.title = title;
+    controller.tabBarItem.image = [UIImage imageNamed:imageName];
+    controller.tabBarItem.selectedImage = [UIImage imageNamed:selectImageName];
+    
+    //包装导航控制器
+//    AidMainNavigationController *nav = [[AidMainNavigationController alloc] initWithRootViewController:controller];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
+    [self addChildViewController:nav];
+    
+    [self.mainTabBar addTabBarButtonWithItem:controller.tabBarItem];
 }
 
 #pragma mark - override super

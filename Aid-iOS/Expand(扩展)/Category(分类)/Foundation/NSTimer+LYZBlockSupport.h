@@ -12,19 +12,20 @@
  *
  sample code:
  
- _weak ClassName *weakSelf = self;
- NSTimer *timer = [scheduledTimerWithTimeInterval:1.0
- block:^{ ClassName * strongSelf = weakSelf;
- [strongSelf doSomething] }
+ __weak typeof(self) weakSelf = self;
+ NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+ block:^{ typeof(self) * strongSelf = weakSelf;
+ [strongSelf doSomething]; }
  repeats:YES];
  
- NSTimer *timer = [timerWithTimeInterval:1.0
- block:^{ ClassName * strongSelf = weakSelf;
- [strongSelf doSomething] }
+ NSTimer *timer = [NSTimer timerWithTimeInterval:1.0
+ block:^{ typeof(self) * strongSelf = weakSelf;
+ [strongSelf doSomething]; }
  repeats:YES];
  [[NSRunLoop  currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
  
  [timer invalidate];
+ timer = nil;
  
  */
 @interface NSTimer (LYZBlockSupport)

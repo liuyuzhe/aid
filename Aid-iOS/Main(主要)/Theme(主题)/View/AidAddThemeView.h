@@ -10,8 +10,9 @@
 
 @protocol AidAddThemeViewDelegate <NSObject>
 
-@required
-- (void)addButtonTouched:(UIButton *)button;
+@optional
+- (void)cancelButtonTouched:(UIButton *)button;
+- (void)completeButtonTouched:(UIButton *)button;
 
 @end
 
