@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSNumber *primaryKey; /**< 主键 */
 @property (nonatomic, strong) NSString *name; /**< 名称 */
+//@property (nonatomic, strong) NSNumber *startTime; /**< 开始时间 */
 @property (nonatomic, strong) NSNumber *completeTime; /**< 完成时间 */
 @property (nonatomic, strong) NSNumber *completeState; /**< 是否完成 */
 @property (nonatomic, strong) NSNumber *alarmState; /**< 提醒时间 */

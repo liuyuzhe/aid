@@ -1424,27 +1424,6 @@
 		C46095801C1B25A900BA1CD0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C46095721C1B25A900BA1CD0 /* NSLayoutConstraint+MASDebugAdditions.m */; settings = {ASSET_TAGS = (); }; };
 		C46095811C1B25A900BA1CD0 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C46095741C1B25A900BA1CD0 /* View+MASAdditions.m */; settings = {ASSET_TAGS = (); }; };
 		C46095821C1B25A900BA1CD0 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C46095771C1B25A900BA1CD0 /* ViewController+MASAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		C47633A71C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633641C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.m */; settings = {ASSET_TAGS = (); }; };
-		C47633A81C018F1600DB909F /* NSString+ReqularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633681C018F1600DB909F /* NSString+ReqularExpression.m */; settings = {ASSET_TAGS = (); }; };
-		C47633A91C018F1600DB909F /* NSString+SQL.m in Sources */ = {isa = PBXBuildFile; fileRef = C476336B1C018F1600DB909F /* NSString+SQL.m */; settings = {ASSET_TAGS = (); }; };
-		C47633AA1C018F1600DB909F /* CTPersistanceCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = C476336E1C018F1600DB909F /* CTPersistanceCriteria.m */; settings = {ASSET_TAGS = (); }; };
-		C47633AB1C018F1600DB909F /* CTPersistanceDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633741C018F1600DB909F /* CTPersistanceDataBase.m */; settings = {ASSET_TAGS = (); }; };
-		C47633AC1C018F1600DB909F /* CTPersistanceDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633761C018F1600DB909F /* CTPersistanceDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
-		C47633AD1C018F1600DB909F /* CTPersistanceMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633791C018F1600DB909F /* CTPersistanceMigrator.m */; settings = {ASSET_TAGS = (); }; };
-		C47633AE1C018F1600DB909F /* CTPersistanceVersionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C476337C1C018F1600DB909F /* CTPersistanceVersionTable.m */; settings = {ASSET_TAGS = (); }; };
-		C47633AF1C018F1600DB909F /* CTPersistanceVersionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C476337F1C018F1600DB909F /* CTPersistanceVersionRecord.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B01C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633841C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B11C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633871C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B21C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = C476338A1C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B31C018F1600DB909F /* CTPersistanceQueryCommand+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = C476338D1C018F1600DB909F /* CTPersistanceQueryCommand+Status.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B41C018F1600DB909F /* CTPersistanceQueryCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C476338F1C018F1600DB909F /* CTPersistanceQueryCommand.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B51C018F1600DB909F /* CTPersistanceRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633921C018F1600DB909F /* CTPersistanceRecord.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B61C018F1600DB909F /* CTPersistanceTable+Delete.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633981C018F1600DB909F /* CTPersistanceTable+Delete.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B71C018F1600DB909F /* CTPersistanceTable+Find.m in Sources */ = {isa = PBXBuildFile; fileRef = C476339B1C018F1600DB909F /* CTPersistanceTable+Find.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B81C018F1600DB909F /* CTPersistanceTable+Insert.m in Sources */ = {isa = PBXBuildFile; fileRef = C476339E1C018F1600DB909F /* CTPersistanceTable+Insert.m */; settings = {ASSET_TAGS = (); }; };
-		C47633B91C018F1600DB909F /* CTPersistanceTable+Update.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633A11C018F1600DB909F /* CTPersistanceTable+Update.m */; settings = {ASSET_TAGS = (); }; };
-		C47633BA1C018F1600DB909F /* CTPersistanceTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633A31C018F1600DB909F /* CTPersistanceTable.m */; settings = {ASSET_TAGS = (); }; };
-		C47633BB1C018F1600DB909F /* CTPersistanceTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633A61C018F1600DB909F /* CTPersistanceTransaction.m */; settings = {ASSET_TAGS = (); }; };
 		C47633BD1C01BBAE00DB909F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C47633BC1C01BBAE00DB909F /* libsqlite3.tbd */; };
 		C47633C61C01F9AE00DB909F /* AidTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633C51C01F9AE00DB909F /* AidTaskViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C47633C91C01FA1000DB909F /* AidThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633C81C01FA1000DB909F /* AidThemeCell.m */; settings = {ASSET_TAGS = (); }; };
@@ -1473,6 +1452,59 @@
 		C4F3AFB81BF0EB74001C2D86 /* AidMainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3AFB71BF0EB74001C2D86 /* AidMainTabBar.m */; };
 		C4F3AFBB1BF0ED65001C2D86 /* AidTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3AFBA1BF0ED65001C2D86 /* AidTabBarButton.m */; };
 		C4F718851C2CEBBB00E62387 /* AidOperateTaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F718841C2CEBBB00E62387 /* AidOperateTaskView.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97D911C4CF6D300C6BF89 /* AidAgendaRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D861C4CF6D300C6BF89 /* AidAgendaRecord.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97D921C4CF6D300C6BF89 /* AidAgendaTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D881C4CF6D300C6BF89 /* AidAgendaTable.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97D931C4CF6D300C6BF89 /* AidAgendaTaskRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D8A1C4CF6D300C6BF89 /* AidAgendaTaskRecord.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97D941C4CF6D300C6BF89 /* AidAgendaTaskTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D8C1C4CF6D300C6BF89 /* AidAgendaTaskTable.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97D951C4CF6D300C6BF89 /* AidAgendaThemeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D8E1C4CF6D300C6BF89 /* AidAgendaThemeRecord.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97D961C4CF6D300C6BF89 /* AidAgendaThemeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D901C4CF6D300C6BF89 /* AidAgendaThemeTable.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DBC1C4CF71000C6BF89 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D9A1C4CF71000C6BF89 /* AFHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DBD1C4CF71000C6BF89 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D9D1C4CF71000C6BF89 /* AFNetworkReachabilityManager.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DBE1C4CF71000C6BF89 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97D9F1C4CF71000C6BF89 /* AFSecurityPolicy.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DBF1C4CF71000C6BF89 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DA11C4CF71000C6BF89 /* AFURLRequestSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC01C4CF71000C6BF89 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DA31C4CF71000C6BF89 /* AFURLResponseSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC11C4CF71000C6BF89 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DA51C4CF71000C6BF89 /* AFURLSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC21C4CF71000C6BF89 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DA91C4CF71000C6BF89 /* AFAutoPurgingImageCache.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC31C4CF71000C6BF89 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DAB1C4CF71000C6BF89 /* AFImageDownloader.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC41C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DAD1C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC51C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DAF1C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC61C4CF71000C6BF89 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DB11C4CF71000C6BF89 /* UIButton+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC71C4CF71000C6BF89 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DB41C4CF71000C6BF89 /* UIImageView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC81C4CF71000C6BF89 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DB71C4CF71000C6BF89 /* UIProgressView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DC91C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DB91C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DCA1C4CF71000C6BF89 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DBB1C4CF71000C6BF89 /* UIWebView+AFNetworking.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE11C4CF73400C6BF89 /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DCE1C4CF73400C6BF89 /* MJExtensionConst.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE21C4CF73400C6BF89 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DD01C4CF73400C6BF89 /* MJFoundation.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE31C4CF73400C6BF89 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DD21C4CF73400C6BF89 /* MJProperty.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE41C4CF73400C6BF89 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DD41C4CF73400C6BF89 /* MJPropertyKey.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE51C4CF73400C6BF89 /* MJPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DD61C4CF73400C6BF89 /* MJPropertyType.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE61C4CF73400C6BF89 /* NSObject+MJClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DD81C4CF73400C6BF89 /* NSObject+MJClass.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE71C4CF73400C6BF89 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DDA1C4CF73400C6BF89 /* NSObject+MJCoding.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE81C4CF73400C6BF89 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DDC1C4CF73400C6BF89 /* NSObject+MJKeyValue.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DE91C4CF73400C6BF89 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DDE1C4CF73400C6BF89 /* NSObject+MJProperty.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97DEA1C4CF73400C6BF89 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DE01C4CF73400C6BF89 /* NSString+MJExtension.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E361C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DEE1C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E371C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DF31C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E381C4CFAEF00C6BF89 /* NSString+ReqularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DF71C4CFAEF00C6BF89 /* NSString+ReqularExpression.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E391C4CFAEF00C6BF89 /* NSString+SQL.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DFA1C4CFAEF00C6BF89 /* NSString+SQL.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E3A1C4CFAEF00C6BF89 /* CTPersistanceCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97DFD1C4CFAEF00C6BF89 /* CTPersistanceCriteria.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E3B1C4CFAEF00C6BF89 /* CTPersistanceDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E031C4CFAEF00C6BF89 /* CTPersistanceDataBase.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E3C1C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E051C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E3D1C4CFAEF00C6BF89 /* CTPersistanceMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E081C4CFAEF00C6BF89 /* CTPersistanceMigrator.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E3E1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E0B1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E3F1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E0E1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E401C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E131C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E411C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E161C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E421C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E191C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E431C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E1C1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E441C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E1E1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E451C4CFAEF00C6BF89 /* CTPersistanceRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E211C4CFAEF00C6BF89 /* CTPersistanceRecord.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E461C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E271C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E471C4CFAEF00C6BF89 /* CTPersistanceTable+Find.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E2A1C4CFAEF00C6BF89 /* CTPersistanceTable+Find.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E481C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E2D1C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E491C4CFAEF00C6BF89 /* CTPersistanceTable+Update.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E301C4CFAEF00C6BF89 /* CTPersistanceTable+Update.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E4A1C4CFAEF00C6BF89 /* CTPersistanceTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E321C4CFAEF00C6BF89 /* CTPersistanceTable.m */; settings = {ASSET_TAGS = (); }; };
+		C4F97E4B1C4CFAEF00C6BF89 /* CTPersistanceTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F97E351C4CFAEF00C6BF89 /* CTPersistanceTransaction.m */; settings = {ASSET_TAGS = (); }; };
 		C4FBCA011C2FDE62001F68AD /* AidDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBCA001C2FDE62001F68AD /* AidDisplayTitleLabel.m */; settings = {ASSET_TAGS = (); }; };
 		C4FDD2C61C467EB0008F307B /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2A51C467EB0008F307B /* IQNSArray+Sort.m */; settings = {ASSET_TAGS = (); }; };
 		C4FDD2C71C467EB0008F307B /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2A71C467EB0008F307B /* IQUIScrollView+Additions.m */; settings = {ASSET_TAGS = (); }; };
@@ -1493,8 +1525,6 @@
 		C4FDD2DC1C4B9E36008F307B /* UIViewController+AidTakePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2DB1C4B9E35008F307B /* UIViewController+AidTakePicture.m */; settings = {ASSET_TAGS = (); }; };
 		C4FDD2DF1C4BC053008F307B /* AidAgendaChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2DE1C4BC053008F307B /* AidAgendaChildViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C4FDD2E21C4BC6C7008F307B /* AidAgendaTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2E11C4BC6C7008F307B /* AidAgendaTaskCell.m */; settings = {ASSET_TAGS = (); }; };
-		C4FDD2E51C4BC756008F307B /* AidAgendaRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2E41C4BC756008F307B /* AidAgendaRecord.m */; settings = {ASSET_TAGS = (); }; };
-		C4FDD2E81C4BC797008F307B /* AidAgendaTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2E71C4BC797008F307B /* AidAgendaTable.m */; settings = {ASSET_TAGS = (); }; };
 		C4FFE8C11C32E76400FBA403 /* AidCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FFE8C01C32E76400FBA403 /* AidCollectionViewFlowLayout.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -3098,52 +3128,6 @@
 		C46095771C1B25A900BA1CD0 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		C47633591C00348900DB909F /* LYZUIKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZUIKitMacro.h; sourceTree = "<group>"; };
 		C476335A1C003AC000DB909F /* AidPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidPrefixHeader.pch; sourceTree = "<group>"; };
-		C47633631C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CTPersistanceRecordTransform.h"; sourceTree = "<group>"; };
-		C47633641C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CTPersistanceRecordTransform.m"; sourceTree = "<group>"; };
-		C47633671C018F1600DB909F /* NSString+ReqularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ReqularExpression.h"; sourceTree = "<group>"; };
-		C47633681C018F1600DB909F /* NSString+ReqularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReqularExpression.m"; sourceTree = "<group>"; };
-		C476336A1C018F1600DB909F /* NSString+SQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SQL.h"; sourceTree = "<group>"; };
-		C476336B1C018F1600DB909F /* NSString+SQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SQL.m"; sourceTree = "<group>"; };
-		C476336D1C018F1600DB909F /* CTPersistanceCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceCriteria.h; sourceTree = "<group>"; };
-		C476336E1C018F1600DB909F /* CTPersistanceCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceCriteria.m; sourceTree = "<group>"; };
-		C476336F1C018F1600DB909F /* CTPersistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistance.h; sourceTree = "<group>"; };
-		C47633701C018F1600DB909F /* CTPersistanceConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceConfiguration.h; sourceTree = "<group>"; };
-		C47633711C018F1600DB909F /* CTPersistanceMarcos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceMarcos.h; sourceTree = "<group>"; };
-		C47633731C018F1600DB909F /* CTPersistanceDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceDataBase.h; sourceTree = "<group>"; };
-		C47633741C018F1600DB909F /* CTPersistanceDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceDataBase.m; sourceTree = "<group>"; };
-		C47633751C018F1600DB909F /* CTPersistanceDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceDatabasePool.h; sourceTree = "<group>"; };
-		C47633761C018F1600DB909F /* CTPersistanceDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceDatabasePool.m; sourceTree = "<group>"; };
-		C47633781C018F1600DB909F /* CTPersistanceMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceMigrator.h; sourceTree = "<group>"; };
-		C47633791C018F1600DB909F /* CTPersistanceMigrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceMigrator.m; sourceTree = "<group>"; };
-		C476337B1C018F1600DB909F /* CTPersistanceVersionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceVersionTable.h; sourceTree = "<group>"; };
-		C476337C1C018F1600DB909F /* CTPersistanceVersionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceVersionTable.m; sourceTree = "<group>"; };
-		C476337E1C018F1600DB909F /* CTPersistanceVersionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceVersionRecord.h; sourceTree = "<group>"; };
-		C476337F1C018F1600DB909F /* CTPersistanceVersionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceVersionRecord.m; sourceTree = "<group>"; };
-		C47633831C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+DataManipulations.h"; sourceTree = "<group>"; };
-		C47633841C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+DataManipulations.m"; sourceTree = "<group>"; };
-		C47633861C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+ReadMethods.h"; sourceTree = "<group>"; };
-		C47633871C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+ReadMethods.m"; sourceTree = "<group>"; };
-		C47633891C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+SchemaManipulations.h"; sourceTree = "<group>"; };
-		C476338A1C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+SchemaManipulations.m"; sourceTree = "<group>"; };
-		C476338C1C018F1600DB909F /* CTPersistanceQueryCommand+Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+Status.h"; sourceTree = "<group>"; };
-		C476338D1C018F1600DB909F /* CTPersistanceQueryCommand+Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+Status.m"; sourceTree = "<group>"; };
-		C476338E1C018F1600DB909F /* CTPersistanceQueryCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceQueryCommand.h; sourceTree = "<group>"; };
-		C476338F1C018F1600DB909F /* CTPersistanceQueryCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceQueryCommand.m; sourceTree = "<group>"; };
-		C47633911C018F1600DB909F /* CTPersistanceRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceRecord.h; sourceTree = "<group>"; };
-		C47633921C018F1600DB909F /* CTPersistanceRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceRecord.m; sourceTree = "<group>"; };
-		C47633931C018F1600DB909F /* CTPersistanceRecordProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceRecordProtocol.h; sourceTree = "<group>"; };
-		C47633971C018F1600DB909F /* CTPersistanceTable+Delete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Delete.h"; sourceTree = "<group>"; };
-		C47633981C018F1600DB909F /* CTPersistanceTable+Delete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Delete.m"; sourceTree = "<group>"; };
-		C476339A1C018F1600DB909F /* CTPersistanceTable+Find.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Find.h"; sourceTree = "<group>"; };
-		C476339B1C018F1600DB909F /* CTPersistanceTable+Find.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Find.m"; sourceTree = "<group>"; };
-		C476339D1C018F1600DB909F /* CTPersistanceTable+Insert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Insert.h"; sourceTree = "<group>"; };
-		C476339E1C018F1600DB909F /* CTPersistanceTable+Insert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Insert.m"; sourceTree = "<group>"; };
-		C47633A01C018F1600DB909F /* CTPersistanceTable+Update.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Update.h"; sourceTree = "<group>"; };
-		C47633A11C018F1600DB909F /* CTPersistanceTable+Update.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Update.m"; sourceTree = "<group>"; };
-		C47633A21C018F1600DB909F /* CTPersistanceTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceTable.h; sourceTree = "<group>"; };
-		C47633A31C018F1600DB909F /* CTPersistanceTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceTable.m; sourceTree = "<group>"; };
-		C47633A51C018F1600DB909F /* CTPersistanceTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceTransaction.h; sourceTree = "<group>"; };
-		C47633A61C018F1600DB909F /* CTPersistanceTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceTransaction.m; sourceTree = "<group>"; };
 		C47633BC1C01BBAE00DB909F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C47633C41C01F9AE00DB909F /* AidTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidTaskViewController.h; sourceTree = "<group>"; };
 		C47633C51C01F9AE00DB909F /* AidTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidTaskViewController.m; sourceTree = "<group>"; };
@@ -3198,6 +3182,121 @@
 		C4F3AFBA1BF0ED65001C2D86 /* AidTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidTabBarButton.m; sourceTree = "<group>"; };
 		C4F718831C2CEBBB00E62387 /* AidOperateTaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidOperateTaskView.h; sourceTree = "<group>"; };
 		C4F718841C2CEBBB00E62387 /* AidOperateTaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidOperateTaskView.m; sourceTree = "<group>"; };
+		C4F97D851C4CF6D300C6BF89 /* AidAgendaRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaRecord.h; sourceTree = "<group>"; };
+		C4F97D861C4CF6D300C6BF89 /* AidAgendaRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaRecord.m; sourceTree = "<group>"; };
+		C4F97D871C4CF6D300C6BF89 /* AidAgendaTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaTable.h; sourceTree = "<group>"; };
+		C4F97D881C4CF6D300C6BF89 /* AidAgendaTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaTable.m; sourceTree = "<group>"; };
+		C4F97D891C4CF6D300C6BF89 /* AidAgendaTaskRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaTaskRecord.h; sourceTree = "<group>"; };
+		C4F97D8A1C4CF6D300C6BF89 /* AidAgendaTaskRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaTaskRecord.m; sourceTree = "<group>"; };
+		C4F97D8B1C4CF6D300C6BF89 /* AidAgendaTaskTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaTaskTable.h; sourceTree = "<group>"; };
+		C4F97D8C1C4CF6D300C6BF89 /* AidAgendaTaskTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaTaskTable.m; sourceTree = "<group>"; };
+		C4F97D8D1C4CF6D300C6BF89 /* AidAgendaThemeRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaThemeRecord.h; sourceTree = "<group>"; };
+		C4F97D8E1C4CF6D300C6BF89 /* AidAgendaThemeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaThemeRecord.m; sourceTree = "<group>"; };
+		C4F97D8F1C4CF6D300C6BF89 /* AidAgendaThemeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaThemeTable.h; sourceTree = "<group>"; };
+		C4F97D901C4CF6D300C6BF89 /* AidAgendaThemeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaThemeTable.m; sourceTree = "<group>"; };
+		C4F97D991C4CF71000C6BF89 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		C4F97D9A1C4CF71000C6BF89 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		C4F97D9B1C4CF71000C6BF89 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		C4F97D9C1C4CF71000C6BF89 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		C4F97D9D1C4CF71000C6BF89 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		C4F97D9E1C4CF71000C6BF89 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		C4F97D9F1C4CF71000C6BF89 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		C4F97DA01C4CF71000C6BF89 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		C4F97DA11C4CF71000C6BF89 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		C4F97DA21C4CF71000C6BF89 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		C4F97DA31C4CF71000C6BF89 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		C4F97DA41C4CF71000C6BF89 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		C4F97DA51C4CF71000C6BF89 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		C4F97DA61C4CF71000C6BF89 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		C4F97DA81C4CF71000C6BF89 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
+		C4F97DA91C4CF71000C6BF89 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAutoPurgingImageCache.m; sourceTree = "<group>"; };
+		C4F97DAA1C4CF71000C6BF89 /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
+		C4F97DAB1C4CF71000C6BF89 /* AFImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageDownloader.m; sourceTree = "<group>"; };
+		C4F97DAC1C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		C4F97DAD1C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		C4F97DAE1C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DAF1C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		C4F97DB01C4CF71000C6BF89 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DB11C4CF71000C6BF89 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		C4F97DB21C4CF71000C6BF89 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DB31C4CF71000C6BF89 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DB41C4CF71000C6BF89 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		C4F97DB51C4CF71000C6BF89 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DB61C4CF71000C6BF89 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DB71C4CF71000C6BF89 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		C4F97DB81C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DB91C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		C4F97DBA1C4CF71000C6BF89 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		C4F97DBB1C4CF71000C6BF89 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		C4F97DCC1C4CF73400C6BF89 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		C4F97DCD1C4CF73400C6BF89 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
+		C4F97DCE1C4CF73400C6BF89 /* MJExtensionConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConst.m; sourceTree = "<group>"; };
+		C4F97DCF1C4CF73400C6BF89 /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		C4F97DD01C4CF73400C6BF89 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		C4F97DD11C4CF73400C6BF89 /* MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		C4F97DD21C4CF73400C6BF89 /* MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJProperty.m; sourceTree = "<group>"; };
+		C4F97DD31C4CF73400C6BF89 /* MJPropertyKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyKey.h; sourceTree = "<group>"; };
+		C4F97DD41C4CF73400C6BF89 /* MJPropertyKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyKey.m; sourceTree = "<group>"; };
+		C4F97DD51C4CF73400C6BF89 /* MJPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPropertyType.h; sourceTree = "<group>"; };
+		C4F97DD61C4CF73400C6BF89 /* MJPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPropertyType.m; sourceTree = "<group>"; };
+		C4F97DD71C4CF73400C6BF89 /* NSObject+MJClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJClass.h"; sourceTree = "<group>"; };
+		C4F97DD81C4CF73400C6BF89 /* NSObject+MJClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJClass.m"; sourceTree = "<group>"; };
+		C4F97DD91C4CF73400C6BF89 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		C4F97DDA1C4CF73400C6BF89 /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		C4F97DDB1C4CF73400C6BF89 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		C4F97DDC1C4CF73400C6BF89 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		C4F97DDD1C4CF73400C6BF89 /* NSObject+MJProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJProperty.h"; sourceTree = "<group>"; };
+		C4F97DDE1C4CF73400C6BF89 /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
+		C4F97DDF1C4CF73400C6BF89 /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
+		C4F97DE01C4CF73400C6BF89 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		C4F97DED1C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceAsyncExecutor.h; sourceTree = "<group>"; };
+		C4F97DEE1C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceAsyncExecutor.m; sourceTree = "<group>"; };
+		C4F97DF21C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CTPersistanceRecordTransform.h"; sourceTree = "<group>"; };
+		C4F97DF31C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CTPersistanceRecordTransform.m"; sourceTree = "<group>"; };
+		C4F97DF61C4CFAEF00C6BF89 /* NSString+ReqularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ReqularExpression.h"; sourceTree = "<group>"; };
+		C4F97DF71C4CFAEF00C6BF89 /* NSString+ReqularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReqularExpression.m"; sourceTree = "<group>"; };
+		C4F97DF91C4CFAEF00C6BF89 /* NSString+SQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SQL.h"; sourceTree = "<group>"; };
+		C4F97DFA1C4CFAEF00C6BF89 /* NSString+SQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SQL.m"; sourceTree = "<group>"; };
+		C4F97DFC1C4CFAEF00C6BF89 /* CTPersistanceCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceCriteria.h; sourceTree = "<group>"; };
+		C4F97DFD1C4CFAEF00C6BF89 /* CTPersistanceCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceCriteria.m; sourceTree = "<group>"; };
+		C4F97DFE1C4CFAEF00C6BF89 /* CTPersistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistance.h; sourceTree = "<group>"; };
+		C4F97DFF1C4CFAEF00C6BF89 /* CTPersistanceConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceConfiguration.h; sourceTree = "<group>"; };
+		C4F97E001C4CFAEF00C6BF89 /* CTPersistanceMarcos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceMarcos.h; sourceTree = "<group>"; };
+		C4F97E021C4CFAEF00C6BF89 /* CTPersistanceDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceDataBase.h; sourceTree = "<group>"; };
+		C4F97E031C4CFAEF00C6BF89 /* CTPersistanceDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceDataBase.m; sourceTree = "<group>"; };
+		C4F97E041C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceDatabasePool.h; sourceTree = "<group>"; };
+		C4F97E051C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceDatabasePool.m; sourceTree = "<group>"; };
+		C4F97E071C4CFAEF00C6BF89 /* CTPersistanceMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceMigrator.h; sourceTree = "<group>"; };
+		C4F97E081C4CFAEF00C6BF89 /* CTPersistanceMigrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceMigrator.m; sourceTree = "<group>"; };
+		C4F97E0A1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceVersionTable.h; sourceTree = "<group>"; };
+		C4F97E0B1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceVersionTable.m; sourceTree = "<group>"; };
+		C4F97E0D1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceVersionRecord.h; sourceTree = "<group>"; };
+		C4F97E0E1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceVersionRecord.m; sourceTree = "<group>"; };
+		C4F97E121C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+DataManipulations.h"; sourceTree = "<group>"; };
+		C4F97E131C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+DataManipulations.m"; sourceTree = "<group>"; };
+		C4F97E151C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+ReadMethods.h"; sourceTree = "<group>"; };
+		C4F97E161C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+ReadMethods.m"; sourceTree = "<group>"; };
+		C4F97E181C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+SchemaManipulations.h"; sourceTree = "<group>"; };
+		C4F97E191C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+SchemaManipulations.m"; sourceTree = "<group>"; };
+		C4F97E1B1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceQueryCommand+Status.h"; sourceTree = "<group>"; };
+		C4F97E1C1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceQueryCommand+Status.m"; sourceTree = "<group>"; };
+		C4F97E1D1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceQueryCommand.h; sourceTree = "<group>"; };
+		C4F97E1E1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceQueryCommand.m; sourceTree = "<group>"; };
+		C4F97E201C4CFAEF00C6BF89 /* CTPersistanceRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceRecord.h; sourceTree = "<group>"; };
+		C4F97E211C4CFAEF00C6BF89 /* CTPersistanceRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceRecord.m; sourceTree = "<group>"; };
+		C4F97E221C4CFAEF00C6BF89 /* CTPersistanceRecordProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceRecordProtocol.h; sourceTree = "<group>"; };
+		C4F97E261C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Delete.h"; sourceTree = "<group>"; };
+		C4F97E271C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Delete.m"; sourceTree = "<group>"; };
+		C4F97E291C4CFAEF00C6BF89 /* CTPersistanceTable+Find.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Find.h"; sourceTree = "<group>"; };
+		C4F97E2A1C4CFAEF00C6BF89 /* CTPersistanceTable+Find.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Find.m"; sourceTree = "<group>"; };
+		C4F97E2C1C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Insert.h"; sourceTree = "<group>"; };
+		C4F97E2D1C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Insert.m"; sourceTree = "<group>"; };
+		C4F97E2F1C4CFAEF00C6BF89 /* CTPersistanceTable+Update.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTPersistanceTable+Update.h"; sourceTree = "<group>"; };
+		C4F97E301C4CFAEF00C6BF89 /* CTPersistanceTable+Update.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTPersistanceTable+Update.m"; sourceTree = "<group>"; };
+		C4F97E311C4CFAEF00C6BF89 /* CTPersistanceTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceTable.h; sourceTree = "<group>"; };
+		C4F97E321C4CFAEF00C6BF89 /* CTPersistanceTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceTable.m; sourceTree = "<group>"; };
+		C4F97E341C4CFAEF00C6BF89 /* CTPersistanceTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceTransaction.h; sourceTree = "<group>"; };
+		C4F97E351C4CFAEF00C6BF89 /* CTPersistanceTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceTransaction.m; sourceTree = "<group>"; };
 		C4FBC9FF1C2FDE62001F68AD /* AidDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDisplayTitleLabel.h; sourceTree = "<group>"; };
 		C4FBCA001C2FDE62001F68AD /* AidDisplayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDisplayTitleLabel.m; sourceTree = "<group>"; };
 		C4FDD2A41C467EB0008F307B /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -3240,10 +3339,6 @@
 		C4FDD2DE1C4BC053008F307B /* AidAgendaChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaChildViewController.m; sourceTree = "<group>"; };
 		C4FDD2E01C4BC6C7008F307B /* AidAgendaTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaTaskCell.h; sourceTree = "<group>"; };
 		C4FDD2E11C4BC6C7008F307B /* AidAgendaTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaTaskCell.m; sourceTree = "<group>"; };
-		C4FDD2E31C4BC756008F307B /* AidAgendaRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaRecord.h; sourceTree = "<group>"; };
-		C4FDD2E41C4BC756008F307B /* AidAgendaRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaRecord.m; sourceTree = "<group>"; };
-		C4FDD2E61C4BC797008F307B /* AidAgendaTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaTable.h; sourceTree = "<group>"; };
-		C4FDD2E71C4BC797008F307B /* AidAgendaTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaTable.m; sourceTree = "<group>"; };
 		C4FFE8BF1C32E76400FBA403 /* AidCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		C4FFE8C01C32E76400FBA403 /* AidCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -5064,12 +5159,14 @@
 		C44D53FB1BAD8BF30035E9B2 /* Vendor(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				C4F97DEB1C4CFAEF00C6BF89 /* CTPersistance */,
+				C4F97DCB1C4CF73400C6BF89 /* MJExtension */,
+				C4F97D971C4CF71000C6BF89 /* AFNetworking */,
 				C4FDD2A21C467EB0008F307B /* IQKeyBoardManager */,
 				C41BAFC61C20428C009F51C4 /* MGSwipeTableCell */,
 				C41BAF501C1D9D53009F51C4 /* MJRefresh */,
 				C41BAF7D1C1D9D53009F51C4 /* SDWebImage */,
 				C460955D1C1B25A900BA1CD0 /* Masonry */,
-				C476335F1C018F1600DB909F /* CTPersistance */,
 				C44D54171BAD8F2F0035E9B2 /* XLForm */,
 				C460954C1C1B1E2700BA1CD0 /* LYZExpand */,
 			);
@@ -5240,10 +5337,18 @@
 		C44D553B1BAD8F520035E9B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4FDD2E31C4BC756008F307B /* AidAgendaRecord.h */,
-				C4FDD2E41C4BC756008F307B /* AidAgendaRecord.m */,
-				C4FDD2E61C4BC797008F307B /* AidAgendaTable.h */,
-				C4FDD2E71C4BC797008F307B /* AidAgendaTable.m */,
+				C4F97D851C4CF6D300C6BF89 /* AidAgendaRecord.h */,
+				C4F97D861C4CF6D300C6BF89 /* AidAgendaRecord.m */,
+				C4F97D871C4CF6D300C6BF89 /* AidAgendaTable.h */,
+				C4F97D881C4CF6D300C6BF89 /* AidAgendaTable.m */,
+				C4F97D891C4CF6D300C6BF89 /* AidAgendaTaskRecord.h */,
+				C4F97D8A1C4CF6D300C6BF89 /* AidAgendaTaskRecord.m */,
+				C4F97D8B1C4CF6D300C6BF89 /* AidAgendaTaskTable.h */,
+				C4F97D8C1C4CF6D300C6BF89 /* AidAgendaTaskTable.m */,
+				C4F97D8D1C4CF6D300C6BF89 /* AidAgendaThemeRecord.h */,
+				C4F97D8E1C4CF6D300C6BF89 /* AidAgendaThemeRecord.m */,
+				C4F97D8F1C4CF6D300C6BF89 /* AidAgendaThemeTable.h */,
+				C4F97D901C4CF6D300C6BF89 /* AidAgendaThemeTable.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5448,259 +5553,6 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		C476335F1C018F1600DB909F /* CTPersistance */ = {
-			isa = PBXGroup;
-			children = (
-				C47633601C018F1600DB909F /* Categories */,
-				C476336C1C018F1600DB909F /* Criteria */,
-				C476336F1C018F1600DB909F /* CTPersistance.h */,
-				C47633701C018F1600DB909F /* CTPersistanceConfiguration.h */,
-				C47633711C018F1600DB909F /* CTPersistanceMarcos.h */,
-				C47633721C018F1600DB909F /* Database */,
-				C47633771C018F1600DB909F /* Migration */,
-				C47633801C018F1600DB909F /* QueryCommand */,
-				C47633901C018F1600DB909F /* Record */,
-				C47633941C018F1600DB909F /* Table */,
-				C47633A41C018F1600DB909F /* Transaction */,
-			);
-			path = CTPersistance;
-			sourceTree = "<group>";
-		};
-		C47633601C018F1600DB909F /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				C47633611C018F1600DB909F /* NSArray */,
-				C47633651C018F1600DB909F /* NSString */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		C47633611C018F1600DB909F /* NSArray */ = {
-			isa = PBXGroup;
-			children = (
-				C47633621C018F1600DB909F /* CTPersistanceRecordTransform */,
-			);
-			path = NSArray;
-			sourceTree = "<group>";
-		};
-		C47633621C018F1600DB909F /* CTPersistanceRecordTransform */ = {
-			isa = PBXGroup;
-			children = (
-				C47633631C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.h */,
-				C47633641C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.m */,
-			);
-			path = CTPersistanceRecordTransform;
-			sourceTree = "<group>";
-		};
-		C47633651C018F1600DB909F /* NSString */ = {
-			isa = PBXGroup;
-			children = (
-				C47633661C018F1600DB909F /* ReqularExpression */,
-				C47633691C018F1600DB909F /* SQL */,
-			);
-			path = NSString;
-			sourceTree = "<group>";
-		};
-		C47633661C018F1600DB909F /* ReqularExpression */ = {
-			isa = PBXGroup;
-			children = (
-				C47633671C018F1600DB909F /* NSString+ReqularExpression.h */,
-				C47633681C018F1600DB909F /* NSString+ReqularExpression.m */,
-			);
-			path = ReqularExpression;
-			sourceTree = "<group>";
-		};
-		C47633691C018F1600DB909F /* SQL */ = {
-			isa = PBXGroup;
-			children = (
-				C476336A1C018F1600DB909F /* NSString+SQL.h */,
-				C476336B1C018F1600DB909F /* NSString+SQL.m */,
-			);
-			path = SQL;
-			sourceTree = "<group>";
-		};
-		C476336C1C018F1600DB909F /* Criteria */ = {
-			isa = PBXGroup;
-			children = (
-				C476336D1C018F1600DB909F /* CTPersistanceCriteria.h */,
-				C476336E1C018F1600DB909F /* CTPersistanceCriteria.m */,
-			);
-			path = Criteria;
-			sourceTree = "<group>";
-		};
-		C47633721C018F1600DB909F /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				C47633731C018F1600DB909F /* CTPersistanceDataBase.h */,
-				C47633741C018F1600DB909F /* CTPersistanceDataBase.m */,
-				C47633751C018F1600DB909F /* CTPersistanceDatabasePool.h */,
-				C47633761C018F1600DB909F /* CTPersistanceDatabasePool.m */,
-			);
-			path = Database;
-			sourceTree = "<group>";
-		};
-		C47633771C018F1600DB909F /* Migration */ = {
-			isa = PBXGroup;
-			children = (
-				C47633781C018F1600DB909F /* CTPersistanceMigrator.h */,
-				C47633791C018F1600DB909F /* CTPersistanceMigrator.m */,
-				C476337A1C018F1600DB909F /* MigrationVersionTable */,
-			);
-			path = Migration;
-			sourceTree = "<group>";
-		};
-		C476337A1C018F1600DB909F /* MigrationVersionTable */ = {
-			isa = PBXGroup;
-			children = (
-				C476337B1C018F1600DB909F /* CTPersistanceVersionTable.h */,
-				C476337C1C018F1600DB909F /* CTPersistanceVersionTable.m */,
-				C476337D1C018F1600DB909F /* Record */,
-			);
-			path = MigrationVersionTable;
-			sourceTree = "<group>";
-		};
-		C476337D1C018F1600DB909F /* Record */ = {
-			isa = PBXGroup;
-			children = (
-				C476337E1C018F1600DB909F /* CTPersistanceVersionRecord.h */,
-				C476337F1C018F1600DB909F /* CTPersistanceVersionRecord.m */,
-			);
-			path = Record;
-			sourceTree = "<group>";
-		};
-		C47633801C018F1600DB909F /* QueryCommand */ = {
-			isa = PBXGroup;
-			children = (
-				C47633811C018F1600DB909F /* Categories */,
-				C476338E1C018F1600DB909F /* CTPersistanceQueryCommand.h */,
-				C476338F1C018F1600DB909F /* CTPersistanceQueryCommand.m */,
-			);
-			path = QueryCommand;
-			sourceTree = "<group>";
-		};
-		C47633811C018F1600DB909F /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				C47633821C018F1600DB909F /* DataManipulations */,
-				C47633851C018F1600DB909F /* ReadingMethods */,
-				C47633881C018F1600DB909F /* SchemaManipulations */,
-				C476338B1C018F1600DB909F /* StatusMethods */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		C47633821C018F1600DB909F /* DataManipulations */ = {
-			isa = PBXGroup;
-			children = (
-				C47633831C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.h */,
-				C47633841C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.m */,
-			);
-			path = DataManipulations;
-			sourceTree = "<group>";
-		};
-		C47633851C018F1600DB909F /* ReadingMethods */ = {
-			isa = PBXGroup;
-			children = (
-				C47633861C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.h */,
-				C47633871C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.m */,
-			);
-			path = ReadingMethods;
-			sourceTree = "<group>";
-		};
-		C47633881C018F1600DB909F /* SchemaManipulations */ = {
-			isa = PBXGroup;
-			children = (
-				C47633891C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.h */,
-				C476338A1C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.m */,
-			);
-			path = SchemaManipulations;
-			sourceTree = "<group>";
-		};
-		C476338B1C018F1600DB909F /* StatusMethods */ = {
-			isa = PBXGroup;
-			children = (
-				C476338C1C018F1600DB909F /* CTPersistanceQueryCommand+Status.h */,
-				C476338D1C018F1600DB909F /* CTPersistanceQueryCommand+Status.m */,
-			);
-			path = StatusMethods;
-			sourceTree = "<group>";
-		};
-		C47633901C018F1600DB909F /* Record */ = {
-			isa = PBXGroup;
-			children = (
-				C47633911C018F1600DB909F /* CTPersistanceRecord.h */,
-				C47633921C018F1600DB909F /* CTPersistanceRecord.m */,
-				C47633931C018F1600DB909F /* CTPersistanceRecordProtocol.h */,
-			);
-			path = Record;
-			sourceTree = "<group>";
-		};
-		C47633941C018F1600DB909F /* Table */ = {
-			isa = PBXGroup;
-			children = (
-				C47633951C018F1600DB909F /* Categories */,
-				C47633A21C018F1600DB909F /* CTPersistanceTable.h */,
-				C47633A31C018F1600DB909F /* CTPersistanceTable.m */,
-			);
-			path = Table;
-			sourceTree = "<group>";
-		};
-		C47633951C018F1600DB909F /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				C47633961C018F1600DB909F /* Delete */,
-				C47633991C018F1600DB909F /* Find */,
-				C476339C1C018F1600DB909F /* Insert */,
-				C476339F1C018F1600DB909F /* Update */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		C47633961C018F1600DB909F /* Delete */ = {
-			isa = PBXGroup;
-			children = (
-				C47633971C018F1600DB909F /* CTPersistanceTable+Delete.h */,
-				C47633981C018F1600DB909F /* CTPersistanceTable+Delete.m */,
-			);
-			path = Delete;
-			sourceTree = "<group>";
-		};
-		C47633991C018F1600DB909F /* Find */ = {
-			isa = PBXGroup;
-			children = (
-				C476339A1C018F1600DB909F /* CTPersistanceTable+Find.h */,
-				C476339B1C018F1600DB909F /* CTPersistanceTable+Find.m */,
-			);
-			path = Find;
-			sourceTree = "<group>";
-		};
-		C476339C1C018F1600DB909F /* Insert */ = {
-			isa = PBXGroup;
-			children = (
-				C476339D1C018F1600DB909F /* CTPersistanceTable+Insert.h */,
-				C476339E1C018F1600DB909F /* CTPersistanceTable+Insert.m */,
-			);
-			path = Insert;
-			sourceTree = "<group>";
-		};
-		C476339F1C018F1600DB909F /* Update */ = {
-			isa = PBXGroup;
-			children = (
-				C47633A01C018F1600DB909F /* CTPersistanceTable+Update.h */,
-				C47633A11C018F1600DB909F /* CTPersistanceTable+Update.m */,
-			);
-			path = Update;
-			sourceTree = "<group>";
-		};
-		C47633A41C018F1600DB909F /* Transaction */ = {
-			isa = PBXGroup;
-			children = (
-				C47633A51C018F1600DB909F /* CTPersistanceTransaction.h */,
-				C47633A61C018F1600DB909F /* CTPersistanceTransaction.m */,
-			);
-			path = Transaction;
-			sourceTree = "<group>";
-		};
 		C47633F31C07582900DB909F /* Mine(我的) */ = {
 			isa = PBXGroup;
 			children = (
@@ -5732,6 +5584,354 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C4F97D971C4CF71000C6BF89 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97D981C4CF71000C6BF89 /* AFNetworking */,
+				C4F97DA61C4CF71000C6BF89 /* AFNetworking.h */,
+				C4F97DA71C4CF71000C6BF89 /* UIKit+AFNetworking */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		C4F97D981C4CF71000C6BF89 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97D991C4CF71000C6BF89 /* AFHTTPSessionManager.h */,
+				C4F97D9A1C4CF71000C6BF89 /* AFHTTPSessionManager.m */,
+				C4F97D9B1C4CF71000C6BF89 /* AFNetworking.h */,
+				C4F97D9C1C4CF71000C6BF89 /* AFNetworkReachabilityManager.h */,
+				C4F97D9D1C4CF71000C6BF89 /* AFNetworkReachabilityManager.m */,
+				C4F97D9E1C4CF71000C6BF89 /* AFSecurityPolicy.h */,
+				C4F97D9F1C4CF71000C6BF89 /* AFSecurityPolicy.m */,
+				C4F97DA01C4CF71000C6BF89 /* AFURLRequestSerialization.h */,
+				C4F97DA11C4CF71000C6BF89 /* AFURLRequestSerialization.m */,
+				C4F97DA21C4CF71000C6BF89 /* AFURLResponseSerialization.h */,
+				C4F97DA31C4CF71000C6BF89 /* AFURLResponseSerialization.m */,
+				C4F97DA41C4CF71000C6BF89 /* AFURLSessionManager.h */,
+				C4F97DA51C4CF71000C6BF89 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		C4F97DA71C4CF71000C6BF89 /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DA81C4CF71000C6BF89 /* AFAutoPurgingImageCache.h */,
+				C4F97DA91C4CF71000C6BF89 /* AFAutoPurgingImageCache.m */,
+				C4F97DAA1C4CF71000C6BF89 /* AFImageDownloader.h */,
+				C4F97DAB1C4CF71000C6BF89 /* AFImageDownloader.m */,
+				C4F97DAC1C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.h */,
+				C4F97DAD1C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.m */,
+				C4F97DAE1C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.h */,
+				C4F97DAF1C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.m */,
+				C4F97DB01C4CF71000C6BF89 /* UIButton+AFNetworking.h */,
+				C4F97DB11C4CF71000C6BF89 /* UIButton+AFNetworking.m */,
+				C4F97DB21C4CF71000C6BF89 /* UIImage+AFNetworking.h */,
+				C4F97DB31C4CF71000C6BF89 /* UIImageView+AFNetworking.h */,
+				C4F97DB41C4CF71000C6BF89 /* UIImageView+AFNetworking.m */,
+				C4F97DB51C4CF71000C6BF89 /* UIKit+AFNetworking.h */,
+				C4F97DB61C4CF71000C6BF89 /* UIProgressView+AFNetworking.h */,
+				C4F97DB71C4CF71000C6BF89 /* UIProgressView+AFNetworking.m */,
+				C4F97DB81C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.h */,
+				C4F97DB91C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.m */,
+				C4F97DBA1C4CF71000C6BF89 /* UIWebView+AFNetworking.h */,
+				C4F97DBB1C4CF71000C6BF89 /* UIWebView+AFNetworking.m */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		C4F97DCB1C4CF73400C6BF89 /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DCC1C4CF73400C6BF89 /* MJExtension.h */,
+				C4F97DCD1C4CF73400C6BF89 /* MJExtensionConst.h */,
+				C4F97DCE1C4CF73400C6BF89 /* MJExtensionConst.m */,
+				C4F97DCF1C4CF73400C6BF89 /* MJFoundation.h */,
+				C4F97DD01C4CF73400C6BF89 /* MJFoundation.m */,
+				C4F97DD11C4CF73400C6BF89 /* MJProperty.h */,
+				C4F97DD21C4CF73400C6BF89 /* MJProperty.m */,
+				C4F97DD31C4CF73400C6BF89 /* MJPropertyKey.h */,
+				C4F97DD41C4CF73400C6BF89 /* MJPropertyKey.m */,
+				C4F97DD51C4CF73400C6BF89 /* MJPropertyType.h */,
+				C4F97DD61C4CF73400C6BF89 /* MJPropertyType.m */,
+				C4F97DD71C4CF73400C6BF89 /* NSObject+MJClass.h */,
+				C4F97DD81C4CF73400C6BF89 /* NSObject+MJClass.m */,
+				C4F97DD91C4CF73400C6BF89 /* NSObject+MJCoding.h */,
+				C4F97DDA1C4CF73400C6BF89 /* NSObject+MJCoding.m */,
+				C4F97DDB1C4CF73400C6BF89 /* NSObject+MJKeyValue.h */,
+				C4F97DDC1C4CF73400C6BF89 /* NSObject+MJKeyValue.m */,
+				C4F97DDD1C4CF73400C6BF89 /* NSObject+MJProperty.h */,
+				C4F97DDE1C4CF73400C6BF89 /* NSObject+MJProperty.m */,
+				C4F97DDF1C4CF73400C6BF89 /* NSString+MJExtension.h */,
+				C4F97DE01C4CF73400C6BF89 /* NSString+MJExtension.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		C4F97DEB1C4CFAEF00C6BF89 /* CTPersistance */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DEC1C4CFAEF00C6BF89 /* Async */,
+				C4F97DEF1C4CFAEF00C6BF89 /* Categories */,
+				C4F97DFB1C4CFAEF00C6BF89 /* Criteria */,
+				C4F97DFE1C4CFAEF00C6BF89 /* CTPersistance.h */,
+				C4F97DFF1C4CFAEF00C6BF89 /* CTPersistanceConfiguration.h */,
+				C4F97E001C4CFAEF00C6BF89 /* CTPersistanceMarcos.h */,
+				C4F97E011C4CFAEF00C6BF89 /* Database */,
+				C4F97E061C4CFAEF00C6BF89 /* Migration */,
+				C4F97E0F1C4CFAEF00C6BF89 /* QueryCommand */,
+				C4F97E1F1C4CFAEF00C6BF89 /* Record */,
+				C4F97E231C4CFAEF00C6BF89 /* Table */,
+				C4F97E331C4CFAEF00C6BF89 /* Transaction */,
+			);
+			path = CTPersistance;
+			sourceTree = "<group>";
+		};
+		C4F97DEC1C4CFAEF00C6BF89 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DED1C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.h */,
+				C4F97DEE1C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.m */,
+			);
+			path = Async;
+			sourceTree = "<group>";
+		};
+		C4F97DEF1C4CFAEF00C6BF89 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DF01C4CFAEF00C6BF89 /* NSArray */,
+				C4F97DF41C4CFAEF00C6BF89 /* NSString */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C4F97DF01C4CFAEF00C6BF89 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DF11C4CFAEF00C6BF89 /* CTPersistanceRecordTransform */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
+		C4F97DF11C4CFAEF00C6BF89 /* CTPersistanceRecordTransform */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DF21C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.h */,
+				C4F97DF31C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.m */,
+			);
+			path = CTPersistanceRecordTransform;
+			sourceTree = "<group>";
+		};
+		C4F97DF41C4CFAEF00C6BF89 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DF51C4CFAEF00C6BF89 /* ReqularExpression */,
+				C4F97DF81C4CFAEF00C6BF89 /* SQL */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		C4F97DF51C4CFAEF00C6BF89 /* ReqularExpression */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DF61C4CFAEF00C6BF89 /* NSString+ReqularExpression.h */,
+				C4F97DF71C4CFAEF00C6BF89 /* NSString+ReqularExpression.m */,
+			);
+			path = ReqularExpression;
+			sourceTree = "<group>";
+		};
+		C4F97DF81C4CFAEF00C6BF89 /* SQL */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DF91C4CFAEF00C6BF89 /* NSString+SQL.h */,
+				C4F97DFA1C4CFAEF00C6BF89 /* NSString+SQL.m */,
+			);
+			path = SQL;
+			sourceTree = "<group>";
+		};
+		C4F97DFB1C4CFAEF00C6BF89 /* Criteria */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97DFC1C4CFAEF00C6BF89 /* CTPersistanceCriteria.h */,
+				C4F97DFD1C4CFAEF00C6BF89 /* CTPersistanceCriteria.m */,
+			);
+			path = Criteria;
+			sourceTree = "<group>";
+		};
+		C4F97E011C4CFAEF00C6BF89 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E021C4CFAEF00C6BF89 /* CTPersistanceDataBase.h */,
+				C4F97E031C4CFAEF00C6BF89 /* CTPersistanceDataBase.m */,
+				C4F97E041C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.h */,
+				C4F97E051C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		C4F97E061C4CFAEF00C6BF89 /* Migration */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E071C4CFAEF00C6BF89 /* CTPersistanceMigrator.h */,
+				C4F97E081C4CFAEF00C6BF89 /* CTPersistanceMigrator.m */,
+				C4F97E091C4CFAEF00C6BF89 /* MigrationVersionTable */,
+			);
+			path = Migration;
+			sourceTree = "<group>";
+		};
+		C4F97E091C4CFAEF00C6BF89 /* MigrationVersionTable */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E0A1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.h */,
+				C4F97E0B1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.m */,
+				C4F97E0C1C4CFAEF00C6BF89 /* Record */,
+			);
+			path = MigrationVersionTable;
+			sourceTree = "<group>";
+		};
+		C4F97E0C1C4CFAEF00C6BF89 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E0D1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.h */,
+				C4F97E0E1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		C4F97E0F1C4CFAEF00C6BF89 /* QueryCommand */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E101C4CFAEF00C6BF89 /* Categories */,
+				C4F97E1D1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.h */,
+				C4F97E1E1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.m */,
+			);
+			path = QueryCommand;
+			sourceTree = "<group>";
+		};
+		C4F97E101C4CFAEF00C6BF89 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E111C4CFAEF00C6BF89 /* DataManipulations */,
+				C4F97E141C4CFAEF00C6BF89 /* ReadingMethods */,
+				C4F97E171C4CFAEF00C6BF89 /* SchemaManipulations */,
+				C4F97E1A1C4CFAEF00C6BF89 /* StatusMethods */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C4F97E111C4CFAEF00C6BF89 /* DataManipulations */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E121C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.h */,
+				C4F97E131C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.m */,
+			);
+			path = DataManipulations;
+			sourceTree = "<group>";
+		};
+		C4F97E141C4CFAEF00C6BF89 /* ReadingMethods */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E151C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.h */,
+				C4F97E161C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.m */,
+			);
+			path = ReadingMethods;
+			sourceTree = "<group>";
+		};
+		C4F97E171C4CFAEF00C6BF89 /* SchemaManipulations */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E181C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.h */,
+				C4F97E191C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.m */,
+			);
+			path = SchemaManipulations;
+			sourceTree = "<group>";
+		};
+		C4F97E1A1C4CFAEF00C6BF89 /* StatusMethods */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E1B1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.h */,
+				C4F97E1C1C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.m */,
+			);
+			path = StatusMethods;
+			sourceTree = "<group>";
+		};
+		C4F97E1F1C4CFAEF00C6BF89 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E201C4CFAEF00C6BF89 /* CTPersistanceRecord.h */,
+				C4F97E211C4CFAEF00C6BF89 /* CTPersistanceRecord.m */,
+				C4F97E221C4CFAEF00C6BF89 /* CTPersistanceRecordProtocol.h */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		C4F97E231C4CFAEF00C6BF89 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E241C4CFAEF00C6BF89 /* Categories */,
+				C4F97E311C4CFAEF00C6BF89 /* CTPersistanceTable.h */,
+				C4F97E321C4CFAEF00C6BF89 /* CTPersistanceTable.m */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		C4F97E241C4CFAEF00C6BF89 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E251C4CFAEF00C6BF89 /* Delete */,
+				C4F97E281C4CFAEF00C6BF89 /* Find */,
+				C4F97E2B1C4CFAEF00C6BF89 /* Insert */,
+				C4F97E2E1C4CFAEF00C6BF89 /* Update */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C4F97E251C4CFAEF00C6BF89 /* Delete */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E261C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.h */,
+				C4F97E271C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.m */,
+			);
+			path = Delete;
+			sourceTree = "<group>";
+		};
+		C4F97E281C4CFAEF00C6BF89 /* Find */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E291C4CFAEF00C6BF89 /* CTPersistanceTable+Find.h */,
+				C4F97E2A1C4CFAEF00C6BF89 /* CTPersistanceTable+Find.m */,
+			);
+			path = Find;
+			sourceTree = "<group>";
+		};
+		C4F97E2B1C4CFAEF00C6BF89 /* Insert */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E2C1C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.h */,
+				C4F97E2D1C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.m */,
+			);
+			path = Insert;
+			sourceTree = "<group>";
+		};
+		C4F97E2E1C4CFAEF00C6BF89 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E2F1C4CFAEF00C6BF89 /* CTPersistanceTable+Update.h */,
+				C4F97E301C4CFAEF00C6BF89 /* CTPersistanceTable+Update.m */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		C4F97E331C4CFAEF00C6BF89 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				C4F97E341C4CFAEF00C6BF89 /* CTPersistanceTransaction.h */,
+				C4F97E351C4CFAEF00C6BF89 /* CTPersistanceTransaction.m */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		C4FDD2A21C467EB0008F307B /* IQKeyBoardManager */ = {
@@ -7188,9 +7388,13 @@
 			files = (
 				C41BAFA11C1D9D53009F51C4 /* MJRefreshComponent.m in Sources */,
 				C46095801C1B25A900BA1CD0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				C4F97E481C4CFAEF00C6BF89 /* CTPersistanceTable+Insert.m in Sources */,
+				C4F97E381C4CFAEF00C6BF89 /* NSString+ReqularExpression.m in Sources */,
 				C44D54951BAD8F300035E9B2 /* XLFormRegexValidator.m in Sources */,
+				C4F97DC31C4CF71000C6BF89 /* AFImageDownloader.m in Sources */,
 				C44D53D41BAD8B780035E9B2 /* LYZFileCache.m in Sources */,
 				C41BAFC01C1D9D53009F51C4 /* UIImageView+WebCache.m in Sources */,
+				C4F97E3A1C4CFAEF00C6BF89 /* CTPersistanceCriteria.m in Sources */,
 				C44D53DD1BAD8B780035E9B2 /* NSObject+LYZRuntimeMethod.m in Sources */,
 				C443614F1BFB683C009C96AB /* UIBarButtonItem+LYZExtension.m in Sources */,
 				C47633D21C02067300DB909F /* AidTaskTable.m in Sources */,
@@ -7198,9 +7402,9 @@
 				C41BAFC11C1D9D53009F51C4 /* UIView+WebCacheOperation.m in Sources */,
 				C41BAFAA1C1D9D53009F51C4 /* MJRefreshGifHeader.m in Sources */,
 				C44D54891BAD8F300035E9B2 /* XLFormRowDescriptor.m in Sources */,
+				C4F97DBD1C4CF71000C6BF89 /* AFNetworkReachabilityManager.m in Sources */,
 				C41BAFB31C1D9D53009F51C4 /* NSData+ImageContentType.m in Sources */,
 				C428D80F1C0F57A5002A93F3 /* AidThemeFooterView.m in Sources */,
-				C47633AB1C018F1600DB909F /* CTPersistanceDataBase.m in Sources */,
 				C44D548B1BAD8F300035E9B2 /* NSArray+XLFormAdditions.m in Sources */,
 				C44D53D51BAD8B780035E9B2 /* LYZKeyChain.m in Sources */,
 				C460957F1C1B25A900BA1CD0 /* NSArray+MASAdditions.m in Sources */,
@@ -7211,16 +7415,17 @@
 				C44D53EE1BAD8B780035E9B2 /* LYZMulticastDelegate.m in Sources */,
 				C47633E31C04BE5900DB909F /* AidThemeRecord.m in Sources */,
 				C476341D1C0C9F0100DB909F /* AidHotDetailCell.m in Sources */,
+				C4F97DE61C4CF73400C6BF89 /* NSObject+MJClass.m in Sources */,
 				C44D54831BAD8F300035E9B2 /* XLFormTextFieldCell.m in Sources */,
 				C41BAFA01C1D9D53009F51C4 /* MJRefreshBackFooter.m in Sources */,
 				C41BAFAE1C1D9D53009F51C4 /* MJRefreshConst.m in Sources */,
 				C44D53D81BAD8B780035E9B2 /* NSData+LYZCodeSecurity.m in Sources */,
 				C47634171C0C971600DB909F /* AidHotCell.m in Sources */,
-				C4FDD2E81C4BC797008F307B /* AidAgendaTable.m in Sources */,
+				C4F97D921C4CF6D300C6BF89 /* AidAgendaTable.m in Sources */,
 				C4FDD2C81C467EB0008F307B /* IQUITextFieldView+Additions.m in Sources */,
 				C41BAFB61C1D9D53009F51C4 /* SDWebImageDecoder.m in Sources */,
+				C4F97E421C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+SchemaManipulations.m in Sources */,
 				C47634231C0CA05800DB909F /* AidHotDetailTable.m in Sources */,
-				C47633B41C018F1600DB909F /* CTPersistanceQueryCommand.m in Sources */,
 				C41BAF4E1C1D5884009F51C4 /* AidItemsScrollView.m in Sources */,
 				C4FDD2D11C467EB0008F307B /* IQToolbar.m in Sources */,
 				C41BAFAF1C1D9D53009F51C4 /* UIScrollView+MJExtension.m in Sources */,
@@ -7231,12 +7436,12 @@
 				C44D53F91BAD8B780035E9B2 /* LYZLocationRequest.m in Sources */,
 				C47634201C0C9F9900DB909F /* AidHotDetailRecord.m in Sources */,
 				C44B9D1E1C2847DB00BF8E59 /* LYZVerticalButton.m in Sources */,
-				C47633B01C018F1600DB909F /* CTPersistanceQueryCommand+DataManipulations.m in Sources */,
 				C4FDD2CD1C467EB0008F307B /* IQKeyboardReturnKeyHandler.m in Sources */,
 				C4FDD2C71C467EB0008F307B /* IQUIScrollView+Additions.m in Sources */,
-				C47633AA1C018F1600DB909F /* CTPersistanceCriteria.m in Sources */,
 				C41BAFA61C1D9D53009F51C4 /* MJRefreshAutoStateFooter.m in Sources */,
 				C41BAFBC1C1D9D53009F51C4 /* UIImage+GIF.m in Sources */,
+				C4F97DC01C4CF71000C6BF89 /* AFURLResponseSerialization.m in Sources */,
+				C4F97E491C4CFAEF00C6BF89 /* CTPersistanceTable+Update.m in Sources */,
 				C44D53EA1BAD8B780035E9B2 /* LYZDeviceInfo.m in Sources */,
 				C47633C61C01F9AE00DB909F /* AidTaskViewController.m in Sources */,
 				C44D53EB1BAD8B780035E9B2 /* LYZFileManager.m in Sources */,
@@ -7244,25 +7449,25 @@
 				C41BAFA81C1D9D53009F51C4 /* MJRefreshBackNormalFooter.m in Sources */,
 				C44D56181BAEABDD0035E9B2 /* AidThemeViewController.m in Sources */,
 				C4FDD2D91C4B7490008F307B /* UIView+LYZAddGestureBlock.m in Sources */,
+				C4F97DC71C4CF71000C6BF89 /* UIImageView+AFNetworking.m in Sources */,
 				C4F39A6D1BF0D95D001C2D86 /* AidAddThemeViewController.m in Sources */,
 				C47633F91C07585000DB909F /* AidMineViewController.m in Sources */,
+				C4F97D931C4CF6D300C6BF89 /* AidAgendaTaskRecord.m in Sources */,
 				C44D53E51BAD8B780035E9B2 /* UIImage+LYZExtension.m in Sources */,
-				C47633BB1C018F1600DB909F /* CTPersistanceTransaction.m in Sources */,
 				C44D54861BAD8F300035E9B2 /* XLFormOptionsViewController.m in Sources */,
 				C44D53E41BAD8B780035E9B2 /* UIColor+LYZExtension.m in Sources */,
 				C46095791C1B25A900BA1CD0 /* MASCompositeConstraint.m in Sources */,
 				C44D54821BAD8F300035E9B2 /* XLFormSwitchCell.m in Sources */,
+				C4F97DE41C4CF73400C6BF89 /* MJPropertyKey.m in Sources */,
 				C41BAFCF1C219D10009F51C4 /* AidItemsScrollViewController.m in Sources */,
 				C41BAFA71C1D9D53009F51C4 /* MJRefreshBackGifFooter.m in Sources */,
 				C44D54911BAD8F300035E9B2 /* XLFormRightDetailCell.m in Sources */,
 				C44D547C1BAD8F300035E9B2 /* XLFormLeftRightSelectorCell.m in Sources */,
-				C47633B51C018F1600DB909F /* CTPersistanceRecord.m in Sources */,
 				C44D54811BAD8F300035E9B2 /* XLFormStepCounterCell.m in Sources */,
-				C47633B21C018F1600DB909F /* CTPersistanceQueryCommand+SchemaManipulations.m in Sources */,
 				C44D54881BAD8F300035E9B2 /* XLFormDescriptor.m in Sources */,
 				C44D55F31BAD930E0035E9B2 /* AidMainTabBarController.m in Sources */,
-				C47633AC1C018F1600DB909F /* CTPersistanceDatabasePool.m in Sources */,
-				C47633B31C018F1600DB909F /* CTPersistanceQueryCommand+Status.m in Sources */,
+				C4F97DC91C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.m in Sources */,
+				C4F97DE71C4CF73400C6BF89 /* NSObject+MJCoding.m in Sources */,
 				C47633C91C01FA1000DB909F /* AidThemeCell.m in Sources */,
 				C44D54961BAD8F300035E9B2 /* XLFormValidationStatus.m in Sources */,
 				C4F3AFBB1BF0ED65001C2D86 /* AidTabBarButton.m in Sources */,
@@ -7271,21 +7476,23 @@
 				C41BAF4A1C1D5884009F51C4 /* UINavigationBar+Awesome.m in Sources */,
 				C4F3AFB81BF0EB74001C2D86 /* AidMainTabBar.m in Sources */,
 				C41BAFB71C1D9D53009F51C4 /* SDWebImageDownloader.m in Sources */,
+				C4F97E371C4CFAEF00C6BF89 /* NSArray+CTPersistanceRecordTransform.m in Sources */,
 				C41BAF4C1C1D5884009F51C4 /* AidCarouselView.m in Sources */,
 				C44D53F61BAD8B780035E9B2 /* LYZXMLSerialization.m in Sources */,
 				C44D53F71BAD8B780035E9B2 /* Reachability.m in Sources */,
+				C4F97E411C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+ReadMethods.m in Sources */,
 				C41BAFB81C1D9D53009F51C4 /* SDWebImageDownloaderOperation.m in Sources */,
 				C47633CF1C02064C00DB909F /* AidTaskRecord.m in Sources */,
 				C44D53D71BAD8B780035E9B2 /* LYZUserDefault.m in Sources */,
-				C47633AD1C018F1600DB909F /* CTPersistanceMigrator.m in Sources */,
-				C47633AF1C018F1600DB909F /* CTPersistanceVersionRecord.m in Sources */,
 				C44D53E91BAD8B780035E9B2 /* LYZApplicationInfo.m in Sources */,
+				C4F97DBC1C4CF71000C6BF89 /* AFHTTPSessionManager.m in Sources */,
+				C4F97E471C4CFAEF00C6BF89 /* CTPersistanceTable+Find.m in Sources */,
 				C41BAF4B1C1D5884009F51C4 /* AidCarouselCollectionCell.m in Sources */,
 				C47F957A1C42026D00BB889A /* UIImage+LYZImageEffects.m in Sources */,
-				C47633AE1C018F1600DB909F /* CTPersistanceVersionTable.m in Sources */,
 				C41BAFB11C1D9D53009F51C4 /* UIView+MJExtension.m in Sources */,
 				C44D54981BAD8F300035E9B2 /* XLForm.m in Sources */,
 				C4FDD2C91C467EB0008F307B /* IQUIView+Hierarchy.m in Sources */,
+				C4F97D951C4CF6D300C6BF89 /* AidAgendaThemeRecord.m in Sources */,
 				C4FDD2CE1C467EB0008F307B /* IQTextView.m in Sources */,
 				C41BAFCC1C20428C009F51C4 /* MGSwipeTableCell.m in Sources */,
 				C47633EA1C07569A00DB909F /* AidDiscoverViewController.m in Sources */,
@@ -7293,8 +7500,10 @@
 				C41BAFA91C1D9D53009F51C4 /* MJRefreshBackStateFooter.m in Sources */,
 				C44D53E81BAD8B780035E9B2 /* UIView+LYZExtension.m in Sources */,
 				C44D561E1BAEB9850035E9B2 /* AidAddThemeView.m in Sources */,
-				C47633B81C018F1600DB909F /* CTPersistanceTable+Insert.m in Sources */,
 				C44D53D91BAD8B780035E9B2 /* NSData+LYZEncodeAndDecode.m in Sources */,
+				C4F97E3D1C4CFAEF00C6BF89 /* CTPersistanceMigrator.m in Sources */,
+				C4F97DE11C4CF73400C6BF89 /* MJExtensionConst.m in Sources */,
+				C4F97E3E1C4CFAEF00C6BF89 /* CTPersistanceVersionTable.m in Sources */,
 				C44D53F81BAD8B780035E9B2 /* LYZLocationManager.m in Sources */,
 				C44D54971BAD8F300035E9B2 /* XLFormValidator.m in Sources */,
 				C4FDD2CA1C467EB0008F307B /* IQUIViewController+Additions.m in Sources */,
@@ -7303,10 +7512,12 @@
 				C41BAFCB1C20428C009F51C4 /* MGSwipeButton.m in Sources */,
 				C44D53DA1BAD8B780035E9B2 /* NSDate+LYZExtension.m in Sources */,
 				C47F95831C428C2E00BB889A /* AidChildDetailViewController.m in Sources */,
+				C4F97DE51C4CF73400C6BF89 /* MJPropertyType.m in Sources */,
 				C44D547E1BAD8F300035E9B2 /* XLFormSegmentedCell.m in Sources */,
-				C47633A81C018F1600DB909F /* NSString+ReqularExpression.m in Sources */,
 				C41BAF4F1C1D5884009F51C4 /* AidMultipleButtonView.m in Sources */,
+				C4F97DBF1C4CF71000C6BF89 /* AFURLRequestSerialization.m in Sources */,
 				C460957D1C1B25A900BA1CD0 /* MASViewAttribute.m in Sources */,
+				C4F97E401C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+DataManipulations.m in Sources */,
 				C41BAF4D1C1D5884009F51C4 /* AidFlagControl.m in Sources */,
 				C44D53E11BAD8B780035E9B2 /* NSString+LYZExtension.m in Sources */,
 				C4FDD2C61C467EB0008F307B /* IQNSArray+Sort.m in Sources */,
@@ -7315,25 +7526,28 @@
 				C44D53F21BAD8B780035E9B2 /* LYZWeakProxy.m in Sources */,
 				C47633E41C04BE5900DB909F /* AidThemeTable.m in Sources */,
 				C4FDD2D61C4B2EDB008F307B /* LYZCustomNavView.m in Sources */,
+				C4F97E391C4CFAEF00C6BF89 /* NSString+SQL.m in Sources */,
 				C44D53F51BAD8B780035E9B2 /* LYZNetworkReachable.m in Sources */,
 				C47F957D1C42080800BB889A /* UIView+LYZAnimation.m in Sources */,
-				C47633A71C018F1600DB909F /* NSArray+CTPersistanceRecordTransform.m in Sources */,
+				C4F97DE31C4CF73400C6BF89 /* MJProperty.m in Sources */,
 				C41BAFB51C1D9D53009F51C4 /* SDWebImageCompat.m in Sources */,
 				C41BAFAC1C1D9D53009F51C4 /* MJRefreshStateHeader.m in Sources */,
 				C4FDD2D21C467EB0008F307B /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				C47633B71C018F1600DB909F /* CTPersistanceTable+Find.m in Sources */,
+				C4F97DEA1C4CF73400C6BF89 /* NSString+MJExtension.m in Sources */,
+				C4F97D941C4CF6D300C6BF89 /* AidAgendaTaskTable.m in Sources */,
 				C41BAFB41C1D9D53009F51C4 /* SDImageCache.m in Sources */,
 				C460954B1C17054500BA1CD0 /* UINavigationBar+LYZExtension.m in Sources */,
 				C44D53F41BAD8B780035E9B2 /* LYZJSONSerialization.m in Sources */,
 				C4FDD2CB1C467EB0008F307B /* IQUIWindow+Hierarchy.m in Sources */,
 				C47634111C0C964F00DB909F /* AidHotRecord.m in Sources */,
+				C4F97DC81C4CF71000C6BF89 /* UIProgressView+AFNetworking.m in Sources */,
 				C44D547D1BAD8F300035E9B2 /* XLFormPickerCell.m in Sources */,
 				C47634141C0C967E00DB909F /* AidHotTable.m in Sources */,
 				C41BAFBD1C1D9D53009F51C4 /* UIImage+MultiFormat.m in Sources */,
 				C4FDD2E21C4BC6C7008F307B /* AidAgendaTaskCell.m in Sources */,
 				C44D53ED1BAD8B780035E9B2 /* LYZMathMethod.m in Sources */,
 				C44D53DB1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.m in Sources */,
-				C47633B11C018F1600DB909F /* CTPersistanceQueryCommand+ReadMethods.m in Sources */,
+				C4F97DE81C4CF73400C6BF89 /* NSObject+MJKeyValue.m in Sources */,
 				C44D53E71BAD8B780035E9B2 /* UITableView+LYZExtension.m in Sources */,
 				C44D53EF1BAD8B780035E9B2 /* LYZPerformanceAnalyze.m in Sources */,
 				C44D53DE1BAD8B780035E9B2 /* NSObject+LYZTypeConvert.m in Sources */,
@@ -7343,35 +7557,45 @@
 				C41BAFA21C1D9D53009F51C4 /* MJRefreshFooter.m in Sources */,
 				C44D53D61BAD8B780035E9B2 /* LYZMemoryCache.m in Sources */,
 				C41BAFB91C1D9D53009F51C4 /* SDWebImageManager.m in Sources */,
+				C4F97E4B1C4CFAEF00C6BF89 /* CTPersistanceTransaction.m in Sources */,
 				C41BAFBF1C1D9D53009F51C4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C4FDD2DF1C4BC053008F307B /* AidAgendaChildViewController.m in Sources */,
 				C44D53581BAD8B260035E9B2 /* AppDelegate.m in Sources */,
+				C4F97E441C4CFAEF00C6BF89 /* CTPersistanceQueryCommand.m in Sources */,
 				C44D53E21BAD8B780035E9B2 /* NSString+LYZRegexMatch.m in Sources */,
-				C47633A91C018F1600DB909F /* NSString+SQL.m in Sources */,
+				C4F97DC51C4CF71000C6BF89 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				C4F718851C2CEBBB00E62387 /* AidOperateTaskView.m in Sources */,
 				C47633DB1C03757900DB909F /* AidEditTaskViewController.m in Sources */,
 				C44D548A1BAD8F300035E9B2 /* XLFormSectionDescriptor.m in Sources */,
 				C46095811C1B25A900BA1CD0 /* View+MASAdditions.m in Sources */,
-				C47633B91C018F1600DB909F /* CTPersistanceTable+Update.m in Sources */,
+				C4F97DBE1C4CF71000C6BF89 /* AFSecurityPolicy.m in Sources */,
+				C4F97DC21C4CF71000C6BF89 /* AFAutoPurgingImageCache.m in Sources */,
+				C4F97E461C4CFAEF00C6BF89 /* CTPersistanceTable+Delete.m in Sources */,
 				C44D53551BAD8B260035E9B2 /* main.m in Sources */,
 				C44D547A1BAD8F300035E9B2 /* XLFormDatePickerCell.m in Sources */,
 				C460957C1C1B25A900BA1CD0 /* MASLayoutConstraint.m in Sources */,
-				C4FDD2E51C4BC756008F307B /* AidAgendaRecord.m in Sources */,
+				C4F97D911C4CF6D300C6BF89 /* AidAgendaRecord.m in Sources */,
 				C41BAFB21C1D9D53009F51C4 /* MKAnnotationView+WebCache.m in Sources */,
 				C44D53E31BAD8B780035E9B2 /* NSTimer+LYZBlockSupport.m in Sources */,
 				C4FDD2D01C467EB0008F307B /* IQTitleBarButtonItem.m in Sources */,
 				C44D547B1BAD8F300035E9B2 /* XLFormInlineSelectorCell.m in Sources */,
-				C47633B61C018F1600DB909F /* CTPersistanceTable+Delete.m in Sources */,
 				C47633CC1C02062B00DB909F /* AidTaskCell.m in Sources */,
 				C46095511C1B1E2700BA1CD0 /* UIView+LYZMasonyCategory.m in Sources */,
+				C4F97DE91C4CF73400C6BF89 /* NSObject+MJProperty.m in Sources */,
+				C4F97DE21C4CF73400C6BF89 /* MJFoundation.m in Sources */,
 				C4FFE8C11C32E76400FBA403 /* AidCollectionViewFlowLayout.m in Sources */,
+				C4F97E431C4CFAEF00C6BF89 /* CTPersistanceQueryCommand+Status.m in Sources */,
 				C44D53DC1BAD8B780035E9B2 /* NSNumber+LYZExtension.m in Sources */,
 				C44D548D1BAD8F300035E9B2 /* NSObject+XLFormAdditions.m in Sources */,
+				C4F97E3C1C4CFAEF00C6BF89 /* CTPersistanceDatabasePool.m in Sources */,
+				C4F97E451C4CFAEF00C6BF89 /* CTPersistanceRecord.m in Sources */,
+				C4F97DC11C4CF71000C6BF89 /* AFURLSessionManager.m in Sources */,
 				C44D547F1BAD8F300035E9B2 /* XLFormSelectorCell.m in Sources */,
+				C4F97E3B1C4CFAEF00C6BF89 /* CTPersistanceDataBase.m in Sources */,
 				C4FDD2CF1C467EB0008F307B /* IQBarButtonItem.m in Sources */,
 				C41BAFB01C1D9D53009F51C4 /* UIScrollView+MJRefresh.m in Sources */,
-				C47633BA1C018F1600DB909F /* CTPersistanceTable.m in Sources */,
 				C41BAFA51C1D9D53009F51C4 /* MJRefreshAutoNormalFooter.m in Sources */,
+				C4F97DC61C4CF71000C6BF89 /* UIButton+AFNetworking.m in Sources */,
 				C41BAF9F1C1D9D53009F51C4 /* MJRefreshAutoFooter.m in Sources */,
 				C44D53F11BAD8B780035E9B2 /* LYZTimerHolder.m in Sources */,
 				C4FDD2CC1C467EB0008F307B /* IQKeyboardManager.m in Sources */,
@@ -7385,15 +7609,21 @@
 				C44D54901BAD8F300035E9B2 /* UIView+XLFormAdditions.m in Sources */,
 				C47633D81C020B8E00DB909F /* AidAddTaskViewController.m in Sources */,
 				C44B9D0C1C264C9C00BF8E59 /* AidKeyboardToolBar.m in Sources */,
+				C4F97D961C4CF6D300C6BF89 /* AidAgendaThemeTable.m in Sources */,
 				C44D54771BAD8F300035E9B2 /* XLFormButtonCell.m in Sources */,
 				C428D81E1C109FDC002A93F3 /* AidControlLabelView.m in Sources */,
+				C4F97E4A1C4CFAEF00C6BF89 /* CTPersistanceTable.m in Sources */,
 				C44D53E61BAD8B780035E9B2 /* UIScrollView+LYZExtension.m in Sources */,
 				C44D53DF1BAD8B780035E9B2 /* NSString+LYZCodeSecurity.m in Sources */,
 				C41BAFA31C1D9D53009F51C4 /* MJRefreshHeader.m in Sources */,
+				C4F97E361C4CFAEF00C6BF89 /* CTPersistanceAsyncExecutor.m in Sources */,
 				C46095821C1B25A900BA1CD0 /* ViewController+MASAdditions.m in Sources */,
 				C44D54761BAD8F300035E9B2 /* XLFormBaseCell.m in Sources */,
+				C4F97DC41C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				C4F97DCA1C4CF71000C6BF89 /* UIWebView+AFNetworking.m in Sources */,
 				C4FBCA011C2FDE62001F68AD /* AidDisplayTitleLabel.m in Sources */,
 				C44D54931BAD8F300035E9B2 /* XLFormRowNavigationAccessoryView.m in Sources */,
+				C4F97E3F1C4CFAEF00C6BF89 /* CTPersistanceVersionRecord.m in Sources */,
 				C44D53E01BAD8B780035E9B2 /* NSString+LYZEncodeAndDecode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

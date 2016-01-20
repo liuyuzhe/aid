@@ -97,24 +97,28 @@
 @interface CTPersistanceTable : NSObject
 
 /**
- *  create tabel with CTPersistanceQueryCommand, you should not create any table with this method.
- *
- *  @param queryCommand the query command
- *
- *  @return return instance of CTPersistanceTable
- */
-- (instancetype)initWithQueryCommand:(CTPersistanceQueryCommand *)queryCommand;
-
-/**
  *  the child is just the same as self. just to make sure your own CTPersistance table is confirm to <CTPersistanceTableProtocol>
  */
 @property (nonatomic, weak, readonly) CTPersistanceTable <CTPersistanceTableProtocol> *child;
 
 /**
- *  query command for you for debug.
+ *  execute sql in database of this table.
  *
- *  @see CTPersistanceQueryCommand
+ *  @param sqlString the sql string to be executed
+ *  @param error     error if fails
+ *
+ *  @return return NO if fails
  */
-@property (nonatomic, strong, readonly) CTPersistanceQueryCommand *queryCommand;
+- (BOOL)executeSQL:(NSString *)sqlString error:(NSError **)error;
+
+/**
+ *  fetch data with sql in database of this table
+ *
+ *  @param sqlString the sql string to fetch
+ *  @param error     error if fails
+ *
+ *  @return return NO if fails
+ */
+- (NSArray *)fetchWithSQL:(NSString *)sqlString error:(NSError **)error;
 
 @end

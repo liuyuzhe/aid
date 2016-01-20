@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray<AidAgendaRecord *> *taskArray;
+@property (nonatomic, strong) NSMutableArray<AidAgendaRecord *> *agendaArray;
 
 @end
 
@@ -80,19 +80,33 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+     AidAgendaRecord *agendaRecord = self.agendaArray[section];
+    return agendaRecord.tasksRecord.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return self.agendaArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AidAgendaRecord *agendaRecord = self.agendaArray[indexPath.section];
+    AidAgendaTaskRecord *taskRecord = agendaRecord.tasksRecord[indexPath.row];
+    
     AidAgendaTaskCell *cell = [AidAgendaTaskCell cellWithTableView:tableView];
     return cell;
 }
+
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    
+//}
+//
+//- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+//{
+//    
+//}
 
 #pragma mark - UITableViewDelegate
 
@@ -115,12 +129,19 @@
 {
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 10)];
-//    headerView.backgroundColor = [UIColor blueColor];
-//    return headerView;
-//}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    AidAgendaRecord *agendaRecord = self.agendaArray[section];
+    NSString *themeName = agendaRecord.themeRecord.name;
+    
+    UILabel *headerView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 10)];
+    headerView.text = themeName;
+    headerView.textColor = [UIColor darkGrayColor];
+    headerView.shadowColor = [UIColor redColor];
+    headerView.textAlignment = NSTextAlignmentCenter;
+    headerView.backgroundColor = [UIColor blueColor];
+    return headerView;
+}
 
 //- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 //{
@@ -139,6 +160,20 @@
 
 - (void)loadThemeData
 {
+//    dispatch_group_t group = dispatch_group_create();
+//    dispatch_group_enter(group);
+//    
+//    [AidAgendaRecord fetchRecipeWithCompletionBlock:^(id returnValue) {
+////        self.agendaArray = [AidAgendaRecord mj_objectWithKeyValues:returnValue];
+//        dispatch_group_leave(group);
+//    } WithFailureBlock:^(NSError *error) {
+//        dispatch_group_leave(group);
+//    }];
+//    
+//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//        [self.tableView reloadData];
+//    });
+    
     //    AidThemeTable *table = [[AidThemeTable alloc] init];
     //    NSError *error = nil;
     //
@@ -176,12 +211,12 @@
     return _tableView;
 }
 
-- (NSMutableArray<AidAgendaRecord *> *)taskArray
+- (NSMutableArray<AidAgendaRecord *> *)agendaArray
 {
-    if (! _taskArray) {
-        _taskArray = [NSMutableArray array];
+    if (! _agendaArray) {
+        _agendaArray = [NSMutableArray array];
     }
-    return _taskArray;
+    return _agendaArray;
 }
 
 @end
