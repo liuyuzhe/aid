@@ -112,8 +112,6 @@
         if (! editedImage) {
             editedImage = [info valueForKey:UIImagePickerControllerOriginalImage]; // 原始图片
         }
-        
-        
     }];
 }
 

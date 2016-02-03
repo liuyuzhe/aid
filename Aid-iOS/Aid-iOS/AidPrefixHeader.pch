@@ -9,12 +9,19 @@
 #ifndef AidPrefixHeader_pch
 #define AidPrefixHeader_pch
 
+/**
+ *
+ 在Build Settings里面找到Prefix Header,
+ 添加pch文件，规则是: $(SRCROOT)/项目名/xxxxx.pch
+ 
+ */
 #import "LYZExpand.h"
 #import "AidCustomMarco.h"
 
-#import "Masonry.h"
-//#import "MJExtension.h"
 #import "AFNetworking.h"
+#import "Masonry.h"
+#import "MJRefresh.h"
+//#import "MJExtension.h"
 
 // go to `Build Phases` and add `sqlite3` into your library list.
 #import "CTPersistance.h"

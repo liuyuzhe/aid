@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4078AFA1C5CC94E00860868 /* AidNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = C4078AF91C5CC94E00860868 /* AidNetWork.m */; settings = {ASSET_TAGS = (); }; };
 		C41BAF4A1C1D5884009F51C4 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAF3E1C1D5884009F51C4 /* UINavigationBar+Awesome.m */; settings = {ASSET_TAGS = (); }; };
 		C41BAF4B1C1D5884009F51C4 /* AidCarouselCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAF411C1D5884009F51C4 /* AidCarouselCollectionCell.m */; settings = {ASSET_TAGS = (); }; };
 		C41BAF4C1C1D5884009F51C4 /* AidCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAF431C1D5884009F51C4 /* AidCarouselView.m */; settings = {ASSET_TAGS = (); }; };
@@ -1539,6 +1540,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4078AF81C5CC94E00860868 /* AidNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidNetWork.h; sourceTree = "<group>"; };
+		C4078AF91C5CC94E00860868 /* AidNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidNetWork.m; sourceTree = "<group>"; };
 		C41BAF3D1C1D5884009F51C4 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		C41BAF3E1C1D5884009F51C4 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		C41BAF401C1D5884009F51C4 /* AidCarouselCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidCarouselCollectionCell.h; sourceTree = "<group>"; };
@@ -5356,6 +5359,8 @@
 		C44D553C1BAD8F520035E9B2 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				C4078AF81C5CC94E00860868 /* AidNetWork.h */,
+				C4078AF91C5CC94E00860868 /* AidNetWork.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -7577,6 +7582,7 @@
 				C4F97D911C4CF6D300C6BF89 /* AidAgendaRecord.m in Sources */,
 				C41BAFB21C1D9D53009F51C4 /* MKAnnotationView+WebCache.m in Sources */,
 				C44D53E31BAD8B780035E9B2 /* NSTimer+LYZBlockSupport.m in Sources */,
+				C4078AFA1C5CC94E00860868 /* AidNetWork.m in Sources */,
 				C4FDD2D01C467EB0008F307B /* IQTitleBarButtonItem.m in Sources */,
 				C44D547B1BAD8F300035E9B2 /* XLFormInlineSelectorCell.m in Sources */,
 				C47633CC1C02062B00DB909F /* AidTaskCell.m in Sources */,

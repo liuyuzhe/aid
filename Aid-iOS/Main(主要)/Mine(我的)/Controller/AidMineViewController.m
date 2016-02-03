@@ -12,13 +12,16 @@
 
 #import "UINavigationBar+Awesome.h"
 
-static const CGFloat AidNavbarChangePoint = 50;
+static const CGFloat AidHeadViewHeigtht = 200;
+static const CGFloat AidNavbarChangePoint = 0;
 
 @interface AidMineViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIImageView *headImageView;
+
+@property (nonatomic, strong) UIImageView *photoImageView;
 
 @end
 
@@ -30,12 +33,11 @@ static const CGFloat AidNavbarChangePoint = 50;
     UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view = contentView;
     
+    self.title = @"个人中心";
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.extendedLayoutIncludesOpaqueBars = YES;
-    
-    //    self.edgesForExtendedLayout = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
 }
 
 - (void)viewDidLoad
@@ -46,6 +48,7 @@ static const CGFloat AidNavbarChangePoint = 50;
     
     [self.view addSubview:self.tableView];
     [self.headView addSubview:self.headImageView];
+    [self.headView addSubview:self.photoImageView];
     
     [self layoutPageSubviews];
     
@@ -86,6 +89,12 @@ static const CGFloat AidNavbarChangePoint = 50;
 {
     __weak UIView *weakSelf = self.view;
     
+    // 设置展示图片的约束
+//    [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weakSelf.mas_top);
+//        make.left.equalTo(weakSelf.mas_left);
+//        make.right.equalTo(weakSelf.mas_right);
+//    }];
 }
 
 #pragma mark - override super
@@ -116,15 +125,15 @@ static const CGFloat AidNavbarChangePoint = 50;
     return 70;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 5;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 5;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 5;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 5;
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -150,14 +159,34 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
+    // 计算当前偏移位置
     CGFloat offsetY = scrollView.contentOffset.y;
+    
+    // 导航栏透明渐变
+    UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
     if (offsetY > AidNavbarChangePoint) {
-        CGFloat alpha = MIN(1, 1 - ((AidNavbarChangePoint + 64 - offsetY) / 64));
+        CGFloat alpha = MIN(1, 1 - ((AidNavbarChangePoint + AidNavHeadHeigtht - offsetY) / AidNavHeadHeigtht));
         [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[[UIColor blackColor] colorWithAlphaComponent:alpha]};
     } else {
         [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[[UIColor blackColor] colorWithAlphaComponent:0]};
     }
+    
+    // 展示图片下拉缩放
+    if (offsetY < 0)
+    {
+        self.headView.frame = CGRectMake(0, offsetY, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht - offsetY);
+        self.headImageView.frame = CGRectMake(0, offsetY, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht - offsetY);
+    }
+    
+//    CGFloat height = -offsetY;
+//    if (height < AidNavHeadHeigtht) {
+//        height = AidNavHeadHeigtht;
+//    }
+//    [self.headImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(height);
+//    }];
 }
 
 #pragma mark - event response
@@ -177,7 +206,7 @@ static const CGFloat AidNavbarChangePoint = 50;
     if (! _tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight]) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
-        
+//        _tableView.contentInset = UIEdgeInsetsMake(AidHeadViewHeigtht, 0, 0, 0);
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -194,7 +223,7 @@ static const CGFloat AidNavbarChangePoint = 50;
 - (UIView *)headView
 {
     if (! _headView) {
-        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 200)];
+        _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht)];
     }
     return _headView;
 }
@@ -202,11 +231,25 @@ static const CGFloat AidNavbarChangePoint = 50;
 - (UIImageView *)headImageView
 {
     if (! _headImageView) {
-        _headImageView = [[UIImageView alloc] initWithFrame:self.headView.frame];
-        _headImageView.contentMode = UIViewContentModeScaleToFill;
+        _headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht)];
+        _headImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _headImageView.clipsToBounds = YES;
         _headImageView.image = [UIImage imageNamed:@"backImage1.jpg"];
     }
     return _headImageView;
+}
+
+- (UIImageView *)photoImageView
+{
+    if (! _photoImageView) {
+        _photoImageView = [[UIImageView alloc]initWithFrame:CGRectMake([LYZDeviceInfo screenWidth] / 2 - 50, 50, 100, 100)];
+        _photoImageView.image = [UIImage imageNamed:@"about_praise"];
+        _photoImageView.layer.cornerRadius = 50;
+        _photoImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        _photoImageView.layer.borderWidth = 5;
+        _photoImageView.layer.masksToBounds = YES;
+    }
+    return _photoImageView;
 }
 
 @end

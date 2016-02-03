@@ -16,6 +16,8 @@
 
 #import "AidThemeTable.h"
 
+#import "AidNetWork.h"
+
 static const CGFloat AidTableViewRowAnimationDuration = 0.25;
 static const CGFloat AidThemeCellHeight = 110;
 
@@ -56,6 +58,8 @@ static const CGFloat AidThemeCellHeight = 110;
     [self.view addSubview:self.tableView];
     
     [self layoutPageSubviews];
+    
+    [self setupRefreshHead];
     
     [self loadThemeData];
     
@@ -124,6 +128,15 @@ static const CGFloat AidThemeCellHeight = 110;
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.equalTo(weakSelf);
     }];
+}
+
+- (void)setupRefreshHead
+{
+    self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        [self refreshData];
+    }];
+    
+//    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)addPressGesture
@@ -332,6 +345,34 @@ static const CGFloat AidThemeCellHeight = 110;
     addThemeVC.delegate = self;
     
     [self presentViewController:addThemeVC animated:YES completion:nil];
+}
+
+
+- (void)refreshData
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        [self refreshThemeData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+    });
+}
+
+-(void)refreshTest
+{
+    NSString *baseUrl = @"http://125.89.65.238:8821/ics.cgi";
+    NSDictionary *params = @{@"age": @"txt_age",
+                             @"username": @"txt_username"};
+    NSString *urlStr = [baseUrl URLQueryStringAppendDictionary:params];
+    [AidNetWork getWithUrl:urlStr success:^(id response) {
+        LYZPRINT(@"%@", response);
+    } failure:^(NSError *error) {
+        LYZPRINT(@"%@", error);
+    }];
+}
+
+- (void)refreshThemeData
+{
+    
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)gesture
