@@ -10,11 +10,20 @@
 
 #import "XLFormViewController.h"
 
-@interface NativeEventNavigationViewController : UINavigationController
+@class AidEditTaskViewController;
+@class AidTaskRecord;
+
+@protocol AidEditTaskViewControllerDelegate <NSObject>
+
+@optional
+- (void)editTaskRecord:(AidTaskRecord *)taskRecord configureViewController:(AidEditTaskViewController *)viewController;
 
 @end
 
 
 @interface AidEditTaskViewController : XLFormViewController
+
+@property (nonatomic, strong) AidTaskRecord *taskRecord;
+@property (nonatomic, weak) id<AidEditTaskViewControllerDelegate> delegate;
 
 @end

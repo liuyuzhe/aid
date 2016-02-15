@@ -9,13 +9,25 @@
 #import "AidEditTaskViewController.h"
 
 #import "XLForm.h"
+#import "LYZDateAndTimeValueTransformer.h"
+
+#import "AidTaskRecord.h"
 
 @interface AidEditTaskViewController ()
+
+@property (nonatomic, strong) XLFormRowDescriptor *nameRow;
+@property (nonatomic, strong) XLFormRowDescriptor *startRow;
+@property (nonatomic, strong) XLFormRowDescriptor *endRow;
+@property (nonatomic, strong) XLFormRowDescriptor *alertRow;
+@property (nonatomic, strong) XLFormRowDescriptor *repeatRow;
+@property (nonatomic, strong) XLFormRowDescriptor *noteRow;
 
 @end
 
 
 @implementation AidEditTaskViewController
+
+@synthesize taskRecord = _taskRecord;
 
 #pragma mark - life cycle
 
@@ -39,6 +51,7 @@
 {
     UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     self.view = contentView;
+//    self.view.tintColor =  [UIColor blueColor];
     
     self.title = @"发现";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -74,59 +87,76 @@
 
 - (void)initializeForm
 {
-    XLFormDescriptor *form;
+    XLFormDescriptor *form = [XLFormDescriptor formDescriptorWithTitle:@"编辑任务"];
     XLFormSectionDescriptor *section;
-    XLFormRowDescriptor *row;
-    
-    form = [XLFormDescriptor formDescriptorWithTitle:@"编辑任务"];
     
     section = [XLFormSectionDescriptor formSection];
     [form addFormSection:section];
     
-    // Title
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"名称" rowType:XLFormRowDescriptorTypeText];
-    [row.cellConfigAtConfigure setObject:@"Name" forKey:@"textField.placeholder"];
-    row.required = YES;
-    [section addFormRow:row];
+    // Name
+    _nameRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Name" rowType:XLFormRowDescriptorTypeText];
+    [_nameRow.cellConfigAtConfigure setObject:@"请输入任务名称" forKey:@"textField.placeholder"];
+//    row.required = YES;
+//    row.requireMsg = @"任务名称不能为空！";
+    [section addFormRow:_nameRow];
     
-    // Location
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"位置" rowType:XLFormRowDescriptorTypeText];
-    [row.cellConfigAtConfigure setObject:@"Location" forKey:@"textField.placeholder"];
-    [section addFormRow:row];
     
     section = [XLFormSectionDescriptor formSection];
     [form addFormSection:section];
     
-    // Date
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"data" rowType:XLFormRowDescriptorTypeDate title:@"到期日"];
-    row.value = [NSDate new];
-    [row.cellConfigAtConfigure setObject:[NSDate new] forKey:@"minimumDate"];
-    [row.cellConfigAtConfigure setObject:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*3)] forKey:@"maximumDate"];
-    [section addFormRow:row];
+    // Start
+    _startRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Starts" rowType:XLFormRowDescriptorTypeDate title:@"开始日期"];
+//    [_startRow.cellConfigAtConfigure setObject:[NSDate new] forKey:@"minimumDate"];
+    _startRow.valueTransformer = [LYZDateValueTrasformer class];
+    _startRow.value = [NSDate date];
+    [section addFormRow:_startRow];
     
-    // DateTime
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"dateTime" rowType:XLFormRowDescriptorTypeDateTime title:@"提醒时间"];
-    row.value = [NSDate new];
-    [section addFormRow:row];
+    // End
+    _endRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Ends" rowType:XLFormRowDescriptorTypeDate title:@"结束日期"];
+    _endRow.valueTransformer = [LYZDateValueTrasformer class];
+    _endRow.value = [[NSDate date] dateByAddingWeeks:1];
+    [section addFormRow:_endRow];
     
-    // 重复
-    row = [XLFormRowDescriptor formRowDescriptorWithTag:@"selectorPickerView" rowType:XLFormRowDescriptorTypeSelectorPickerView title:@"重复"];
-    row.selectorOptions = @[[XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"从不"],
-                            [XLFormOptionsObject formOptionsObjectWithValue:@(1) displayText:@"每天"],
-                            [XLFormOptionsObject formOptionsObjectWithValue:@(2) displayText:@"每周"],
-                            [XLFormOptionsObject formOptionsObjectWithValue:@(3) displayText:@"每月"],
-                            [XLFormOptionsObject formOptionsObjectWithValue:@(4) displayText:@"每年"],
+    
+    section = [XLFormSectionDescriptor formSection];
+    [form addFormSection:section];
+    
+    // Alert
+    _alertRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"dateTime" rowType:XLFormRowDescriptorTypeDateTime title:@"提醒时间"];
+    _alertRow.valueTransformer = [LYZDateAndTimeValueTransformer class];
+    _alertRow.value = [[NSDate date] dateByAddingDays:1];
+    [section addFormRow:_alertRow];
+    
+    // Repeat
+    _repeatRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"repeat" rowType:XLFormRowDescriptorTypeSelectorPush title:@"重复周期"];
+    _repeatRow.selectorTitle = @"重复周期";
+    _repeatRow.selectorOptions = @[[XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"从不"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(1) displayText:@"工作日"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(2) displayText:@"周末"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(3) displayText:@"每天"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(4) displayText:@"每周"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(5) displayText:@"每月"],
+                            [XLFormOptionsObject formOptionsObjectWithValue:@(6) displayText:@"每年"],
                             ];
-    row.value = [XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"从不"];
-    [section addFormRow:row];
+    _repeatRow.value = [XLFormOptionsObject formOptionsOptionForValue:@(0) fromOptions:_repeatRow.selectorOptions];
+    [section addFormRow:_repeatRow];
+    
+    
+    section = [XLFormSectionDescriptor formSection];
+    [form addFormSection:section];
+
+    // Notes
+    _noteRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"notes" rowType:XLFormRowDescriptorTypeTextView];
+    [_noteRow.cellConfigAtConfigure setObject:@"添加备注..." forKey:@"textView.placeholder"];
+    [section addFormRow:_noteRow];
     
     self.form = form;
 }
 
 - (void)setupPageNavigation
 {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelPressed:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(savePressed:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonAction:)];
 }
 
 - (void)layoutPageSubviews
@@ -145,20 +175,31 @@
 
 #pragma mark - XLFormDescriptorDelegate
 
-- (void)cancelPressed:(UIBarButtonItem * __unused)button
+- (void)cancelButtonAction:(UIBarButtonItem * __unused)button
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)savePressed:(UIBarButtonItem * __unused)button
+- (void)saveButtonAction:(UIBarButtonItem * __unused)button
 {
-    NSArray * validationErrors = [self formValidationErrors];
-    if (validationErrors.count > 0){
-        [self showFormValidationError:[validationErrors firstObject]];
-        return;
+    self.taskRecord.name = (NSString *)self.nameRow.value;
+    self.taskRecord.startTime = [NSNumber numberWithDouble:[(NSDate *)self.startRow.value timeIntervalSinceReferenceDate]];
+    self.taskRecord.endTime = [NSNumber numberWithDouble:[(NSDate *)self.endRow.value timeIntervalSinceReferenceDate]];
+    self.taskRecord.alarmTime = [NSNumber numberWithDouble:[(NSDate *)self.alertRow.value timeIntervalSinceReferenceDate]];
+    self.taskRecord.repeat = ((XLFormOptionsObject *)self.repeatRow.value).formValue;
+    self.taskRecord.note = (NSString *)self.noteRow.value;
+
+    if ([self.delegate respondsToSelector:@selector(editTaskRecord:configureViewController:)]) {
+        [self.delegate editTaskRecord:self.taskRecord configureViewController:self];
     }
     
-    [self.tableView endEditing:YES];
+//    NSArray * validationErrors = [self formValidationErrors];
+//    if (validationErrors.count > 0){
+//        [self showFormValidationError:[validationErrors firstObject]];
+//        return;
+//    }
+    
+//    [self.tableView endEditing:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -169,5 +210,33 @@
 #pragma mark - private methods
 
 #pragma mark - getters and setters
+
+- (AidTaskRecord *)taskRecord
+{
+    if (! _taskRecord) {
+        _taskRecord = [[AidTaskRecord alloc] init];
+    }
+    return _taskRecord;
+}
+
+- (void)setTaskRecord:(AidTaskRecord *)taskRecord
+{
+    _taskRecord = taskRecord;
+    
+    self.nameRow.value = taskRecord.name;
+    self.startRow.value = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.startTime.doubleValue];
+    self.endRow.value = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.endTime.doubleValue];
+    self.alertRow.value = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.alarmTime.doubleValue];
+//    taskRecord.repeat = @(5);
+    self.repeatRow.value = [XLFormOptionsObject formOptionsOptionForValue:taskRecord.repeat fromOptions:self.repeatRow.selectorOptions];
+    self.noteRow.value = taskRecord.note;
+    
+    [self updateFormRow:self.nameRow];
+    [self updateFormRow:self.startRow];
+    [self updateFormRow:self.endRow];
+    [self updateFormRow:self.alertRow];
+    [self updateFormRow:self.repeatRow];
+    [self updateFormRow:self.noteRow];
+}
 
 @end

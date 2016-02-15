@@ -71,6 +71,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 #pragma mark - public methods
 
 - (void)moveToIndex:(CGFloat)offset

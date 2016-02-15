@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 刘育哲. All rights reserved.
 //
 
+#import <sys/stat.h>
+
 #import "LYZFileManager.h"
 #import "LYZMathMacro.h"
 
@@ -267,6 +269,41 @@
     
     return pathSize / LYZMBInBytes;
 }
+
+
++ (uint64_t)sizeAtPath:(NSString *)filePath diskMode:(BOOL)diskMode
+{
+    uint64_t totalSize = 0;
+    NSMutableArray *searchPaths = [NSMutableArray arrayWithObject:filePath];
+    while ([searchPaths count] > 0) {
+        @autoreleasepool {
+            NSString *fullPath = [searchPaths objectAtIndex:0];
+            [searchPaths removeObjectAtIndex:0];
+            
+            struct stat fileStat;
+            if (lstat([fullPath fileSystemRepresentation], &fileStat) == 0) {
+                if (fileStat.st_mode & S_IFDIR) {
+                    NSArray *childSubPaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:fullPath error:nil];
+                    for (NSString *childItem in childSubPaths) {
+                        NSString *childPath = [fullPath stringByAppendingPathComponent:childItem];
+                        [searchPaths insertObject:childPath atIndex:0];
+                    }
+                }
+                else {
+                    if (diskMode) {
+                        totalSize += fileStat.st_blocks * 512;
+                    }
+                    else {
+                        totalSize += fileStat.st_size;
+                    }
+                }
+            }
+        }
+    }
+    
+    return totalSize;
+}
+
 + (BOOL)isFileItemAtPath:(NSString *)path
 {
     return ([self attributeOfItemAtPath:path forKey:NSFileType] == NSFileTypeRegular);

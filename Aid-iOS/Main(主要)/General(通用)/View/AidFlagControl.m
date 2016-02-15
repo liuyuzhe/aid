@@ -39,6 +39,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 #pragma mark - public methods
 
 - (void)setFlag:(AidFlagControlState)flag withAnimation:(BOOL)animation

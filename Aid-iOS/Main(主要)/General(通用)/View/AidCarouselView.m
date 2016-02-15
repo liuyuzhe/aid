@@ -49,26 +49,23 @@ static CGFloat const AidScrollOffsetDelta = 10.; /**< 允许滚动时偏移的�
         NSString * const identifier = NSStringFromClass([AidCarouselCollectionCell class]);
         [self registerClass:[AidCarouselCollectionCell class] forCellWithReuseIdentifier:identifier];
         
+        [self setupPageSubviews];
+        
+        [self layoutPageSubviews];
+        
         [self registerNofitication]; // 注册通知
     }
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self]; // 销毁通知
-}
-
-- (void)layoutSubviews
-{
-    if (self.needRefresh) {
-        // 最左边一张图其实是最后一张图，因此移动到第二张图，也就是imageArray的第一个图
-        [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-        self.needRefresh = NO;
-    }
-    
-    // layoutSubviews 仅仅会layout当前屏幕的View.所以要先滚动位置，然后调用layoutSubViews
-    [super layoutSubviews];
 }
 
 #pragma mark - public methods
@@ -97,6 +94,18 @@ static CGFloat const AidScrollOffsetDelta = 10.; /**< 允许滚动时偏移的�
 }
 
 #pragma mark - override super
+
+- (void)layoutSubviews
+{
+    if (self.needRefresh) {
+        // 最左边一张图其实是最后一张图，因此移动到第二张图，也就是imageArray的第一个图
+        [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+        self.needRefresh = NO;
+    }
+    
+    // layoutSubviews 仅仅会layout当前屏幕的View.所以要先滚动位置，然后调用layoutSubViews
+    [super layoutSubviews];
+}
 
 #pragma make - UICollectionViewDataSource
 

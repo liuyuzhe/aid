@@ -12,11 +12,13 @@
 
 @property (nonatomic, strong) NSNumber *primaryKey; /**< 主键 */
 @property (nonatomic, strong) NSString *name; /**< 名称 */
-//@property (nonatomic, strong) NSNumber *startTime; /**< 开始时间 */
-@property (nonatomic, strong) NSNumber *completeTime; /**< 完成时间 */
+@property (nonatomic, strong) NSNumber *startTime; /**< 开始时间 */
+@property (nonatomic, strong) NSNumber *endTime; /**< 结束时间 */
+@property (nonatomic, strong) NSNumber *alarmTime; /**< 提醒时间 */
+@property (nonatomic, strong) NSNumber *repeat; /**< 重复周期 */
+@property (nonatomic, strong) NSString *note; /**< 备注 */
 @property (nonatomic, strong) NSNumber *completeState; /**< 是否完成 */
-@property (nonatomic, strong) NSNumber *alarmState; /**< 提醒时间 */
-@property (nonatomic, strong) NSNumber *repeatState; /**< 重复频率 */
-@property (nonatomic, strong) NSNumber *priorityState; /**< 优先级 */
+@property (nonatomic, strong) NSNumber *priority; /**< 优先级 */
+@property (nonatomic, strong) NSNumber *themeID; /**< 主题ID */
 
 @end

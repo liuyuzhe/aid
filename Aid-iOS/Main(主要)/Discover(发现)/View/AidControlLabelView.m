@@ -25,6 +25,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 #pragma mark - life cycle helper
 
 - (void)setupPageSubviews

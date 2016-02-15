@@ -22,6 +22,7 @@
 
 @end
 
+
 @implementation AidTaskCell
 
 #pragma mark - life cycle
@@ -75,7 +76,7 @@
 
 - (void)layoutPageSubviews
 {
-    __weak UIView *weakSelf = self;
+    __weak UIView *weakSelf = self.contentView;
     
     [_taskImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf.mas_centerY);
@@ -122,7 +123,7 @@
     _taskRecord = taskRecord;
     
     self.taskNameLabel.text = taskRecord.name;
-    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.completeTime.doubleValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.endTime.doubleValue];
 #warning format开销
     self.completeTimeLabel.text = [date stringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
 }

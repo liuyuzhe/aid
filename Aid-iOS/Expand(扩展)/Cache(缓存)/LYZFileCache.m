@@ -16,14 +16,19 @@ IS_SINGLETON(LYZFileCache)
 
 #pragma mark - LYZFileCache method
 
-- (instancetype)init
+- (instancetype)initWithPath:(NSString *)path
 {
     self = [super init];
     if (self) {
-        NSString *defaultPath = [LYZApplicationInfo appVersion];
-        _cachePath = [LYZFileManager pathForCachesDirectoryWithPath:defaultPath];
+        _cachePath = [LYZFileManager pathForCachesDirectoryWithPath:path];
     }
     return self;
+}
+
+- (instancetype)init
+{
+    NSString *defaultPath = [LYZApplicationInfo appVersion];
+    return [self initWithPath:defaultPath];
 }
 
 #pragma mark - LYZFileCache helper

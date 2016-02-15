@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AidThemeRecord.h"
+@class AidThemeRecord;
 
 @protocol AidAddThemeViewControllerDelegate <NSObject>
 
 @optional
-- (void)addThemeRecord:(AidThemeRecord *)record;
+- (void)addThemeRecord:(AidThemeRecord *)themeRecord;
 
 @end
+
 
 @interface AidAddThemeViewController : UIViewController
 

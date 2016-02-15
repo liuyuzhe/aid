@@ -16,9 +16,10 @@
 
 AS_SINGLETON(LYZFileCache)
 
-@property (nonatomic, copy, readonly) NSString *cachePath;
+@property (nonatomic, copy, readonly) NSString *cachePath; /**< @return [LYZApplicationInfo appVersion] */
 @property (nonatomic, assign, readonly, getter=costSize) CGFloat costSize; /**< @return MB */
 
+- (instancetype)initWithPath:(NSString *)path;
 
 - (BOOL)hasObjectForKey:(NSString *)key;
 - (NSData *)objectForKey:(NSString *)key;

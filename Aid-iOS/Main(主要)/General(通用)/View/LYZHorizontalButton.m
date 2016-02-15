@@ -20,6 +20,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 - (void)awakeFromNib
 {
     [self setupPageSubviews];

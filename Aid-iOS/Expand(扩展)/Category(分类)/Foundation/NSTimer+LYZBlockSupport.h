@@ -23,6 +23,7 @@
  [strongSelf doSomething]; }
  repeats:YES];
  [[NSRunLoop  currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+ [[NSRunLoop  currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes]; // 当滑动界面时，系统为了更好地处理UI事件和滚动显示，主线程runloop会暂时停止处理一些其它事件，这时主线程中运行的NSTimer就会被暂停。改变NSTimer运行的mode为NSRunLoopCommonModes，NSTimer将不会被暂停。
  
  [timer invalidate];
  timer = nil;

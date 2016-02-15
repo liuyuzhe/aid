@@ -59,7 +59,9 @@
                                               style:UIAlertActionStyleCancel
                                             handler:nil]];
     
-    [self presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:alert animated: YES completion: nil];
+    });
 }
 
 - (void)showUploadActionSheetBeforeIOS8
@@ -89,6 +91,7 @@
     
     imagePicker.allowsEditing = YES; // 允许修改的图片
     imagePicker.delegate = self;
+    
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
@@ -105,14 +108,19 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    [picker dismissViewControllerAnimated:YES completion:^() {
-        UIImage *editedImage = [info valueForKey:UIImagePickerControllerEditedImage]; // 修改后的图片
-        if (! editedImage) {
-            editedImage = [info valueForKey:UIImagePickerControllerOriginalImage]; // 原始图片
-        }
-    }];
+    UIImage *editedImage = [info valueForKey:UIImagePickerControllerEditedImage]; // 修改后的图片
+    if (! editedImage) {
+        editedImage = [info valueForKey:UIImagePickerControllerOriginalImage]; // 原始图片
+    }
+    
+    if (self.didFinishPicker)
+    {
+        self.didFinishPicker(editedImage);
+    }
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{

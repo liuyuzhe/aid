@@ -17,13 +17,18 @@ IS_SINGLETON(LYZKeyChain)
 
 #pragma mark - LYZKeyChain method
 
-- (instancetype)init
+- (instancetype)initWithDomain:(NSString *)domain
 {
     self = [super init];
     if (self) {
-        _defaultDomain = LYZKeyChainDefaultDomain;
+        _defaultDomain = domain;
     }
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithDomain:LYZKeyChainDefaultDomain];
 }
 
 #pragma mark - LYZKeyChain public

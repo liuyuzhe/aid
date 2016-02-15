@@ -13,9 +13,11 @@
 
 @interface LYZKeyChain : NSObject <LYZCacheProtocol>
 
-@property (nonatomic, copy) NSString *defaultDomain;
+@property (nonatomic, copy, readonly) NSString *defaultDomain; /**< @return @"LYZKeyChain" */
 
 AS_SINGLETON(LYZKeyChain)
+
+- (instancetype)initWithDomain:(NSString *)domain;
 
 - (BOOL)hasObjectForKey:(NSString *)key withDomain:(NSString *)domain;
 - (id)objectForKey:(NSString *)key withDomain:(NSString *)domain;

@@ -39,6 +39,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 #pragma mark - public methods
 
 #pragma mark - life cycle helper

@@ -16,14 +16,22 @@
 
 #import "AidTaskTable.h"
 
-@interface AidTaskViewController ()  <UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate>
+@interface AidTaskViewController ()  <UITableViewDataSource, UITableViewDelegate, AidEditTaskViewControllerDelegate, MGSwipeTableCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) AidOperateTaskView *operaterView;
 
+@property (nonatomic, strong) AidEditTaskViewController *addTaskVC;
+@property (nonatomic, strong) AidEditTaskViewController *editTaskVC;
+
 @property (nonatomic, strong) NSMutableArray<AidTaskRecord *> *taskArray;
-@property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexPaths; // 存放多选行的可变数组
 @property (nonatomic, strong) NSIndexPath *selectPath;  // 当前选择的行
+
+@property (nonatomic, strong) dispatch_semaphore_t taskSemaphore;
+@property (nonatomic, strong) dispatch_queue_t writeTaskSerilQueue;
+@property (nonatomic, strong) AidTaskTable *taskTable;
+
+@property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexPaths; // 存放多选行的可变数组
 
 @end
 
@@ -32,10 +40,13 @@
 
 #pragma mark - life cycle
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
+        _taskSemaphore = dispatch_semaphore_create(1);
+        _writeTaskSerilQueue = dispatch_queue_create("com.dispatch.writeTask", DISPATCH_QUEUE_SERIAL);
+        
         self.hidesBottomBarWhenPushed = YES; // 隐藏tabbar
     }
     return self;
@@ -201,8 +212,9 @@
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else {
-        AidEditTaskViewController *editTaskVC = [[AidEditTaskViewController alloc] init];
-        [self.navigationController pushViewController:editTaskVC animated:YES];
+        self.selectPath = indexPath;
+        self.editTaskVC.taskRecord = self.taskArray[indexPath.row];
+        [self.navigationController pushViewController:self.editTaskVC animated:YES];
     }
 }
 
@@ -218,6 +230,57 @@
 
 
 #pragma mark - UIScrollViewDelegate
+
+#pragma mark - AidEditTaskViewControllerDelegate
+
+- (void)editTaskRecord:(AidTaskRecord *)taskRecord configureViewController:(AidEditTaskViewController *)viewController
+{
+    if (self.addTaskVC == viewController) {
+        dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
+#warning themeKey
+        taskRecord.themeID = self.themeKey;
+        
+        [self.taskArray addObject:taskRecord];
+        dispatch_semaphore_signal(self.taskSemaphore);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
+        dispatch_async(self.writeTaskSerilQueue, ^{
+            NSError *error = nil;
+            [self.taskTable insertRecord:taskRecord error:&error];
+            if ([taskRecord.primaryKey integerValue] > 0) {
+                NSLog(@"1001 success");
+            }
+            else {
+                NSException *exception = [[NSException alloc] init];
+                @throw exception;
+            }
+        });
+    }
+    else if (self.editTaskVC == viewController) {
+        dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
+        [self.taskArray replaceObjectAtIndex:self.selectPath.row withObject:taskRecord];
+        dispatch_semaphore_signal(self.taskSemaphore);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+
+        dispatch_async(self.writeTaskSerilQueue, ^{
+            NSError *error = nil;
+            [self.taskTable updateRecord:taskRecord error:&error];
+            if ([taskRecord.primaryKey integerValue] > 0) {
+                NSLog(@"1001 success");
+            }
+            else {
+                NSException *exception = [[NSException alloc] init];
+                @throw exception;
+            }
+        });
+    }
+}
 
 #pragma mark - MGSwipeTableCellDelegate
 //
@@ -285,8 +348,10 @@
 
 - (void)addItemBarAction:(UIBarButtonItem *)button
 {
-    AidAddTaskViewController *addTaskVC = [[AidAddTaskViewController alloc] init];
-    [self.navigationController pushViewController:addTaskVC animated:YES];
+    [self.navigationController pushViewController:self.addTaskVC animated:YES];
+
+//    AidAddTaskViewController *addTaskVC = [[AidAddTaskViewController alloc] init];
+//    [self.navigationController pushViewController:addTaskVC animated:YES];
 }
 
 - (void)multipleButtonTouchedAtIndex:(NSInteger)index
@@ -314,23 +379,25 @@
 
 - (void)loadTaskData
 {
-    AidTaskTable *table = [[AidTaskTable alloc] init];
-    NSError *error = nil;
-    
-    NSString *whereCondition = @":primaryKey > 0";
-    NSString *primaryKey = [table primaryKeyName];
-    NSDictionary *whereConditionParams = NSDictionaryOfVariableBindings(primaryKey);
-    NSArray *fetchedRecordList = [table findAllWithWhereCondition:whereCondition conditionParams:whereConditionParams isDistinct:NO error:&error];
-    if ([fetchedRecordList count] > 0 && error == nil) {
-        NSLog(@"2001 success");
-    } else {
-        NSException *exception = [[NSException alloc] init];
-        @throw exception;
-    }
-    
-    [self.taskArray removeAllObjects];
-    [self.taskArray addObjectsFromArray:fetchedRecordList];
-    [self.tableView reloadData];
+    dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(currentQueue, ^{
+        NSError *error = nil;
+        NSString *sqlString = @"SELECT * FROM :tableName WHERE :themeID = :themeKey;";
+        NSString *tableName = [self.taskTable tableName];
+        NSString *themeID = @"themeID";
+        NSNumber *themeKey = self.themeKey;
+        NSDictionary *params = NSDictionaryOfVariableBindings(tableName, themeID, themeKey);
+        NSArray *fetchedRecordList = [self.taskTable findAllWithSQL:sqlString params:params error:&error];
+        
+        if ([fetchedRecordList count] > 0 && error == nil) {
+            [self.taskArray removeAllObjects];
+            [self.taskArray addObjectsFromArray:fetchedRecordList];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    });
 }
 
 #pragma mark - getters and setters
@@ -370,12 +437,38 @@
     return _operaterView;
 }
 
+- (AidEditTaskViewController *)addTaskVC
+{
+    if (! _addTaskVC) {
+        _addTaskVC = [[AidEditTaskViewController alloc] init];
+        _addTaskVC.delegate = self;
+    }
+    return _addTaskVC;
+}
+
+- (AidEditTaskViewController *)editTaskVC
+{
+    if (! _editTaskVC) {
+        _editTaskVC = [[AidEditTaskViewController alloc] init];
+        _editTaskVC.delegate = self;
+    }
+    return _editTaskVC;
+}
+
 - (NSMutableArray<AidTaskRecord *> *)taskArray
 {
     if (! _taskArray) {
         _taskArray = [NSMutableArray array];
     }
     return _taskArray;
+}
+
+- (AidTaskTable *)taskTable
+{
+    if (! _taskTable) {
+        _taskTable = [[AidTaskTable alloc] init];
+    }
+    return _taskTable;
 }
 
 - (NSMutableArray<NSIndexPath *> *)selectIndexPaths

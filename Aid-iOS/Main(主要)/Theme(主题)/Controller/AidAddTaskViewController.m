@@ -8,31 +8,156 @@
 
 #import "AidAddTaskViewController.h"
 
-@interface AidAddTaskViewController ()
+#import "AidWeekDayCell.h"
+#import "AidTextFieldCell.h"
+
+@interface AidAddTaskViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
+
 @implementation AidAddTaskViewController
 
-- (void)viewDidLoad {
+#pragma mark - life cycle
+
+- (void)loadView
+{
+    UIView *contentView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.view = contentView;
+    self.title = @"增加任务";
+
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
+    [self setupPageNavigation];
+    
+    [self.view addSubview:self.tableView];
+    
+    [self layoutPageSubviews];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)viewDidAppear:(BOOL)animated
+{
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+}
+
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - life cycle helper
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupPageNavigation
+{
 }
-*/
+
+- (void)layoutPageSubviews
+{
+    __weak UIView *weakSelf = self.view;
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(weakSelf);
+    }];
+}
+
+#pragma mark - override super
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 2;
+    }
+    
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        AidTextFieldCell *cell = [AidTextFieldCell cellWithTableView:tableView];
+        cell.cellStyle = AidTextFieldCellStyleNoEnable;
+        cell.placeholder = @"名称";
+        return cell;
+    }
+    else {
+    
+    AidWeekDayCell *cell = [AidWeekDayCell cellWithTableView:tableView];
+//    __weak typeof(self) weakSelf = self;
+    cell.weekDayTouched = ^(NSDictionary *dictionary) {
+        LYZPRINT(@":%@", dictionary);
+    };
+    
+    return cell;
+    }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 2) {
+        return 88;
+    }
+    
+    return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 15;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 10)];
+    return headerView;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+}
+
+#pragma mark - event response
+
+#pragma mark - notification response
+
+#pragma mark - private methods
+
+#pragma mark - getters and setters
+
+- (UITableView *)tableView
+{
+    if (! _tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - 64) style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor clearColor];
+        
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    return _tableView;
+}
 
 @end

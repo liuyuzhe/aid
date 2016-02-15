@@ -14,12 +14,12 @@
 
 - (NSString *)tableName
 {
-    return @"theme";
+    return @"task";
 }
 
 - (NSString *)databaseName
 {
-    return @"ThemeDatabase.sqlite";
+    return @"TaskDatabase.sqlite";
 }
 
 - (NSDictionary *)columnInfo
@@ -27,11 +27,14 @@
     return @{
              @"primaryKey" : @"INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL",
              @"name" : @"TEXT NOT NULL",
-             @"completeTime" : @"INTEGER",
+             @"startTime" : @"INTEGER",
+             @"endTime" : @"INTEGER",
+             @"alarmTime" : @"INTEGER",
+             @"repeat" : @"INTEGER",
+             @"note" : @"TEXT",
              @"completeState" : @"INTEGER",
-             @"alarmState" : @"INTEGER",
-             @"repeatState" : @"INTEGER",
-             @"priorityState" : @"INTEGER",
+             @"priority" : @"INTEGER",
+             @"themeID" : @"INTEGER",
              };
 }
 

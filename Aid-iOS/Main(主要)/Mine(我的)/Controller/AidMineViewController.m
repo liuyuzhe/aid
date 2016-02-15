@@ -12,8 +12,8 @@
 
 #import "UINavigationBar+Awesome.h"
 
-static const CGFloat AidHeadViewHeigtht = 200;
-static const CGFloat AidNavbarChangePoint = 0;
+static const CGFloat AidHeadViewHeigtht = 235;
+static const CGFloat AidNavbarChangePoint = 50;
 
 @interface AidMineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -27,6 +27,8 @@ static const CGFloat AidNavbarChangePoint = 0;
 
 
 @implementation AidMineViewController
+
+#pragma mark - life cycle
 
 - (void)loadView
 {

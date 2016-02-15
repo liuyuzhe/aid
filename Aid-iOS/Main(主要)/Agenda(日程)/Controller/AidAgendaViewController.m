@@ -18,15 +18,6 @@
 
 #pragma mark - life cycle
 
-//- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        self.hidesBottomBarWhenPushed = YES; // 隐藏tabbar
-//    }
-//    return self;
-//}
-
 - (void)loadView
 {
     UIView *contentView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];

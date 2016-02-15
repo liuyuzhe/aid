@@ -12,7 +12,7 @@
 /**
  *
  在Build Settings里面找到Prefix Header,
- 添加pch文件，规则是: $(SRCROOT)/项目名/xxxxx.pch
+ 添加pch文件，规则是: $(SRCROOT)/项目名/PrefixHeader.pch
  
  */
 #import "LYZExpand.h"
@@ -22,7 +22,6 @@
 #import "Masonry.h"
 #import "MJRefresh.h"
 //#import "MJExtension.h"
-
 // go to `Build Phases` and add `sqlite3` into your library list.
 #import "CTPersistance.h"
 

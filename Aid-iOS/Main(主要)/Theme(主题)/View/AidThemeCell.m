@@ -67,7 +67,7 @@
 
 - (void)layoutPageSubviews
 {
-    __weak UIView *weakSelf = self;
+    __weak UIView *weakSelf = self.contentView;
     
     [_themeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf.mas_centerY);

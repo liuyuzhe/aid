@@ -427,7 +427,6 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
     _lastOffsetX = offsetX;
     
 
-    
     UIViewController *vc = self.childViewControllers[index];
     
     // 判断控制器的view有没有加载，没有就加载，加载完在发送通知

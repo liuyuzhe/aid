@@ -49,7 +49,7 @@
     CGFloat total = [self GBytesOfDiskSpaceTotal];
     CGFloat free = [self GBytesOfDiskSpaceFree];
     
-    return (total - free);
+    return total - free;
 }
 
 #pragma mark -

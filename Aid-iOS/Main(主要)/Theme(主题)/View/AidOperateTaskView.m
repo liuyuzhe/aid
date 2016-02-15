@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) NSArray<NSString *> *imageArray;
 @property (nonatomic, strong) NSArray<NSString *> *titleArray;
-//@property (nonatomic, strong) NSMutableArray<__kindof UIButton *> *buttonArray;
 
 @end
 
@@ -29,7 +28,6 @@
     if (self = [super initWithFrame:frame]) {
         _imageArray = [[NSArray alloc] initWithArray:imageNames];
         _titleArray = [[NSArray alloc] initWithArray:titleNames];
-//        _buttonArray = [NSMutableArray arrayWithCapacity:imageNames.count];
         
         [self setupPageSubviews];
         
@@ -42,6 +40,11 @@
 {
     self = [self initWithFrame:frame imageNames:nil titleNames:nil];
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
 }
 
 #pragma mark - public methods
@@ -64,14 +67,12 @@
         [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
         [button addTarget:self action:@selector(itemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         
-//        [_buttonArray addObject:button];
         [self addSubview:button];
     }
 }
 
 - (void)layoutPageSubviews
 {
-//    [self distributeSpacingHorizontallyWith:_buttonArray];
 }
 
 #pragma mark - override super

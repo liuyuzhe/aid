@@ -72,16 +72,16 @@
 
 #pragma mark -
 
-/** @param format e.g. @"yyyy-MM-dd HH:mm:ss" */
+/** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
 - (NSString *)stringWithFormat:(NSString *)format;
-/** @param format e.g. @"yyyy-MM-dd HH:mm:ss" */
+/** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
 - (NSString *)stringWithFormat:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
 /** @return e.g. "2010-07-09T16:13:30+12:00" */
 - (NSString *)stringWithISOFormat;
 
-/** @param format e.g. @"yyyy-MM-dd HH:mm:ss" */
+/** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
 + (NSDate *)dataWithString:(NSString *)dataString format:(NSString *)format;
-/** @param format e.g. @"yyyy-MM-dd HH:mm:ss" */
+/** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
 + (NSDate *)dataWithString:(NSString *)dataString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
 /** @return e.g. "2010-07-09T16:13:30+12:00" */
 + (NSDate *)dataWithISOFormatString:(NSString *)dataString;

@@ -14,6 +14,4 @@
 
 @property (nonatomic,assign)CGSize imageSize;
 
-//+ (instancetype)cellWithCollectionView:(UICollectionView *)collectionView forIndexPath:(NSIndexPath *)indexPath;
-
 @end

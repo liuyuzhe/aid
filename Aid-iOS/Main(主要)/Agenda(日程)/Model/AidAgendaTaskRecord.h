@@ -14,9 +14,9 @@
 @property (nonatomic, strong) NSString *name; /**< 名称 */
 @property (nonatomic, strong) NSNumber *startTime; /**< 开始时间 */
 @property (nonatomic, strong) NSNumber *completeTime; /**< 完成时间 */
+@property (nonatomic, strong) NSNumber *alarmTime; /**< 提醒时间 */
+@property (nonatomic, strong) NSNumber *repeatTime; /**< 重复频率 */
 @property (nonatomic, strong) NSNumber *completeState; /**< 是否完成 */
-@property (nonatomic, strong) NSNumber *alarmState; /**< 提醒时间 */
-@property (nonatomic, strong) NSNumber *repeatState; /**< 重复频率 */
-@property (nonatomic, strong) NSNumber *priorityState; /**< 优先级 */
+@property (nonatomic, strong) NSNumber *priority; /**< 优先级 */
 
 @end

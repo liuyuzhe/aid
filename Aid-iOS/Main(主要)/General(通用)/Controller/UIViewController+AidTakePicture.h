@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^AidFinishPicker)(UIImage * chooseImage);
+
 @interface UIViewController (AidTakePicture) <UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
 
 - (void)imagePickerAction;
+
+#warning 回调实现存在问题
+@property (nonatomic, copy) AidFinishPicker didFinishPicker; /**< 完成图片选取 */
 
 @end

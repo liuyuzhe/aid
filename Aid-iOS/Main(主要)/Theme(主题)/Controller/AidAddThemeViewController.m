@@ -94,7 +94,8 @@
     }];
     
     [self.themeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.equalTo(self.themeView);
+        make.left.top.equalTo(self.themeView).offset(5);
+        make.right.equalTo(self.themeView).offset(-5);
         make.bottom.equalTo(self.chooseThemeLabel.mas_top).offset(-5);
     }];
     
@@ -158,12 +159,12 @@
     record.imageName = nil;
     record.createTime = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
     record.praiseState = [NSNumber numberWithBool:false];
-    
+
     if ([self.delegate respondsToSelector:@selector(addThemeRecord:)]) {
         [self.delegate addThemeRecord:record];
     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)chooseTheme
@@ -241,7 +242,7 @@
         _themeNameTextField.autocorrectionType = UITextAutocorrectionTypeNo; // 自动纠错类型
         _themeNameTextField.keyboardType = UIKeyboardTypeDefault; // 键盘类型
         _themeNameTextField.returnKeyType = UIReturnKeyDone; // return键类型
-        _themeNameTextField.backgroundColor = [UIColor clearColor]; // 背景颜色
+        _themeNameTextField.backgroundColor = [UIColor lightGrayColor]; // 背景颜色
 //        _themeNameTextField.inputAccessoryView = self.keyboardToolBar; // 自定义键盘视图
         
         _themeNameTextField.delegate = self;

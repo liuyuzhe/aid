@@ -48,6 +48,11 @@
     return self;
 }
 
+- (instancetype)init
+{
+    return [self initWithFrame:CGRectZero];
+}
+
 #pragma mark - event response
 
 - (void)buttonAction:(UIButton *)button

@@ -26,6 +26,11 @@ static const CGFloat AidThemeCellHeight = 110;
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray<AidThemeRecord *> *themeArray;
+@property (nonatomic, strong) NSIndexPath *selectPath;  // 当前选择的行
+
+@property (nonatomic, strong) dispatch_semaphore_t themeSemaphore;
+@property (nonatomic, strong) dispatch_queue_t writeThemeSerilQueue;
+@property (nonatomic, strong) AidThemeTable *themeTable;
 
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPress; /**< 长按手势 */
 @property (nonatomic, strong) UIView *snapshot; /**< Cell截图 */
@@ -40,6 +45,16 @@ static const CGFloat AidThemeCellHeight = 110;
 @implementation AidThemeViewController
 
 #pragma mark - life cycle
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _themeSemaphore = dispatch_semaphore_create(1);
+        _writeThemeSerilQueue = dispatch_queue_create("com.dispatch.writeTheme", DISPATCH_QUEUE_SERIAL);
+    }
+    return self;
+}
 
 - (void)loadView
 {
@@ -132,11 +147,37 @@ static const CGFloat AidThemeCellHeight = 110;
 
 - (void)setupRefreshHead
 {
-    self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
-        [self refreshData];
+    __weak typeof(self) weakSelf = self;
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf refreshData];
     }];
     
-//    [self.tableView.mj_header beginRefreshing];
+//    [header setTitle:@"Pull down to refresh" forState:MJRefreshStateIdle];
+//    [header setTitle:@"Release to refresh" forState:MJRefreshStatePulling];
+//    [header setTitle:@"Loading ..." forState:MJRefreshStateRefreshing];
+    
+    header.stateLabel.font = [UIFont systemFontOfSize:15];
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
+    
+    header.stateLabel.textColor = [UIColor redColor];
+    header.lastUpdatedTimeLabel.textColor = [UIColor blueColor];
+    
+    self.tableView.mj_header = header;
+    
+    [self.tableView.mj_header beginRefreshing];
+    
+    
+//    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+//
+//    [footer setTitle:@"Click or drag up to refresh" forState:MJRefreshStateIdle];
+//    [footer setTitle:@"Loading more ..." forState:MJRefreshStateRefreshing];
+//    [footer setTitle:@"No more data" forState:MJRefreshStateNoMoreData];
+//    
+//    footer.stateLabel.font = [UIFont systemFontOfSize:17];
+//    
+//    footer.stateLabel.textColor = [UIColor blueColor];
+//    
+//    self.tableView.mj_footer = footer;
 }
 
 - (void)addPressGesture
@@ -224,7 +265,12 @@ static const CGFloat AidThemeCellHeight = 110;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectPath = indexPath;
+
     AidTaskViewController *themeVC = [[AidTaskViewController alloc] init];
+    AidThemeRecord *record = self.themeArray[indexPath.row];
+    themeVC.themeKey = record.primaryKey;
+
     [self.navigationController pushViewController:themeVC animated:YES];
 }
 
@@ -246,25 +292,33 @@ static const CGFloat AidThemeCellHeight = 110;
 
 #pragma mark - AidAddThemeViewControllerDelegate
 
-- (void)addThemeRecord:(AidThemeRecord *)record;
+- (void)addThemeRecord:(AidThemeRecord *)themeRecord;
 {
-    [self.themeArray insertObject:record atIndex:self.themeArray.count];
-    [self.tableView beginUpdates];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.themeArray.count inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
+    dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
+    [self.themeArray addObject:themeRecord];
+    dispatch_semaphore_signal(self.themeSemaphore);
     
-    AidThemeTable *table = [[AidThemeTable alloc] init];
-    NSError *error = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+
+    dispatch_async(self.writeThemeSerilQueue, ^{
+        NSError *error = nil;
+        [self.themeTable insertRecord:themeRecord error:&error];
+        if ([themeRecord.primaryKey integerValue] > 0) {
+            NSLog(@"1001 success");
+        }
+        else {
+            NSException *exception = [[NSException alloc] init];
+            @throw exception;
+        }
+    });
     
-    [table insertRecord:record error:&error];
-    if ([record.primaryKey integerValue] > 0) {
-        NSLog(@"1001 success");
-    }
-    else {
-        NSException *exception = [[NSException alloc] init];
-        @throw exception;
-    }
+#warning insertRowsAtIndexPaths 效率及闪退问题
+//    [self.tableView beginUpdates];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.themeArray.count inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [self.tableView endUpdates];
 }
 
 #pragma mark - MGSwipeTableCellDelegate
@@ -342,6 +396,8 @@ static const CGFloat AidThemeCellHeight = 110;
 - (void)addItemBarAction:(UIBarButtonItem *)button
 {
     AidAddThemeViewController *addThemeVC = [[AidAddThemeViewController alloc] init];
+    addThemeVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical; // 弹出动画风格
+    addThemeVC.modalPresentationStyle = UIModalPresentationFormSheet; // 弹出风格
     addThemeVC.delegate = self;
     
     [self presentViewController:addThemeVC animated:YES completion:nil];
@@ -351,8 +407,10 @@ static const CGFloat AidThemeCellHeight = 110;
 - (void)refreshData
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        // 刷新主题数据
         [self refreshThemeData];
         dispatch_async(dispatch_get_main_queue(), ^{
+            // 这个里面是主线程要做的事  可以刷新UI
         });
     });
 }
@@ -362,8 +420,14 @@ static const CGFloat AidThemeCellHeight = 110;
     NSString *baseUrl = @"http://125.89.65.238:8821/ics.cgi";
     NSDictionary *params = @{@"age": @"txt_age",
                              @"username": @"txt_username"};
-    NSString *urlStr = [baseUrl URLQueryStringAppendDictionary:params];
-    [AidNetWork getWithUrl:urlStr success:^(id response) {
+//    NSString *urlStr = [baseUrl URLQueryStringAppendDictionary:params];
+//    [AidNetWork getWithUrl:urlStr success:^(id response) {
+//        LYZPRINT(@"%@", response);
+//    } failure:^(NSError *error) {
+//        LYZPRINT(@"%@", error);
+//    }];
+    
+    [AidNetWork getWithUrl:baseUrl params:params success:^(id response) {
         LYZPRINT(@"%@", response);
     } failure:^(NSError *error) {
         LYZPRINT(@"%@", error);
@@ -372,7 +436,14 @@ static const CGFloat AidThemeCellHeight = 110;
 
 - (void)refreshThemeData
 {
-    
+    // 模拟2秒后刷新表格UI（真实开发中，可以移除这段gcd代码）
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 拿到当前的下拉刷新控件，结束刷新状态
+        [self.tableView.mj_header endRefreshing];
+    });
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)gesture
@@ -542,23 +613,23 @@ static const CGFloat AidThemeCellHeight = 110;
 
 - (void)loadThemeData
 {
-    AidThemeTable *table = [[AidThemeTable alloc] init];
-    NSError *error = nil;
-    
-    NSString *whereCondition = @":primaryKey > 0";
-    NSString *primaryKey = [table primaryKeyName];
-    NSDictionary *whereConditionParams = NSDictionaryOfVariableBindings(primaryKey);
-    NSArray *fetchedRecordList = [table findAllWithWhereCondition:whereCondition conditionParams:whereConditionParams isDistinct:NO error:&error];
-    if ([fetchedRecordList count] > 0 && error == nil) {
-        NSLog(@"2001 success");
-    } else {
-        NSException *exception = [[NSException alloc] init];
-        @throw exception;
-    }
-    
-    [self.themeArray removeAllObjects];
-    [self.themeArray addObjectsFromArray:fetchedRecordList];
-    [self.tableView reloadData];
+    dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(currentQueue, ^{
+        NSError *error = nil;
+        NSString *whereCondition = @":primaryKey > 0";
+        NSString *primaryKey = [self.themeTable primaryKeyName];
+        NSDictionary *whereConditionParams = NSDictionaryOfVariableBindings(primaryKey);
+        NSArray *fetchedRecordList = [self.themeTable findAllWithWhereCondition:whereCondition conditionParams:whereConditionParams isDistinct:NO error:&error];
+        
+        if (fetchedRecordList.count > 0 && error == nil) {
+            [self.themeArray removeAllObjects];
+            [self.themeArray addObjectsFromArray:fetchedRecordList];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    });
 }
 
 #pragma mark - getters and setters
@@ -581,6 +652,14 @@ static const CGFloat AidThemeCellHeight = 110;
         _themeArray = [NSMutableArray array];
     }
     return _themeArray;
+}
+
+- (AidThemeTable *)themeTable
+{
+    if (! _themeTable) {
+        _themeTable = [[AidThemeTable alloc] init];
+    }
+    return _themeTable;
 }
 
 @end

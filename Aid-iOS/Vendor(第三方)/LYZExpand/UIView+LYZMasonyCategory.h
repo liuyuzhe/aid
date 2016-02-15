@@ -10,7 +10,7 @@
 
 @interface UIView (LYZMasonyCategory)
 
-- (void) distributeSpacingHorizontallyWith:(NSArray<UIView *> *)views;
-- (void) distributeSpacingVerticallyWith:(NSArray<UIView *> *)views;
+- (void)distributeSpacingHorizontallyWith:(NSArray<UIView *> *)views;
+- (void)distributeSpacingVerticallyWith:(NSArray<UIView *> *)views;
 
 @end

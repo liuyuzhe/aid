@@ -10,4 +10,6 @@
 
 @interface AidTaskViewController : UIViewController
 
+@property (nonatomic, strong) NSNumber *themeKey;
+
 @end

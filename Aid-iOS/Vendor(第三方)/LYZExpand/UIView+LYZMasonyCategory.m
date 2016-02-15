@@ -11,7 +11,7 @@
 
 @implementation UIView (LYZMasonyCategory)
 
-- (void) distributeSpacingHorizontallyWith:(NSArray*)views
+- (void)distributeSpacingHorizontallyWith:(NSArray*)views
 {
     NSMutableArray *spaces = [NSMutableArray arrayWithCapacity:views.count+1];
     
@@ -60,7 +60,7 @@
     
 }
 
-- (void) distributeSpacingVerticallyWith:(NSArray*)views
+- (void)distributeSpacingVerticallyWith:(NSArray*)views
 {
     NSMutableArray *spaces = [NSMutableArray arrayWithCapacity:views.count+1];
     

@@ -67,6 +67,8 @@
 + (id)attributeOfItemAtPath:(NSString *)path forKey:(NSString *)key;
 + (CGFloat)MByteOfFileAtPath:(NSString *)path;
 + (CGFloat)MByteOfDirectoryAtPath:(NSString *)path;
+/** @param diskMode YES:占用磁盘大小;NO:文件实际大小 */
++ (uint64_t)sizeAtPath:(NSString *)filePath diskMode:(BOOL)diskMode;
 
 + (BOOL)isFileItemAtPath:(NSString *)path;
 

@@ -22,7 +22,6 @@ static const CGFloat AidNavbarChangePoint = 50;
 @interface AidChildDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-//@property (nonatomic, strong) UIImageView *parallaxHeaderView;
 @property (nonatomic, strong) AidCarouselView *carouseView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 
@@ -36,9 +35,9 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 #pragma mark - life cycle
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         self.hidesBottomBarWhenPushed = YES; // 隐藏tabbar
     }
