@@ -10,6 +10,15 @@
 		C400DF1C1C65CF87002787BD /* AidTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C400DF1B1C65CF87002787BD /* AidTextFieldCell.m */; };
 		C400DF1E1C65F0B7002787BD /* more_right_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C400DF1D1C65F0B7002787BD /* more_right_image@2x.png */; };
 		C400DF211C6619A4002787BD /* AidDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C400DF201C6619A4002787BD /* AidDatePickerCell.m */; };
+		C401EB5F1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB5E1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.m */; };
+		C401EB681C7744D200450FC7 /* AidDiscoverThemeRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB671C7744D200450FC7 /* AidDiscoverThemeRecord.m */; };
+		C401EB6B1C77450400450FC7 /* AidDiscoverThemeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB6A1C77450400450FC7 /* AidDiscoverThemeTable.m */; };
+		C401EB6E1C77451E00450FC7 /* AidDiscoverTaskTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB6D1C77451E00450FC7 /* AidDiscoverTaskTable.m */; };
+		C401EB711C77453800450FC7 /* AidDiscoverTaskRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB701C77453800450FC7 /* AidDiscoverTaskRecord.m */; };
+		C401EB771C7746DB00450FC7 /* AidDiscoverTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB761C7746DB00450FC7 /* AidDiscoverTaskCell.m */; };
+		C401EB7A1C7746EF00450FC7 /* AidDiscoverThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB791C7746EF00450FC7 /* AidDiscoverThemeCell.m */; };
+		C401EB7D1C77486D00450FC7 /* AidDiscoverThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB7C1C77486D00450FC7 /* AidDiscoverThemeViewController.m */; };
+		C401EB801C77490800450FC7 /* AidDiscoverTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB7F1C77490800450FC7 /* AidDiscoverTaskViewController.m */; };
 		C40283FA1C658FCA00882570 /* AidWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40283F91C658FCA00882570 /* AidWeekDayView.m */; };
 		C4078AFA1C5CC94E00860868 /* AidNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = C4078AF91C5CC94E00860868 /* AidNetWork.m */; };
 		C410265E1C672C8C00AB446E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C41026081C672C8C00AB446E /* Info.plist */; };
@@ -92,8 +101,6 @@
 		C41BAFBF1C1D9D53009F51C4 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAF9A1C1D9D53009F51C4 /* UIImageView+HighlightedWebCache.m */; };
 		C41BAFC01C1D9D53009F51C4 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAF9C1C1D9D53009F51C4 /* UIImageView+WebCache.m */; };
 		C41BAFC11C1D9D53009F51C4 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAF9E1C1D9D53009F51C4 /* UIView+WebCacheOperation.m */; };
-		C41BAFCB1C20428C009F51C4 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAFC81C20428C009F51C4 /* MGSwipeButton.m */; };
-		C41BAFCC1C20428C009F51C4 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAFCA1C20428C009F51C4 /* MGSwipeTableCell.m */; };
 		C41BAFCF1C219D10009F51C4 /* AidItemsScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41BAFCE1C219D10009F51C4 /* AidItemsScrollViewController.m */; };
 		C41BB4CD1C21B678009F51C4 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C41BAFD11C21B670009F51C4 /* back@2x.png */; };
 		C41BB4CE1C21B678009F51C4 /* bg_login.png in Resources */ = {isa = PBXBuildFile; fileRef = C41BAFD21C21B670009F51C4 /* bg_login.png */; };
@@ -1365,10 +1372,9 @@
 		C41BB9C11C21B678009F51C4 /* wlbackground30Ipad@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C41BB4CB1C21B678009F51C4 /* wlbackground30Ipad@2x.jpg */; };
 		C41BB9C21C21B678009F51C4 /* wlbackground30thumb@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C41BB4CC1C21B678009F51C4 /* wlbackground30thumb@2x.jpg */; };
 		C41BB9C41C21CA45009F51C4 /* ItemBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = C41BB9C31C21CA45009F51C4 /* ItemBackground.png */; };
-		C428D80F1C0F57A5002A93F3 /* AidThemeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C428D80E1C0F57A5002A93F3 /* AidThemeFooterView.m */; };
-		C428D81E1C109FDC002A93F3 /* AidControlLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C428D81D1C109FDC002A93F3 /* AidControlLabelView.m */; };
 		C443614F1BFB683C009C96AB /* UIBarButtonItem+LYZExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C443614E1BFB683C009C96AB /* UIBarButtonItem+LYZExtension.m */; };
 		C4442F321BB04B520030E774 /* AidAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F311BB04B520030E774 /* AidAgendaViewController.m */; };
+		C4446CF11C733C2D00EBD38B /* LYZPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4446CF01C733C2D00EBD38B /* LYZPlaceholderTextView.m */; };
 		C44B9D0C1C264C9C00BF8E59 /* AidKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C44B9D0B1C264C9C00BF8E59 /* AidKeyboardToolBar.m */; };
 		C44B9D1E1C2847DB00BF8E59 /* LYZVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C44B9D1D1C2847DB00BF8E59 /* LYZVerticalButton.m */; };
 		C44B9D211C284BB000BF8E59 /* LYZHorizontalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C44B9D201C284BB000BF8E59 /* LYZHorizontalButton.m */; };
@@ -1446,17 +1452,9 @@
 		C47633E41C04BE5900DB909F /* AidThemeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633E21C04BE5900DB909F /* AidThemeTable.m */; };
 		C47633EA1C07569A00DB909F /* AidDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633E91C07569A00DB909F /* AidDiscoverViewController.m */; };
 		C47633F91C07585000DB909F /* AidMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47633F81C07585000DB909F /* AidMineViewController.m */; };
-		C47634111C0C964F00DB909F /* AidHotRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C47634101C0C964F00DB909F /* AidHotRecord.m */; };
-		C47634141C0C967E00DB909F /* AidHotTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C47634131C0C967E00DB909F /* AidHotTable.m */; };
-		C47634171C0C971600DB909F /* AidHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C47634161C0C971600DB909F /* AidHotCell.m */; };
-		C476341D1C0C9F0100DB909F /* AidHotDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C476341C1C0C9F0100DB909F /* AidHotDetailCell.m */; };
-		C47634201C0C9F9900DB909F /* AidHotDetailRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = C476341F1C0C9F9900DB909F /* AidHotDetailRecord.m */; };
-		C47634231C0CA05800DB909F /* AidHotDetailTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C47634221C0CA05800DB909F /* AidHotDetailTable.m */; };
 		C47F95741C3FE43800BB889A /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C47F95731C3FE43800BB889A /* bg.jpg */; };
 		C47F957A1C42026D00BB889A /* UIImage+LYZImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C47F95791C42026D00BB889A /* UIImage+LYZImageEffects.m */; };
 		C47F957D1C42080800BB889A /* UIView+LYZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C47F957C1C42080800BB889A /* UIView+LYZAnimation.m */; };
-		C47F95801C425E2900BB889A /* AidDiscoverChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47F957F1C425E2900BB889A /* AidDiscoverChildViewController.m */; };
-		C47F95831C428C2E00BB889A /* AidChildDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C47F95821C428C2E00BB889A /* AidChildDetailViewController.m */; };
 		C4C19F9A1C66D787004E7BAC /* AidDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C19F991C66D787004E7BAC /* AidDatePickerView.m */; };
 		C4C19FB01C66E7AB004E7BAC /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C19F9D1C66E7AB004E7BAC /* AbstractActionSheetPicker.m */; };
 		C4C19FB11C66E7AB004E7BAC /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C19F9F1C66E7AB004E7BAC /* ActionSheetCustomPicker.m */; };
@@ -1467,6 +1465,7 @@
 		C4C19FB61C66E7AB004E7BAC /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C19FAB1C66E7AB004E7BAC /* ActionSheetStringPicker.m */; };
 		C4C19FB71C66E7AB004E7BAC /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C19FAD1C66E7AB004E7BAC /* DistancePickerView.m */; };
 		C4C19FB81C66E7AB004E7BAC /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C19FAF1C66E7AB004E7BAC /* SWActionSheet.m */; };
+		C4DCEED41C74C7DE0068F5F6 /* NSString+LYZStringDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DCEED31C74C7DE0068F5F6 /* NSString+LYZStringDrawing.m */; };
 		C4F39A6D1BF0D95D001C2D86 /* AidAddThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F39A6C1BF0D95D001C2D86 /* AidAddThemeViewController.m */; };
 		C4F3AFB51BF0E29F001C2D86 /* AidMainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3AFB41BF0E29F001C2D86 /* AidMainNavigationController.m */; };
 		C4F3AFB81BF0EB74001C2D86 /* AidMainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F3AFB71BF0EB74001C2D86 /* AidMainTabBar.m */; };
@@ -1564,6 +1563,24 @@
 		C400DF1D1C65F0B7002787BD /* more_right_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_right_image@2x.png"; sourceTree = "<group>"; };
 		C400DF1F1C6619A4002787BD /* AidDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDatePickerCell.h; sourceTree = "<group>"; };
 		C400DF201C6619A4002787BD /* AidDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDatePickerCell.m; sourceTree = "<group>"; };
+		C401EB5D1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LYZFriendlyDate.h"; sourceTree = "<group>"; };
+		C401EB5E1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LYZFriendlyDate.m"; sourceTree = "<group>"; };
+		C401EB661C7744D200450FC7 /* AidDiscoverThemeRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverThemeRecord.h; sourceTree = "<group>"; };
+		C401EB671C7744D200450FC7 /* AidDiscoverThemeRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverThemeRecord.m; sourceTree = "<group>"; };
+		C401EB691C77450400450FC7 /* AidDiscoverThemeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverThemeTable.h; sourceTree = "<group>"; };
+		C401EB6A1C77450400450FC7 /* AidDiscoverThemeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverThemeTable.m; sourceTree = "<group>"; };
+		C401EB6C1C77451E00450FC7 /* AidDiscoverTaskTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverTaskTable.h; sourceTree = "<group>"; };
+		C401EB6D1C77451E00450FC7 /* AidDiscoverTaskTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverTaskTable.m; sourceTree = "<group>"; };
+		C401EB6F1C77453800450FC7 /* AidDiscoverTaskRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverTaskRecord.h; sourceTree = "<group>"; };
+		C401EB701C77453800450FC7 /* AidDiscoverTaskRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverTaskRecord.m; sourceTree = "<group>"; };
+		C401EB751C7746DB00450FC7 /* AidDiscoverTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverTaskCell.h; sourceTree = "<group>"; };
+		C401EB761C7746DB00450FC7 /* AidDiscoverTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverTaskCell.m; sourceTree = "<group>"; };
+		C401EB781C7746EF00450FC7 /* AidDiscoverThemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverThemeCell.h; sourceTree = "<group>"; };
+		C401EB791C7746EF00450FC7 /* AidDiscoverThemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverThemeCell.m; sourceTree = "<group>"; };
+		C401EB7B1C77486D00450FC7 /* AidDiscoverThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverThemeViewController.h; sourceTree = "<group>"; };
+		C401EB7C1C77486D00450FC7 /* AidDiscoverThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverThemeViewController.m; sourceTree = "<group>"; };
+		C401EB7E1C77490800450FC7 /* AidDiscoverTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverTaskViewController.h; sourceTree = "<group>"; };
+		C401EB7F1C77490800450FC7 /* AidDiscoverTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverTaskViewController.m; sourceTree = "<group>"; };
 		C40283F81C658FCA00882570 /* AidWeekDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidWeekDayView.h; sourceTree = "<group>"; };
 		C40283F91C658FCA00882570 /* AidWeekDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidWeekDayView.m; sourceTree = "<group>"; };
 		C4078AF81C5CC94E00860868 /* AidNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidNetWork.h; sourceTree = "<group>"; };
@@ -1732,10 +1749,6 @@
 		C41BAF9C1C1D9D53009F51C4 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C41BAF9D1C1D9D53009F51C4 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C41BAF9E1C1D9D53009F51C4 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		C41BAFC71C20428C009F51C4 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
-		C41BAFC81C20428C009F51C4 /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeButton.m; sourceTree = "<group>"; };
-		C41BAFC91C20428C009F51C4 /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeTableCell.h; sourceTree = "<group>"; };
-		C41BAFCA1C20428C009F51C4 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		C41BAFCD1C219D10009F51C4 /* AidItemsScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidItemsScrollViewController.h; sourceTree = "<group>"; };
 		C41BAFCE1C219D10009F51C4 /* AidItemsScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidItemsScrollViewController.m; sourceTree = "<group>"; };
 		C41BAFD11C21B670009F51C4 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
@@ -3008,15 +3021,13 @@
 		C41BB4CB1C21B678009F51C4 /* wlbackground30Ipad@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wlbackground30Ipad@2x.jpg"; sourceTree = "<group>"; };
 		C41BB4CC1C21B678009F51C4 /* wlbackground30thumb@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wlbackground30thumb@2x.jpg"; sourceTree = "<group>"; };
 		C41BB9C31C21CA45009F51C4 /* ItemBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ItemBackground.png; sourceTree = "<group>"; };
-		C428D80D1C0F57A5002A93F3 /* AidThemeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidThemeFooterView.h; sourceTree = "<group>"; };
-		C428D80E1C0F57A5002A93F3 /* AidThemeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidThemeFooterView.m; sourceTree = "<group>"; };
-		C428D81C1C109FDC002A93F3 /* AidControlLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidControlLabelView.h; sourceTree = "<group>"; };
-		C428D81D1C109FDC002A93F3 /* AidControlLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidControlLabelView.m; sourceTree = "<group>"; };
 		C44361461BFB58FB009C96AB /* AidCustomMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidCustomMarco.h; sourceTree = "<group>"; };
 		C443614D1BFB683C009C96AB /* UIBarButtonItem+LYZExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+LYZExtension.h"; sourceTree = "<group>"; };
 		C443614E1BFB683C009C96AB /* UIBarButtonItem+LYZExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+LYZExtension.m"; sourceTree = "<group>"; };
 		C4442F301BB04B520030E774 /* AidAgendaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAgendaViewController.h; sourceTree = "<group>"; };
 		C4442F311BB04B520030E774 /* AidAgendaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAgendaViewController.m; sourceTree = "<group>"; };
+		C4446CEF1C733C2D00EBD38B /* LYZPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZPlaceholderTextView.h; sourceTree = "<group>"; };
+		C4446CF01C733C2D00EBD38B /* LYZPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZPlaceholderTextView.m; sourceTree = "<group>"; };
 		C44B9D0A1C264C9C00BF8E59 /* AidKeyboardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidKeyboardToolBar.h; sourceTree = "<group>"; };
 		C44B9D0B1C264C9C00BF8E59 /* AidKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidKeyboardToolBar.m; sourceTree = "<group>"; };
 		C44B9D1C1C2847DB00BF8E59 /* LYZVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZVerticalButton.h; sourceTree = "<group>"; };
@@ -3189,27 +3200,11 @@
 		C47633E91C07569A00DB909F /* AidDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverViewController.m; sourceTree = "<group>"; };
 		C47633F71C07585000DB909F /* AidMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidMineViewController.h; sourceTree = "<group>"; };
 		C47633F81C07585000DB909F /* AidMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidMineViewController.m; sourceTree = "<group>"; };
-		C476340F1C0C964F00DB909F /* AidHotRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidHotRecord.h; sourceTree = "<group>"; };
-		C47634101C0C964F00DB909F /* AidHotRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidHotRecord.m; sourceTree = "<group>"; };
-		C47634121C0C967E00DB909F /* AidHotTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidHotTable.h; sourceTree = "<group>"; };
-		C47634131C0C967E00DB909F /* AidHotTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidHotTable.m; sourceTree = "<group>"; };
-		C47634151C0C971600DB909F /* AidHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidHotCell.h; sourceTree = "<group>"; };
-		C47634161C0C971600DB909F /* AidHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidHotCell.m; sourceTree = "<group>"; };
-		C476341B1C0C9F0100DB909F /* AidHotDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidHotDetailCell.h; sourceTree = "<group>"; };
-		C476341C1C0C9F0100DB909F /* AidHotDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidHotDetailCell.m; sourceTree = "<group>"; };
-		C476341E1C0C9F9900DB909F /* AidHotDetailRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidHotDetailRecord.h; sourceTree = "<group>"; };
-		C476341F1C0C9F9900DB909F /* AidHotDetailRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidHotDetailRecord.m; sourceTree = "<group>"; };
-		C47634211C0CA05800DB909F /* AidHotDetailTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidHotDetailTable.h; sourceTree = "<group>"; };
-		C47634221C0CA05800DB909F /* AidHotDetailTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidHotDetailTable.m; sourceTree = "<group>"; };
 		C47F95731C3FE43800BB889A /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 		C47F95781C42026D00BB889A /* UIImage+LYZImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LYZImageEffects.h"; sourceTree = "<group>"; };
 		C47F95791C42026D00BB889A /* UIImage+LYZImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LYZImageEffects.m"; sourceTree = "<group>"; };
 		C47F957B1C42080800BB889A /* UIView+LYZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYZAnimation.h"; sourceTree = "<group>"; };
 		C47F957C1C42080800BB889A /* UIView+LYZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYZAnimation.m"; sourceTree = "<group>"; };
-		C47F957E1C425E2900BB889A /* AidDiscoverChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDiscoverChildViewController.h; sourceTree = "<group>"; };
-		C47F957F1C425E2900BB889A /* AidDiscoverChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverChildViewController.m; sourceTree = "<group>"; };
-		C47F95811C428C2E00BB889A /* AidChildDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidChildDetailViewController.h; sourceTree = "<group>"; };
-		C47F95821C428C2E00BB889A /* AidChildDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidChildDetailViewController.m; sourceTree = "<group>"; };
 		C4C19F981C66D787004E7BAC /* AidDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDatePickerView.h; sourceTree = "<group>"; };
 		C4C19F991C66D787004E7BAC /* AidDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDatePickerView.m; sourceTree = "<group>"; };
 		C4C19F9C1C66E7AB004E7BAC /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
@@ -3232,6 +3227,8 @@
 		C4C19FAD1C66E7AB004E7BAC /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
 		C4C19FAE1C66E7AB004E7BAC /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		C4C19FAF1C66E7AB004E7BAC /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		C4DCEED21C74C7DE0068F5F6 /* NSString+LYZStringDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LYZStringDrawing.h"; sourceTree = "<group>"; };
+		C4DCEED31C74C7DE0068F5F6 /* NSString+LYZStringDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LYZStringDrawing.m"; sourceTree = "<group>"; };
 		C4F39A6B1BF0D95D001C2D86 /* AidAddThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidAddThemeViewController.h; sourceTree = "<group>"; };
 		C4F39A6C1BF0D95D001C2D86 /* AidAddThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidAddThemeViewController.m; sourceTree = "<group>"; };
 		C4F3AFB31BF0E29F001C2D86 /* AidMainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidMainNavigationController.h; sourceTree = "<group>"; };
@@ -3620,10 +3617,12 @@
 				C41BAF471C1D5884009F51C4 /* AidItemsScrollView.m */,
 				C41BAF481C1D5884009F51C4 /* AidMultipleButtonView.h */,
 				C41BAF491C1D5884009F51C4 /* AidMultipleButtonView.m */,
-				C4FDD2D41C4B2EDB008F307B /* LYZCustomNavView.h */,
-				C4FDD2D51C4B2EDB008F307B /* LYZCustomNavView.m */,
 				C44B9D0A1C264C9C00BF8E59 /* AidKeyboardToolBar.h */,
 				C44B9D0B1C264C9C00BF8E59 /* AidKeyboardToolBar.m */,
+				C4446CEF1C733C2D00EBD38B /* LYZPlaceholderTextView.h */,
+				C4446CF01C733C2D00EBD38B /* LYZPlaceholderTextView.m */,
+				C4FDD2D41C4B2EDB008F307B /* LYZCustomNavView.h */,
+				C4FDD2D51C4B2EDB008F307B /* LYZCustomNavView.m */,
 				C44B9D1F1C284BB000BF8E59 /* LYZHorizontalButton.h */,
 				C44B9D201C284BB000BF8E59 /* LYZHorizontalButton.m */,
 				C44B9D1C1C2847DB00BF8E59 /* LYZVerticalButton.h */,
@@ -3765,17 +3764,6 @@
 				C41BAF9E1C1D9D53009F51C4 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		C41BAFC61C20428C009F51C4 /* MGSwipeTableCell */ = {
-			isa = PBXGroup;
-			children = (
-				C41BAFC71C20428C009F51C4 /* MGSwipeButton.h */,
-				C41BAFC81C20428C009F51C4 /* MGSwipeButton.m */,
-				C41BAFC91C20428C009F51C4 /* MGSwipeTableCell.h */,
-				C41BAFCA1C20428C009F51C4 /* MGSwipeTableCell.m */,
-			);
-			path = MGSwipeTableCell;
 			sourceTree = "<group>";
 		};
 		C41BAFD01C21B670009F51C4 /* Resource(资源) */ = {
@@ -5221,10 +5209,14 @@
 				C44D539A1BAD8B780035E9B2 /* NSString+LYZRegexMatch.m */,
 				C44D53971BAD8B780035E9B2 /* NSString+LYZExtension.h */,
 				C44D53981BAD8B780035E9B2 /* NSString+LYZExtension.m */,
+				C4DCEED21C74C7DE0068F5F6 /* NSString+LYZStringDrawing.h */,
+				C4DCEED31C74C7DE0068F5F6 /* NSString+LYZStringDrawing.m */,
 				C44D538D1BAD8B780035E9B2 /* NSNumber+LYZExtension.h */,
 				C44D538E1BAD8B780035E9B2 /* NSNumber+LYZExtension.m */,
 				C44D53891BAD8B780035E9B2 /* NSDate+LYZExtension.h */,
 				C44D538A1BAD8B780035E9B2 /* NSDate+LYZExtension.m */,
+				C401EB5D1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.h */,
+				C401EB5E1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.m */,
 				C44D538B1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.h */,
 				C44D538C1BAD8B780035E9B2 /* NSNotificationCenter+LYZExtension.m */,
 				C44D539B1BAD8B780035E9B2 /* NSTimer+LYZBlockSupport.h */,
@@ -5370,7 +5362,6 @@
 				C4F97DCB1C4CF73400C6BF89 /* MJExtension */,
 				C4F97D971C4CF71000C6BF89 /* AFNetworking */,
 				C4FDD2A21C467EB0008F307B /* IQKeyBoardManager */,
-				C41BAFC61C20428C009F51C4 /* MGSwipeTableCell */,
 				C41BAF501C1D9D53009F51C4 /* MJRefresh */,
 				C41BAF7D1C1D9D53009F51C4 /* SDWebImage */,
 				C460955D1C1B25A900BA1CD0 /* Masonry */,
@@ -5454,10 +5445,10 @@
 			children = (
 				C47633E81C07569A00DB909F /* AidDiscoverViewController.h */,
 				C47633E91C07569A00DB909F /* AidDiscoverViewController.m */,
-				C47F957E1C425E2900BB889A /* AidDiscoverChildViewController.h */,
-				C47F957F1C425E2900BB889A /* AidDiscoverChildViewController.m */,
-				C47F95811C428C2E00BB889A /* AidChildDetailViewController.h */,
-				C47F95821C428C2E00BB889A /* AidChildDetailViewController.m */,
+				C401EB7B1C77486D00450FC7 /* AidDiscoverThemeViewController.h */,
+				C401EB7C1C77486D00450FC7 /* AidDiscoverThemeViewController.m */,
+				C401EB7E1C77490800450FC7 /* AidDiscoverTaskViewController.h */,
+				C401EB7F1C77490800450FC7 /* AidDiscoverTaskViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5465,14 +5456,14 @@
 		C44D55401BAD8F520035E9B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C476340F1C0C964F00DB909F /* AidHotRecord.h */,
-				C47634101C0C964F00DB909F /* AidHotRecord.m */,
-				C47634121C0C967E00DB909F /* AidHotTable.h */,
-				C47634131C0C967E00DB909F /* AidHotTable.m */,
-				C476341E1C0C9F9900DB909F /* AidHotDetailRecord.h */,
-				C476341F1C0C9F9900DB909F /* AidHotDetailRecord.m */,
-				C47634211C0CA05800DB909F /* AidHotDetailTable.h */,
-				C47634221C0CA05800DB909F /* AidHotDetailTable.m */,
+				C401EB661C7744D200450FC7 /* AidDiscoverThemeRecord.h */,
+				C401EB671C7744D200450FC7 /* AidDiscoverThemeRecord.m */,
+				C401EB691C77450400450FC7 /* AidDiscoverThemeTable.h */,
+				C401EB6A1C77450400450FC7 /* AidDiscoverThemeTable.m */,
+				C401EB6F1C77453800450FC7 /* AidDiscoverTaskRecord.h */,
+				C401EB701C77453800450FC7 /* AidDiscoverTaskRecord.m */,
+				C401EB6C1C77451E00450FC7 /* AidDiscoverTaskTable.h */,
+				C401EB6D1C77451E00450FC7 /* AidDiscoverTaskTable.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5487,14 +5478,10 @@
 		C44D55421BAD8F520035E9B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C47634151C0C971600DB909F /* AidHotCell.h */,
-				C47634161C0C971600DB909F /* AidHotCell.m */,
-				C476341B1C0C9F0100DB909F /* AidHotDetailCell.h */,
-				C476341C1C0C9F0100DB909F /* AidHotDetailCell.m */,
-				C428D81C1C109FDC002A93F3 /* AidControlLabelView.h */,
-				C428D81D1C109FDC002A93F3 /* AidControlLabelView.m */,
-				C428D80D1C0F57A5002A93F3 /* AidThemeFooterView.h */,
-				C428D80E1C0F57A5002A93F3 /* AidThemeFooterView.m */,
+				C401EB781C7746EF00450FC7 /* AidDiscoverThemeCell.h */,
+				C401EB791C7746EF00450FC7 /* AidDiscoverThemeCell.m */,
+				C401EB751C7746DB00450FC7 /* AidDiscoverTaskCell.h */,
+				C401EB761C7746DB00450FC7 /* AidDiscoverTaskCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5552,12 +5539,12 @@
 		C44D554C1BAD8F520035E9B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C44E00DD1C6DE224009EEA63 /* UITextField+DatePicker.h */,
-				C44E00DE1C6DE224009EEA63 /* UITextField+DatePicker.m */,
 				C47633C71C01FA1000DB909F /* AidThemeCell.h */,
 				C47633C81C01FA1000DB909F /* AidThemeCell.m */,
 				C47633CA1C02062B00DB909F /* AidTaskCell.h */,
 				C47633CB1C02062B00DB909F /* AidTaskCell.m */,
+				C44E00DD1C6DE224009EEA63 /* UITextField+DatePicker.h */,
+				C44E00DE1C6DE224009EEA63 /* UITextField+DatePicker.m */,
 				C400DF1A1C65CF87002787BD /* AidTextFieldCell.h */,
 				C400DF1B1C65CF87002787BD /* AidTextFieldCell.m */,
 				C400DF1F1C6619A4002787BD /* AidDatePickerCell.h */,
@@ -7497,6 +7484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41026751C672C8C00AB446E /* NSArray+XLFormAdditions.m in Sources */,
+				C401EB7A1C7746EF00450FC7 /* AidDiscoverThemeCell.m in Sources */,
 				C41BAFA11C1D9D53009F51C4 /* MJRefreshComponent.m in Sources */,
 				C46095801C1B25A900BA1CD0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				C4FAB7C01C63ACAD00941CCB /* CTPersistanceQueryCommand+DataManipulations.m in Sources */,
@@ -7514,7 +7502,6 @@
 				C41BAFAA1C1D9D53009F51C4 /* MJRefreshGifHeader.m in Sources */,
 				C4F97DBD1C4CF71000C6BF89 /* AFNetworkReachabilityManager.m in Sources */,
 				C41BAFB31C1D9D53009F51C4 /* NSData+ImageContentType.m in Sources */,
-				C428D80F1C0F57A5002A93F3 /* AidThemeFooterView.m in Sources */,
 				C44D53D51BAD8B780035E9B2 /* LYZKeyChain.m in Sources */,
 				C41026661C672C8C00AB446E /* XLFormLeftRightSelectorCell.m in Sources */,
 				C460957F1C1B25A900BA1CD0 /* NSArray+MASAdditions.m in Sources */,
@@ -7524,7 +7511,6 @@
 				C460957E1C1B25A900BA1CD0 /* MASViewConstraint.m in Sources */,
 				C44D53EE1BAD8B780035E9B2 /* LYZMulticastDelegate.m in Sources */,
 				C47633E31C04BE5900DB909F /* AidThemeRecord.m in Sources */,
-				C476341D1C0C9F0100DB909F /* AidHotDetailCell.m in Sources */,
 				C4F97DE61C4CF73400C6BF89 /* NSObject+MJClass.m in Sources */,
 				C41026601C672C8C00AB446E /* XLFormButtonCell.m in Sources */,
 				C41BAFA01C1D9D53009F51C4 /* MJRefreshBackFooter.m in Sources */,
@@ -7533,15 +7519,14 @@
 				C410266B1C672C8C00AB446E /* XLFormStepCounterCell.m in Sources */,
 				C44D53D81BAD8B780035E9B2 /* NSData+LYZCodeSecurity.m in Sources */,
 				C4FAB7BB1C63ACAD00941CCB /* CTPersistanceDataBase.m in Sources */,
-				C47634171C0C971600DB909F /* AidHotCell.m in Sources */,
 				C4FAB7CB1C63ACAD00941CCB /* CTPersistanceTransaction.m in Sources */,
 				C4F97D921C4CF6D300C6BF89 /* AidAgendaTable.m in Sources */,
 				C4FAB7C51C63ACAD00941CCB /* CTPersistanceRecord.m in Sources */,
 				C4FDD2C81C467EB0008F307B /* IQUITextFieldView+Additions.m in Sources */,
 				C41BAFB61C1D9D53009F51C4 /* SDWebImageDecoder.m in Sources */,
+				C401EB6E1C77451E00450FC7 /* AidDiscoverTaskTable.m in Sources */,
 				C410266C1C672C8C00AB446E /* XLFormSwitchCell.m in Sources */,
 				C41026791C672C8C00AB446E /* NSString+XLFormAdditions.m in Sources */,
-				C47634231C0CA05800DB909F /* AidHotDetailTable.m in Sources */,
 				C41BAF4E1C1D5884009F51C4 /* AidItemsScrollView.m in Sources */,
 				C4FDD2D11C467EB0008F307B /* IQToolbar.m in Sources */,
 				C41BAFAF1C1D9D53009F51C4 /* UIScrollView+MJExtension.m in Sources */,
@@ -7549,7 +7534,6 @@
 				C460957A1C1B25A900BA1CD0 /* MASConstraint.m in Sources */,
 				C44B9D211C284BB000BF8E59 /* LYZHorizontalButton.m in Sources */,
 				C44D53F91BAD8B780035E9B2 /* LYZLocationRequest.m in Sources */,
-				C47634201C0C9F9900DB909F /* AidHotDetailRecord.m in Sources */,
 				C44B9D1E1C2847DB00BF8E59 /* LYZVerticalButton.m in Sources */,
 				C4FDD2CD1C467EB0008F307B /* IQKeyboardReturnKeyHandler.m in Sources */,
 				C4FDD2C71C467EB0008F307B /* IQUIScrollView+Additions.m in Sources */,
@@ -7581,6 +7565,7 @@
 				C41026681C672C8C00AB446E /* XLFormSegmentedCell.m in Sources */,
 				C41BAFCF1C219D10009F51C4 /* AidItemsScrollViewController.m in Sources */,
 				C41BAFA71C1D9D53009F51C4 /* MJRefreshBackGifFooter.m in Sources */,
+				C4446CF11C733C2D00EBD38B /* LYZPlaceholderTextView.m in Sources */,
 				C4FAB7BC1C63ACAD00941CCB /* CTPersistanceDatabasePool.m in Sources */,
 				C41026731C672C8C00AB446E /* XLFormRowDescriptor.m in Sources */,
 				C4C19FB01C66E7AB004E7BAC /* AbstractActionSheetPicker.m in Sources */,
@@ -7588,6 +7573,7 @@
 				C4FAB7BF1C63ACAD00941CCB /* CTPersistanceVersionRecord.m in Sources */,
 				C44D55F31BAD930E0035E9B2 /* AidMainTabBarController.m in Sources */,
 				C4F97DC91C4CF71000C6BF89 /* UIRefreshControl+AFNetworking.m in Sources */,
+				C401EB6B1C77450400450FC7 /* AidDiscoverThemeTable.m in Sources */,
 				C4F97DE71C4CF73400C6BF89 /* NSObject+MJCoding.m in Sources */,
 				C47633C91C01FA1000DB909F /* AidThemeCell.m in Sources */,
 				C4F3AFBB1BF0ED65001C2D86 /* AidTabBarButton.m in Sources */,
@@ -7614,9 +7600,9 @@
 				C41BAFB11C1D9D53009F51C4 /* UIView+MJExtension.m in Sources */,
 				C4FDD2C91C467EB0008F307B /* IQUIView+Hierarchy.m in Sources */,
 				C41026631C672C8C00AB446E /* XLFormDatePickerCell.m in Sources */,
+				C401EB7D1C77486D00450FC7 /* AidDiscoverThemeViewController.m in Sources */,
 				C4F97D951C4CF6D300C6BF89 /* AidAgendaThemeRecord.m in Sources */,
 				C4FDD2CE1C467EB0008F307B /* IQTextView.m in Sources */,
-				C41BAFCC1C20428C009F51C4 /* MGSwipeTableCell.m in Sources */,
 				C47633EA1C07569A00DB909F /* AidDiscoverViewController.m in Sources */,
 				C41BAFA91C1D9D53009F51C4 /* MJRefreshBackStateFooter.m in Sources */,
 				C44D53E81BAD8B780035E9B2 /* UIView+LYZExtension.m in Sources */,
@@ -7628,10 +7614,9 @@
 				C44D53F81BAD8B780035E9B2 /* LYZLocationManager.m in Sources */,
 				C4FDD2CA1C467EB0008F307B /* IQUIViewController+Additions.m in Sources */,
 				C4442F321BB04B520030E774 /* AidAgendaViewController.m in Sources */,
-				C41BAFCB1C20428C009F51C4 /* MGSwipeButton.m in Sources */,
 				C44D53DA1BAD8B780035E9B2 /* NSDate+LYZExtension.m in Sources */,
-				C47F95831C428C2E00BB889A /* AidChildDetailViewController.m in Sources */,
 				C41026781C672C8C00AB446E /* NSPredicate+XLFormAdditions.m in Sources */,
+				C401EB771C7746DB00450FC7 /* AidDiscoverTaskCell.m in Sources */,
 				C41026801C672C8C00AB446E /* XLFormValidationStatus.m in Sources */,
 				C4F97DE51C4CF73400C6BF89 /* MJPropertyType.m in Sources */,
 				C41BAF4F1C1D5884009F51C4 /* AidMultipleButtonView.m in Sources */,
@@ -7649,6 +7634,7 @@
 				C4C19FB81C66E7AB004E7BAC /* SWActionSheet.m in Sources */,
 				C47633E41C04BE5900DB909F /* AidThemeTable.m in Sources */,
 				C4FDD2D61C4B2EDB008F307B /* LYZCustomNavView.m in Sources */,
+				C4DCEED41C74C7DE0068F5F6 /* NSString+LYZStringDrawing.m in Sources */,
 				C41026721C672C8C00AB446E /* XLFormDescriptor.m in Sources */,
 				C44D53F51BAD8B780035E9B2 /* LYZNetworkReachable.m in Sources */,
 				C47F957D1C42080800BB889A /* UIView+LYZAnimation.m in Sources */,
@@ -7660,15 +7646,14 @@
 				C41BAFAC1C1D9D53009F51C4 /* MJRefreshStateHeader.m in Sources */,
 				C4FDD2D21C467EB0008F307B /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				C4F97DEA1C4CF73400C6BF89 /* NSString+MJExtension.m in Sources */,
+				C401EB5F1C76C6EB00450FC7 /* NSDate+LYZFriendlyDate.m in Sources */,
 				C4F97D941C4CF6D300C6BF89 /* AidAgendaTaskTable.m in Sources */,
 				C4FAB7BE1C63ACAD00941CCB /* CTPersistanceVersionTable.m in Sources */,
 				C41BAFB41C1D9D53009F51C4 /* SDImageCache.m in Sources */,
 				C460954B1C17054500BA1CD0 /* UINavigationBar+LYZExtension.m in Sources */,
 				C44D53F41BAD8B780035E9B2 /* LYZJSONSerialization.m in Sources */,
 				C4FDD2CB1C467EB0008F307B /* IQUIWindow+Hierarchy.m in Sources */,
-				C47634111C0C964F00DB909F /* AidHotRecord.m in Sources */,
 				C4F97DC81C4CF71000C6BF89 /* UIProgressView+AFNetworking.m in Sources */,
-				C47634141C0C967E00DB909F /* AidHotTable.m in Sources */,
 				C41BAFBD1C1D9D53009F51C4 /* UIImage+MultiFormat.m in Sources */,
 				C4FDD2E21C4BC6C7008F307B /* AidAgendaTaskCell.m in Sources */,
 				C44D53ED1BAD8B780035E9B2 /* LYZMathMethod.m in Sources */,
@@ -7679,13 +7664,13 @@
 				C44D53E71BAD8B780035E9B2 /* UITableView+LYZExtension.m in Sources */,
 				C44D53EF1BAD8B780035E9B2 /* LYZPerformanceAnalyze.m in Sources */,
 				C44D53DE1BAD8B780035E9B2 /* NSObject+LYZTypeConvert.m in Sources */,
-				C47F95801C425E2900BB889A /* AidDiscoverChildViewController.m in Sources */,
 				C41BAFBE1C1D9D53009F51C4 /* UIImage+WebP.m in Sources */,
 				C41BAFA21C1D9D53009F51C4 /* MJRefreshFooter.m in Sources */,
 				C4FAB7C21C63ACAD00941CCB /* CTPersistanceQueryCommand+SchemaManipulations.m in Sources */,
 				C44D53D61BAD8B780035E9B2 /* LYZMemoryCache.m in Sources */,
 				C4C19FB71C66E7AB004E7BAC /* DistancePickerView.m in Sources */,
 				C41BAFB91C1D9D53009F51C4 /* SDWebImageManager.m in Sources */,
+				C401EB801C77490800450FC7 /* AidDiscoverTaskViewController.m in Sources */,
 				C41BAFBF1C1D9D53009F51C4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C4FDD2DF1C4BC053008F307B /* AidAgendaChildViewController.m in Sources */,
 				C410266E1C672C8C00AB446E /* XLFormTextViewCell.m in Sources */,
@@ -7696,6 +7681,7 @@
 				C47633DB1C03757900DB909F /* AidEditTaskViewController.m in Sources */,
 				C41026611C672C8C00AB446E /* XLFormCheckCell.m in Sources */,
 				C46095811C1B25A900BA1CD0 /* View+MASAdditions.m in Sources */,
+				C401EB681C7744D200450FC7 /* AidDiscoverThemeRecord.m in Sources */,
 				C41026651C672C8C00AB446E /* XLFormInlineSelectorCell.m in Sources */,
 				C4F97DBE1C4CF71000C6BF89 /* AFSecurityPolicy.m in Sources */,
 				C4F97DC21C4CF71000C6BF89 /* AFAutoPurgingImageCache.m in Sources */,
@@ -7737,8 +7723,8 @@
 				C410267A1C672C8C00AB446E /* UIView+XLFormAdditions.m in Sources */,
 				C44B9D0C1C264C9C00BF8E59 /* AidKeyboardToolBar.m in Sources */,
 				C4F97D961C4CF6D300C6BF89 /* AidAgendaThemeTable.m in Sources */,
-				C428D81E1C109FDC002A93F3 /* AidControlLabelView.m in Sources */,
 				C44D53E61BAD8B780035E9B2 /* UIScrollView+LYZExtension.m in Sources */,
+				C401EB711C77453800450FC7 /* AidDiscoverTaskRecord.m in Sources */,
 				C4FAB7B91C63ACAD00941CCB /* NSString+SQL.m in Sources */,
 				C44D53DF1BAD8B780035E9B2 /* NSString+LYZCodeSecurity.m in Sources */,
 				C41BAFA31C1D9D53009F51C4 /* MJRefreshHeader.m in Sources */,

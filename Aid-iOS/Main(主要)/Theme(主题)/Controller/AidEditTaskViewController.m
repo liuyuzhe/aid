@@ -49,7 +49,7 @@
 
 - (void)loadView
 {
-    UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    UIView *contentView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.view = contentView;
 //    self.view.tintColor =  [UIColor blueColor];
     
@@ -108,13 +108,13 @@
     _startRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Starts" rowType:XLFormRowDescriptorTypeDate title:@"开始日期"];
 //    [_startRow.cellConfigAtConfigure setObject:[NSDate new] forKey:@"minimumDate"];
     _startRow.valueTransformer = [LYZDateValueTrasformer class];
-    _startRow.value = [NSDate date];
+//    _startRow.value = [NSDate date];
     [section addFormRow:_startRow];
     
     // End
     _endRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Ends" rowType:XLFormRowDescriptorTypeDate title:@"结束日期"];
     _endRow.valueTransformer = [LYZDateValueTrasformer class];
-    _endRow.value = [[NSDate date] dateByAddingWeeks:1];
+//    _endRow.value = [[NSDate date] dateByAddingWeeks:1];
     [section addFormRow:_endRow];
     
     
@@ -124,7 +124,7 @@
     // Alert
     _alertRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"dateTime" rowType:XLFormRowDescriptorTypeDateTime title:@"提醒时间"];
     _alertRow.valueTransformer = [LYZDateAndTimeValueTransformer class];
-    _alertRow.value = [[NSDate date] dateByAddingDays:1];
+//    _alertRow.value = [[NSDate date] dateByAddingDays:1];
     [section addFormRow:_alertRow];
     
     // Repeat
@@ -138,7 +138,7 @@
                             [XLFormOptionsObject formOptionsObjectWithValue:@(5) displayText:@"每月"],
                             [XLFormOptionsObject formOptionsObjectWithValue:@(6) displayText:@"每年"],
                             ];
-    _repeatRow.value = [XLFormOptionsObject formOptionsOptionForValue:@(0) fromOptions:_repeatRow.selectorOptions];
+//    _repeatRow.value = [XLFormOptionsObject formOptionsOptionForDisplayText:@"从不" fromOptions:_repeatRow.selectorOptions];
     [section addFormRow:_repeatRow];
     
     
@@ -182,17 +182,21 @@
 
 - (void)saveButtonAction:(UIBarButtonItem * __unused)button
 {
+    if (((NSString *)self.nameRow.value).length <= 0) {
+        return;
+    }
+    
     self.taskRecord.name = (NSString *)self.nameRow.value;
     self.taskRecord.startTime = [NSNumber numberWithDouble:[(NSDate *)self.startRow.value timeIntervalSinceReferenceDate]];
     self.taskRecord.endTime = [NSNumber numberWithDouble:[(NSDate *)self.endRow.value timeIntervalSinceReferenceDate]];
     self.taskRecord.alarmTime = [NSNumber numberWithDouble:[(NSDate *)self.alertRow.value timeIntervalSinceReferenceDate]];
-    self.taskRecord.repeat = ((XLFormOptionsObject *)self.repeatRow.value).formValue;
+    self.taskRecord.repeat = ((XLFormOptionsObject *)self.repeatRow.value).displayText;
     self.taskRecord.note = (NSString *)self.noteRow.value;
 
     if ([self.delegate respondsToSelector:@selector(editTaskRecord:configureViewController:)]) {
         [self.delegate editTaskRecord:self.taskRecord configureViewController:self];
     }
-    
+
 //    NSArray * validationErrors = [self formValidationErrors];
 //    if (validationErrors.count > 0){
 //        [self showFormValidationError:[validationErrors firstObject]];
@@ -227,8 +231,7 @@
     self.startRow.value = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.startTime.doubleValue];
     self.endRow.value = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.endTime.doubleValue];
     self.alertRow.value = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.alarmTime.doubleValue];
-//    taskRecord.repeat = @(5);
-    self.repeatRow.value = [XLFormOptionsObject formOptionsOptionForValue:taskRecord.repeat fromOptions:self.repeatRow.selectorOptions];
+    self.repeatRow.value = [XLFormOptionsObject formOptionsOptionForDisplayText:taskRecord.repeat fromOptions:self.repeatRow.selectorOptions];
     self.noteRow.value = taskRecord.note;
     
     [self updateFormRow:self.nameRow];

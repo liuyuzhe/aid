@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MGSwipeTableCell.h"
-
 @class AidThemeRecord;
 
 @interface AidThemeCell : UITableViewCell

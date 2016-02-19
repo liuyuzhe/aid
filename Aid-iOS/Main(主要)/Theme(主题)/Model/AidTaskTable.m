@@ -30,9 +30,8 @@
              @"startTime" : @"INTEGER",
              @"endTime" : @"INTEGER",
              @"alarmTime" : @"INTEGER",
-             @"repeat" : @"INTEGER",
+             @"repeat" : @"TEXT",
              @"note" : @"TEXT",
-             @"completeState" : @"INTEGER",
              @"priority" : @"INTEGER",
              @"themeID" : @"INTEGER",
              };

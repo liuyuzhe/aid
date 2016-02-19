@@ -10,12 +10,14 @@
 
 #import "AidThemeRecord.h"
 
+static const CGFloat AidViewDefaultOffset = 20;
+static const CGFloat AidViewDefaultInset = 5;
+
 @interface AidThemeCell ()
 
 @property (nonatomic, strong) UIImageView *themeImageView; /**< 主题图片 */
 @property (nonatomic, strong) UILabel *themeNameLabel; /**< 主题名称 */
 @property (nonatomic, strong) UILabel *themeDescribeLabel; /**< 主题描述 */
-@property (nonatomic, strong) UILabel *praiseLabel; /**< 是否点赞 */
 
 @end
 
@@ -32,10 +34,10 @@
         cell = [[AidThemeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         UIImage *bgImage = [UIImage imageNamed:@"ItemBackground"];
         UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-        cell.backgroundView = bgView;
-        cell.backgroundColor = [UIColor clearColor];
+//        cell.backgroundView = bgView;
+//        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -48,7 +50,6 @@
         [self.contentView addSubview:_themeImageView];
         [self.contentView addSubview:_themeNameLabel];
         [self.contentView addSubview:_themeDescribeLabel];
-        [self.contentView addSubview:_praiseLabel];
         
         [self layoutPageSubviews];
     }
@@ -60,9 +61,14 @@
 - (void)setupPageSubviews
 {
     _themeImageView = [[UIImageView alloc] init];
+    
     _themeNameLabel = [[UILabel alloc] init];
+    _themeNameLabel.font = [UIFont systemFontOfSize:20];
+    _themeNameLabel.textColor = [UIColor blueColor];
+    _themeNameLabel.textAlignment = NSTextAlignmentCenter;
+
     _themeDescribeLabel = [[UILabel alloc] init];
-    _praiseLabel = [[UILabel alloc] init];
+    _themeNameLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 - (void)layoutPageSubviews
@@ -70,28 +76,17 @@
     __weak UIView *weakSelf = self.contentView;
     
     [_themeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(weakSelf.mas_centerY);
-        make.height.mas_equalTo(@80);
-        make.left.equalTo(weakSelf.mas_left).with.offset(2);
-        make.width.mas_equalTo(@80);
+        make.edges.equalTo(weakSelf);
     }];
     
     [_themeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.mas_top).with.offset(2);
-        make.height.mas_equalTo(@30);
-        make.left.equalTo(_themeImageView.mas_right).with.offset(2);
+        make.center.equalTo(weakSelf);
     }];
     
     [_themeDescribeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_themeNameLabel.mas_top).with.offset(2);
-        make.bottom.equalTo(_praiseLabel.mas_bottom).with.offset(2);
-        make.left.equalTo(_themeImageView.mas_right).with.offset(2);
-    }];
-    
-    [_praiseLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(weakSelf.mas_bottom).with.offset(2);
-        make.height.mas_equalTo(@30);
-        make.left.equalTo(_themeImageView.mas_right).with.offset(2);
+        make.left.equalTo(weakSelf).offset(AidViewDefaultOffset);
+        make.right.equalTo(weakSelf).offset(-AidViewDefaultOffset);
+        make.bottom.equalTo(weakSelf);
     }];
 }
 

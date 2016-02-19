@@ -10,15 +10,17 @@
 
 #import "AidTaskRecord.h"
 
+static const CGFloat AidViewDefaultOffset = 20;
+static const CGFloat AidViewDefaultInset = 5;
+
 @interface AidTaskCell ()
 
-@property (nonatomic, strong) UIImageView *taskImageView; /**< 任务图片 */
 @property (nonatomic, strong) UILabel *taskNameLabel; /**< 任务名称 */
-@property (nonatomic, strong) UILabel *completeTimeLabel; /**< 完成时间 */
-@property (nonatomic, strong) UIImageView *completeImageView; /**< 是否完成 */
-@property (nonatomic, strong) UIImageView *alarmImageView; /**< 是否提醒 */
-@property (nonatomic, strong) UIImageView *repeatImageView; /**< 是否重复 */
-@property (nonatomic, strong) UIImageView *priorityImageView; /**< 优先级 */
+@property (nonatomic, strong) UILabel *taskTimeLabel; /**< 任务起止时间 */
+@property (nonatomic, strong) UIImageView *alarmImageView; /**< 提醒视图 */
+@property (nonatomic, strong) UILabel *repeatLabel; /**< 重复周期 */
+
+@property (nonatomic, strong) NSDateFormatter *formatter; /**< 日期格式化，添加为属性是为了优化性能 */
 
 @end
 
@@ -33,12 +35,15 @@
     AidTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (! cell) {
         cell = [[AidTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        UIImage *bgImage = [UIImage imageNamed:@"ItemBackground"];
-        UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-        cell.backgroundView = bgView;
-        cell.backgroundColor = [UIColor clearColor];
+//        UIImage *bgImage = [UIImage imageNamed:@"ItemBackground"];
+//        UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
+//        cell.backgroundView = bgView;
+//        cell.backgroundColor = [UIColor clearColor];
+//        UIView *view_bg = [[UIView alloc] initWithFrame:cell.frame];
+//        view_bg.backgroundColor = [UIColor clearColor];
+//        cell.selectedBackgroundView = view_bg;
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -48,13 +53,10 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupPageSubviews];
         
-        [self.contentView addSubview:_taskImageView];
         [self.contentView addSubview:_taskNameLabel];
-        [self.contentView addSubview:_completeTimeLabel];
-        [self.contentView addSubview:_completeImageView];
+        [self.contentView addSubview:_taskTimeLabel];
         [self.contentView addSubview:_alarmImageView];
-        [self.contentView addSubview:_repeatImageView];
-        [self.contentView addSubview:_priorityImageView];
+        [self.contentView addSubview:_repeatLabel];
         
         [self layoutPageSubviews];
     }
@@ -65,42 +67,43 @@
 
 - (void)setupPageSubviews
 {
-    _taskImageView = [[UIImageView alloc] init];
     _taskNameLabel = [[UILabel alloc] init];
-    _completeTimeLabel = [[UILabel alloc] init];
-    _completeImageView = [[UIImageView alloc] init];
+    _taskNameLabel.font = [UIFont systemFontOfSize:20];
+    _taskNameLabel.textColor = [UIColor blueColor];
+    _taskNameLabel.textAlignment = NSTextAlignmentLeft;
+
+    _taskTimeLabel = [[UILabel alloc] init];
+    _taskTimeLabel.font = [UIFont systemFontOfSize:16];
+
     _alarmImageView = [[UIImageView alloc] init];
-    _repeatImageView = [[UIImageView alloc] init];
-    _priorityImageView = [[UIImageView alloc] init];
+    
+    _repeatLabel = [[UILabel alloc] init];
+    _repeatLabel.font = [UIFont systemFontOfSize:16];
 }
 
 - (void)layoutPageSubviews
 {
     __weak UIView *weakSelf = self.contentView;
     
-    [_taskImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(weakSelf.mas_centerY);
-        make.height.mas_equalTo(@80);
-        make.left.equalTo(weakSelf.mas_left).with.offset(2);
-        make.width.mas_equalTo(@80);
-    }];
-    
     [_taskNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.mas_top).with.offset(2);
-        make.height.mas_equalTo(@30);
-        make.left.equalTo(_taskImageView.mas_right).with.offset(2);
+        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
+        make.centerY.equalTo(weakSelf);
     }];
     
-    [_completeTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_taskNameLabel.mas_top).with.offset(2);
-        make.bottom.equalTo(_completeImageView.mas_bottom).with.offset(2);
-        make.left.equalTo(_taskImageView.mas_right).with.offset(2);
+    [_taskTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
+        make.top.equalTo(weakSelf).mas_offset(AidViewDefaultInset);
     }];
     
-    [_completeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(weakSelf.mas_bottom).with.offset(2);
-        make.height.mas_equalTo(@30);
-        make.left.equalTo(_taskImageView.mas_right).with.offset(2);
+    [_alarmImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weakSelf).mas_offset(-AidViewDefaultOffset);
+        make.centerY.equalTo(weakSelf);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+    }];
+    
+    [_repeatLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
+        make.bottom.equalTo(weakSelf).mas_offset(-AidViewDefaultInset);
     }];
 }
 
@@ -118,14 +121,29 @@
 
 #pragma mark - getters and setters
 
+- (NSDateFormatter *)formatter
+{
+    if (! _formatter) {
+        _formatter = [[NSDateFormatter alloc] init];
+        _formatter.dateFormat = @"yyyy-MM-dd EEE";
+        _formatter.locale = [NSLocale currentLocale];
+    }
+    return _formatter;
+}
+
 - (void)setTaskRecord:(AidTaskRecord *)taskRecord
 {
     _taskRecord = taskRecord;
     
     self.taskNameLabel.text = taskRecord.name;
-    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.endTime.doubleValue];
-#warning format开销
-    self.completeTimeLabel.text = [date stringWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.startTime.doubleValue];
+    NSString *startString = [self.formatter stringFromDate:startDate];
+    NSDate *endDate = [NSDate dateWithTimeIntervalSinceReferenceDate:taskRecord.endTime.doubleValue];
+    NSString *endString = [self.formatter stringFromDate:endDate];
+    self.taskTimeLabel.text = [NSString stringWithFormat:@"%@ —— %@", startString, endString];
+    
+    self.repeatLabel.text = taskRecord.repeat;
 }
 
 @end

@@ -8,42 +8,31 @@
 
 #import "AidMultipleButtonView.h"
 
+#define AidButtonStateNormal [UIColor whiteColor]
+#define AidButtonStateSelected [UIColor blackColor]
+static const CGFloat AidButtonTopOffset = 5.;
+
 @interface AidMultipleButtonView ()
 
 @property (nonatomic, strong) UIButton *selectedButton;
 
-@end
+@property (nonatomic, strong) NSArray <NSString *> *titleArray; /**< title数组 */
 
+@end
 
 
 @implementation AidMultipleButtonView
 
 #pragma mark - life cycle
 
-- (instancetype)initWithFrame:(CGRect)frame titleArray:(NSArray *)titleArray
+- (instancetype)initWithFrame:(CGRect)frame titleArray:(NSArray <NSString *> *)titleArray
 {
     if (self = [super initWithFrame:frame]) {
-        NSInteger buttonCount = titleArray.count;
-        for (int i = 0; i < titleArray.count ; i ++) {
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.tag = i +10;
-            button.frame = CGRectMake(i * self.width/buttonCount, 5 , self.width/buttonCount, 30);
-            button.layer.borderColor= [UIColor whiteColor].CGColor;
-            button.layer.borderWidth = 0.5;
-            
-            [button setTitle:titleArray[i] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-            button.titleLabel.font = [UIFont systemFontOfSize:12];
-            
-            if (i == 0) {
-                button.selected = YES;
-                _selectedButton = button;
-            }
-            
-            [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
-            [self addSubview:button];
-        }
+        _titleArray = titleArray;
+
+        [self setupPageSubviews];
+
+        [self layoutPageSubviews];
     }
     return self;
 }
@@ -51,6 +40,40 @@
 - (instancetype)init
 {
     return [self initWithFrame:CGRectZero];
+}
+
+#pragma mark - life cycle helper
+
+- (void)setupPageSubviews
+{
+    CGFloat width = self.width / _titleArray.count;
+    CGFloat height = self.height - 2 * AidButtonTopOffset;
+
+    for (int i = 0; i < _titleArray.count ; i ++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * width, AidButtonTopOffset , width, height)];
+        button.tag = i +10;
+        button.titleLabel.font = [UIFont systemFontOfSize:16];
+        button.layer.borderColor= AidButtonStateNormal.CGColor;
+        button.layer.borderWidth = 0.5;
+        
+        [button setTitle:_titleArray[i] forState:UIControlStateNormal];
+        [button setTitleColor:AidButtonStateNormal forState:UIControlStateNormal];
+        [button setTitleColor:AidButtonStateSelected forState:UIControlStateSelected];
+        
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (i == 0) {
+            button.selected = YES;
+            _selectedButton = button;
+        }
+        
+        [self addSubview:button];
+    }
+}
+
+- (void)layoutPageSubviews
+{
+    __weak UIView *weakSelf = self;
 }
 
 #pragma mark - event response

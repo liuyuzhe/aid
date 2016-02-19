@@ -38,8 +38,8 @@ static const CGFloat AidDefaultTitleWidth = 90;
     if (! cell) {
         cell = [[AidTextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
 //        cell.backgroundColor = [UIColor darkGrayColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

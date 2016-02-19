@@ -33,9 +33,9 @@
 @property (nonatomic, assign, readonly) NSInteger weekOfMonth;
 @property (nonatomic, assign, readonly) NSInteger weekOfYear;
 @property (nonatomic, assign, readonly) NSInteger yearForWeekOfYear;
-@property (nonatomic, assign, readonly) BOOL leapMonth;
+@property (nonatomic, assign, readonly) BOOL leapMonth; /**< 是否闰月 */
 
-#pragma mark -
+#pragma mark - compare date
 
 - (BOOL)isThisYear;
 - (BOOL)isNextYear;
@@ -56,11 +56,13 @@
 - (BOOL)isNextWeek;
 - (BOOL)isLastWeek;
 - (BOOL)isSameWeek:(NSDate *)aDate;
+- (BOOL)isWeekend; /**< 是否周末 */
+- (BOOL)isWorkday; /**< 是否工作日 */
 
 - (BOOL)isEarlierThanDate:(NSDate *)aDate;
 - (BOOL)isLaterThanDate:(NSDate *)aDate;
 
-#pragma mark -
+#pragma mark - adjust date
 
 - (NSDate *)dateByAddingYears:(NSInteger)years;
 - (NSDate *)dateByAddingMonths:(NSInteger)months;
@@ -70,8 +72,9 @@
 - (NSDate *)dateByAddingMinutes:(NSInteger)minutes;
 - (NSDate *)dateByAddingSeconds:(NSInteger)seconds;
 
-#pragma mark -
+#pragma mark - date format
 
+- (NSString *)stringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyl;
 /** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
 - (NSString *)stringWithFormat:(NSString *)format;
 /** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
@@ -80,10 +83,10 @@
 - (NSString *)stringWithISOFormat;
 
 /** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
-+ (NSDate *)dataWithString:(NSString *)dataString format:(NSString *)format;
++ (NSDate *)dateWithString:(NSString *)dataString format:(NSString *)format;
 /** @param format e.g. @"yyyy-MM-dd EEEE HH:mm:ss" */
-+ (NSDate *)dataWithString:(NSString *)dataString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
++ (NSDate *)dateWithString:(NSString *)dataString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale;
 /** @return e.g. "2010-07-09T16:13:30+12:00" */
-+ (NSDate *)dataWithISOFormatString:(NSString *)dataString;
++ (NSDate *)dateWithISOFormatString:(NSString *)dataString;
 
 @end

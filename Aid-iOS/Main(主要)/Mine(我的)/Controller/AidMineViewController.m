@@ -8,8 +8,6 @@
 
 #import "AidMineViewController.h"
 
-#import "AidHotDetailCell.h"
-
 #import "UINavigationBar+Awesome.h"
 
 static const CGFloat AidHeadViewHeigtht = 235;
@@ -39,7 +37,7 @@ static const CGFloat AidNavbarChangePoint = 50;
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.extendedLayoutIncludesOpaqueBars = YES;
+//    self.extendedLayoutIncludesOpaqueBars = YES;
 }
 
 - (void)viewDidLoad
@@ -53,7 +51,6 @@ static const CGFloat AidNavbarChangePoint = 50;
     [self.headView addSubview:self.photoImageView];
     
     [self layoutPageSubviews];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -116,7 +113,15 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AidHotDetailCell *cell = [AidHotDetailCell cellWithTableView:tableView];
+    NSString * const identifier = NSStringFromClass([UITableViewCell class]);
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (! cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.textLabel.text = @"今日任务";
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+
     return cell;
 }
 
@@ -165,19 +170,18 @@ static const CGFloat AidNavbarChangePoint = 50;
     CGFloat offsetY = scrollView.contentOffset.y;
     
     // 导航栏透明渐变
-    UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
+    UIColor * color = AidNavigationBarTintColor;
     if (offsetY > AidNavbarChangePoint) {
-        CGFloat alpha = MIN(1, 1 - ((AidNavbarChangePoint + AidNavHeadHeigtht - offsetY) / AidNavHeadHeigtht));
+        CGFloat alpha = MIN(1, 1 - ((AidNavbarChangePoint + AidNavigationHeadHeight - offsetY) / AidNavigationHeadHeight));
         [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
-        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[[UIColor blackColor] colorWithAlphaComponent:alpha]};
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[AidNavigationForegroundColor colorWithAlphaComponent:alpha]};
     } else {
         [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
-        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[[UIColor blackColor] colorWithAlphaComponent:0]};
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[AidNavigationForegroundColor colorWithAlphaComponent:0]};
     }
     
     // 展示图片下拉缩放
-    if (offsetY < 0)
-    {
+    if (offsetY < 0) {
         self.headView.frame = CGRectMake(0, offsetY, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht - offsetY);
         self.headImageView.frame = CGRectMake(0, offsetY, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht - offsetY);
     }
@@ -214,7 +218,7 @@ static const CGFloat AidNavbarChangePoint = 50;
         
         // 将系统的Separator左边不留间隙
         _tableView.separatorInset = UIEdgeInsetsZero;
-//        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         _tableView.tableHeaderView = self.headView;
         _tableView.tableFooterView = [[UIView alloc] init];

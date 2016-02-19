@@ -29,11 +29,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1]];
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:21], NSFontAttributeName, nil]];
-    
+//    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+//    [UINavigationBar appearance].barTintColor = [UIColor purpleColor];
+//    [UINavigationBar appearance].titleTextAttributes = @{
+//                                               NSForegroundColorAttributeName : [UIColor whiteColor],
+//                                               NSFontAttributeName : [UIFont systemFontOfSize:16]
+//                                               };
     return YES;
 }
 

@@ -15,9 +15,8 @@
 @property (nonatomic, strong) NSNumber *startTime; /**< 开始时间 */
 @property (nonatomic, strong) NSNumber *endTime; /**< 结束时间 */
 @property (nonatomic, strong) NSNumber *alarmTime; /**< 提醒时间 */
-@property (nonatomic, strong) NSNumber *repeat; /**< 重复周期 */
+@property (nonatomic, strong) NSString *repeat; /**< 重复周期 */
 @property (nonatomic, strong) NSString *note; /**< 备注 */
-@property (nonatomic, strong) NSNumber *completeState; /**< 是否完成 */
 @property (nonatomic, strong) NSNumber *priority; /**< 优先级 */
 @property (nonatomic, strong) NSNumber *themeID; /**< 主题ID */
 

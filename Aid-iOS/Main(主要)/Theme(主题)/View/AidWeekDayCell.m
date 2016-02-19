@@ -41,8 +41,8 @@ static const CGFloat AidViewDefaultOffset = 20;
     if (! cell) {
         cell = [[AidWeekDayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.backgroundColor = [UIColor darkGrayColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

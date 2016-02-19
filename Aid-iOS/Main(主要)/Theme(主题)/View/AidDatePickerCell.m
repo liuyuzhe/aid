@@ -28,8 +28,8 @@
         cell.textLabel.textColor = [UIColor grayColor];
         cell.detailTextLabel.textColor = [UIColor blackColor];
 //        cell.backgroundColor = [UIColor darkGrayColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleDefault;
     
     return cell;
 }

@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^multipleButtonAction)(NSInteger index);
+@protocol AidOperateTaskViewDelegate <NSObject>
+
+@optional
+- (void)multipleButtonTouched:(UIButton *)button withIndex:(NSInteger)index;
+
+@end
+
 
 @interface AidOperateTaskView : UIView
 
-@property (nonatomic, copy) multipleButtonAction buttonTouched;
+@property (nonatomic, weak) id<AidOperateTaskViewDelegate> delegate;
 
 /** @attention imageNames.count == titleNames.count 且 >= 2 */
 - (instancetype)initWithFrame:(CGRect)frame imageNames:(NSArray <NSString *> *)imageNames titleNames:(NSArray <NSString *> *)titleNames;

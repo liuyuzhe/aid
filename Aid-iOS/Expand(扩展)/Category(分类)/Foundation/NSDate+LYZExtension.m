@@ -81,12 +81,34 @@
     return [[NSCalendar currentCalendar] components:NSCalendarUnitQuarter fromDate:self].leapMonth;
 }
 
-#pragma mark -
+#pragma mark - relative date
 
-- (BOOL)isSameYear:(NSDate *)aDate
++ (NSDate *)dateTomorrow
 {
-    return self.year == aDate.year;
+    return [NSDate dateWithDaysFromNow:1];
 }
+
++ (NSDate *)dateYesterday
+{
+    return [NSDate dateWithDaysFromNow:-1];
+}
+
++ (NSDate *)dateWithDaysFromNow:(NSInteger)days
+{
+    return [[NSDate date] dateByAddingDays:days];
+}
+
++ (NSDate *)dateWithHoursFromNow:(NSInteger)hours
+{
+    return [[NSDate date] dateByAddingHours:hours];
+}
+
++ (NSDate *)dateWithMinutesFromNow:(NSInteger)minutes
+{
+    return [[NSDate date] dateByAddingMinutes:minutes];
+}
+
+#pragma mark - compare date
 
 - (BOOL)isThisYear
 {
@@ -101,6 +123,11 @@
 - (BOOL)isLastYear
 {
     return self.year == ([NSDate date].year - 1);
+}
+
+- (BOOL)isSameYear:(NSDate *)aDate
+{
+    return self.year == aDate.year;
 }
 
 - (BOOL)isThisMonth
@@ -122,8 +149,14 @@
 
 - (BOOL)isSameMonth:(NSDate *)aDate
 {
-    return ((self.year == aDate.year) &&
-            (self.month == aDate.month));
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth;
+    
+    NSDateComponents *dateCmps = [calendar components:unit fromDate:aDate];
+    NSDateComponents *selfCmps = [calendar components:unit fromDate:self];
+    
+    return ((selfCmps.year == dateCmps.year) &&
+            (selfCmps.month == dateCmps.month));
 }
 
 - (BOOL)isToday
@@ -145,9 +178,15 @@
 
 - (BOOL)isSameDay:(NSDate *)aDate
 {
-    return ((self.year == aDate.year) &&
-            (self.month == aDate.month) &&
-            (self.day == aDate.day));
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    
+    NSDateComponents *dateCmps = [calendar components:unit fromDate:aDate];
+    NSDateComponents *selfCmps = [calendar components:unit fromDate:self];
+    
+    return ((selfCmps.year == dateCmps.year) &&
+            (selfCmps.month == dateCmps.month) &&
+            (selfCmps.day == dateCmps.day));
 }
 
 - (BOOL)isThisWeek
@@ -173,7 +212,21 @@
         return NO;
     }
     
-    return fabs([self timeIntervalSinceDate:aDate]) < LYZWeekInSeconds;
+    return fabs([self timeIntervalSinceDate:aDate]) < LYZSecondsInWeek;
+}
+
+- (BOOL)isWeekend
+{
+    NSInteger weekday = self.weekday;
+    if (weekday == 1 || weekday == 7) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isWorkday
+{
+    return ! [self isWeekend];
 }
 
 - (BOOL)isEarlierThanDate:(NSDate *)aDate
@@ -186,7 +239,7 @@
     return [self laterDate:aDate] == self;
 }
 
-#pragma mark -
+#pragma mark - adjust date
 
 - (NSDate *)dateByAddingYears:(NSInteger)years
 {
@@ -217,7 +270,7 @@
 
 - (NSDate *)dateByAddingDays:(NSInteger)days
 {
-    NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + LYZDayInSeconds * days;
+    NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + LYZSecondsInDay * days;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     
     return newDate;
@@ -225,7 +278,7 @@
 
 - (NSDate *)dateByAddingHours:(NSInteger)hours
 {
-    NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + LYZHourInSeconds * hours;
+    NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + LYZSecondsInHour * hours;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     
     return newDate;
@@ -233,7 +286,7 @@
 
 - (NSDate *)dateByAddingMinutes:(NSInteger)minutes
 {
-    NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + LYZMinuteInSeconds * minutes;
+    NSTimeInterval aTimeInterval = [self timeIntervalSinceReferenceDate] + LYZSecondsInMinute * minutes;
     NSDate *newDate = [NSDate dateWithTimeIntervalSinceReferenceDate:aTimeInterval];
     
     return newDate;
@@ -247,7 +300,7 @@
     return newDate;
 }
 
-#pragma mark -
+#pragma mark - date format
 
 - (NSString *)stringWithFormat:(NSString *)format
 {
@@ -282,7 +335,17 @@
     return [formatter stringFromDate:self];
 }
 
-+ (NSDate *)dataWithString:(NSString *)dataString format:(NSString *)format
+- (NSString *)stringWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle
+{
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateStyle = dateStyle;
+    formatter.timeStyle = timeStyle;
+    formatter.locale = [NSLocale currentLocale];
+    
+    return [formatter stringFromDate:self];
+}
+
++ (NSDate *)dateWithString:(NSString *)dataString format:(NSString *)format
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = format;
@@ -290,7 +353,7 @@
     return [formatter dateFromString:dataString];
 }
 
-+ (NSDate *)dataWithString:(NSString *)dataString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale
++ (NSDate *)dateWithString:(NSString *)dataString format:(NSString *)format timeZone:(NSTimeZone *)timeZone locale:(NSLocale *)locale
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = format;
@@ -305,7 +368,7 @@
     return [formatter dateFromString:dataString];
 }
 
-+ (NSDate *)dataWithISOFormatString:(NSString *)dataString
++ (NSDate *)dateWithISOFormatString:(NSString *)dataString
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];

@@ -9,17 +9,23 @@
 #ifndef Aid_iOS_AidCustomMarco_h
 #define Aid_iOS_AidCustomMarco_h
 
+#import "UIColor+LYZExtension.h"
+
 #define AidStatusBarHeight 20
-#define AidNavgationBarHeight 44
-#define AidNavHeadHeigtht 64
-#define AidNavBarIcons  CGSizeMake(20, 20);
+#define AidNavigationBarHeight 44
+#define AidNavigationHeadHeight 64
+#define AidNavigationBarIcons  CGSizeMake(20, 20);
 #define AidTabBarHeight 49
 #define AidTabBarIcons  CGSizeMake(30, 30);
 #define AidToolBarHeight 44
 #define AidPortraitKeyboardHeight 216
 #define AidLandscapeKeyboardHeight 140
 
-#define AidNavigationBarColor RGB(33, 192, 174)
-#define AidSeparaterColor RGB(200, 199, 204)
+#define AidNavigationTintColor [UIColor whiteColor]
+#define AidNavigationBarTintColor [UIColor purpleColor]
+#define AidNavigationForegroundColor [UIColor whiteColor]
+#define AidSeparaterColor LYZColorRGB(200, 199, 204)
+
+#define AidNavigationFont [UIFont systemFontOfSize:16]
 
 #endif

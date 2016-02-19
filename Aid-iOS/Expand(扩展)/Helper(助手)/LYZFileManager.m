@@ -255,7 +255,7 @@
 
 + (CGFloat)MByteOfFileAtPath:(NSString *)path
 {
-    return [self attributesOfItemAtPath:path].fileSize / LYZMBInBytes;
+    return [self attributesOfItemAtPath:path].fileSize / LYZBytesInMB;
 }
 
 + (CGFloat)MByteOfDirectoryAtPath:(NSString *)path
@@ -267,7 +267,7 @@
         pathSize += [self attributesOfItemAtPath:path].fileSize;
     }
     
-    return pathSize / LYZMBInBytes;
+    return pathSize / LYZBytesInMB;
 }
 
 

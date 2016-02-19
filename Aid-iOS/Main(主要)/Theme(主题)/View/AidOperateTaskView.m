@@ -81,8 +81,8 @@
 
 - (void)itemButtonAction:(UIButton *)button
 {
-    if (self.buttonTouched) {
-        self.buttonTouched(button.tag - 100);
+    if ([self.delegate respondsToSelector:@selector(multipleButtonTouched:withIndex:)]) {
+        [self.delegate multipleButtonTouched:button withIndex:button.tag - 100];
     }
 }
 

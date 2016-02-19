@@ -64,10 +64,9 @@
     controller.tabBarItem.image = [UIImage imageNamed:imageName];
     controller.tabBarItem.selectedImage = [UIImage imageNamed:selectImageName];
     
-    //包装导航控制器
-//    AidMainNavigationController *nav = [[AidMainNavigationController alloc] initWithRootViewController:controller];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
-    [self addChildViewController:nav];
+    // 导航控制器
+    AidMainNavigationController *navigation = [[AidMainNavigationController alloc] initWithRootViewController:controller];
+    [self addChildViewController:navigation];
     
     [self.mainTabBar addTabBarButtonWithItem:controller.tabBarItem];
 }

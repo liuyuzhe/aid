@@ -11,12 +11,11 @@
 #import "AidEditTaskViewController.h"
 
 #import "AidTaskCell.h"
-#import "MGSwipeButton.h"
 #import "AidOperateTaskView.h"
 
 #import "AidTaskTable.h"
 
-@interface AidTaskViewController ()  <UITableViewDataSource, UITableViewDelegate, AidEditTaskViewControllerDelegate, MGSwipeTableCellDelegate>
+@interface AidTaskViewController ()  <UITableViewDataSource, UITableViewDelegate, AidEditTaskViewControllerDelegate, AidOperateTaskViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) AidOperateTaskView *operaterView;
@@ -25,13 +24,11 @@
 @property (nonatomic, strong) AidEditTaskViewController *editTaskVC;
 
 @property (nonatomic, strong) NSMutableArray<AidTaskRecord *> *taskArray;
-@property (nonatomic, strong) NSIndexPath *selectPath;  // 当前选择的行
+@property (nonatomic, strong) NSIndexPath *selectPath;
 
 @property (nonatomic, strong) dispatch_semaphore_t taskSemaphore;
 @property (nonatomic, strong) dispatch_queue_t writeTaskSerilQueue;
 @property (nonatomic, strong) AidTaskTable *taskTable;
-
-@property (nonatomic, strong) NSMutableArray<NSIndexPath *> *selectIndexPaths; // 存放多选行的可变数组
 
 @end
 
@@ -45,7 +42,7 @@
     self = [super init];
     if (self) {
         _taskSemaphore = dispatch_semaphore_create(1);
-        _writeTaskSerilQueue = dispatch_queue_create("com.dispatch.writeTask", DISPATCH_QUEUE_SERIAL);
+        _writeTaskSerilQueue = dispatch_queue_create("com.dispatch.writeTask.AidTaskViewController", DISPATCH_QUEUE_SERIAL);
         
         self.hidesBottomBarWhenPushed = YES; // 隐藏tabbar
     }
@@ -73,7 +70,7 @@
     
     [self layoutPageSubviews];
     
-    [self loadTaskData];
+    [self reloadTaskData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -129,12 +126,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AidTaskCell *cell = [AidTaskCell cellWithTableView:tableView];
-//    cell.delegate = self;
     if (self.taskArray.count != 0) {
         cell.taskRecord = self.taskArray[indexPath.row];
     }
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -145,23 +146,19 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.taskArray removeObjectAtIndex:indexPath.row];
-        [self.tableView beginUpdates];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView endUpdates];
-        
-        if (self.taskArray.count == 0) {
-            [tableView reloadData];
-        }
+        AidTaskRecord *taskRecord = self.taskArray[indexPath.row];
+        [self deleteOneThemeRecord:taskRecord];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
     }
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [self.taskArray exchangeObjectAtIndex:destinationIndexPath.row withObjectAtIndex:sourceIndexPath.row];
-    [self.tableView beginUpdates];
-    [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
-    [self.tableView endUpdates];
+//    [self.taskArray exchangeObjectAtIndex:destinationIndexPath.row withObjectAtIndex:sourceIndexPath.row];
+//    [self.tableView beginUpdates];
+//    [self.tableView moveRowAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+//    [self.tableView endUpdates];
 }
 
 #pragma mark - UITableViewDelegate
@@ -185,6 +182,7 @@
     return 5;
 }
 
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 10)];
@@ -202,32 +200,49 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.tableView.isEditing) {
-        if ([self.selectIndexPaths containsObject:indexPath]) {
-            [self.selectIndexPaths removeObject:indexPath];
-        }
-        else {
-            [self.selectIndexPaths addObject:indexPath];
-        }
         
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+        
         self.selectPath = indexPath;
         self.editTaskVC.taskRecord = self.taskArray[indexPath.row];
         [self.navigationController pushViewController:self.editTaskVC animated:YES];
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
+    if (self.tableView.editing) {
+        return UITableViewCellEditingStyleInsert | UITableViewCellEditingStyleDelete;
+    }
+    else {
+        return UITableViewCellEditingStyleDelete;
+    }
 }
 
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    __weak typeof(self) weakSelf = self;
+
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        AidTaskRecord *taskRecord = self.taskArray[indexPath.row];
+        [weakSelf deleteOneThemeRecord:taskRecord];
+    }];
+    
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        // 收回左滑出现的按钮(退出编辑模式)
+        self.tableView.editing = NO;
+        
+        self.selectPath = indexPath;
+        self.editTaskVC.taskRecord = self.taskArray[indexPath.row];
+        [self.navigationController pushViewController:self.editTaskVC animated:YES];
+    }];
+    editAction.backgroundEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    editAction.backgroundColor = [UIColor grayColor];
+    
+    return @[deleteAction, editAction];
+}
 
 #pragma mark - UIScrollViewDelegate
 
@@ -236,148 +251,109 @@
 - (void)editTaskRecord:(AidTaskRecord *)taskRecord configureViewController:(AidEditTaskViewController *)viewController
 {
     if (self.addTaskVC == viewController) {
-        dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
-#warning themeKey
+#warning themeKey，局部刷新http://www.jianshu.com/p/97ecb0ced5e5
         taskRecord.themeID = self.themeKey;
         
-        [self.taskArray addObject:taskRecord];
-        dispatch_semaphore_signal(self.taskSemaphore);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-        
-        dispatch_async(self.writeTaskSerilQueue, ^{
-            NSError *error = nil;
-            [self.taskTable insertRecord:taskRecord error:&error];
-            if ([taskRecord.primaryKey integerValue] > 0) {
-                NSLog(@"1001 success");
-            }
-            else {
-                NSException *exception = [[NSException alloc] init];
-                @throw exception;
-            }
-        });
+        [self addOneTaskRecord:taskRecord];
     }
     else if (self.editTaskVC == viewController) {
-        dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
-        [self.taskArray replaceObjectAtIndex:self.selectPath.row withObject:taskRecord];
-        dispatch_semaphore_signal(self.taskSemaphore);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-
-        dispatch_async(self.writeTaskSerilQueue, ^{
-            NSError *error = nil;
-            [self.taskTable updateRecord:taskRecord error:&error];
-            if ([taskRecord.primaryKey integerValue] > 0) {
-                NSLog(@"1001 success");
-            }
-            else {
-                NSException *exception = [[NSException alloc] init];
-                @throw exception;
-            }
-        });
+        [self updateOneTaskRecord:taskRecord];
     }
 }
 
-#pragma mark - MGSwipeTableCellDelegate
-//
-//- (BOOL)swipeTableCell:(MGSwipeTableCell*)cell canSwipe:(MGSwipeDirection)direction
-//{
-//    return YES;
-//}
-//
-//- (void)swipeTableCell:(MGSwipeTableCell*)cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
-//{
-//    
-//}
-//
-//- (BOOL)swipeTableCell:(MGSwipeTableCell*)cell
-//   tappedButtonAtIndex:(NSInteger)index
-//             direction:(MGSwipeDirection)direction
-//         fromExpansion:(BOOL)fromExpansion
-//{
-//    LYZINFO(@"Delegate: button tapped, %@ position, index %zd, from Expansion: %@", direction == MGSwipeDirectionLeftToRight ? @"left" : @"right", index, fromExpansion ? @"YES" : @"NO");
-//    
-//    if (direction == MGSwipeDirectionRightToLeft) {
-//        if (index == 0) {
-//            return NO;
-//        }
-//        else if (index == 1) {
-//            return NO;
-//        }
-//    }
-//    
-//    return YES;
-//}
-//
-//- (NSArray *)swipeTableCell:(MGSwipeTableCell*)cell
-//   swipeButtonsForDirection:(MGSwipeDirection)direction
-//              swipeSettings:(MGSwipeSettings*)swipeSettings
-//          expansionSettings:(MGSwipeExpansionSettings*)expansionSettings
-//{
-//    swipeSettings.transition = MGSwipeTransitionDrag;
-//    
-//    expansionSettings.fillOnTrigger = NO;
-//    
-//    if (direction == MGSwipeDirectionRightToLeft) {
-//        return [self createRightButtons];
-//    }
-//    
-//    return nil;
-//}
-//
-//#pragma mark -
-//
-//- (NSArray<__kindof UIButton *> *)createRightButtons
-//{
-//    NSMutableArray * result = [NSMutableArray array];
-//    NSString* titles[2] = {@"删除", @"编辑"};
-//    UIColor * colors[2] = {[UIColor redColor], [UIColor grayColor]};
-//    for (int i = 0; i < 2; ++i)
-//    {
-//        MGSwipeButton *button = [MGSwipeButton buttonWithTitle:titles[i] backgroundColor:colors[i] padding:15];
-//        [result addObject:button];
-//    }
-//    return [result copy];
-//}
+#pragma mark - AidOperateTaskViewDelegate
+
+- (void)multipleButtonTouched:(UIButton *)button withIndex:(NSInteger)index
+{
+    if (index == 0) {
+    }
+}
 
 #pragma mark - event response
 
 - (void)addItemBarAction:(UIBarButtonItem *)button
 {
+    AidTaskRecord *taskRecord = [[AidTaskRecord alloc] init];
+    taskRecord.startTime = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
+    taskRecord.endTime = [NSNumber numberWithDouble:[[[NSDate date] dateByAddingWeeks:1] timeIntervalSinceReferenceDate]];
+    taskRecord.alarmTime = [NSNumber numberWithDouble:[[[NSDate date] dateByAddingDays:1] timeIntervalSinceReferenceDate]];
+    taskRecord.repeat = @"从不";
+
+    self.addTaskVC.taskRecord = taskRecord;
     [self.navigationController pushViewController:self.addTaskVC animated:YES];
 
 //    AidAddTaskViewController *addTaskVC = [[AidAddTaskViewController alloc] init];
 //    [self.navigationController pushViewController:addTaskVC animated:YES];
 }
 
-- (void)multipleButtonTouchedAtIndex:(NSInteger)index
-{
-    if (index == 0) {
-        [self editButtonAction];
-    }
-}
-
-- (void)editButtonAction
-{
-    if (! self.tableView.isEditing) {
-        self.tableView.allowsMultipleSelectionDuringEditing = YES;
-        [self.tableView setEditing:YES animated:YES];
-    }
-    else {
-        self.tableView.allowsMultipleSelectionDuringEditing = NO;
-        [self.tableView setEditing:NO animated:YES];
-    }
-}
-
 #pragma mark - notification response
 
 #pragma mark - private methods
 
-- (void)loadTaskData
+- (void)addOneTaskRecord:(AidTaskRecord *)taskRecord;
+{
+    dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
+    [self.taskArray addObject:taskRecord];
+    dispatch_semaphore_signal(self.taskSemaphore);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
+    dispatch_async(self.writeTaskSerilQueue, ^{
+        NSError *error = nil;
+        [self.taskTable insertRecord:taskRecord error:&error];
+        if ([taskRecord.primaryKey integerValue] > 0) {
+            NSLog(@"1001 success");
+        }
+        else {
+            NSException *exception = [[NSException alloc] init];
+            @throw exception;
+        }
+    });
+}
+
+- (void)deleteOneThemeRecord:(AidTaskRecord *)taskRecord;
+{
+    dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
+    [self.taskArray removeObject:taskRecord];
+    dispatch_semaphore_signal(self.taskSemaphore);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
+    dispatch_async(self.writeTaskSerilQueue, ^{
+        NSError *error = nil;
+        [self.taskTable deleteRecord:taskRecord error:&error];
+    });
+}
+
+- (void)updateOneTaskRecord:(AidTaskRecord *)taskRecord;
+{
+    dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
+    [self.taskArray replaceObjectAtIndex:self.selectPath.row withObject:taskRecord];
+    dispatch_semaphore_signal(self.taskSemaphore);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadRowsAtIndexPaths:@[self.selectPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [self.tableView reloadData];
+    });
+    
+    dispatch_async(self.writeTaskSerilQueue, ^{
+        NSError *error = nil;
+        [self.taskTable updateRecord:taskRecord error:&error];
+        if ([taskRecord.primaryKey integerValue] > 0) {
+            NSLog(@"1001 success");
+        }
+        else {
+            NSException *exception = [[NSException alloc] init];
+            @throw exception;
+        }
+    });
+}
+
+- (void)reloadTaskData
 {
     dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(currentQueue, ^{
@@ -405,13 +381,12 @@
 - (UITableView *)tableView
 {
     if (! _tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - AidNavHeadHeigtht) style:UITableViewStylePlain];
-        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - AidNavigationHeadHeight) style:UITableViewStylePlain];
         UIImage *bgImage = [UIImage imageNamed:@"wlbackground01.jpg"];
         UIImageView *bgImageView = [[UIImageView alloc] initWithImage:bgImage];
 //        bgImageView.frame = _tableView.frame;
         _tableView.backgroundView = bgImageView;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.separatorColor = [UIColor clearColor];
         
         _tableView.dataSource = self;
@@ -424,15 +399,12 @@
 - (AidOperateTaskView *)operaterView
 {
     if (! _operaterView) {
-        NSArray<NSString *> *imageNames = @[@"about_criticism", @"about_criticism", @"about_criticism", @"about_criticism"];
-        NSArray<NSString *> *titleNames = @[@"编辑", @"排序", @"分享", @"更多"];
+        NSArray<NSString *> *imageNames = @[@"about_criticism", @"about_criticism", @"about_criticism"];
+        NSArray<NSString *> *titleNames = @[@"分享", @"排序", @"更多"];
         
         _operaterView = [[AidOperateTaskView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidTabBarHeight)imageNames:imageNames titleNames:titleNames];
         _operaterView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);
-        __weak typeof(self) weakSelf = self;
-        _operaterView.buttonTouched = ^(NSInteger index) {
-            [weakSelf multipleButtonTouchedAtIndex:index];
-        };
+        _operaterView.delegate = self;
     }
     return _operaterView;
 }
@@ -469,14 +441,6 @@
         _taskTable = [[AidTaskTable alloc] init];
     }
     return _taskTable;
-}
-
-- (NSMutableArray<NSIndexPath *> *)selectIndexPaths
-{
-    if (! _selectIndexPaths) {
-        _selectIndexPaths = [NSMutableArray array];
-    }
-    return _selectIndexPaths;
 }
 
 @end

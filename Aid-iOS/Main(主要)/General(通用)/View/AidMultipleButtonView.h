@@ -14,7 +14,7 @@ typedef void(^multipleButtonAction)(NSInteger index);
 
 @property (nonatomic, copy) multipleButtonAction buttonTouched;
 
-- (instancetype)initWithFrame:(CGRect)frame titleArray:(NSArray *)titleArray;
 
+- (instancetype)initWithFrame:(CGRect)frame titleArray:(NSArray <NSString *> *)titleArray;
 
 @end

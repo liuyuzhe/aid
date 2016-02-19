@@ -18,12 +18,12 @@
 
 + (CGFloat)MBytesOfMemoryTotal
 {
-    return [self getSysInfo:HW_PHYSMEM] / LYZMBInBytes;
+    return [self getSysInfo:HW_PHYSMEM] / LYZBytesInMB;
 }
 
 + (CGFloat)MBytesOfMemoryUser
 {
-    return [self getSysInfo:HW_USERMEM] / LYZMBInBytes;
+    return [self getSysInfo:HW_USERMEM] / LYZBytesInMB;
 }
 
 #pragma mark -
@@ -33,7 +33,7 @@
     NSDictionary *sFileSystem = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
     NSNumber* totalSize = [sFileSystem objectForKey:NSFileSystemSize];
     
-    return  totalSize.doubleValue / LYZGBInBytes;
+    return  totalSize.doubleValue / LYZBytesInGB;
 }
 
 + (CGFloat)GBytesOfDiskSpaceFree
@@ -41,7 +41,7 @@
     NSDictionary *sFileSystem = [[NSFileManager defaultManager] attributesOfFileSystemForPath:NSHomeDirectory() error:nil];
     NSNumber* freeSize = [sFileSystem objectForKey:NSFileSystemFreeSize];
     
-    return freeSize.doubleValue / LYZGBInBytes;
+    return freeSize.doubleValue / LYZBytesInGB;
 }
 
 + (CGFloat)GBytesOfDiskSpaceUsed

@@ -9,17 +9,23 @@
 #ifndef AppProject_LYZMathMacro_h
 #define AppProject_LYZMathMacro_h
 
+#import <Foundation/Foundation.h>
+
 #define LYZDegreesToRadian(x) (M_PI * (x) / 180.0) // 角度转弧度
 #define LYZRadianToDegrees(r) (r * 180.0) / (M_PI) // 弧度转角度
 
-#define LYZKBInBytes (1024)
-#define LYZMBInBytes (LYZKBInBytes * 1024)
-#define LYZGBInBytes (LYZMBInBytes * 1024)
-#define LYZTBInBytes (LYZGBInBytes * 1024)
+static const NSUInteger LYZSecondsInMinute = 60;
+static const NSUInteger LYZSecondsInHour = 60 * 60;
+static const NSUInteger LYZSecondsInDay = LYZSecondsInHour * 24;
+static const NSUInteger LYZMillisecondsInDay = LYZSecondsInDay * 1000;
+static const NSUInteger LYZSecondsInWeek = LYZSecondsInDay * 7;
+static const NSUInteger LYZSecondsInMonth_28 = LYZSecondsInDay * 28;
+static const NSUInteger LYZSecondsInMonth_29 = LYZSecondsInDay * 29;
+static const NSUInteger LYZSecondsInMonth_30 = LYZSecondsInDay * 30;
+static const NSUInteger LYZSecondsInMonth_31 = LYZSecondsInDay * 31;
 
-#define LYZMinuteInSeconds (60)
-#define LYZHourInSeconds (3600) // 60 * 60
-#define LYZDayInSeconds (86400) // 60 * 60 * 24
-#define LYZWeekInSeconds (604800) // 60 * 60 * 24 * 7
+static const NSUInteger LYZBytesInKB = 1024;
+static const NSUInteger LYZBytesInMB = LYZBytesInKB * 1024;
+static const NSUInteger LYZBytesInGB = LYZBytesInMB * 1024;
 
 #endif

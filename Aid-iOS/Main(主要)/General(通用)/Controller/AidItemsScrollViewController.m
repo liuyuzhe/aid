@@ -102,7 +102,7 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
     _titleScrollViewColor = nil;
 
     // 标题设置
-    _titleHeight = AidNavgationBarHeight;
+    _titleHeight = AidNavigationBarHeight;
     _titleMargin = AidDefaultTitleMargin;
     _normalColor = [UIColor blackColor];
     _selectColor = [UIColor redColor];
@@ -150,11 +150,7 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
         }
         
         // 获取文字尺寸
-        CGRect titleBounds = [title boundingRectWithSize:CGSizeMake(MAXFLOAT, 0)
-                                                 options:NSStringDrawingUsesLineFragmentOrigin
-                                              attributes:@{NSFontAttributeName:self.titleFont}
-                                                 context:nil];
-        CGFloat width = titleBounds.size.width;
+        CGFloat width = [title widthForFont:self.titleFont];
         
         [self.titleWidths addObject:@(width)];
 
@@ -326,7 +322,7 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
 {
     CGFloat offsetDelta = offsetX - self.lastOffsetX;
     CGFloat centerDelta = rightLabel.left - leftLabel.left; // 两个标题中心点距离
-    CGFloat widthDelta = [self widthDeltaWithRightLabel:rightLabel leftLabel:leftLabel]; // 标题宽度差值
+    CGFloat widthDelta = [rightLabel.text widthForFont:self.titleFont] - [leftLabel.text widthForFont:self.titleFont]; // 标题宽度差值
     
     CGFloat leftOffset = offsetDelta * centerDelta / [LYZDeviceInfo screenWidth];
     CGFloat widthOffset = offsetDelta * widthDelta / [LYZDeviceInfo screenWidth];
@@ -335,28 +331,13 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
     self.underLine.width += widthOffset;
 }
 
-/** 获取两个标题按钮宽度差值 */
-- (CGFloat)widthDeltaWithRightLabel:(UILabel *)rightLabel leftLabel:(UILabel *)leftLabel
-{
-    CGRect titleBoundsR = [rightLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 0)
-                                                        options:NSStringDrawingUsesLineFragmentOrigin
-                                                     attributes:@{NSFontAttributeName:self.titleFont}
-                                                        context:nil];
-    CGRect titleBoundsL = [leftLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 0)
-                                                       options:NSStringDrawingUsesLineFragmentOrigin
-                                                    attributes:@{NSFontAttributeName:self.titleFont}
-                                                       context:nil];
-    
-    return titleBoundsR.size.width - titleBoundsL.size.width;
-}
-
 /** 遮盖视图设置 */
 - (void)setUpCoverOffset:(CGFloat)offsetX leftLabel:(UILabel *)leftLabel rightLabel:(UILabel *)rightLabel
 {
     CGFloat offsetDelta = offsetX - self.lastOffsetX; // 获取移动距离
     CGFloat centerDelta = rightLabel.left - leftLabel.left; // 两个标题中心点距离
-    CGFloat widthDelta = [self widthDeltaWithRightLabel:rightLabel leftLabel:leftLabel]; // 标题宽度差值
-    
+    CGFloat widthDelta = [rightLabel.text widthForFont:self.titleFont] - [leftLabel.text widthForFont:self.titleFont]; // 标题宽度差值
+
     CGFloat leftOffset = offsetDelta * centerDelta / [LYZDeviceInfo screenWidth];
     CGFloat widthOffset = offsetDelta * widthDelta / [LYZDeviceInfo screenWidth];
     
@@ -510,24 +491,21 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
 - (void)setUpUnderLine:(UILabel *)label
 {
     // 获取文字尺寸
-    CGRect titleBounds = [label.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 0)
-                                                  options:NSStringDrawingUsesLineFragmentOrigin
-                                               attributes:@{NSFontAttributeName:self.titleFont}
-                                                  context:nil];
-    
+    CGFloat width = [label.text widthForFont:self.titleFont];
+
     self.underLine.top = label.height - self.underLineHeight;
     self.underLine.height = self.underLineHeight;
     
     // 开始不需要动画
     if (self.underLine.left == 0) {
-        self.underLine.width = titleBounds.size.width;
+        self.underLine.width = width;
         self.underLine.left = label.left;
         return;
     }
     
     // 点击时候需要动画
     [UIView animateWithDuration:0.25 animations:^{
-        self.underLine.width = titleBounds.size.width;
+        self.underLine.width = width;
         self.underLine.left = label.left;
     }];
 }
@@ -535,14 +513,11 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
 /** 遮盖视图设置 */
 - (void)setUpCoverView:(UILabel *)label
 {
-    // 获取文字尺寸
-    CGRect titleBounds = [label.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 0)
-                                                  options:NSStringDrawingUsesLineFragmentOrigin
-                                               attributes:@{NSFontAttributeName:self.titleFont}
-                                                  context:nil];
-    
-    CGFloat coverH = titleBounds.size.height + 2 * AidCoverViewBorder;
-    CGFloat coverW = titleBounds.size.width + 2 * AidCoverViewBorder;
+    CGFloat width = [label.text widthForFont:self.titleFont];
+    CGFloat height = [label.text heightForFont:self.titleFont width:width];
+
+    CGFloat coverW = width + 2 * AidCoverViewBorder;
+    CGFloat coverH = height + 2 * AidCoverViewBorder;
     
     self.coverView.top = (label.height - coverH) * 0.5;
     self.coverView.height = coverH;
@@ -571,7 +546,7 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
 - (UIView *)contentView
 {
     if (! _contentView) {
-        CGFloat height = self.navigationController ? AidNavHeadHeigtht : AidStatusBarHeight;
+        CGFloat height = self.navigationController ? AidNavigationHeadHeight : AidStatusBarHeight;
         CGFloat contentY = self.fullScreen ? 0 : height;
         _contentView = [[UIView alloc] initWithFrame:CGRectMake(0, contentY, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - contentY)];
     }
@@ -581,7 +556,7 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
 - (UIScrollView *)titleScrollView
 {
     if (! _titleScrollView) {
-        CGFloat height = self.navigationController ? AidNavHeadHeigtht : AidStatusBarHeight;
+        CGFloat height = self.navigationController ? AidNavigationHeadHeight : AidStatusBarHeight;
         CGFloat titleY = self.fullScreen ? height : 0;
         
         _titleScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleY, [LYZDeviceInfo screenWidth], self.titleHeight)];

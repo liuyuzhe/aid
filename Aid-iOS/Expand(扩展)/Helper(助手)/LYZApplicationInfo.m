@@ -72,7 +72,7 @@
         return -1;
     }
     
-    return info.resident_size / LYZMBInBytes;
+    return info.resident_size / LYZBytesInMB;
 }
 
 + (CGFloat)cpuUsage

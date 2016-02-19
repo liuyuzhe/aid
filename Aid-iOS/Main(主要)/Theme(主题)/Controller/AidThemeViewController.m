@@ -12,32 +12,26 @@
 
 #import "AidMultipleButtonView.h"
 #import "AidThemeCell.h"
-#import "MGSwipeButton.h"
 
 #import "AidThemeTable.h"
+#import "AidTaskTable.h"
 
 #import "AidNetWork.h"
 
-static const CGFloat AidTableViewRowAnimationDuration = 0.25;
 static const CGFloat AidThemeCellHeight = 110;
 
-@interface AidThemeViewController () <UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, AidAddThemeViewControllerDelegate>
+@interface AidThemeViewController () <UITableViewDataSource, UITableViewDelegate, AidAddThemeViewControllerDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray<AidThemeRecord *> *themeArray;
-@property (nonatomic, strong) NSIndexPath *selectPath;  // 当前选择的行
+@property (nonatomic, strong) NSIndexPath *selectPath;
 
 @property (nonatomic, strong) dispatch_semaphore_t themeSemaphore;
 @property (nonatomic, strong) dispatch_queue_t writeThemeSerilQueue;
+@property (nonatomic, strong) dispatch_queue_t writeTaskSerilQueue;
 @property (nonatomic, strong) AidThemeTable *themeTable;
-
-@property (nonatomic, strong) UILongPressGestureRecognizer *longPress; /**< 长按手势 */
-@property (nonatomic, strong) UIView *snapshot; /**< Cell截图 */
-@property (nonatomic, strong) NSIndexPath *sourceIndexPath; /**< 目标Cell */
-@property (nonatomic, strong) UIColor *originBackgroundColor; /**< Cell初始背景 */
-@property (nonatomic, assign) CGFloat scrollRate; /**< 滚动速率 */
-@property (nonatomic, strong) CADisplayLink *scrollDisplayLink; /**< cell滚动时，刷新TableView */
+@property (nonatomic, strong) AidTaskTable *taskTable;
 
 @end
 
@@ -51,7 +45,8 @@ static const CGFloat AidThemeCellHeight = 110;
     self = [super init];
     if (self) {
         _themeSemaphore = dispatch_semaphore_create(1);
-        _writeThemeSerilQueue = dispatch_queue_create("com.dispatch.writeTheme", DISPATCH_QUEUE_SERIAL);
+        _writeThemeSerilQueue = dispatch_queue_create("com.dispatch.writeTheme.AidThemeViewController", DISPATCH_QUEUE_SERIAL);
+        _writeTaskSerilQueue = dispatch_queue_create("com.dispatch.writeTask.AidThemeViewController", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -69,6 +64,7 @@ static const CGFloat AidThemeCellHeight = 110;
     [super viewDidLoad];
     
     [self setupPageNavigation];
+//    [self addOne];
     
     [self.view addSubview:self.tableView];
     
@@ -76,9 +72,7 @@ static const CGFloat AidThemeCellHeight = 110;
     
     [self setupRefreshHead];
     
-    [self loadThemeData];
-    
-    [self addPressGesture];
+    [self reloadThemeRecord];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -115,11 +109,11 @@ static const CGFloat AidThemeCellHeight = 110;
 #warning 测试UISegmentedControl，未使用
     NSArray *array = @[@"自建", @"收藏"];
     UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:array];
-    segment.momentary = YES; // 设置在点击后是否恢复原样
+    segment.momentary = NO; // 设置在点击后是否恢复原样
     segment.multipleTouchEnabled = NO;
     segment.frame = CGRectMake(0, 0, 160, 40);
     segment.selectedSegmentIndex = 1;
-    segment.tintColor = [UIColor greenColor];
+    segment.tintColor = [UIColor whiteColor];
     [segment addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = segment;
 }
@@ -180,12 +174,6 @@ static const CGFloat AidThemeCellHeight = 110;
 //    self.tableView.mj_footer = footer;
 }
 
-- (void)addPressGesture
-{
-    _longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
-//    [self.tableView addGestureRecognizer:_longPress];
-}
-
 #pragma mark - override super
 
 #pragma mark - UITableViewDataSource
@@ -203,7 +191,6 @@ static const CGFloat AidThemeCellHeight = 110;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AidThemeCell *cell = [AidThemeCell cellWithTableView:tableView];
-//    cell.delegate = self;
     
     if (self.themeArray.count != 0) {
         cell.themeRecord = self.themeArray[indexPath.row];
@@ -211,36 +198,13 @@ static const CGFloat AidThemeCellHeight = 110;
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return YES;
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        AidThemeRecord *themeRecord = self.themeArray[indexPath.row];
+        [self deleteOneThemeRecord:themeRecord];
+    }
 }
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [self.themeArray removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        
-//        if (self.themeArray.count == 0) {
-//            [tableView reloadData];
-//        }
-//    }
-//    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        AidThemeRecord *record = [[AidThemeRecord alloc] init];
-//        
-//        [self.themeArray insertObject:record atIndex:indexPath.row];
-//        [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }
-//}
-
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
-//{
-//    NSUInteger fromRow = [sourceIndexPath row];
-//    NSUInteger toRow = [destinationIndexPath row];
-//    
-//    [self.themeArray exchangeObjectAtIndex:fromRow withObjectAtIndex:toRow];
-//}
 
 #pragma mark - UITableViewDelegate
 
@@ -271,7 +235,30 @@ static const CGFloat AidThemeCellHeight = 110;
     AidThemeRecord *record = self.themeArray[indexPath.row];
     themeVC.themeKey = record.primaryKey;
 
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     [self.navigationController pushViewController:themeVC animated:YES];
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.tableView.editing) {
+        return UITableViewCellEditingStyleInsert | UITableViewCellEditingStyleDelete;
+    }
+    else {
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    __weak typeof(self) weakSelf = self;
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        AidThemeRecord *themeRecord = self.themeArray[indexPath.row];
+        [weakSelf deleteOneThemeRecord:themeRecord];
+    }];
+    
+    return @[deleteAction];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -294,92 +281,8 @@ static const CGFloat AidThemeCellHeight = 110;
 
 - (void)addThemeRecord:(AidThemeRecord *)themeRecord;
 {
-    dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
-    [self.themeArray addObject:themeRecord];
-    dispatch_semaphore_signal(self.themeSemaphore);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
-
-    dispatch_async(self.writeThemeSerilQueue, ^{
-        NSError *error = nil;
-        [self.themeTable insertRecord:themeRecord error:&error];
-        if ([themeRecord.primaryKey integerValue] > 0) {
-            NSLog(@"1001 success");
-        }
-        else {
-            NSException *exception = [[NSException alloc] init];
-            @throw exception;
-        }
-    });
-    
-#warning insertRowsAtIndexPaths 效率及闪退问题
-//    [self.tableView beginUpdates];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.themeArray.count inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    [self.tableView endUpdates];
+    [self addOneThemeRecord:themeRecord];
 }
-
-#pragma mark - MGSwipeTableCellDelegate
-
-//- (BOOL)swipeTableCell:(MGSwipeTableCell*)cell canSwipe:(MGSwipeDirection)direction
-//{
-//    return YES;
-//}
-//
-//- (void)swipeTableCell:(MGSwipeTableCell*)cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive
-//{
-//    
-//}
-//
-//- (BOOL)swipeTableCell:(MGSwipeTableCell*)cell tappedButtonAtIndex:(NSInteger)index direction:(MGSwipeDirection)direction fromExpansion:(BOOL)fromExpansion
-//{
-//    LYZINFO(@"Delegate: button tapped, %@ position, index %zd, from Expansion: %@", direction == MGSwipeDirectionLeftToRight ? @"left" : @"right", index, fromExpansion ? @"YES" : @"NO");
-//
-//    if (direction == MGSwipeDirectionRightToLeft) {
-//        if (index == 0) {
-//            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-//            [self.themeArray removeObjectAtIndex:indexPath.row];
-//            [self.tableView beginUpdates];
-//            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-//            [self.tableView endUpdates];
-//            return NO;
-//        }
-//        else if (index == 1) {
-//            return NO;
-//        }
-//    }
-//
-//    return YES;
-//}
-//
-//- (NSArray *)swipeTableCell:(MGSwipeTableCell*)cell swipeButtonsForDirection:(MGSwipeDirection)direction swipeSettings:(MGSwipeSettings*)swipeSettings expansionSettings:(MGSwipeExpansionSettings*)expansionSettings
-//{
-//    swipeSettings.transition = MGSwipeTransitionDrag;
-//    expansionSettings.fillOnTrigger = NO;
-//    
-//    if (direction == MGSwipeDirectionRightToLeft) {
-//        return [self createRightButtons];
-//    }
-//    
-//    return nil;
-//}
-//
-//#pragma mark - 
-//
-//- (NSArray<__kindof UIButton *> *)createRightButtons
-//{
-//    NSMutableArray * result = [NSMutableArray array];
-//    NSString* titles[2] = {@"删除", @"设置"};
-//    UIColor * colors[2] = {[UIColor redColor], [UIColor grayColor]};
-//    for (int i = 0; i < 2; ++i)
-//    {
-//        MGSwipeButton *button = [MGSwipeButton buttonWithTitle:titles[i] backgroundColor:colors[i] padding:15];
-//        [result addObject:button];
-//    }
-//    return [result copy];
-//}
 
 #pragma mark - event response
 
@@ -446,172 +349,93 @@ static const CGFloat AidThemeCellHeight = 110;
     });
 }
 
-- (void)longPressAction:(UILongPressGestureRecognizer *)gesture
-{
-    UIGestureRecognizerState state = gesture.state;
-    
-    switch (state)
-    {
-        case UIGestureRecognizerStateBegan:
-            [self didBeginLongPressGestureRecognizer:gesture];
-            break;
-        case UIGestureRecognizerStateChanged:
-            [self didChangeLongPressGestureRecognizer:gesture];
-            break;
-        case UIGestureRecognizerStateEnded:
-            [self didEndLongPressGestureRecognizer:gesture];
-        default:
-            break;
-    }
-}
-
-/** 伴随着Cell移动，滚动TableView */
-- (void)scrollTableWithCell:(CADisplayLink *)timer
-{
-    UILongPressGestureRecognizer *gesture = self.longPress;
-    const CGPoint location = [gesture locationInView:self.tableView];
-    
-    CGPoint currentOffset = self.tableView.contentOffset;
-    CGPoint newOffset = CGPointMake(currentOffset.x, currentOffset.y + self.scrollRate * 5);
-    
-    // 计算tableView偏移
-    if (newOffset.y < -self.tableView.contentInset.top) {
-        newOffset.y = -self.tableView.contentInset.top;
-    }
-    else if (self.tableView.contentSize.height + self.tableView.contentInset.bottom < self.view.height) {
-        newOffset = currentOffset;
-    }
-    else if (newOffset.y > (self.tableView.contentSize.height + self.tableView.contentInset.bottom) - self.view.height) {
-        newOffset.y = (self.tableView.contentSize.height + self.tableView.contentInset.bottom) - self.view.height;
-    }
-    
-    [self.tableView setContentOffset:newOffset];
-    
-    if (location.y >= 0 && location.y <= self.tableView.contentSize.height + 50) {
-        self.snapshot.center = CGPointMake(self.view.center.x, location.y);
-    }
-    
-    [self updateCurrentLocation:gesture];
-}
-
-#pragma mark -
-
-- (void)didBeginLongPressGestureRecognizer:(UILongPressGestureRecognizer*)gesture
-{
-    CGPoint location = [gesture locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
-    
-    // 判断长按是否在Cel上
-    if (! indexPath) {
-        gesture.enabled = NO;
-        gesture.enabled = YES;
-        return;
-    }
-    
-    _sourceIndexPath = indexPath;
-    
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    // 设置Cell的背景色
-    _originBackgroundColor = cell.backgroundColor;
-    cell.backgroundColor = [UIColor orangeColor];
-    
-    // 截图并添加阴影
-    UIImage *snapshotImage = [cell snapshotImage];
-    _snapshot = [[UIImageView alloc] initWithImage:snapshotImage];
-    [_snapshot setShadow];
-    
-    _snapshot.center = cell.center;
-    _snapshot.alpha = 1.0;
-    [self.tableView addSubview:_snapshot];
-    
-    [UIView animateWithDuration:AidTableViewRowAnimationDuration animations:^{
-        self.snapshot.transform = CGAffineTransformMakeScale(1.05, 1.05);
-        self.snapshot.alpha = 0.98;
-        cell.alpha = 1.0;
-    } completion:^(BOOL finished) {
-        cell.backgroundColor = [self.originBackgroundColor colorWithAlphaComponent:0.6];
-        cell.alpha = 0.0;
-        cell.hidden = YES;
-    }];
-    
-    _scrollDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(scrollTableWithCell:)];
-    [_scrollDisplayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-}
-
-- (void)didChangeLongPressGestureRecognizer:(UILongPressGestureRecognizer*)gesture
-{
-    CGPoint location = [gesture locationInView:self.tableView];
-    
-    if (location.y >= 0 && location.y <= self.tableView.contentSize.height + 50)
-    {
-        _snapshot.center = CGPointMake(self.tableView.center.x, location.y);
-    }
-    
-    CGRect rect = self.view.bounds;
-    rect.size.height -= self.tableView.contentInset.top;
-
-    [self updateCurrentLocation:gesture];
-    
-    // 计算滚动条件
-    CGFloat scrollZoneHeight = rect.size.height / 6;
-    CGFloat bottomScrollBeginning = self.tableView.contentOffset.y + self.tableView.contentInset.top + rect.size.height - scrollZoneHeight;
-    CGFloat topScrollBeginning = self.tableView.contentOffset.y + self.tableView.contentInset.top  + scrollZoneHeight;
-    
-    if (location.y >= bottomScrollBeginning) {
-        _scrollRate = (location.y - bottomScrollBeginning) / scrollZoneHeight;
-    }
-    else if (location.y <= topScrollBeginning) {
-        _scrollRate = (location.y - topScrollBeginning) / scrollZoneHeight;
-    }
-    else {
-        _scrollRate = 0;
-    }
-}
-
-- (void)didEndLongPressGestureRecognizer:(UILongPressGestureRecognizer*)gesture
-{
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.sourceIndexPath];
-    cell.hidden = NO;
-    cell.alpha = 0.0;
-
-    [_scrollDisplayLink invalidate];
-    _scrollDisplayLink = nil;
-
-    [UIView animateWithDuration:AidTableViewRowAnimationDuration animations:^{
-        _snapshot.transform = CGAffineTransformIdentity;
-        _snapshot.alpha = 0.0;
-        cell.alpha = 1.0;
-    } completion:^(BOOL finished) {
-        _scrollRate = 0;
-        _sourceIndexPath = nil;
-        [_snapshot removeFromSuperview];
-        _snapshot = nil;
-    }];
-}
-
-- (void)updateCurrentLocation:(UILongPressGestureRecognizer *)gesture
-{
-    const CGPoint location  = [gesture locationInView:self.tableView];
-    NSIndexPath *toIndexPath = [self.tableView indexPathForRowAtPoint:location];
-    
-    if ([toIndexPath compare:self.sourceIndexPath] == NSOrderedSame) {
-        return;
-    }
-    
-    // 交换Cell
-    [self.themeArray exchangeObjectAtIndex:toIndexPath.row withObjectAtIndex:self.sourceIndexPath.row];
-    [self.tableView beginUpdates];
-    [self.tableView moveRowAtIndexPath:self.sourceIndexPath toIndexPath:toIndexPath];
-    self.sourceIndexPath = toIndexPath;
-    [self.tableView endUpdates];
-    //TODO: 数据库排序
-}
-
 #pragma mark - notification response
 
 #pragma mark - private methods
 
-- (void)loadThemeData
+- (void)addOneThemeRecord:(AidThemeRecord *)themeRecord;
+{
+    dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
+    [self.themeArray addObject:themeRecord];
+    dispatch_semaphore_signal(self.themeSemaphore);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
+    dispatch_async(self.writeThemeSerilQueue, ^{
+        NSError *error = nil;
+        [self.themeTable insertRecord:themeRecord error:&error];
+        if ([themeRecord.primaryKey integerValue] > 0) {
+            NSLog(@"1001 success");
+        }
+        else {
+            NSException *exception = [[NSException alloc] init];
+            @throw exception;
+        }
+    });
+}
+
+- (void)deleteOneThemeRecord:(AidThemeRecord *)themeRecord;
+{
+    NSNumber *primaryKey = [themeRecord.primaryKey copy];
+    
+    dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
+    [self.themeArray removeObject:themeRecord];
+    dispatch_semaphore_signal(self.themeSemaphore);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+    
+    dispatch_async(self.writeThemeSerilQueue, ^{
+        NSError *error = nil;
+        [self.themeTable deleteRecord:themeRecord error:&error];
+        
+//        dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//        dispatch_async(currentQueue, ^{
+//            NSError *error = nil;
+//            AidThemeRecord *themeRecord = (AidThemeRecord *)[self.themeTable findWithPrimaryKey:primaryKey error:&error];
+//            if (themeRecord) {
+//                NSException *exception = [[NSException alloc] init];
+//                @throw exception;
+//            } else {
+//                NSLog(@"4001 success");
+//            }
+//        });
+    });
+    
+    [self deleteAllTaskRecordByThemePrimaryKey:primaryKey];
+}
+
+- (void)deleteAllTaskRecordByThemePrimaryKey:(NSNumber *)themePrimaryKey;
+{
+    dispatch_async(self.writeTaskSerilQueue, ^{
+        NSError *error = nil;
+        NSString *sqlString = @"DELETE FROM :tableName WHERE :themeID = :themeKey;";
+        NSString *tableName = [self.taskTable tableName];
+        NSString *themeID = @"themeID";
+        NSNumber *themeKey = themePrimaryKey;
+        NSDictionary *params = NSDictionaryOfVariableBindings(tableName, themeID, themeKey);
+        [self.taskTable deleteWithSql:sqlString params:params error:&error];
+        
+//        dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//        dispatch_async(currentQueue, ^{
+//            NSError *error = nil;
+//            NSString *sqlString = @"SELECT COUNT(*) AS count FROM :tableName WHERE :themeID = :themeKey;";
+//            NSDictionary *fetchedRecordDictionay = [self.taskTable countWithSQL:sqlString params:params error:&error];
+//            NSNumber *count = (NSNumber *)[fetchedRecordDictionay objectForKey:@"count"];
+//            if ( count.intValue > 0) {
+//                NSException *exception = [[NSException alloc] init];
+//                @throw exception;
+//            } else {
+//                NSLog(@"4002 success");
+//            }
+//        });
+    });
+}
+
+- (void)reloadThemeRecord
 {
     dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(currentQueue, ^{
@@ -622,8 +446,10 @@ static const CGFloat AidThemeCellHeight = 110;
         NSArray *fetchedRecordList = [self.themeTable findAllWithWhereCondition:whereCondition conditionParams:whereConditionParams isDistinct:NO error:&error];
         
         if (fetchedRecordList.count > 0 && error == nil) {
+            dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
             [self.themeArray removeAllObjects];
             [self.themeArray addObjectsFromArray:fetchedRecordList];
+            dispatch_semaphore_signal(self.themeSemaphore);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -639,7 +465,9 @@ static const CGFloat AidThemeCellHeight = 110;
     if (! _tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - 64) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor clearColor];
-        
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorColor = [UIColor clearColor];
+
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }
@@ -660,6 +488,14 @@ static const CGFloat AidThemeCellHeight = 110;
         _themeTable = [[AidThemeTable alloc] init];
     }
     return _themeTable;
+}
+
+- (AidTaskTable *)taskTable
+{
+    if (! _taskTable) {
+        _taskTable = [[AidTaskTable alloc] init];
+    }
+    return _taskTable;
 }
 
 @end

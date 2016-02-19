@@ -10,7 +10,7 @@
 #import "LYZMathMacro.h"
 
 static const NSUInteger LYZMemoryCacheDefultMaxCount = 100;
-static const NSUInteger LYZMemoryCacheDefultMaxCostSize = 10 * LYZMBInBytes;
+static const NSUInteger LYZMemoryCacheDefultMaxCostSize = 10 * LYZBytesInMB;
 
 @interface LYZMemoryCache ()
 
@@ -35,7 +35,7 @@ IS_SINGLETON(LYZMemoryCache)
         _maxCount = _memoryCache.countLimit;
         
         _memoryCache.totalCostLimit = LYZMemoryCacheDefultMaxCostSize;
-        _maxCostSize = _memoryCache.totalCostLimit / LYZMBInBytes;
+        _maxCostSize = _memoryCache.totalCostLimit / LYZBytesInMB;
     }
     return self;
 }

@@ -23,7 +23,7 @@
 
 @interface AidEditTaskViewController : XLFormViewController
 
-@property (nonatomic, strong) AidTaskRecord *taskRecord;
 @property (nonatomic, weak) id<AidEditTaskViewControllerDelegate> delegate;
+@property (nonatomic, strong) AidTaskRecord *taskRecord;
 
 @end

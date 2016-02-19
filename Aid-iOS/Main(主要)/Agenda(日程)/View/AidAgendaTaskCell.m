@@ -20,9 +20,8 @@
         cell = [[AidAgendaTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.textLabel.text = @"今日任务";
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
