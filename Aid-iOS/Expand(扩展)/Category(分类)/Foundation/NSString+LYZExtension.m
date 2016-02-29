@@ -74,6 +74,11 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (NSUInteger)numberOfLines
+{
+    return [self componentsSeparatedByString:@"\n"].count + 1;
+}
+
 #pragma mark -
 
 - (BOOL)equals:(NSString *)str

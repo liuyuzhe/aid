@@ -37,6 +37,7 @@
     [self setUpAllViewController];
     
     // 滚动视图设置
+    self.fullScreen = YES;
     self.titleScrollViewColor = [UIColor grayColor];
     
     // 标题设置

@@ -20,7 +20,7 @@
 
 @property (nonatomic, weak) id<AidOperateTaskViewDelegate> delegate;
 
-/** @attention imageNames.count == titleNames.count 且 >= 2 */
-- (instancetype)initWithFrame:(CGRect)frame imageNames:(NSArray <NSString *> *)imageNames titleNames:(NSArray <NSString *> *)titleNames;
+/** @attention titleNames.count == imageNames.count 且 >= 2 */
+- (instancetype)initWithFrame:(CGRect)frame titleNames:(NSArray <NSString *> *)titleNames imageNames:(NSArray <NSString *> *)imageNames;
 
 @end

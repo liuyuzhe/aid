@@ -26,6 +26,13 @@
 #define AidNavigationForegroundColor [UIColor whiteColor]
 #define AidSeparaterColor LYZColorRGB(200, 199, 204)
 
-#define AidNavigationFont [UIFont systemFontOfSize:16]
+#define AidNavigationFont [UIFont systemFontOfSize:16.0f]
+#define AidBigFont [UIFont systemFontOfSize:20.0f]
+#define AidNormalFont [UIFont systemFontOfSize:17.0f]
+#define AidSmallFont [UIFont systemFontOfSize:15.0f]
+
+#define AidBigBoldFont [UIFont boldSystemFontOfSize:20.0]
+#define AidNormalBoldFont [UIFont boldSystemFontOfSize:17.0f]
+#define AidSmallBoldFont [UIFont boldSystemFontOfSize:15.0f]
 
 #endif

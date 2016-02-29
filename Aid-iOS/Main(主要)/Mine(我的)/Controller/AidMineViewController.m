@@ -7,6 +7,10 @@
 //
 
 #import "AidMineViewController.h"
+#import "AidSettingViewController.h"
+#import "AidMainNavigationController.h"
+
+#import "LYZUserCenterView.h"
 
 #import "UINavigationBar+Awesome.h"
 
@@ -18,8 +22,7 @@ static const CGFloat AidNavbarChangePoint = 50;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIImageView *headImageView;
-
-@property (nonatomic, strong) UIImageView *photoImageView;
+@property (nonatomic, strong) LYZUserCenterView *userCenterView;
 
 @end
 
@@ -48,7 +51,7 @@ static const CGFloat AidNavbarChangePoint = 50;
     
     [self.view addSubview:self.tableView];
     [self.headView addSubview:self.headImageView];
-    [self.headView addSubview:self.photoImageView];
+    [self.headView addSubview:self.userCenterView];
     
     [self layoutPageSubviews];
 }
@@ -78,8 +81,10 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 - (void)setupPageNavigation
 {
-    UIBarButtonItem *searchItem = [UIBarButtonItem initWithNormalImage:@"icon_homepage_search" target:self action:@selector(searchBarAction:) width:24 height:24];
-    self.navigationItem.rightBarButtonItem = searchItem;
+    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+
+    self.navigationItem.rightBarButtonItem = addItem;
     
     [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
 }
@@ -197,8 +202,12 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 #pragma mark - event response
 
-- (void)searchBarAction:(UIButton *)button
+- (void)addItemBarAction:(UIButton *)button
 {
+    AidSettingViewController *settingVC = [[AidSettingViewController alloc] init];
+    [self.navigationController pushViewController:settingVC animated:YES];
+//    AidMainNavigationController *navigation = [[AidMainNavigationController alloc] initWithRootViewController:settingVC];
+//    [self.navigationController presentViewController:settingVC animated:YES completion:nil];
 }
 
 #pragma mark - notification response
@@ -221,6 +230,7 @@ static const CGFloat AidNavbarChangePoint = 50;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         _tableView.tableHeaderView = self.headView;
+//        _tableView.tableHeaderView = self.userCenterView;
         _tableView.tableFooterView = [[UIView alloc] init];
     }
     return _tableView;
@@ -229,7 +239,7 @@ static const CGFloat AidNavbarChangePoint = 50;
 - (UIView *)headView
 {
     if (! _headView) {
-        _headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht)];
+        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht)];
     }
     return _headView;
 }
@@ -237,7 +247,7 @@ static const CGFloat AidNavbarChangePoint = 50;
 - (UIImageView *)headImageView
 {
     if (! _headImageView) {
-        _headImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht)];
+        _headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht)];
         _headImageView.contentMode = UIViewContentModeScaleAspectFill;
         _headImageView.clipsToBounds = YES;
         _headImageView.image = [UIImage imageNamed:@"backImage1.jpg"];
@@ -245,17 +255,14 @@ static const CGFloat AidNavbarChangePoint = 50;
     return _headImageView;
 }
 
-- (UIImageView *)photoImageView
+- (LYZUserCenterView *)userCenterView
 {
-    if (! _photoImageView) {
-        _photoImageView = [[UIImageView alloc]initWithFrame:CGRectMake([LYZDeviceInfo screenWidth] / 2 - 50, 50, 100, 100)];
-        _photoImageView.image = [UIImage imageNamed:@"about_praise"];
-        _photoImageView.layer.cornerRadius = 50;
-        _photoImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        _photoImageView.layer.borderWidth = 5;
-        _photoImageView.layer.masksToBounds = YES;
+    if (! _userCenterView) {
+        _userCenterView = [[LYZUserCenterView alloc] initWithFrame:(CGRect){0, 0, [LYZDeviceInfo screenWidth], AidHeadViewHeigtht}];
+        _userCenterView.state = LYZHeaderViewStateNone;
+//        _userCenterView.state = LYZHeaderViewStateLogin;
     }
-    return _photoImageView;
+    return _userCenterView;
 }
 
 @end

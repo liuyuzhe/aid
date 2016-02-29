@@ -1,5 +1,5 @@
 //
-//  AidNetWork.h
+//  AidNetwork.h
 //  Aid-iOS
 //
 //  Created by 刘育哲 on 16/1/30.
@@ -27,7 +27,7 @@ typedef void (^AidResponseSuccess)(id response);
 typedef void (^AidResponseFailure)(NSError *error);
 
 
-@interface AidNetWork : NSObject
+@interface AidNetwork : NSObject
 
 + (AidURLSessionTask *)getWithUrl:(NSString *)url
                           success:(AidResponseSuccess)success

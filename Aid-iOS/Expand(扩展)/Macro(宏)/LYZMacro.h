@@ -9,5 +9,6 @@
 #import "LYZMathMacro.h"
 #import "LYZSingletonMacro.h"
 #import "LYZDebugMacro.h"
+#import "LYZFoundationMacro.h"
 #import "LYZUIKitMacro.h"
 

@@ -15,10 +15,15 @@
 
 #import "AidTaskTable.h"
 
+static const CGFloat AidTaskCellHeight = 70;
+static const CGFloat AidDuringAnimation = 0.3;
+
 @interface AidTaskViewController ()  <UITableViewDataSource, UITableViewDelegate, AidEditTaskViewControllerDelegate, AidOperateTaskViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) AidOperateTaskView *operaterView;
+
+@property (nonatomic, assign) BOOL displayFooter;
 
 @property (nonatomic, strong) AidEditTaskViewController *addTaskVC;
 @property (nonatomic, strong) AidEditTaskViewController *editTaskVC;
@@ -57,6 +62,9 @@
     self.view = contentView;
     
 //    self.view.backgroundColor = [UIColor greenColor];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)viewDidLoad
@@ -90,7 +98,9 @@
 
 - (void)setupPageNavigation
 {
-    UIBarButtonItem *addItem = [UIBarButtonItem initWithNormalImage:@"icon_homepage_search" target:self action:@selector(addItemBarAction:) width:24 height:24];
+    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
     self.navigationItem.rightBarButtonItem = addItem;
 }
 
@@ -98,15 +108,6 @@
 {
     __weak UIView *weakSelf = self.view;
     
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(weakSelf);
-        make.bottom.equalTo(self.operaterView);
-    }];
-    
-    [self.operaterView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.left.right.equalTo(weakSelf);
-        make.height.equalTo(@49);
-    }];
 }
 
 #pragma mark - override super
@@ -165,7 +166,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return AidTaskCellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -185,15 +186,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 10)];
-    headerView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);
+    UIView *headerView = [[UIView alloc] init];
     return headerView;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 0)];
-    footerView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);
+    UIView *footerView = [[UIView alloc] init];
     return footerView;
 }
 
@@ -245,6 +244,51 @@
 }
 
 #pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self footerHideAnimation];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self footerDisplayAnimation];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (! decelerate) {
+        [self footerDisplayAnimation];
+    }
+}
+
+#pragma mark -
+
+- (void)footerDisplayAnimation
+{
+    if (self.displayFooter) {
+        return;
+    }
+    
+    [UIView animateWithDuration:AidDuringAnimation animations:^(void){
+        self.operaterView.frame = CGRectMake(0, [LYZDeviceInfo screenHeight] - AidTabBarHeight, [LYZDeviceInfo screenWidth], AidTabBarHeight);
+    }completion:^(BOOL finished){
+        self.displayFooter = YES;
+    }];
+}
+
+- (void)footerHideAnimation
+{
+    if (! self.displayFooter) {
+        return;
+    }
+
+    [UIView animateWithDuration:AidDuringAnimation animations:^(void){
+        self.operaterView.frame = CGRectMake(0, [LYZDeviceInfo screenHeight], [LYZDeviceInfo screenWidth], AidTabBarHeight);
+    }completion:^(BOOL finished){
+        self.displayFooter = NO;
+    }];
+}
 
 #pragma mark - AidEditTaskViewControllerDelegate
 
@@ -366,9 +410,11 @@
         NSArray *fetchedRecordList = [self.taskTable findAllWithSQL:sqlString params:params error:&error];
         
         if ([fetchedRecordList count] > 0 && error == nil) {
+            dispatch_semaphore_wait(self.taskSemaphore, DISPATCH_TIME_FOREVER);
             [self.taskArray removeAllObjects];
             [self.taskArray addObjectsFromArray:fetchedRecordList];
-            
+            dispatch_semaphore_signal(self.taskSemaphore);
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
@@ -381,13 +427,13 @@
 - (UITableView *)tableView
 {
     if (! _tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - AidNavigationHeadHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, AidNavigationHeadHeight, [LYZDeviceInfo screenWidth], [LYZDeviceInfo screenHeight] - AidNavigationHeadHeight) style:UITableViewStylePlain];
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, AidTabBarHeight, 0); // 添加额外滚动区域
         UIImage *bgImage = [UIImage imageNamed:@"wlbackground01.jpg"];
         UIImageView *bgImageView = [[UIImageView alloc] initWithImage:bgImage];
-//        bgImageView.frame = _tableView.frame;
         _tableView.backgroundView = bgImageView;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.separatorInset = UIEdgeInsetsZero;
         
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -399,10 +445,10 @@
 - (AidOperateTaskView *)operaterView
 {
     if (! _operaterView) {
-        NSArray<NSString *> *imageNames = @[@"about_criticism", @"about_criticism", @"about_criticism"];
         NSArray<NSString *> *titleNames = @[@"分享", @"排序", @"更多"];
+        NSArray<NSString *> *imageNames = @[@"about_criticism", @"about_criticism", @"about_criticism"];
         
-        _operaterView = [[AidOperateTaskView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidTabBarHeight)imageNames:imageNames titleNames:titleNames];
+        _operaterView = [[AidOperateTaskView alloc] initWithFrame:CGRectMake(0, [LYZDeviceInfo screenHeight] - AidTabBarHeight, [LYZDeviceInfo screenWidth], AidTabBarHeight) titleNames:titleNames imageNames:imageNames];
         _operaterView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);
         _operaterView.delegate = self;
     }

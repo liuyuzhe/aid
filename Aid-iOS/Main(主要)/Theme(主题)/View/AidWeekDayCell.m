@@ -11,6 +11,8 @@
 #import "UIView+LYZMasonyCategory.h"
 
 static const CGFloat AidViewDefaultOffset = 20;
+static const CGFloat AidViewDefaultInset = 5;
+static const CGFloat AidWeekdayViewInset = 10;
 
 @interface AidWeekDayCell ()
 
@@ -25,6 +27,7 @@ static const CGFloat AidViewDefaultOffset = 20;
 
 @property (nonatomic, strong) NSArray<NSString *> *titleNames; /**< 星期名称数组 */
 @property (nonatomic, strong) NSMutableArray<__kindof UIButton *> *buttonArray; /**< 星期按钮数组 */
+@property (nonatomic, strong) NSMutableArray<__kindof UIView *> *lineArray; /**< 星期分割线数组 */
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSNumber *> *stateDictionary; /**< 星期状态字典 */
 
 @end
@@ -52,6 +55,7 @@ static const CGFloat AidViewDefaultOffset = 20;
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         _titleNames = @[@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六"];
         _buttonArray = [NSMutableArray arrayWithCapacity:_titleNames.count];
+        _lineArray = [NSMutableArray arrayWithCapacity:_titleNames.count - 1];
         _stateDictionary = [NSMutableDictionary dictionaryWithCapacity:_titleNames.count];
         
         [self setupPageSubviews];
@@ -132,6 +136,16 @@ static const CGFloat AidViewDefaultOffset = 20;
         [_buttonArray addObject:dayButton];
         [_stateDictionary setObject:@(dayButton.selected) forKey:_titleNames[i]];
     }
+    
+    // 星期分割线数组
+    for (int i = 0; i < _titleNames.count - 1; i++) {
+        UIView *lineView = [[UIView alloc] init];
+        lineView.backgroundColor = [UIColor blackColor];
+#warning lineView布局问题
+//        [_bottomView addSubview:lineView];
+        
+        [_lineArray addObject:lineView];
+    }
 }
 
 - (void)layoutPageSubviews
@@ -174,12 +188,19 @@ static const CGFloat AidViewDefaultOffset = 20;
         make.centerY.equalTo(_topView);
     }];
     
-    for (UIButton *button in _buttonArray) {
-        [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(_bottomView);
-        }];
-    }
-    [_bottomView distributeSpacingHorizontallyWith:[_buttonArray copy]];
+    [_buttonArray mas_distributeViewsAlongAxis:MASAxisTypeHorizontal
+                              withFixedSpacing:0.5
+                                   leadSpacing:AidWeekdayViewInset
+                                   tailSpacing:AidWeekdayViewInset];
+    [_buttonArray mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(_bottomView);
+    }];
+    
+//    [_lineArray mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:0.5 leadSpacing:AidWeekdayViewInset tailSpacing:AidWeekdayViewInset];
+//    [_lineArray mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(_bottomView).mas_offset(AidViewDefaultInset);
+//        make.bottom.equalTo(_bottomView).mas_offset(-AidViewDefaultInset);
+//    }];
 }
 
 #pragma mark - override super

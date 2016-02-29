@@ -10,4 +10,7 @@
 
 @interface NSDate (LYZFriendlyDate)
 
+- (NSString *)friendlyDateString;
+- (NSString *)friendlyDateTimeString;
+
 @end

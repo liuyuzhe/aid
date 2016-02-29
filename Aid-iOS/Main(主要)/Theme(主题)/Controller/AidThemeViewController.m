@@ -16,7 +16,7 @@
 #import "AidThemeTable.h"
 #import "AidTaskTable.h"
 
-#import "AidNetWork.h"
+#import "AidNetwork.h"
 
 static const CGFloat AidThemeCellHeight = 110;
 
@@ -100,7 +100,9 @@ static const CGFloat AidThemeCellHeight = 110;
     };
     self.navigationItem.titleView = buttonView;
     
-    UIBarButtonItem *addItem = [UIBarButtonItem initWithNormalImage:@"icon_homepage_search" target:self action:@selector(addItemBarAction:) width:24 height:24];
+    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
     self.navigationItem.rightBarButtonItem = addItem;
 }
 
@@ -172,6 +174,29 @@ static const CGFloat AidThemeCellHeight = 110;
 //    footer.stateLabel.textColor = [UIColor blueColor];
 //    
 //    self.tableView.mj_footer = footer;
+}
+
+- (void)reloadThemeRecord
+{
+    dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(currentQueue, ^{
+        NSError *error = nil;
+        NSString *whereCondition = @":primaryKey > 0";
+        NSString *primaryKey = [self.themeTable primaryKeyName];
+        NSDictionary *whereConditionParams = NSDictionaryOfVariableBindings(primaryKey);
+        NSArray *fetchedRecordList = [self.themeTable findAllWithWhereCondition:whereCondition conditionParams:whereConditionParams isDistinct:NO error:&error];
+        
+        if (fetchedRecordList.count > 0 && error == nil) {
+            dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
+            [self.themeArray removeAllObjects];
+            [self.themeArray addObjectsFromArray:fetchedRecordList];
+            dispatch_semaphore_signal(self.themeSemaphore);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    });
 }
 
 #pragma mark - override super
@@ -263,15 +288,13 @@ static const CGFloat AidThemeCellHeight = 110;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 10)];
-    headerView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);
+    UIView *headerView = [[UIView alloc] init];
     return headerView;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [LYZDeviceInfo screenWidth], 0)];
-    footerView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);
+    UIView *footerView = [[UIView alloc] init];
     return footerView;
 }
 
@@ -330,7 +353,7 @@ static const CGFloat AidThemeCellHeight = 110;
 //        LYZPRINT(@"%@", error);
 //    }];
     
-    [AidNetWork getWithUrl:baseUrl params:params success:^(id response) {
+    [AidNetwork getWithUrl:baseUrl params:params success:^(id response) {
         LYZPRINT(@"%@", response);
     } failure:^(NSError *error) {
         LYZPRINT(@"%@", error);
@@ -405,7 +428,7 @@ static const CGFloat AidThemeCellHeight = 110;
 //        });
     });
     
-    [self deleteAllTaskRecordByThemePrimaryKey:primaryKey];
+//    [self deleteAllTaskRecordByThemePrimaryKey:primaryKey];
 }
 
 - (void)deleteAllTaskRecordByThemePrimaryKey:(NSNumber *)themePrimaryKey;
@@ -432,29 +455,6 @@ static const CGFloat AidThemeCellHeight = 110;
 //                NSLog(@"4002 success");
 //            }
 //        });
-    });
-}
-
-- (void)reloadThemeRecord
-{
-    dispatch_queue_t currentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(currentQueue, ^{
-        NSError *error = nil;
-        NSString *whereCondition = @":primaryKey > 0";
-        NSString *primaryKey = [self.themeTable primaryKeyName];
-        NSDictionary *whereConditionParams = NSDictionaryOfVariableBindings(primaryKey);
-        NSArray *fetchedRecordList = [self.themeTable findAllWithWhereCondition:whereCondition conditionParams:whereConditionParams isDistinct:NO error:&error];
-        
-        if (fetchedRecordList.count > 0 && error == nil) {
-            dispatch_semaphore_wait(self.themeSemaphore, DISPATCH_TIME_FOREVER);
-            [self.themeArray removeAllObjects];
-            [self.themeArray addObjectsFromArray:fetchedRecordList];
-            dispatch_semaphore_signal(self.themeSemaphore);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
-        }
     });
 }
 

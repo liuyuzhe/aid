@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class AidDiscoverThemeRecord;
+
 @interface AidDiscoverTaskViewController : UIViewController
 
-@property (nonatomic, strong) NSNumber *themeKey;
+@property (nonatomic, strong) AidDiscoverThemeRecord *themeRecord;
 
 @end

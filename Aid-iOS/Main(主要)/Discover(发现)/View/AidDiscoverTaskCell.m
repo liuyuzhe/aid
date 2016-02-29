@@ -15,6 +15,8 @@ static const CGFloat AidViewDefaultInset = 5;
 
 @interface AidDiscoverTaskCell ()
 
+@property (nonatomic, strong) UIView *bgContentView; /**< 背景内容视图 */
+//@property (nonatomic, strong) UIImageView *taskImageView; /**< 任务图片 */
 @property (nonatomic, strong) UILabel *taskNameLabel; /**< 任务名称 */
 @property (nonatomic, strong) UILabel *taskTimeLabel; /**< 任务起止时间 */
 @property (nonatomic, strong) UIImageView *alarmImageView; /**< 提醒视图 */
@@ -35,14 +37,14 @@ static const CGFloat AidViewDefaultInset = 5;
     AidDiscoverTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (! cell) {
         cell = [[AidDiscoverTaskCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        //        UIImage *bgImage = [UIImage imageNamed:@"ItemBackground"];
-        //        UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
-        //        cell.backgroundView = bgView;
-        //        cell.backgroundColor = [UIColor clearColor];
-        //        UIView *view_bg = [[UIView alloc] initWithFrame:cell.frame];
-        //        view_bg.backgroundColor = [UIColor clearColor];
-        //        cell.selectedBackgroundView = view_bg;
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+//        UIImage *bgImage = [UIImage imageNamed:@"ItemBackground"];
+//        UIImageView *bgView = [[UIImageView alloc] initWithImage:bgImage];
+//        cell.backgroundView = bgView;
+//        UIView *view_bg = [[UIView alloc] initWithFrame:cell.frame];
+//        view_bg.backgroundColor = [UIColor clearColor];
+//        cell.selectedBackgroundView = view_bg;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     return cell;
@@ -53,11 +55,12 @@ static const CGFloat AidViewDefaultInset = 5;
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupPageSubviews];
         
-        [self.contentView addSubview:_taskNameLabel];
-        [self.contentView addSubview:_taskTimeLabel];
-        [self.contentView addSubview:_alarmImageView];
-        [self.contentView addSubview:_repeatLabel];
-        
+        [self.contentView addSubview:_bgContentView];
+        [_bgContentView addSubview:_taskNameLabel];
+        [_bgContentView addSubview:_taskTimeLabel];
+        [_bgContentView addSubview:_alarmImageView];
+        [_bgContentView addSubview:_repeatLabel];
+
         [self layoutPageSubviews];
     }
     return self;
@@ -67,43 +70,55 @@ static const CGFloat AidViewDefaultInset = 5;
 
 - (void)setupPageSubviews
 {
+    _bgContentView = [[UIView alloc] init];
+    _bgContentView.backgroundColor = [UIColor whiteColor];
+    _bgContentView.layer.cornerRadius = 5;
+    _bgContentView.layer.masksToBounds = YES;
+    
     _taskNameLabel = [[UILabel alloc] init];
-    _taskNameLabel.font = [UIFont systemFontOfSize:20];
-    _taskNameLabel.textColor = [UIColor blueColor];
+    _taskNameLabel.font = AidBigFont;
     _taskNameLabel.textAlignment = NSTextAlignmentLeft;
     
     _taskTimeLabel = [[UILabel alloc] init];
-    _taskTimeLabel.font = [UIFont systemFontOfSize:16];
+    _taskTimeLabel.font = AidNormalFont;
+    _taskTimeLabel.textColor = [UIColor blueColor];
+    _taskTimeLabel.textAlignment = NSTextAlignmentLeft;
     
     _alarmImageView = [[UIImageView alloc] init];
     
     _repeatLabel = [[UILabel alloc] init];
-    _repeatLabel.font = [UIFont systemFontOfSize:16];
+    _repeatLabel.font = AidNormalFont;
+    _repeatLabel.textColor = [UIColor lightGrayColor];
+    _repeatLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 - (void)layoutPageSubviews
 {
     __weak UIView *weakSelf = self.contentView;
     
+    [_bgContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakSelf).insets(UIEdgeInsetsMake(0, 5, 5, 5));
+    }];
+    
     [_taskNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
-        make.centerY.equalTo(weakSelf);
+        make.left.equalTo(_bgContentView).mas_offset(AidViewDefaultInset);
+        make.centerY.equalTo(_bgContentView);
     }];
     
     [_taskTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
-        make.top.equalTo(weakSelf).mas_offset(AidViewDefaultInset);
+        make.left.equalTo(_bgContentView).mas_offset(AidViewDefaultInset);
+        make.top.equalTo(_bgContentView);
     }];
     
     [_alarmImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(weakSelf).mas_offset(-AidViewDefaultOffset);
-        make.centerY.equalTo(weakSelf);
+        make.right.equalTo(_bgContentView).mas_offset(-AidViewDefaultInset);
+        make.centerY.equalTo(_bgContentView);
         make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     
     [_repeatLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
-        make.bottom.equalTo(weakSelf).mas_offset(-AidViewDefaultInset);
+        make.left.equalTo(_bgContentView).mas_offset(AidViewDefaultInset);
+        make.bottom.equalTo(_bgContentView);
     }];
 }
 
@@ -138,12 +153,12 @@ static const CGFloat AidViewDefaultInset = 5;
     self.taskNameLabel.text = discoverTaskRecord.name;
     
     NSDate *startDate = [NSDate dateWithTimeIntervalSinceReferenceDate:discoverTaskRecord.startTime.doubleValue];
-    NSString *startString = [self.formatter stringFromDate:startDate];
+    NSString *startString = [startDate friendlyDateString];
     NSDate *endDate = [NSDate dateWithTimeIntervalSinceReferenceDate:discoverTaskRecord.endTime.doubleValue];
-    NSString *endString = [self.formatter stringFromDate:endDate];
-    self.taskTimeLabel.text = [NSString stringWithFormat:@"%@ —— %@", startString, endString];
+    NSString *endString = [endDate friendlyDateString];
+    self.taskTimeLabel.text = [NSString stringWithFormat:@"%@ — %@", startString, endString];
     
-    self.repeatLabel.text = discoverTaskRecord.repeat;
+    self.repeatLabel.text = [NSString stringWithFormat:@"周期：%@", discoverTaskRecord.repeat];
 }
 
 @end

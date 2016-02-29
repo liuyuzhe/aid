@@ -16,7 +16,6 @@
     [UIView animateWithDuration:time animations:^{
         self.alpha = 1;
     } completion:^(BOOL finished) {
-        
     }];
 }
 
@@ -26,7 +25,6 @@
     [UIView animateWithDuration:time animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
     }];
 }
 

@@ -12,6 +12,10 @@
 
 #import "LYZCustomNavView.h"
 #import "LYZPlaceholderTextView.h"
+#import "LYZWeatherBasicInfoView.h"
+
+#import "LYZWeatherLocation.h"
+#import "LYZNetworkManager.h"
 
 #import "AidThemeRecord.h"
 
@@ -20,7 +24,7 @@ static const CGFloat AidThemeDescTextViewHeight = 190;
 static const CGFloat AidViewDefaultOffset = 20;
 static const CGFloat AidViewDefaultInset = 5;
 
-@interface AidAddThemeViewController () <UITextFieldDelegate, UITextViewDelegate>
+@interface AidAddThemeViewController () <UITextFieldDelegate, UITextViewDelegate, LYZWeatherLocationDelegate>
 
 @property (nonatomic, strong) LYZCustomNavView *customNavView; /**< 自定义导航视图 */
 @property (nonatomic, strong) UIView *themeView; /**< 主题主视图 */
@@ -29,7 +33,9 @@ static const CGFloat AidViewDefaultInset = 5;
 @property (nonatomic, strong) UITextField *themeDescribeTextField; /**< 主题描述文本框 */
 @property (nonatomic, strong) UILabel *chooseThemeLabel; /**< 选择主题标签 */
 @property (nonatomic, strong) LYZPlaceholderTextView *themeDescribeTextView; /**< 主题描述文本视图 */
-//@property (nonatomic, strong) UIButton *coverImageButton; /**< 设置封面按钮 */
+
+@property (nonatomic, strong) LYZWeatherBasicInfoView *weatherView;
+@property (nonatomic, strong) LYZWeatherLocation *weatherLocation;
 
 @end
 
@@ -58,8 +64,11 @@ static const CGFloat AidViewDefaultInset = 5;
     [self.themeView addSubview:self.chooseThemeLabel];
     [self.themeView addSubview:self.themeNameTextField];
     [self.view addSubview:self.themeDescribeTextView];
+    [self.view addSubview:self.weatherView];
     
     [self layoutPageSubviews];
+    
+    [self reloadWeatherData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -123,6 +132,17 @@ static const CGFloat AidViewDefaultInset = 5;
         make.right.equalTo(weakSelf).mas_offset(-AidViewDefaultOffset);
         make.height.mas_equalTo(AidThemeDescTextViewHeight);
     }];
+    
+    [self.weatherView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.themeDescribeTextView.mas_bottom).mas_offset(AidViewDefaultOffset);
+        make.left.right.equalTo(weakSelf);
+        make.height.mas_equalTo(AidTabBarHeight);
+    }];
+}
+
+- (void)reloadWeatherData
+{
+    [self.weatherLocation startLocation];
 }
 
 #pragma mark - override super
@@ -146,6 +166,39 @@ static const CGFloat AidViewDefaultInset = 5;
     }
     
     return YES;
+}
+
+#pragma mark - LYZWeatherLocationDelegate
+
+- (void)weatherLocation:(LYZWeatherLocation *)location didSuccess:(NSString *)cityName
+{
+    if (cityName.length > 0) {
+        [self setupWeatherDataWithCityName:cityName];
+    }
+}
+
+- (void)setupWeatherDataWithCityName:(NSString *)cityName
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[LYZNetworkManager sharedInstance] getWeatherDataByCityName:cityName success:^(LYZWeatherDataModel *dataModel) {
+            self.weatherView.weatherModel = dataModel;
+        }];
+    });
+}
+
+- (void)weatherLocation:(LYZWeatherLocation *)location didFailed:(NSError *)error
+{
+    LYZERROR(@"位置信息获取失败");
+}
+
+- (void)weatherLocationDidClose:(LYZWeatherLocation *)location
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您已经关闭定位服务，请在设置－隐私－定位服务中打开" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - event response
@@ -264,7 +317,7 @@ static const CGFloat AidViewDefaultInset = 5;
     if (! _themeDescribeTextView) {
         _themeDescribeTextView = [[LYZPlaceholderTextView alloc] init];
         _themeDescribeTextView.placeholder = @"请输入主题描述";
-        _themeDescribeTextView.textColor = [UIColor greenColor]; // 文本颜色
+        _themeDescribeTextView.textColor = [UIColor whiteColor]; // 文本颜色
         _themeDescribeTextView.font = [UIFont systemFontOfSize:18]; // 文本字体
         _themeDescribeTextView.textAlignment = NSTextAlignmentLeft; // 文本对齐方式
         _themeDescribeTextView.autocapitalizationType = UITextAutocapitalizationTypeNone; // 首字母是否大写
@@ -277,6 +330,24 @@ static const CGFloat AidViewDefaultInset = 5;
         _themeDescribeTextView.delegate = self;
     }
     return _themeDescribeTextView;
+}
+
+- (LYZWeatherBasicInfoView *)weatherView
+{
+    if (! _weatherView) {
+        _weatherView = [[LYZWeatherBasicInfoView alloc] init];
+        _weatherView.backgroundColor = [UIColor grayColor]; // 背景颜色
+    }
+    return _weatherView;
+}
+
+- (LYZWeatherLocation *)weatherLocation
+{
+    if (! _weatherLocation) {
+        _weatherLocation = [LYZWeatherLocation sharedInstance];
+        _weatherLocation.delegate = self;
+    }
+    return _weatherLocation;
 }
 
 @end

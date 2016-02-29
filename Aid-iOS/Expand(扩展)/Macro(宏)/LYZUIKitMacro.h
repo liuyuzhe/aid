@@ -13,4 +13,7 @@
 
 #define LYZScreenBounds [[UIScreen mainScreen] bounds] 
 
+#define LYZScreenWidth  [[UIScreen mainScreen] bounds].size.width
+#define LYZScreenheigtht [[UIScreen mainScreen] bounds].size.height
+
 #endif /* LYZUIKitMacro_h */

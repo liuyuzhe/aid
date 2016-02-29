@@ -11,6 +11,8 @@
 
 @implementation NSDate (LYZFriendlyDate)
 
+#warning 文字国际化
+
 - (NSString *)friendlyDateString
 {
     if (self.isToday) {

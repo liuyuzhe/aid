@@ -111,7 +111,7 @@
     // 选择视图
     _chooseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
     _chooseView.backgroundColor = _config.chooseColor;
-    [_chooseView setRoundedCorner:5];
+    [_chooseView setRoundedCorner:5.0f];
     [self addSubview:_chooseView];
     
     // 滚动视图上的tabBar视图:

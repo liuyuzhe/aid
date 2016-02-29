@@ -1,15 +1,15 @@
 //
-//  AidNetWork.m
+//  AidNetwork.m
 //  Aid-iOS
 //
 //  Created by 刘育哲 on 16/1/30.
 //  Copyright © 2016年 刘育哲. All rights reserved.
 //
 
-#import "AidNetWork.h"
+#import "AidNetwork.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
-@implementation AidNetWork
+@implementation AidNetwork
 
 #pragma mark - public method
 

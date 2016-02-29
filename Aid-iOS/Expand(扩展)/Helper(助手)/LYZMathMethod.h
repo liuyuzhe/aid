@@ -79,7 +79,7 @@ CG_INLINE CGFloat LYZCGFloatRound(CGFloat x)
 #endif
 }
 
-/** 将y的符号赋予x */
+/** 以参数y的符号（正或负）返回参数x */
 CG_INLINE CGFloat LYZCGFloatCopysign(CGFloat x, CGFloat y)
 {
 #if CGFLOAT_IS_DOUBLE

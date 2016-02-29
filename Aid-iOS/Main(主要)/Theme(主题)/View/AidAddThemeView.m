@@ -60,8 +60,8 @@
     
     // 主题名称
     _themeNameTextField = [[UITextField alloc] init];
-    _themeNameTextField.textColor = [UIColor greenColor]; // 文本颜色
     _themeNameTextField.font = [UIFont boldSystemFontOfSize:18]; // 文本字体
+    _themeNameTextField.textColor = [UIColor greenColor]; // 文本颜色
     _themeNameTextField.textAlignment = NSTextAlignmentCenter; // 文本对齐方式
     _themeNameTextField.borderStyle = UITextBorderStyleLine; // 边框类型
     _themeNameTextField.placeholder = @"请输入主题名称"; // 水印提示
@@ -75,8 +75,8 @@
     
     // 主题描述
     _themeDescribeTextView = [[UITextView alloc] init];
-    _themeDescribeTextView.textColor = [UIColor greenColor]; // 文本颜色
     _themeDescribeTextView.font = [UIFont boldSystemFontOfSize:18]; // 文本字体
+    _themeDescribeTextView.textColor = [UIColor greenColor]; // 文本颜色
     _themeDescribeTextView.textAlignment = NSTextAlignmentCenter; // 文本对齐方式
     _themeDescribeTextView.autocapitalizationType = UITextAutocapitalizationTypeNone; // 首字母是否大写
     _themeDescribeTextView.autocorrectionType = UITextAutocorrectionTypeNo; // 自动纠错类型

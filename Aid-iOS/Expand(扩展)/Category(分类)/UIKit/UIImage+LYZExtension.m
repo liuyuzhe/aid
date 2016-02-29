@@ -14,6 +14,8 @@
 
 @implementation UIImage (LYZExtension)
 
+#pragma maek - public method
+
 + (UIImage *)imageWithColor:(UIColor *)color
 {
     return [self imageWithColor:color size:CGSizeMake(1, 1)];
@@ -21,10 +23,6 @@
 
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
 {
-    if (size.width == 0 || size.height == 0) {
-        return nil;
-    }
-    
     UIImage *image = [[LYZMemoryCache sharedInstance] objectForKey:[color description]];
     if (! image) {
         CGRect rect = CGRectMake(0, 0, size.width, size.height);
@@ -61,6 +59,42 @@
     return smallImage;
 }
 
+- (UIImage *)horizontalStretchImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {0, edge, 0, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)verticalStretchImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, 0, edge, 0};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)stretchImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, edge, edge, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)horizontalTileImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {0, edge, 0, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)verticalTileImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, 0, edge, 0};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)tileImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, edge, edge, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
 - (UIImage *)imageRotatedByRadians:(CGFloat)radians
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.size.width, self.size.height)];
@@ -88,10 +122,6 @@
 
 - (UIImage *)imageWithTransform:(CGAffineTransform)transform
 {
-    if (self.size.width == 0 || self.size.height == 0) {
-        return nil;
-    }
-    
     CGSize imageSize = CGSizeMake(self.size.width, self.size.height);
     UIGraphicsBeginImageContextWithOptions(imageSize, YES, self.scale);
     
@@ -105,19 +135,39 @@
     return image;
 }
 
-- (UIImage *)imageWithSize:(CGSize)size
+- (UIImage *)imageWithRoundedCornerRadius:(CGFloat)radius AndSize:(CGSize)sizeToFit
 {
-    if (size.width == 0 || size.height == 0) {
-        return nil;
-    }
+    CGRect rect = (CGRect){0.f, 0.f, sizeToFit};
     
-    UIGraphicsBeginImageContextWithOptions(size, NO, self.scale);
-    [self drawInRect:(CGRect){0, 0, self.size}];
+    UIGraphicsBeginImageContextWithOptions(sizeToFit, NO, UIScreen.mainScreen.scale);
+    CGContextAddPath(UIGraphicsGetCurrentContext(),
+                     [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);
+    CGContextClip(UIGraphicsGetCurrentContext());
     
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    [self drawInRect:rect];
+    UIImage *output = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
     
-    return image;
+    return output;
+}
+
+- (UIImage *)scaleToSize:(CGSize)size
+{
+    return [self scaleToSize:size withContentMode:UIViewContentModeScaleToFill];
+}
+
+- (UIImage *)scaleToSize:(CGSize)size withContentMode:(UIViewContentMode)contentMode
+{
+    UIGraphicsBeginImageContextWithOptions(size, NO, UIScreen.mainScreen.scale);
+    
+    [self drawInRect:[self convertRect:(CGRect){0.0f, 0.0f, self.size} withContentMode:contentMode]];
+    
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
 }
 
 - (UIImage *)fixOrientation
@@ -133,6 +183,138 @@
     UIGraphicsEndImageContext();
     
     return normalizedImage;
+}
+
++ (UIImage *)fastImageWithData:(NSData *)data
+{
+    UIImage *image = [UIImage imageWithData:data];
+    return [self decodeImage:image];
+}
+
++ (UIImage *)fastImageWithContentsOfFile:(NSString *)path
+{
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    return [self decodeImage:image];
+}
+
+#pragma maek - private method
+
+- (CGRect)convertRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode
+{
+    if (self.size.width == rect.size.width && self.size.height == rect.size.height) {
+        return rect;
+    }
+    
+    CGRect retRect = rect;
+    switch (contentMode) {
+        case UIViewContentModeScaleToFill: {
+            break;
+        }
+        case UIViewContentModeScaleAspectFit: {
+            CGSize imageSize = self.size;
+            if (imageSize.height < imageSize.width) {
+                imageSize.height = floor((imageSize.height/imageSize.width) * rect.size.width);
+                imageSize.width = rect.size.width;
+                
+            } else {
+                imageSize.width = floor((imageSize.width/imageSize.height) * rect.size.height);
+                imageSize.height = rect.size.height;
+            }
+            retRect = CGRectMake(rect.origin.x + floor(rect.size.width/2 - imageSize.width/2),
+                                 rect.origin.y + floor(rect.size.height/2 - imageSize.height/2),
+                                 imageSize.width, imageSize.height);
+            break;
+        }
+        case UIViewContentModeScaleAspectFill: {
+            CGSize imageSize = self.size;
+            if (imageSize.height < imageSize.width) {
+                imageSize.width = floor((imageSize.width/imageSize.height) * rect.size.height);
+                imageSize.height = rect.size.height;
+                
+            } else {
+                imageSize.height = floor((imageSize.height/imageSize.width) * rect.size.width);
+                imageSize.width = rect.size.width;
+            }
+            retRect = CGRectMake(rect.origin.x + floor(rect.size.width/2 - imageSize.width/2),
+                                 rect.origin.y + floor(rect.size.height/2 - imageSize.height/2),
+                                 imageSize.width, imageSize.height);
+            break;
+        }
+        case UIViewContentModeRedraw: {
+            break;
+        }
+        case UIViewContentModeCenter: {
+            retRect = CGRectMake(rect.origin.x + floor(rect.size.width/2 - self.size.width/2),
+                                 rect.origin.y + floor(rect.size.height/2 - self.size.height/2),
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeTop: {
+            retRect = CGRectMake(rect.origin.x + floor(rect.size.width/2 - self.size.width/2),
+                                 rect.origin.y,
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeBottom: {
+            retRect = CGRectMake(rect.origin.x + floor(rect.size.width/2 - self.size.width/2),
+                                 rect.origin.y + floor(rect.size.height - self.size.height),
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeLeft: {
+            retRect = CGRectMake(rect.origin.x,
+                                 rect.origin.y + floor(rect.size.height/2 - self.size.height/2),
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeRight: {
+            retRect = CGRectMake(rect.origin.x + (rect.size.width - self.size.width),
+                                 rect.origin.y + floor(rect.size.height/2 - self.size.height/2),
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeTopLeft: {
+            retRect = CGRectMake(rect.origin.x,
+                                 rect.origin.y,
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeTopRight: {
+            return CGRectMake(rect.origin.x + (rect.size.width - self.size.width),
+                              rect.origin.y,
+                              self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeBottomLeft: {
+            retRect = CGRectMake(rect.origin.x,
+                                 rect.origin.y + floor(rect.size.height - self.size.height),
+                                 self.size.width, self.size.height);
+            break;
+        }
+        case UIViewContentModeBottomRight: {
+            retRect = CGRectMake(rect.origin.x + (rect.size.width - self.size.width),
+                                 rect.origin.y + (rect.size.height - self.size.height),
+                                 self.size.width, self.size.height);
+            break;
+        }
+    }
+    return retRect;
+}
+
++ (UIImage *)decodeImage:(UIImage *)image
+{
+    if(image == nil) {
+        return nil;
+    }
+    
+    UIGraphicsBeginImageContext(image.size);
+    
+    [image drawAtPoint:CGPointMake(0, 0)];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 @end

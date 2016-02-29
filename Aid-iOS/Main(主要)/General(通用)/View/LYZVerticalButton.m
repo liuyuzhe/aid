@@ -34,8 +34,11 @@
 
 - (void)setupPageSubviews
 {
+    self.imageView.contentMode = UIViewContentModeCenter;
+    
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.textColor = [UIColor blackColor];
 }
 
 #pragma mark - override super

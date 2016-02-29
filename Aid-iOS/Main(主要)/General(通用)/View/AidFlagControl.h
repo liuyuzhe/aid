@@ -20,8 +20,7 @@ typedef NS_ENUM(NSInteger, AidFlagControlState) {
 @property (nonatomic, strong) UIImage *yesStateImage;
 @property (nonatomic, strong) UIImage *defaultStateImage;
 
-@property (nonatomic, assign, readonly) AidFlagControlState flag;
-
+@property (nonatomic, assign, readonly) AidFlagControlState currentFlag;
 
 - (void)setFlag:(AidFlagControlState)flag withAnimation:(BOOL)animation;
 

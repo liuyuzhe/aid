@@ -13,8 +13,8 @@
 
 @interface AidOperateTaskView ()
 
-@property (nonatomic, strong) NSArray<NSString *> *imageArray;
 @property (nonatomic, strong) NSArray<NSString *> *titleArray;
+@property (nonatomic, strong) NSArray<NSString *> *imageArray;
 
 @end
 
@@ -23,11 +23,13 @@
 
 #pragma mark - life cycle
 
-- (instancetype)initWithFrame:(CGRect)frame imageNames:(NSArray <NSString *> *)imageNames titleNames:(NSArray <NSString *> *)titleNames
+- (instancetype)initWithFrame:(CGRect)frame titleNames:(NSArray <NSString *> *)titleNames imageNames:(NSArray <NSString *> *)imageNames 
 {
     if (self = [super initWithFrame:frame]) {
-        _imageArray = [[NSArray alloc] initWithArray:imageNames];
+        LYZAssert(imageNames.count == titleNames.count);
+        
         _titleArray = [[NSArray alloc] initWithArray:titleNames];
+        _imageArray = [[NSArray alloc] initWithArray:imageNames];
         
         [self setupPageSubviews];
         
@@ -38,8 +40,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [self initWithFrame:frame imageNames:nil titleNames:nil];
-    return self;
+    return [self initWithFrame:frame titleNames:nil imageNames:nil];
 }
 
 - (instancetype)init
@@ -53,18 +54,18 @@
 
 - (void)setupPageSubviews
 {
-    CGFloat width = self.width / _imageArray.count;
+    CGFloat width = self.width / _titleArray.count;
     CGFloat height = self.height;
     
-    for (int i = 0; i < _imageArray.count; ++i) {
+    for (int i = 0; i < _titleArray.count; ++i) {
         LYZVerticalButton *button = [[LYZVerticalButton alloc] initWithFrame:CGRectMake(i * width, 0, width, height)];
         button.tag = 100 + i;
         
-        UIImage *image = [[UIImage imageNamed:_imageArray[i]] imageWithSize:CGSizeMake(30, 30)]; // 图像缩放
-        [button setImage:image forState:UIControlStateNormal];
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+        UIImage *image = [[UIImage imageNamed:_imageArray[i]] scaleToSize:CGSizeMake(30, 30)]; // 图像缩放
+        [button setImage:image forState:UIControlStateNormal];
         [button addTarget:self action:@selector(itemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:button];

@@ -15,6 +15,7 @@ static const CGFloat AidViewDefaultInset = 5;
 
 @interface AidThemeCell ()
 
+@property (nonatomic, strong) UIView *bgContentView; /**< 背景内容视图 */
 @property (nonatomic, strong) UIImageView *themeImageView; /**< 主题图片 */
 @property (nonatomic, strong) UILabel *themeNameLabel; /**< 主题名称 */
 @property (nonatomic, strong) UILabel *themeDescribeLabel; /**< 主题描述 */
@@ -47,9 +48,10 @@ static const CGFloat AidViewDefaultInset = 5;
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupPageSubviews];
         
-        [self.contentView addSubview:_themeImageView];
-        [self.contentView addSubview:_themeNameLabel];
-        [self.contentView addSubview:_themeDescribeLabel];
+        [self.contentView addSubview:_bgContentView];
+        [_bgContentView addSubview:_themeImageView];
+        [_bgContentView addSubview:_themeNameLabel];
+        [_bgContentView addSubview:_themeDescribeLabel];
         
         [self layoutPageSubviews];
     }
@@ -60,33 +62,40 @@ static const CGFloat AidViewDefaultInset = 5;
 
 - (void)setupPageSubviews
 {
+    _bgContentView = [[UIView alloc] init];
+    
     _themeImageView = [[UIImageView alloc] init];
     
     _themeNameLabel = [[UILabel alloc] init];
-    _themeNameLabel.font = [UIFont systemFontOfSize:20];
-    _themeNameLabel.textColor = [UIColor blueColor];
+    _themeNameLabel.font = AidBigBoldFont;
+    _themeNameLabel.textColor = [UIColor whiteColor];
     _themeNameLabel.textAlignment = NSTextAlignmentCenter;
 
     _themeDescribeLabel = [[UILabel alloc] init];
-    _themeNameLabel.textAlignment = NSTextAlignmentLeft;
+    _themeDescribeLabel.font = AidNormalFont;
+    _themeDescribeLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 - (void)layoutPageSubviews
 {
     __weak UIView *weakSelf = self.contentView;
     
+    [_bgContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakSelf).insets(UIEdgeInsetsMake(0, 5, 5, 5));
+    }];
+
     [_themeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weakSelf);
+        make.edges.equalTo(_bgContentView);
     }];
     
     [_themeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(weakSelf);
+        make.center.equalTo(_bgContentView);
     }];
     
     [_themeDescribeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf).offset(AidViewDefaultOffset);
-        make.right.equalTo(weakSelf).offset(-AidViewDefaultOffset);
-        make.bottom.equalTo(weakSelf);
+        make.left.equalTo(_bgContentView).offset(AidViewDefaultInset);
+        make.right.equalTo(_bgContentView).offset(-AidViewDefaultInset);
+        make.bottom.equalTo(_bgContentView);
     }];
 }
 

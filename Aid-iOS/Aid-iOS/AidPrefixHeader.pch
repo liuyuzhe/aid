@@ -21,6 +21,8 @@
 #import "AFNetworking.h"
 #import "Masonry.h"
 #import "MJRefresh.h"
+#import "MBProgressHUD.h"
+#import "YYModel.h"
 //#import "MJExtension.h"
 // go to `Build Phases` and add `sqlite3` into your library list.
 #import "CTPersistance.h"

@@ -52,7 +52,7 @@ static const CGFloat AidButtonTopOffset = 5.;
     for (int i = 0; i < _titleArray.count ; i ++) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * width, AidButtonTopOffset , width, height)];
         button.tag = i +10;
-        button.titleLabel.font = [UIFont systemFontOfSize:16];
+        button.titleLabel.font = [UIFont systemFontOfSize:15];
         button.layer.borderColor= AidButtonStateNormal.CGColor;
         button.layer.borderWidth = 0.5;
         

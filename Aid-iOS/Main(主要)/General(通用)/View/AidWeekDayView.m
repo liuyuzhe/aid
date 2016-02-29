@@ -11,6 +11,8 @@
 #import "UIView+LYZMasonyCategory.h"
 
 static const CGFloat AidViewDefaultOffset = 20;
+static const CGFloat AidViewDefaultInset = 5;
+static const CGFloat AidWeekdayViewInset = 10;
 
 @interface AidWeekDayView ()
 
@@ -135,7 +137,7 @@ static const CGFloat AidViewDefaultOffset = 20;
     }];
     
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf).offset(AidViewDefaultOffset);
+        make.left.equalTo(weakSelf).mas_offset(AidViewDefaultOffset);
         make.height.mas_equalTo(0.5);
         make.center.equalTo(weakSelf);
     }];
@@ -146,31 +148,32 @@ static const CGFloat AidViewDefaultOffset = 20;
     }];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_topView).offset(AidViewDefaultOffset);
+        make.left.equalTo(_topView).mas_offset(AidViewDefaultOffset);
         make.centerY.equalTo(_topView);
     }];
     
     [_workdayButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_weekendButton.mas_left).offset(-AidViewDefaultOffset);
+        make.right.equalTo(_weekendButton.mas_left).mas_offset(-AidViewDefaultOffset);
         make.centerY.equalTo(_topView);
     }];
     
     [_weekendButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_everydayButton.mas_left).offset(-AidViewDefaultOffset);
+        make.right.equalTo(_everydayButton.mas_left).mas_offset(-AidViewDefaultOffset);
         make.centerY.equalTo(_topView);
     }];
     
     [_everydayButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_topView).offset(-AidViewDefaultOffset);
+        make.right.equalTo(_topView).mas_offset(-AidViewDefaultOffset);
         make.centerY.equalTo(_topView);
     }];
     
-    for (UIButton *button in _buttonArray) {
-        [button mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(_bottomView);
-        }];
-    }
-    [_bottomView distributeSpacingHorizontallyWith:[_buttonArray copy]];
+    [_buttonArray mas_distributeViewsAlongAxis:MASAxisTypeHorizontal
+                              withFixedSpacing:0.5
+                                   leadSpacing:AidWeekdayViewInset
+                                   tailSpacing:AidWeekdayViewInset];
+    [_buttonArray mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(_bottomView);
+    }];
 }
 
 #pragma mark - override super

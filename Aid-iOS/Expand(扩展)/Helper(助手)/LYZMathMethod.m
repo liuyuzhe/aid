@@ -42,3 +42,4 @@ BOOL LYZCGFloatEqual(CGFloat value1, CGFloat value2)
 {
     return LYZCGFloatAbs(value1 - value2) < 1e-6;
 }
+

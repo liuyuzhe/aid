@@ -24,6 +24,9 @@
 /** 去除两端的空格和回车 */
 - (NSString *)trimBothWhitespaceAndNewline;
 
+/** 行数 */
+- (NSUInteger)numberOfLines;
+
 #pragma mark -
 
 - (BOOL)equals:(NSString *)str;

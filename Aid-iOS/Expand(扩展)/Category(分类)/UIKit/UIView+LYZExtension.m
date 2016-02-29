@@ -7,6 +7,14 @@
 //
 
 #import "UIView+LYZExtension.h"
+#import "UIImage+LYZExtension.h"
+
+@interface UIView ()
+
+@property (nonatomic, strong) UIImageView *roundedCornerView;
+
+@end
+
 
 @implementation UIView (LYZExtension)
 
@@ -202,6 +210,28 @@
     self.layer.mask = maskLayer;
 }
 
+- (void)setRoundedCornerRadius:(CGFloat)radius withImage:(UIImage *)image
+{
+    UIImage *roundedImage = [image imageWithRoundedCornerRadius:radius AndSize:self.bounds.size];
+    
+    if ([self isKindOfClass:[UIImageView class]]) {
+        ((UIImageView *)self).image = roundedImage;
+    }
+    else if ([self isKindOfClass:[UIButton class]]) {
+        [((UIButton *)self) setImage:roundedImage forState:UIControlStateNormal];
+    } else {
+        self.roundedCornerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+        self.roundedCornerView.image = roundedImage;
+        [self addSubview:self.roundedCornerView];
+        [self sendSubviewToBack:self.roundedCornerView];
+    }
+}
+
+- (void)addHorizontalLine
+{
+    return [self addHorizontalLineWithColor:[UIColor blackColor]];
+}
+
 - (void)addHorizontalLineWithColor:(UIColor *)lineColor
 {
     UIBezierPath *linePath = [UIBezierPath bezierPath];
@@ -264,6 +294,28 @@
     }
     
     return nil;
+}
+
+- (UIViewController *)viewController
+{
+    UIResponder *responder = self;
+    while ((responder = [responder nextResponder])) {
+        if ([responder isKindOfClass: [UIViewController class]])
+            return (UIViewController *)responder;
+    }
+    return nil;
+}
+
+#pragma mark - getters and setters
+
+- (UIView *)roundedCornerView
+{
+    return [self getAssociatedValueForKey:@selector(roundedCornerView)];
+}
+
+- (void)setRoundedCornerView:(UIView *)roundedCornerView
+{
+    [self setAssociateValue:roundedCornerView withKey:@selector(roundedCornerView)];
 }
 
 @end

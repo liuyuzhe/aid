@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (LYZExtension)
+
 @property (nonatomic, assign) CGFloat left;    /**< Shortcut for frame.origin.x */
 @property (nonatomic, assign) CGFloat right;   /**< Shortcut for frame.origin.x + frame.size.width */
 @property (nonatomic, assign) CGFloat top;     /**< Shortcut for frame.origin.y */
@@ -26,7 +27,7 @@
 - (UIImage *)snapshotImage;
 
 /** 设置阴影 */
-- (void)setShadow; // Defaults to opaque black
+- (void)setShadow; // 默认颜色为 [UIColor blackColor]
 - (void)setShadow:(UIColor *)color;
 
 //TODO: 圆角相关设置存在问题，需要修改
@@ -39,8 +40,11 @@
 /** 设置圆角 */
 - (void)setRoundedCorner:(CGFloat)radius;
 - (void)setRoundedCorner:(UIRectCorner)corners radius:(CGFloat)radius;
+/** 设置圆角图像 */
+- (void)setRoundedCornerRadius:(CGFloat)radius withImage:(UIImage *)image;
 
 /** 增加水平删除线 */
+- (void)addHorizontalLine; // 默认颜色为 [UIColor blackColor]
 - (void)addHorizontalLineWithColor:(UIColor *)lineColor;
 
 /** 获取某点颜色 */

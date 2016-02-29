@@ -33,4 +33,10 @@
 #define LYZWARNING(xx, ...)  LYZCondition((LYZLOGLEVEL_WARNING <= LYZMAXLOGLEVEL), xx, ##__VA_ARGS__)
 #define LYZINFO(xx, ...)  LYZCondition((LYZLOGLEVEL_INFO <= LYZMAXLOGLEVEL), xx, ##__VA_ARGS__)
 
+#ifdef DEBUG
+#define LYZAssert(condition) NSAssert(condition, ([NSString stringWithFormat:@"%s(%d):", __PRETTY_FUNCTION__, __LINE__]));
+#else
+#define LYZAssert(condition) do {} while (0)
+#endif
+
 #endif
