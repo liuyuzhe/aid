@@ -20,6 +20,10 @@
 		C401EB7D1C77486D00450FC7 /* AidDiscoverThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB7C1C77486D00450FC7 /* AidDiscoverThemeViewController.m */; };
 		C401EB801C77490800450FC7 /* AidDiscoverTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C401EB7F1C77490800450FC7 /* AidDiscoverTaskViewController.m */; };
 		C40283FA1C658FCA00882570 /* AidWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C40283F91C658FCA00882570 /* AidWeekDayView.m */; };
+		C405E8551C85C28C00A7AF6C /* LYZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C405E84D1C85C28C00A7AF6C /* LYZLocationManager.m */; };
+		C405E8561C85C28C00A7AF6C /* LYZLocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C405E84F1C85C28C00A7AF6C /* LYZLocationRequest.m */; };
+		C405E8571C85C28C00A7AF6C /* LYZWeatherBasicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C405E8521C85C28C00A7AF6C /* LYZWeatherBasicInfoView.m */; };
+		C405E8581C85C28C00A7AF6C /* LYZWeatherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C405E8541C85C28C00A7AF6C /* LYZWeatherDataModel.m */; };
 		C410265E1C672C8C00AB446E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C41026081C672C8C00AB446E /* Info.plist */; };
 		C410265F1C672C8C00AB446E /* XLFormBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C410260C1C672C8C00AB446E /* XLFormBaseCell.m */; };
 		C41026601C672C8C00AB446E /* XLFormButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C410260E1C672C8C00AB446E /* XLFormButtonCell.m */; };
@@ -1374,9 +1378,6 @@
 		C4442F321BB04B520030E774 /* AidAgendaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F311BB04B520030E774 /* AidAgendaViewController.m */; };
 		C4446CF11C733C2D00EBD38B /* LYZPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4446CF01C733C2D00EBD38B /* LYZPlaceholderTextView.m */; };
 		C4487D1D1C8144EA0048350B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D1C1C8144EA0048350B /* MBProgressHUD.m */; };
-		C4487D201C8189000048350B /* LYZWeatherLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D1F1C8189000048350B /* LYZWeatherLocation.m */; };
-		C4487D231C81C3870048350B /* LYZWeatherBasicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D221C81C3870048350B /* LYZWeatherBasicInfoView.m */; };
-		C4487D261C81C96E0048350B /* LYZWeatherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D251C81C96E0048350B /* LYZWeatherDataModel.m */; };
 		C4487D2C1C81D8750048350B /* AidNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D2B1C81D8750048350B /* AidNetwork.m */; };
 		C4487D2F1C81D8D40048350B /* LYZNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D2E1C81D8D40048350B /* LYZNetworkManager.m */; };
 		C4487D361C81E7440048350B /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4487D321C81E7440048350B /* NSObject+YYModel.m */; };
@@ -1481,8 +1482,6 @@
 		C44D53F51BAD8B780035E9B2 /* LYZNetworkReachable.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53C71BAD8B780035E9B2 /* LYZNetworkReachable.m */; };
 		C44D53F61BAD8B780035E9B2 /* LYZXMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53C91BAD8B780035E9B2 /* LYZXMLSerialization.m */; };
 		C44D53F71BAD8B780035E9B2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53CC1BAD8B780035E9B2 /* Reachability.m */; };
-		C44D53F81BAD8B780035E9B2 /* LYZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53D11BAD8B780035E9B2 /* LYZLocationManager.m */; };
-		C44D53F91BAD8B780035E9B2 /* LYZLocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D53D31BAD8B780035E9B2 /* LYZLocationRequest.m */; };
 		C44D55ED1BAD909D0035E9B2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C44D55EC1BAD909D0035E9B2 /* libz.dylib */; };
 		C44D55F31BAD930E0035E9B2 /* AidMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D55F21BAD930E0035E9B2 /* AidMainTabBarController.m */; };
 		C44D56181BAEABDD0035E9B2 /* AidThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44D56171BAEABDD0035E9B2 /* AidThemeViewController.m */; };
@@ -1589,8 +1588,6 @@
 		C4FAB7C91C63ACAD00941CCB /* CTPersistanceTable+Update.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAB7B01C63ACAD00941CCB /* CTPersistanceTable+Update.m */; };
 		C4FAB7CA1C63ACAD00941CCB /* CTPersistanceTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAB7B21C63ACAD00941CCB /* CTPersistanceTable.m */; };
 		C4FAB7CB1C63ACAD00941CCB /* CTPersistanceTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FAB7B51C63ACAD00941CCB /* CTPersistanceTransaction.m */; };
-		C4FB15B91C7F5CF000098E78 /* UIImage+LYZRoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FB15B81C7F5CF000098E78 /* UIImage+LYZRoundedCorner.m */; };
-		C4FB15BC1C7F5D8700098E78 /* UIView+LYZRoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FB15BB1C7F5D8700098E78 /* UIView+LYZRoundedCorner.m */; };
 		C4FBCA011C2FDE62001F68AD /* AidDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FBCA001C2FDE62001F68AD /* AidDisplayTitleLabel.m */; };
 		C4FDD2C61C467EB0008F307B /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2A51C467EB0008F307B /* IQNSArray+Sort.m */; };
 		C4FDD2C71C467EB0008F307B /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C4FDD2A71C467EB0008F307B /* IQUIScrollView+Additions.m */; };
@@ -1650,6 +1647,15 @@
 		C401EB7F1C77490800450FC7 /* AidDiscoverTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDiscoverTaskViewController.m; sourceTree = "<group>"; };
 		C40283F81C658FCA00882570 /* AidWeekDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidWeekDayView.h; sourceTree = "<group>"; };
 		C40283F91C658FCA00882570 /* AidWeekDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidWeekDayView.m; sourceTree = "<group>"; };
+		C405E84B1C85C28C00A7AF6C /* LYZLocationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationDefine.h; sourceTree = "<group>"; };
+		C405E84C1C85C28C00A7AF6C /* LYZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationManager.h; sourceTree = "<group>"; };
+		C405E84D1C85C28C00A7AF6C /* LYZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZLocationManager.m; sourceTree = "<group>"; };
+		C405E84E1C85C28C00A7AF6C /* LYZLocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationRequest.h; sourceTree = "<group>"; };
+		C405E84F1C85C28C00A7AF6C /* LYZLocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZLocationRequest.m; sourceTree = "<group>"; };
+		C405E8511C85C28C00A7AF6C /* LYZWeatherBasicInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZWeatherBasicInfoView.h; sourceTree = "<group>"; };
+		C405E8521C85C28C00A7AF6C /* LYZWeatherBasicInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZWeatherBasicInfoView.m; sourceTree = "<group>"; };
+		C405E8531C85C28C00A7AF6C /* LYZWeatherDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZWeatherDataModel.h; sourceTree = "<group>"; };
+		C405E8541C85C28C00A7AF6C /* LYZWeatherDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZWeatherDataModel.m; sourceTree = "<group>"; };
 		C41026081C672C8C00AB446E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C410260B1C672C8C00AB446E /* XLFormBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLFormBaseCell.h; sourceTree = "<group>"; };
 		C410260C1C672C8C00AB446E /* XLFormBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLFormBaseCell.m; sourceTree = "<group>"; };
@@ -3094,12 +3100,6 @@
 		C4487D1A1C8144EA0048350B /* MBProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
 		C4487D1B1C8144EA0048350B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C4487D1C1C8144EA0048350B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		C4487D1E1C8189000048350B /* LYZWeatherLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZWeatherLocation.h; sourceTree = "<group>"; };
-		C4487D1F1C8189000048350B /* LYZWeatherLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZWeatherLocation.m; sourceTree = "<group>"; };
-		C4487D211C81C3870048350B /* LYZWeatherBasicInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZWeatherBasicInfoView.h; sourceTree = "<group>"; };
-		C4487D221C81C3870048350B /* LYZWeatherBasicInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZWeatherBasicInfoView.m; sourceTree = "<group>"; };
-		C4487D241C81C96E0048350B /* LYZWeatherDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZWeatherDataModel.h; sourceTree = "<group>"; };
-		C4487D251C81C96E0048350B /* LYZWeatherDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZWeatherDataModel.m; sourceTree = "<group>"; };
 		C4487D2A1C81D8750048350B /* AidNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidNetwork.h; sourceTree = "<group>"; };
 		C4487D2B1C81D8750048350B /* AidNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidNetwork.m; sourceTree = "<group>"; };
 		C4487D2D1C81D8D40048350B /* LYZNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZNetworkManager.h; sourceTree = "<group>"; };
@@ -3261,11 +3261,6 @@
 		C44D53C91BAD8B780035E9B2 /* LYZXMLSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZXMLSerialization.m; sourceTree = "<group>"; };
 		C44D53CB1BAD8B780035E9B2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		C44D53CC1BAD8B780035E9B2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		C44D53CF1BAD8B780035E9B2 /* LYZLocationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationDefine.h; sourceTree = "<group>"; };
-		C44D53D01BAD8B780035E9B2 /* LYZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationManager.h; sourceTree = "<group>"; };
-		C44D53D11BAD8B780035E9B2 /* LYZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZLocationManager.m; sourceTree = "<group>"; };
-		C44D53D21BAD8B780035E9B2 /* LYZLocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYZLocationRequest.h; sourceTree = "<group>"; };
-		C44D53D31BAD8B780035E9B2 /* LYZLocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYZLocationRequest.m; sourceTree = "<group>"; };
 		C44D55EC1BAD909D0035E9B2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		C44D55F11BAD930E0035E9B2 /* AidMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidMainTabBarController.h; sourceTree = "<group>"; };
 		C44D55F21BAD930E0035E9B2 /* AidMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidMainTabBarController.m; sourceTree = "<group>"; };
@@ -3502,10 +3497,6 @@
 		C4FAB7B21C63ACAD00941CCB /* CTPersistanceTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceTable.m; sourceTree = "<group>"; };
 		C4FAB7B41C63ACAD00941CCB /* CTPersistanceTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTPersistanceTransaction.h; sourceTree = "<group>"; };
 		C4FAB7B51C63ACAD00941CCB /* CTPersistanceTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTPersistanceTransaction.m; sourceTree = "<group>"; };
-		C4FB15B71C7F5CF000098E78 /* UIImage+LYZRoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LYZRoundedCorner.h"; sourceTree = "<group>"; };
-		C4FB15B81C7F5CF000098E78 /* UIImage+LYZRoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LYZRoundedCorner.m"; sourceTree = "<group>"; };
-		C4FB15BA1C7F5D8700098E78 /* UIView+LYZRoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LYZRoundedCorner.h"; sourceTree = "<group>"; };
-		C4FB15BB1C7F5D8700098E78 /* UIView+LYZRoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYZRoundedCorner.m"; sourceTree = "<group>"; };
 		C4FBC9FF1C2FDE62001F68AD /* AidDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AidDisplayTitleLabel.h; sourceTree = "<group>"; };
 		C4FBCA001C2FDE62001F68AD /* AidDisplayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AidDisplayTitleLabel.m; sourceTree = "<group>"; };
 		C4FDD2A41C467EB0008F307B /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
@@ -3572,6 +3563,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C405E84A1C85C28C00A7AF6C /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				C405E84B1C85C28C00A7AF6C /* LYZLocationDefine.h */,
+				C405E84C1C85C28C00A7AF6C /* LYZLocationManager.h */,
+				C405E84D1C85C28C00A7AF6C /* LYZLocationManager.m */,
+				C405E84E1C85C28C00A7AF6C /* LYZLocationRequest.h */,
+				C405E84F1C85C28C00A7AF6C /* LYZLocationRequest.m */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		C405E8501C85C28C00A7AF6C /* WeatherManager */ = {
+			isa = PBXGroup;
+			children = (
+				C405E8511C85C28C00A7AF6C /* LYZWeatherBasicInfoView.h */,
+				C405E8521C85C28C00A7AF6C /* LYZWeatherBasicInfoView.m */,
+				C405E8531C85C28C00A7AF6C /* LYZWeatherDataModel.h */,
+				C405E8541C85C28C00A7AF6C /* LYZWeatherDataModel.m */,
+			);
+			path = WeatherManager;
+			sourceTree = "<group>";
+		};
 		C41026071C672C8C00AB446E /* XLForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -5479,12 +5493,8 @@
 				C4FDD2D81C4B7490008F307B /* UIView+LYZAddGestureBlock.m */,
 				C44D53A61BAD8B780035E9B2 /* UIView+LYZExtension.h */,
 				C44D53A71BAD8B780035E9B2 /* UIView+LYZExtension.m */,
-				C4FB15BA1C7F5D8700098E78 /* UIView+LYZRoundedCorner.h */,
-				C4FB15BB1C7F5D8700098E78 /* UIView+LYZRoundedCorner.m */,
 				C47F95781C42026D00BB889A /* UIImage+LYZImageEffects.h */,
 				C47F95791C42026D00BB889A /* UIImage+LYZImageEffects.m */,
-				C4FB15B71C7F5CF000098E78 /* UIImage+LYZRoundedCorner.h */,
-				C4FB15B81C7F5CF000098E78 /* UIImage+LYZRoundedCorner.m */,
 				C44D53A01BAD8B780035E9B2 /* UIImage+LYZExtension.h */,
 				C44D53A11BAD8B780035E9B2 /* UIImage+LYZExtension.m */,
 				C44D53A21BAD8B780035E9B2 /* UIScrollView+LYZExtension.h */,
@@ -5574,31 +5584,14 @@
 			isa = PBXGroup;
 			children = (
 				C44D56131BADA4CA0035E9B2 /* LYZService.h */,
-				C44D53CE1BAD8B780035E9B2 /* LocationManager */,
-				C4487D1E1C8189000048350B /* LYZWeatherLocation.h */,
-				C4487D1F1C8189000048350B /* LYZWeatherLocation.m */,
-				C4487D211C81C3870048350B /* LYZWeatherBasicInfoView.h */,
-				C4487D221C81C3870048350B /* LYZWeatherBasicInfoView.m */,
-				C4487D241C81C96E0048350B /* LYZWeatherDataModel.h */,
-				C4487D251C81C96E0048350B /* LYZWeatherDataModel.m */,
+				C405E84A1C85C28C00A7AF6C /* LocationManager */,
+				C405E8501C85C28C00A7AF6C /* WeatherManager */,
 				C458A3C51C84765600BBBF1F /* LYZImagePickerHelper.h */,
 				C458A3C61C84765600BBBF1F /* LYZImagePickerHelper.m */,
 				C458A3C81C847F8100BBBF1F /* LYZLocationHelper.h */,
 				C458A3C91C847F8100BBBF1F /* LYZLocationHelper.m */,
 			);
 			path = "Service(服务)";
-			sourceTree = "<group>";
-		};
-		C44D53CE1BAD8B780035E9B2 /* LocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				C44D53CF1BAD8B780035E9B2 /* LYZLocationDefine.h */,
-				C44D53D01BAD8B780035E9B2 /* LYZLocationManager.h */,
-				C44D53D11BAD8B780035E9B2 /* LYZLocationManager.m */,
-				C44D53D21BAD8B780035E9B2 /* LYZLocationRequest.h */,
-				C44D53D31BAD8B780035E9B2 /* LYZLocationRequest.m */,
-			);
-			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		C44D53FA1BAD8BD60035E9B2 /* Main(主要) */ = {
@@ -7837,6 +7830,7 @@
 				C41BAFA01C1D9D53009F51C4 /* MJRefreshBackFooter.m in Sources */,
 				C400DF1C1C65CF87002787BD /* AidTextFieldCell.m in Sources */,
 				C41BAFAE1C1D9D53009F51C4 /* MJRefreshConst.m in Sources */,
+				C405E8561C85C28C00A7AF6C /* LYZLocationRequest.m in Sources */,
 				C410266B1C672C8C00AB446E /* XLFormStepCounterCell.m in Sources */,
 				C44D53D81BAD8B780035E9B2 /* NSData+LYZCodeSecurity.m in Sources */,
 				C4FAB7BB1C63ACAD00941CCB /* CTPersistanceDataBase.m in Sources */,
@@ -7850,11 +7844,11 @@
 				C41026791C672C8C00AB446E /* NSString+XLFormAdditions.m in Sources */,
 				C41BAF4E1C1D5884009F51C4 /* AidItemsScrollView.m in Sources */,
 				C4FDD2D11C467EB0008F307B /* IQToolbar.m in Sources */,
+				C405E8581C85C28C00A7AF6C /* LYZWeatherDataModel.m in Sources */,
 				C41BAFAF1C1D9D53009F51C4 /* UIScrollView+MJExtension.m in Sources */,
 				C41BAFBA1C1D9D53009F51C4 /* SDWebImagePrefetcher.m in Sources */,
 				C460957A1C1B25A900BA1CD0 /* MASConstraint.m in Sources */,
 				C44B9D211C284BB000BF8E59 /* LYZHorizontalButton.m in Sources */,
-				C44D53F91BAD8B780035E9B2 /* LYZLocationRequest.m in Sources */,
 				C44B9D1E1C2847DB00BF8E59 /* LYZVerticalButton.m in Sources */,
 				C4FDD2CD1C467EB0008F307B /* IQKeyboardReturnKeyHandler.m in Sources */,
 				C4FDD2C71C467EB0008F307B /* IQUIScrollView+Additions.m in Sources */,
@@ -7872,7 +7866,6 @@
 				C44D56181BAEABDD0035E9B2 /* AidThemeViewController.m in Sources */,
 				C4FDD2D91C4B7490008F307B /* UIView+LYZAddGestureBlock.m in Sources */,
 				C4F97DC71C4CF71000C6BF89 /* UIImageView+AFNetworking.m in Sources */,
-				C4487D201C8189000048350B /* LYZWeatherLocation.m in Sources */,
 				C4C19FB51C66E7AB004E7BAC /* ActionSheetMultipleStringPicker.m in Sources */,
 				C4FAB7C61C63ACAD00941CCB /* CTPersistanceTable+Delete.m in Sources */,
 				C4F39A6D1BF0D95D001C2D86 /* AidAddThemeViewController.m in Sources */,
@@ -7939,7 +7932,6 @@
 				C4487D2F1C81D8D40048350B /* LYZNetworkManager.m in Sources */,
 				C41026761C672C8C00AB446E /* NSExpression+XLFormAdditions.m in Sources */,
 				C4F97DE11C4CF73400C6BF89 /* MJExtensionConst.m in Sources */,
-				C44D53F81BAD8B780035E9B2 /* LYZLocationManager.m in Sources */,
 				C4FDD2CA1C467EB0008F307B /* IQUIViewController+Additions.m in Sources */,
 				C4442F321BB04B520030E774 /* AidAgendaViewController.m in Sources */,
 				C44D53DA1BAD8B780035E9B2 /* NSDate+LYZExtension.m in Sources */,
@@ -7951,6 +7943,7 @@
 				C4F97DBF1C4CF71000C6BF89 /* AFURLRequestSerialization.m in Sources */,
 				C460957D1C1B25A900BA1CD0 /* MASViewAttribute.m in Sources */,
 				C41BAF4D1C1D5884009F51C4 /* AidFlagControl.m in Sources */,
+				C405E8551C85C28C00A7AF6C /* LYZLocationManager.m in Sources */,
 				C4487D371C81E7440048350B /* YYClassInfo.m in Sources */,
 				C4FAB7CA1C63ACAD00941CCB /* CTPersistanceTable.m in Sources */,
 				C4487D401C82B7860048350B /* LYZUserCenterView.m in Sources */,
@@ -7968,7 +7961,6 @@
 				C41026721C672C8C00AB446E /* XLFormDescriptor.m in Sources */,
 				C44D53F51BAD8B780035E9B2 /* LYZNetworkReachable.m in Sources */,
 				C47F957D1C42080800BB889A /* UIView+LYZAnimation.m in Sources */,
-				C4FB15BC1C7F5D8700098E78 /* UIView+LYZRoundedCorner.m in Sources */,
 				C41026621C672C8C00AB446E /* XLFormDateCell.m in Sources */,
 				C4FAB7BA1C63ACAD00941CCB /* CTPersistanceCriteria.m in Sources */,
 				C46D75821C64552B0061BCF9 /* AidWeekDayCell.m in Sources */,
@@ -8013,6 +8005,7 @@
 				C47633DB1C03757900DB909F /* AidEditTaskViewController.m in Sources */,
 				C41026611C672C8C00AB446E /* XLFormCheckCell.m in Sources */,
 				C46095811C1B25A900BA1CD0 /* View+MASAdditions.m in Sources */,
+				C405E8571C85C28C00A7AF6C /* LYZWeatherBasicInfoView.m in Sources */,
 				C401EB681C7744D200450FC7 /* AidDiscoverThemeRecord.m in Sources */,
 				C41026651C672C8C00AB446E /* XLFormInlineSelectorCell.m in Sources */,
 				C4F97DBE1C4CF71000C6BF89 /* AFSecurityPolicy.m in Sources */,
@@ -8020,7 +8013,6 @@
 				C44D53551BAD8B260035E9B2 /* main.m in Sources */,
 				C460957C1C1B25A900BA1CD0 /* MASLayoutConstraint.m in Sources */,
 				C4F97D911C4CF6D300C6BF89 /* AidAgendaRecord.m in Sources */,
-				C4FB15B91C7F5CF000098E78 /* UIImage+LYZRoundedCorner.m in Sources */,
 				C4FAB7B81C63ACAD00941CCB /* NSString+ReqularExpression.m in Sources */,
 				C4487D741C82F6D50048350B /* AidSettingViewController.m in Sources */,
 				C41BAFB21C1D9D53009F51C4 /* MKAnnotationView+WebCache.m in Sources */,
@@ -8054,7 +8046,6 @@
 				C41BAFAB1C1D9D53009F51C4 /* MJRefreshNormalHeader.m in Sources */,
 				C4FAB7C91C63ACAD00941CCB /* CTPersistanceTable+Update.m in Sources */,
 				C47633D81C020B8E00DB909F /* AidAddTaskViewController.m in Sources */,
-				C4487D261C81C96E0048350B /* LYZWeatherDataModel.m in Sources */,
 				C410267A1C672C8C00AB446E /* UIView+XLFormAdditions.m in Sources */,
 				C44B9D0C1C264C9C00BF8E59 /* AidKeyboardToolBar.m in Sources */,
 				C4F97D961C4CF6D300C6BF89 /* AidAgendaThemeTable.m in Sources */,
@@ -8068,7 +8059,6 @@
 				C4FAB7C41C63ACAD00941CCB /* CTPersistanceQueryCommand.m in Sources */,
 				C410266A1C672C8C00AB446E /* XLFormSliderCell.m in Sources */,
 				C410265F1C672C8C00AB446E /* XLFormBaseCell.m in Sources */,
-				C4487D231C81C3870048350B /* LYZWeatherBasicInfoView.m in Sources */,
 				C46095821C1B25A900BA1CD0 /* ViewController+MASAdditions.m in Sources */,
 				C4F97DC41C4CF71000C6BF89 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				C41026771C672C8C00AB446E /* NSObject+XLFormAdditions.m in Sources */,

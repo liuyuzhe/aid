@@ -14,7 +14,7 @@
 #import "LYZPlaceholderTextView.h"
 #import "LYZWeatherBasicInfoView.h"
 
-#import "LYZWeatherLocation.h"
+#import "LYZLocationHelper.h"
 #import "LYZNetworkManager.h"
 
 #import "AidThemeRecord.h"
@@ -24,7 +24,7 @@ static const CGFloat AidThemeDescTextViewHeight = 190;
 static const CGFloat AidViewDefaultOffset = 20;
 static const CGFloat AidViewDefaultInset = 5;
 
-@interface AidAddThemeViewController () <UITextFieldDelegate, UITextViewDelegate, LYZWeatherLocationDelegate>
+@interface AidAddThemeViewController () <UITextFieldDelegate, UITextViewDelegate, LYZLocationHelperDelegate>
 
 @property (nonatomic, strong) LYZCustomNavView *customNavView; /**< 自定义导航视图 */
 @property (nonatomic, strong) UIView *themeView; /**< 主题主视图 */
@@ -35,7 +35,7 @@ static const CGFloat AidViewDefaultInset = 5;
 @property (nonatomic, strong) LYZPlaceholderTextView *themeDescribeTextView; /**< 主题描述文本视图 */
 
 @property (nonatomic, strong) LYZWeatherBasicInfoView *weatherView;
-@property (nonatomic, strong) LYZWeatherLocation *weatherLocation;
+@property (nonatomic, strong) LYZLocationHelper *weatherLocation;
 
 @end
 
@@ -168,10 +168,13 @@ static const CGFloat AidViewDefaultInset = 5;
     return YES;
 }
 
-#pragma mark - LYZWeatherLocationDelegate
+#pragma mark - LYZLocationHelper
 
-- (void)weatherLocation:(LYZWeatherLocation *)location didSuccess:(NSString *)cityName
+- (void)locationHelper:(LYZLocationHelper *)location didSuccess:(NSArray<CLPlacemark *> *)placemarks
 {
+    CLPlacemark *placemark = [placemarks objectAtIndex:0];
+    NSString *cityName = placemark.locality; // 区名
+    cityName = [cityName stringByReplacingOccurrencesOfString:@"市" withString:@""];
     if (cityName.length > 0) {
         [self setupWeatherDataWithCityName:cityName];
     }
@@ -186,12 +189,12 @@ static const CGFloat AidViewDefaultInset = 5;
     });
 }
 
-- (void)weatherLocation:(LYZWeatherLocation *)location didFailed:(NSError *)error
+- (void)locationHelper:(LYZLocationHelper *)location didFailed:(NSError *)error
 {
     LYZERROR(@"位置信息获取失败");
 }
 
-- (void)weatherLocationDidClose:(LYZWeatherLocation *)location
+- (void)locationHelperDidClose:(LYZLocationHelper *)location
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您已经关闭定位服务，请在设置－隐私－定位服务中打开" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -341,10 +344,10 @@ static const CGFloat AidViewDefaultInset = 5;
     return _weatherView;
 }
 
-- (LYZWeatherLocation *)weatherLocation
+- (LYZLocationHelper *)weatherLocation
 {
     if (! _weatherLocation) {
-        _weatherLocation = [LYZWeatherLocation sharedInstance];
+        _weatherLocation = [LYZLocationHelper sharedInstance];
         _weatherLocation.delegate = self;
     }
     return _weatherLocation;

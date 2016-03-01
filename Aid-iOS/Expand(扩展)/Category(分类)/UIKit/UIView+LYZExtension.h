@@ -30,18 +30,16 @@
 - (void)setShadow; // 默认颜色为 [UIColor blackColor]
 - (void)setShadow:(UIColor *)color;
 
-//TODO: 圆角相关设置存在问题，需要修改
 /** 设置圆角阴影 */
 - (void)setShadowCorner:(CGFloat)radius;
 - (void)setShadowCorner:(UIColor *)color
                 corners:(UIRectCorner)corners
                  radius:(CGFloat)radius;
 
-/** 设置圆角 */
-- (void)setRoundedCorner:(CGFloat)radius;
-- (void)setRoundedCorner:(UIRectCorner)corners radius:(CGFloat)radius;
 /** 设置圆角图像 */
-- (void)setRoundedCornerRadius:(CGFloat)radius withImage:(UIImage *)image;
+- (void)setCornerRadius:(CGFloat)radius;
+- (void)setRoundedCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
+- (void)setRoundedCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 
 /** 增加水平删除线 */
 - (void)addHorizontalLine; // 默认颜色为 [UIColor blackColor]

@@ -35,8 +35,10 @@
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 /** 图像变换 */
 - (UIImage *)imageWithTransform:(CGAffineTransform)transform;
-/** 带圆角的图像 */
+/** 直接设置圆角图像 @param radius 圆角半径 */
 - (UIImage *)imageWithRoundedCornerRadius:(CGFloat)radius AndSize:(CGSize)sizeToFit;
+/** 创建一个带圆角的图像(主要给UIView调用) */
++ (UIImage *)imageWithRoundedCornersAndSize:(CGSize)sizeToFit radius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 
 /** 图像缩放，默认 UIViewContentMode = UIViewContentModeScaleToFill */
 - (UIImage *)scaleToSize:(CGSize)size;

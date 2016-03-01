@@ -193,37 +193,30 @@
     self.layer.shadowPath = path.CGPath;
 }
 
-- (void)setRoundedCorner:(CGFloat)radius
+- (void)setCornerRadius:(CGFloat)radius
 {
-    [self setRoundedCorner:UIRectCornerAllCorners radius:radius];
+    return [self setRoundedCornerRadius:radius borderColor:[UIColor blackColor] borderWidth:1];
 }
 
-- (void)setRoundedCorner:(UIRectCorner)corners radius:(CGFloat)radius
+- (void)setRoundedCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth
 {
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                          byRoundingCorners:corners
-                                cornerRadii:CGSizeMake(radius, radius)];
-    
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.path = path.CGPath;
-    
-    self.layer.mask = maskLayer;
+    return [self setRoundedCornerRadius:radius borderColor:borderColor borderWidth:borderWidth backgroundColor:[UIColor clearColor]];
 }
 
-- (void)setRoundedCornerRadius:(CGFloat)radius withImage:(UIImage *)image
+- (void)setRoundedCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor
 {
-    UIImage *roundedImage = [image imageWithRoundedCornerRadius:radius AndSize:self.bounds.size];
+    UIImage *image = [UIImage imageWithRoundedCornersAndSize:self.bounds.size radius:radius borderColor:borderColor borderWidth:borderWidth backgroundColor:backgroundColor];
     
     if ([self isKindOfClass:[UIImageView class]]) {
-        ((UIImageView *)self).image = roundedImage;
+        ((UIImageView *)self).image = image;
     }
     else if ([self isKindOfClass:[UIButton class]]) {
-        [((UIButton *)self) setImage:roundedImage forState:UIControlStateNormal];
-    } else {
+        [((UIButton *)self) setImage:image forState:UIControlStateNormal];
+    }
+    else {
         self.roundedCornerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
-        self.roundedCornerView.image = roundedImage;
-        [self addSubview:self.roundedCornerView];
-        [self sendSubviewToBack:self.roundedCornerView];
+        self.roundedCornerView.image = image;
+        [self insertSubview:self.roundedCornerView atIndex:0];
     }
 }
 

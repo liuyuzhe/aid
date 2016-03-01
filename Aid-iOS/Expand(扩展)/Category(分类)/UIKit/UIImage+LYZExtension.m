@@ -152,6 +152,36 @@
     return output;
 }
 
++ (UIImage *)imageWithRoundedCornersAndSize:(CGSize)sizeToFit radius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor
+{
+    CGFloat halfBorderWidth = borderWidth / 2;
+    
+    UIGraphicsBeginImageContextWithOptions(sizeToFit, NO, UIScreen.mainScreen.scale);
+    //设置上下文
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    //边框大小
+    CGContextSetLineWidth(context, borderWidth);
+    //边框颜色
+    CGContextSetStrokeColorWithColor(context, borderColor.CGColor);
+    //矩形填充颜色
+    CGContextSetFillColorWithColor(context, backgroundColor.CGColor);
+    
+    CGFloat height = sizeToFit.height;
+    CGFloat width = sizeToFit.width;
+    
+    CGContextMoveToPoint(context, width - halfBorderWidth, radius + halfBorderWidth);  // 开始坐标右边开始
+    CGContextAddArcToPoint(context, width - halfBorderWidth, height - halfBorderWidth, width - radius - halfBorderWidth, height - halfBorderWidth, radius);  // 右下角角度
+    CGContextAddArcToPoint(context, halfBorderWidth, height - halfBorderWidth, halfBorderWidth, height - radius - halfBorderWidth, radius); // 左下角角度
+    CGContextAddArcToPoint(context, halfBorderWidth, halfBorderWidth, width - halfBorderWidth, halfBorderWidth, radius); // 左上角
+    CGContextAddArcToPoint(context, width - halfBorderWidth, halfBorderWidth, width - halfBorderWidth, radius + halfBorderWidth, radius); // 右上角
+    
+    CGContextDrawPath(context, kCGPathFillStroke); //根据坐标绘制路径
+    
+    UIImage *outImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return outImage;
+}
+
 - (UIImage *)scaleToSize:(CGSize)size
 {
     return [self scaleToSize:size withContentMode:UIViewContentModeScaleToFill];

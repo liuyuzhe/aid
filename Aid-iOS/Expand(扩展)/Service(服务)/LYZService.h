@@ -7,3 +7,5 @@
 //
 
 #import "LYZLocationManager.h"
+#import "LYZImagePickerHelper.h"
+#import "LYZLocationHelper.h"
