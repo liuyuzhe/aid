@@ -62,7 +62,7 @@ static const CGFloat AidPhotoImageViewRadius = 20;
     _bgContentView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
     
     _photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, AidPhotoImageViewRadius * 2, AidPhotoImageViewRadius * 2)];
-    [_photoImageView setRoundedCornerRadius:AidPhotoImageViewRadius withImage:[UIImage imageNamed:@"about_praise"]];
+    _photoImageView.image = [[UIImage imageNamed:@"about_praise"] imageWithRoundedCornerRadius:AidPhotoImageViewRadius andSize:_photoImageView.bounds.size];
 //    _photoImageView.layer.cornerRadius = AidPhotoImageViewRadius;
 //    _photoImageView.layer.borderWidth = 5;
 //    _photoImageView.layer.borderColor = [UIColor whiteColor].CGColor;

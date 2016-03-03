@@ -11,3 +11,23 @@
 @implementation LYZWeatherDataModel
 
 @end
+
+
+@implementation LYZWealResultModel
+
+@end
+
+
+@implementation LYZWealReturnDataModel
+
+@end
+
+
+@implementation LYZWealRealtimeModel
+
+@end
+
+
+@implementation LYZWeatherBasicModel
+
+@end

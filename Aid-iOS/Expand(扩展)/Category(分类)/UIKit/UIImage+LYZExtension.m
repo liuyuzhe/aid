@@ -135,7 +135,7 @@
     return image;
 }
 
-- (UIImage *)imageWithRoundedCornerRadius:(CGFloat)radius AndSize:(CGSize)sizeToFit
+- (UIImage *)imageWithRoundedCornerRadius:(CGFloat)radius andSize:(CGSize)sizeToFit
 {
     CGRect rect = (CGRect){0.f, 0.f, sizeToFit};
     

@@ -193,7 +193,7 @@
     self.layer.shadowPath = path.CGPath;
 }
 
-- (void)setCornerRadius:(CGFloat)radius
+- (void)setRoundedCornerRadius:(CGFloat)radius
 {
     return [self setRoundedCornerRadius:radius borderColor:[UIColor blackColor] borderWidth:1];
 }

@@ -7,11 +7,10 @@
 //
 
 #import "LYZNetworkManager.h"
-#import "LYZSingletonMacro.h"
 #import "AidNetwork.h"
 
 static NSString *const kWeatherDataApi = @"http://op.juhe.cn/onebox/weather/query";
-static NSString *const kApiKey = @"http://op.juhe.cn/onebox/weather/query";
+static NSString *const kApiKey = @"dd156fb77845d1442789507cac58cabd";
 
 @implementation LYZNetworkManager
 
@@ -19,20 +18,32 @@ IS_SINGLETON(LYZNetworkManager)
 
 - (void)getWeatherDataByCityName:(NSString *)cityName success:(LYZGetCityWeatherSuccess)success
 {
-    NSDictionary *params = @{@"city": cityName,
-                             @"key": kApiKey};
+    NSDictionary *params = @{@"cityname": cityName,
+                             @"key": kApiKey,
+                             @"dtype": @""};
     
     
-    [AidNetwork getWithUrl:kWeatherDataApi params:params success:^(id response) {
-        LYZWeatherDataModel *weatherModel = [LYZWeatherDataModel yy_modelWithDictionary:response];
+    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+    [sessionManager GET:kWeatherDataApi parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        LYZWeatherDataModel *weatherModel = [LYZWeatherDataModel yy_modelWithJSON:responseObject];
         if (success) {
             success(weatherModel);
         }
         
-        LYZINFO(@"获取天气成功");
-    } failure:^(NSError *error) {
-        LYZERROR(@"获取天气失败");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
     }];
+//
+//    [AidNetwork getWithUrl:kWeatherDataApi params:params success:^(id response) {
+//        LYZWeatherDataModel *weatherModel = [LYZWeatherDataModel yy_modelWithDictionary:response];
+//        if (success) {
+//            success(weatherModel);
+//        }
+//        
+//        LYZINFO(@"获取天气成功");
+//    } failure:^(NSError *error) {
+//        LYZERROR(@"获取天气失败");
+//    }];
 }
 
 - (void)getWeatherDataByCityNames:(NSArray<NSString *> *)cityNames success:(LYZGetCitysWeatherSuccess)success

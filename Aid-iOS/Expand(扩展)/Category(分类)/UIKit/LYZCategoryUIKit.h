@@ -12,7 +12,6 @@
 #import "UIView+LYZAddGestureBlock.h"
 #import "UIView+LYZExtension.h"
 #import "UIImage+LYZImageEffects.h"
-#import "UIImage+LYZRoundedCorner.h"
 #import "UIImage+LYZExtension.h"
 #import "UIScrollView+LYZExtension.h"
 #import "UITableView+LYZExtension.h"

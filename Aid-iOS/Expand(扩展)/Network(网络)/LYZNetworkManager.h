@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LYZSingletonMacro.h"
 
 #import "LYZWeatherDataModel.h"
 

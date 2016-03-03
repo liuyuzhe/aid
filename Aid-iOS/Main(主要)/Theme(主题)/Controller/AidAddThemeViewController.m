@@ -198,10 +198,13 @@ static const CGFloat AidViewDefaultInset = 5;
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您已经关闭定位服务，请在设置－隐私－定位服务中打开" preferredStyle:UIAlertControllerStyleAlert];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    [self presentViewController:alert animated:YES completion:^{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        });
+        
+    }];
 }
 
 #pragma mark - event response
@@ -214,6 +217,16 @@ static const CGFloat AidViewDefaultInset = 5;
 - (void)completeButtonAction:(UIButton *)button
 {
     if ([self.themeNameTextField.text trimBothWhitespace].length <= 0) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"主题名称不能为空" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [self presentViewController:alert animated:YES completion:^{
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [alert dismissViewControllerAnimated:YES completion:nil];
+            });
+            
+        }];
+        
         return;
     }
     
@@ -339,7 +352,7 @@ static const CGFloat AidViewDefaultInset = 5;
 {
     if (! _weatherView) {
         _weatherView = [[LYZWeatherBasicInfoView alloc] init];
-        _weatherView.backgroundColor = [UIColor grayColor]; // 背景颜色
+//        _weatherView.backgroundColor = [UIColor grayColor]; // 背景颜色
     }
     return _weatherView;
 }

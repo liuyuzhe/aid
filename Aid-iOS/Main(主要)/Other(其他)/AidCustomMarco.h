@@ -27,6 +27,7 @@
 #define AidSeparaterColor LYZColorRGB(200, 199, 204)
 
 #define AidNavigationFont [UIFont systemFontOfSize:16.0f]
+#define AidLargeFont [UIFont systemFontOfSize:30.0f]
 #define AidBigFont [UIFont systemFontOfSize:20.0f]
 #define AidNormalFont [UIFont systemFontOfSize:17.0f]
 #define AidSmallFont [UIFont systemFontOfSize:15.0f]

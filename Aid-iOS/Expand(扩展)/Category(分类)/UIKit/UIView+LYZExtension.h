@@ -37,7 +37,7 @@
                  radius:(CGFloat)radius;
 
 /** 设置圆角图像 */
-- (void)setCornerRadius:(CGFloat)radius;
+- (void)setRoundedCornerRadius:(CGFloat)radius;
 - (void)setRoundedCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth;
 - (void)setRoundedCornerRadius:(CGFloat)radius borderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth backgroundColor:(UIColor *)backgroundColor;
 

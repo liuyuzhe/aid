@@ -58,27 +58,27 @@ static const CGFloat AidViewDefaultInset = 5;
 {
     _weatherView = [[UIView alloc]init];
     _weatherView.layer.cornerRadius = 15;
-    _weatherView.backgroundColor = [UIColor colorWithHexString:@"#122f52"];
+//    _weatherView.backgroundColor = [UIColor colorWithHexString:@"#122f52"];
 
     _weatherImage = [[UIImageView alloc]init];
 
     _weatherLabel = [[UILabel alloc]init];
-    _weatherLabel.font = [UIFont systemFontOfSize:14];
+    _weatherLabel.font = AidNormalFont;
     _weatherLabel.textColor = [UIColor colorWithRed:0.32 green:0.66 blue:0.84 alpha:1];
     _weatherLabel.textAlignment = NSTextAlignmentCenter;
 
     _cityLabel = [[UILabel alloc]init];
-    _cityLabel.font = [UIFont systemFontOfSize:32];
+    _cityLabel.font = AidNormalFont;
     _cityLabel.textColor = [UIColor whiteColor];
     _cityLabel.textAlignment = NSTextAlignmentCenter;
     
     _dateLabel = [[UILabel alloc]init];
-    _dateLabel.font = [UIFont systemFontOfSize:16];
+    _dateLabel.font = AidNormalFont;
     _dateLabel.textColor = [UIColor whiteColor];
     _dateLabel.textAlignment = NSTextAlignmentCenter;
 
     _tempLabel = [[UILabel alloc]init];
-    _tempLabel.font = [UIFont systemFontOfSize:82];
+    _tempLabel.font = AidLargeFont;
     _tempLabel.textColor = [UIColor whiteColor];
     _tempLabel.textAlignment = NSTextAlignmentCenter;
 }
@@ -116,10 +116,10 @@ static const CGFloat AidViewDefaultInset = 5;
 {
     _weatherModel = weatherModel;
     
-    self.weatherLabel.text = weatherModel.weather;
-    self.cityLabel.text = weatherModel.city;
-    self.dateLabel.text = weatherModel.date;
-    self.tempLabel.text = weatherModel.temp;
+    self.weatherLabel.text = weatherModel.result.data.realtime.weather.info;
+    self.cityLabel.text = weatherModel.result.data.realtime.city_name;
+    self.dateLabel.text = weatherModel.result.data.realtime.date;
+    self.tempLabel.text = [NSString stringWithFormat:@"%@°", weatherModel.result.data.realtime.weather.temperature];
 }
 
 @end
