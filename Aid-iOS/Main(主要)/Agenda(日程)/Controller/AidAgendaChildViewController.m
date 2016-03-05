@@ -8,6 +8,8 @@
 
 #import "AidAgendaChildViewController.h"
 
+#import "Masonry.h"
+
 #import "AidAgendaTaskCell.h"
 
 #import "AidAgendaTable.h"

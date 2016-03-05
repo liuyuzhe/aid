@@ -8,6 +8,8 @@
 
 #import "LYZCustomNavView.h"
 
+#import "Masonry.h"
+
 @interface LYZCustomNavView ()
 
 @property (nonatomic, strong) UIButton *cancelButton; /**< 取消按钮 */

@@ -8,6 +8,8 @@
 
 #import "AidAddTaskViewController.h"
 
+#import "Masonry.h"
+
 #import "AidWeekDayCell.h"
 #import "AidTextFieldCell.h"
 

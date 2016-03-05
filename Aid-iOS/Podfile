@@ -1,0 +1,17 @@
+platform :ios, '7.0'
+
+pod 'Masonry'
+pod 'AFNetworking', '~> 3.0'
+pod 'FMDB'
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'YYModel'
+pod 'MBProgressHUD', '~> 0.9.2'
+pod 'SVProgressHUD'
+pod 'SDWebImage', '~>3.7'
+
+pod 'UMengSocial', '~> 4.3'
+
+pod 'IQKeyboardManager'
+pod 'XLForm', '~> 3.0'
+pod 'CTPersistance'

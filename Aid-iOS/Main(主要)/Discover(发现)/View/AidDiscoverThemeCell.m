@@ -7,6 +7,7 @@
 //
 
 #import "AidDiscoverThemeCell.h"
+#import "Masonry.h"
 
 #import "LYZVerticalButton.h"
 

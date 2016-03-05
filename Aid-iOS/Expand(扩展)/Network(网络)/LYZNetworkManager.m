@@ -7,6 +7,10 @@
 //
 
 #import "LYZNetworkManager.h"
+
+#import "AFNetworking.h"
+#import "YYModel.h"
+
 #import "AidNetwork.h"
 
 static NSString *const kWeatherDataApi = @"http://op.juhe.cn/onebox/weather/query";

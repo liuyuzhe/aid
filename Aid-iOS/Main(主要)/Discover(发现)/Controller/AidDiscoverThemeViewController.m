@@ -9,6 +9,8 @@
 #import "AidDiscoverThemeViewController.h"
 #import "AidDiscoverTaskViewController.h"
 
+#import "CTPersistance.h"
+
 #import "AidCarouselView.h"
 #import "AidDiscoverThemeCell.h"
 

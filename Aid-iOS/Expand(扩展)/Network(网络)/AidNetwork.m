@@ -7,6 +7,7 @@
 //
 
 #import "AidNetwork.h"
+#import "AFNetworking.h"
 #import "AFNetworkActivityIndicatorManager.h"
 
 @implementation AidNetwork

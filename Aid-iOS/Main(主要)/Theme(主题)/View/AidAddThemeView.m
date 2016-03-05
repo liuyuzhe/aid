@@ -8,6 +8,8 @@
 
 #import "AidAddThemeView.h"
 
+#import "Masonry.h"
+
 @interface AidAddThemeView () <UITextFieldDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) UITextField *themeNameTextField; /**< 主题名称文本框 */

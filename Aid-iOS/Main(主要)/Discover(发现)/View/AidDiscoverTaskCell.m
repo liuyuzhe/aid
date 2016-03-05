@@ -8,6 +8,8 @@
 
 #import "AidDiscoverTaskCell.h"
 
+#import "Masonry.h"
+
 #import "AidDiscoverTaskRecord.h"
 
 static const CGFloat AidViewDefaultOffset = 20;

@@ -8,6 +8,8 @@
 
 #import "AidDiscoverTaskViewController.h"
 
+#import "CTPersistance.h"
+
 #import "AidDiscoverTaskCell.h"
 #import "AidCarouselView.h"
 #import "AidDiscoverThemeShowView.h"
@@ -18,7 +20,6 @@
 #import "AidDiscoverThemeRecord.h"
 
 #import "UINavigationBar+Awesome.h"
-#import "UIView+LYZMasonyCategory.h"
 
 static const CGFloat AidHeadViewHeigtht = 235;
 static const CGFloat AidThemeShowViewHeigtht = 50;

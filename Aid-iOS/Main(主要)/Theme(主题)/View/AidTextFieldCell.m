@@ -7,6 +7,7 @@
 //
 
 #import "AidTextFieldCell.h"
+#import "Masonry.h"
 
 #import "UITextField+DatePicker.h"
 

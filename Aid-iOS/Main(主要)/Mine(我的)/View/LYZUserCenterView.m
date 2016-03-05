@@ -8,6 +8,8 @@
 
 #import "LYZUserCenterView.h"
 
+#import "Masonry.h"
+
 static const CGFloat AidViewDefaultOffset = 20;
 static const CGFloat AidViewDefaultInset = 5;
 

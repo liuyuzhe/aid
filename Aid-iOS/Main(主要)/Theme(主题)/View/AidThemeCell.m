@@ -8,6 +8,8 @@
 
 #import "AidThemeCell.h"
 
+#import "Masonry.h"
+
 #import "AidThemeRecord.h"
 
 static const CGFloat AidViewDefaultOffset = 20;
