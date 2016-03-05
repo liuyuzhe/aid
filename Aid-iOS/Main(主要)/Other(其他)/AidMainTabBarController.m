@@ -48,8 +48,8 @@
     AidThemeViewController *themeVC = [[AidThemeViewController alloc] init];
     [self setupChildViewController:themeVC title:@"主题" imageName:@"icon_tabbar_onsite" seleceImageName:@"icon_tabbar_onsite_selected"];
     
-    AidAgendaViewController *agendaVC = [[AidAgendaViewController alloc] init];
-    [self setupChildViewController:agendaVC title:@"日程" imageName:@"icon_tabbar_homepage" seleceImageName:@"icon_tabbar_homepage_selected"];
+//    AidAgendaViewController *agendaVC = [[AidAgendaViewController alloc] init];
+//    [self setupChildViewController:agendaVC title:@"日程" imageName:@"icon_tabbar_homepage" seleceImageName:@"icon_tabbar_homepage_selected"];
     
     AidDiscoverViewController *discoverVC = [[AidDiscoverViewController alloc]init];
     [self setupChildViewController:discoverVC title:@"发现" imageName:@"icon_tabbar_merchant_normal" seleceImageName:@"icon_tabbar_merchant_normal_selected"];

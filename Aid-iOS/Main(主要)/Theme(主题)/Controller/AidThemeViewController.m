@@ -100,7 +100,7 @@ static const CGFloat AidThemeCellHeight = 110;
     };
     self.navigationItem.titleView = buttonView;
     
-    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIButton *button = [UIButton addButtonWithTarget:self action:@selector(addItemBarAction:)];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     self.navigationItem.rightBarButtonItem = addItem;

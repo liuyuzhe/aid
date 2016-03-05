@@ -14,11 +14,15 @@ static char kWhenTwoFingerTappedBlockKey;
 static char kWhenTouchedDownBlockKey;
 static char kWhenTouchedUpBlockKey;
 
+static char kWhenRotationBlockKey;
+static char kWhenPinchBlockKey;
+static char kWhenPanBlockKey;
+
 @implementation UIView (LYZAddGestureBlock)
 
 #pragma mark - public method
 
-- (void)tapped:(AddGestureBlock)block
+- (void)tappedGesture:(AidGestureRecognizerSuccess)block
 {
     UITapGestureRecognizer* gesture = [self addTapGestureRecognizerWithTaps:1 touches:1 selector:@selector(viewWasTapped)];
     [self addRequiredToDoubleTapsRecognizer:gesture];
@@ -26,7 +30,7 @@ static char kWhenTouchedUpBlockKey;
     [self setBlock:block forKey:&kWhenTappedBlockKey];
 }
 
-- (void)doubleTapped:(AddGestureBlock)block
+- (void)doubleTappedGesture:(AidGestureRecognizerSuccess)block
 {
     UITapGestureRecognizer* gesture = [self addTapGestureRecognizerWithTaps:2 touches:1 selector:@selector(viewWasDoubleTapped)];
     [self addRequirementToSingleTapsRecognizer:gesture];
@@ -34,21 +38,47 @@ static char kWhenTouchedUpBlockKey;
     [self setBlock:block forKey:&kWhenDoubleTappedBlockKey];
 }
 
-- (void)twoFingerTapped:(AddGestureBlock)block
+- (void)twoFingerTappedGesture:(AidGestureRecognizerSuccess)block
 {
     [self addTapGestureRecognizerWithTaps:1 touches:2 selector:@selector(viewWasTwoFingerTapped)];
     
     [self setBlock:block forKey:&kWhenTwoFingerTappedBlockKey];
 }
 
-- (void)touchedDown:(AddGestureBlock)block
+- (void)touchedDownGesture:(AidGestureRecognizerSuccess)block
 {
     [self setBlock:block forKey:&kWhenTouchedDownBlockKey];
 }
 
-- (void)touchedUp:(AddGestureBlock)block
+- (void)touchedUpGesture:(AidGestureRecognizerSuccess)block
 {
     [self setBlock:block forKey:&kWhenTouchedUpBlockKey];
+}
+
+#pragma mark -
+
+- (void)rotationGesture:(AidGestureRecognizerSuccess)block
+{
+    UIRotationGestureRecognizer *rotationGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotateView:)];
+    [self addGestureRecognizer:rotationGesture];
+    
+    [self setBlock:block forKey:&kWhenRotationBlockKey];
+}
+
+- (void)pinchGesture:(AidGestureRecognizerSuccess)block
+{
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    [self addGestureRecognizer:pinchGesture];
+    
+    [self setBlock:block forKey:&kWhenPinchBlockKey];
+}
+
+- (void)panGesture:(AidGestureRecognizerSuccess)block
+{
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
+    [self addGestureRecognizer:panGesture];
+    
+    [self setBlock:block forKey:&kWhenPanBlockKey];
 }
 
 #pragma mark - override super
@@ -112,26 +142,64 @@ static char kWhenTouchedUpBlockKey;
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
+    
     [self blockForKey:&kWhenTouchedDownBlockKey];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
+    
     [self blockForKey:&kWhenTouchedUpBlockKey];
+}
+
+#pragma mark -
+
+/** 旋转视图 */
+- (void)rotateView:(UIRotationGestureRecognizer *)rotationGesture
+{
+    [self blockForKey:&kWhenRotationBlockKey];
+    
+    if (rotationGesture.state == UIGestureRecognizerStateBegan || rotationGesture.state == UIGestureRecognizerStateChanged) {
+        self.transform = CGAffineTransformRotate(self.transform, rotationGesture.rotation);
+        [rotationGesture setRotation:0];
+    }
+}
+
+/** 缩放视图 */
+- (void)pinchView:(UIPinchGestureRecognizer *)pinchGesture
+{
+    [self blockForKey:&kWhenPinchBlockKey];
+
+    if (pinchGesture.state == UIGestureRecognizerStateBegan || pinchGesture.state == UIGestureRecognizerStateChanged) {
+        self.transform = CGAffineTransformScale(self.transform, pinchGesture.scale, pinchGesture.scale);
+        pinchGesture.scale = 1;
+    }
+}
+
+/** 拖拽视图 */
+- (void)panView:(UIPanGestureRecognizer *)panGesture
+{
+    [self blockForKey:&kWhenPanBlockKey];
+
+    if (panGesture.state == UIGestureRecognizerStateBegan || panGesture.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [panGesture translationInView:self.superview];
+        [self setCenter:(CGPoint){self.center.x + translation.x, self.center.y + translation.y}];
+        [panGesture setTranslation:CGPointZero inView:self.superview];
+    }
 }
 
 #pragma mark- getters and setters
 
 - (void)blockForKey:(void *)key
 {
-    AddGestureBlock block = [self getAssociatedValueForKey:key];
+    AidGestureRecognizerSuccess block = [self getAssociatedValueForKey:key];
     if (block) {
         block();
     }
 }
 
-- (void)setBlock:(AddGestureBlock)block forKey:(void *)key
+- (void)setBlock:(AidGestureRecognizerSuccess)block forKey:(void *)key
 {
     self.userInteractionEnabled = YES;
     [self setAssociateValue:block withKey:key];

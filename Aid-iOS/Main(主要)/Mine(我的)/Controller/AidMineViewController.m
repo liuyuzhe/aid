@@ -10,6 +10,7 @@
 #import "AidSettingViewController.h"
 #import "AidMainNavigationController.h"
 
+#import "AidMineCell.h"
 #import "LYZUserCenterView.h"
 
 #import "UINavigationBar+Awesome.h"
@@ -23,6 +24,8 @@ static const CGFloat AidNavbarChangePoint = 50;
 @property (nonatomic, strong) UIView *headView;
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) LYZUserCenterView *userCenterView;
+
+@property (nonatomic, strong) NSArray *mineArray;
 
 @end
 
@@ -81,7 +84,7 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 - (void)setupPageNavigation
 {
-    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIButton *button = [UIButton addButtonWithTarget:self action:@selector(addItemBarAction:)];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
 
     self.navigationItem.rightBarButtonItem = addItem;
@@ -107,25 +110,24 @@ static const CGFloat AidNavbarChangePoint = 50;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    return self.hotArray.count;
-    return 20;
+    NSArray *sectionArray = self.mineArray[section];
+    return sectionArray ? sectionArray.count : 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.mineArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * const identifier = NSStringFromClass([UITableViewCell class]);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (! cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.textLabel.text = @"今日任务";
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+    AidMineCell *cell = [AidMineCell cellWithTableView:tableView];
+    
+    NSArray *sectionArray = self.mineArray[indexPath.section];
+    NSDictionary *mineDict = sectionArray[indexPath.row];
+    
+    cell.textLabel.text = mineDict[@"title"];
+//    cell.detailTextLabel.text = mineDict[@"content"];
 
     return cell;
 }
@@ -263,6 +265,15 @@ static const CGFloat AidNavbarChangePoint = 50;
 //        _userCenterView.state = LYZHeaderViewStateLogin;
     }
     return _userCenterView;
+}
+
+- (NSArray *)mineArray
+{
+    if (! _mineArray) {
+        NSString *shopListPath = [[NSBundle mainBundle] pathForResource:@"AidMinePlist" ofType:@"plist"];
+        _mineArray = [[NSArray alloc] initWithContentsOfFile:shopListPath];
+    }
+    return _mineArray;
 }
 
 @end

@@ -12,34 +12,34 @@
 
 #pragma mark - LYZHardwareAvailable public
 
-/** 麦克风 */
+/** 麦克风是否可用 */
 + (BOOL)microphoneAvailable;
 
 #pragma mark -
 
-/** 后置摄像头 */
+/** 后置摄像头是否可用 */
 + (BOOL)cameraAvailable;
-/** 前置摄像头 */
+/** 前置摄像头是否可用 */
 + (BOOL)cameraFrontAvailable;
-/** 视频录制 */
+/** 视频录制是否可用 */
 + (BOOL)cameraVideoAvailable;
-/** 闪光灯 */
+/** 闪光灯是否可用 */
 + (BOOL)cameraFlashAvailable;
 
 #pragma mark -
 
-/** 指南针 */
+/** 指南针是否可用 */
 + (BOOL)compassAvailable;
-/** 陀螺仪 */
+/** 陀螺仪是否可用 */
 + (BOOL)gyroscopeAvailable;
 
 #pragma mark -
 
-/** 拨打电话 */
+/** 拨打电话是否可用 */
 + (BOOL)phoneCallsAvailable;
-/** 多任务 */
+/** 多任务是否可用 */
 + (BOOL)multitaskingAvailable;
-/** 指纹识别 */
+/** 指纹识别是否可用 */
 + (BOOL)touchIdAvailable;
 
 @end

@@ -8,13 +8,14 @@
 
 #import "AidAddThemeViewController.h"
 #import "AidTaskViewController.h"
-#import "UIViewController+AidTakePicture.h"
+//#import "UIViewController+AidTakePicture.h"
 
 #import "LYZCustomNavView.h"
 #import "LYZPlaceholderTextView.h"
 #import "LYZWeatherBasicInfoView.h"
 
 #import "LYZLocationHelper.h"
+#import "LYZImagePickerHelper.h"
 #import "LYZNetworkManager.h"
 
 #import "AidThemeRecord.h"
@@ -23,6 +24,8 @@ static const CGFloat AidThemeViewHeight = 190;
 static const CGFloat AidThemeDescTextViewHeight = 190;
 static const CGFloat AidViewDefaultOffset = 20;
 static const CGFloat AidViewDefaultInset = 5;
+static NSString * const AidThemeImageTableName = @"themeImageTable";
+static NSString * const AidImageDefaultName = @"backImage8.jpg";
 
 @interface AidAddThemeViewController () <UITextFieldDelegate, UITextViewDelegate, LYZLocationHelperDelegate>
 
@@ -36,6 +39,11 @@ static const CGFloat AidViewDefaultInset = 5;
 
 @property (nonatomic, strong) LYZWeatherBasicInfoView *weatherView;
 @property (nonatomic, strong) LYZLocationHelper *weatherLocation;
+@property (nonatomic, strong) LYZImagePickerHelper *imagePicker;
+
+@property (nonatomic, strong) NSDateFormatter *formatter;
+@property (nonatomic, strong) YTKKeyValueStore *themeImageStore;
+@property (nonatomic, strong) NSString *themeImageName;
 
 @end
 
@@ -233,7 +241,7 @@ static const CGFloat AidViewDefaultInset = 5;
     AidThemeRecord *record = [[AidThemeRecord alloc] init];
     record.name = self.themeNameTextField.text;
     record.describe = self.themeDescribeTextView.text;
-    record.imageName = @"backImage8.jpg";
+    record.imageName = AidImageDefaultName;
     record.createTime = [NSNumber numberWithDouble:[NSDate timeIntervalSinceReferenceDate]];
     record.praiseState = [NSNumber numberWithBool:NO];
     record.watchCount = [NSNumber numberWithInteger:1];
@@ -249,7 +257,17 @@ static const CGFloat AidViewDefaultInset = 5;
 
 - (void)chooseTheme
 {
-    [self imagePickerAction];
+    [self.imagePicker showOnViewController:self completed:^(UIImage *image, NSDictionary *info) {
+        self.themeImageView.image = image;
+        
+//        _themeImageName = [NSString stringWithFormat:@"themeImageKey_%@", [self.formatter stringFromDate:[NSDate date]]];
+//        NSData *imageData = UIImagePNGRepresentation(image);
+//        
+//        [self.themeImageStore putObject:imageData withId:_themeImageName intoTable:AidThemeImageTableName];
+        
+//        NSDictionary *queryUser = [store getObjectById:key fromTable:tableName];
+//        NSLog(@"query data result: %@", queryUser);
+    }];
 }
 
 #pragma mark - notification response
@@ -287,7 +305,12 @@ static const CGFloat AidViewDefaultInset = 5;
     if (! _themeImageView) {
         _themeImageView = [[UIImageView alloc] init];
         _themeImageView.contentMode = UIViewContentModeScaleToFill;
-        _themeImageView.image = [UIImage imageNamed:@"backImage8.jpg"];
+        UIImage *image = [UIImage imageNamed:AidImageDefaultName];
+        _themeImageView.image = image;
+//        
+//        _themeImageName = AidImageDefaultName;
+//        NSData *imageData = UIImagePNGRepresentation(image);
+//        [self.themeImageStore putObject:imageData withId:AidImageDefaultName intoTable:AidThemeImageTableName];
     }
     return _themeImageView;
 }
@@ -300,7 +323,7 @@ static const CGFloat AidViewDefaultInset = 5;
         _chooseThemeLabel.textColor = [UIColor darkGrayColor];
         _chooseThemeLabel.textAlignment = NSTextAlignmentCenter;
         __weak typeof(self) weakSelf = self;
-        [_chooseThemeLabel tapped:^{
+        [_chooseThemeLabel tappedGesture:^{
             [weakSelf chooseTheme];
         }];
     }
@@ -364,6 +387,33 @@ static const CGFloat AidViewDefaultInset = 5;
         _weatherLocation.delegate = self;
     }
     return _weatherLocation;
+}
+
+- (LYZImagePickerHelper *)imagePicker
+{
+    if (! _imagePicker) {
+        _imagePicker = [[LYZImagePickerHelper alloc] init];
+    }
+    return _imagePicker;
+}
+
+- (YTKKeyValueStore *)themeImageStore
+{
+    if (! _themeImageStore) {
+        _themeImageStore = [[YTKKeyValueStore alloc] initDBWithName:@"themeImage.db"];
+        [_themeImageStore createTableWithName:AidThemeImageTableName];
+    }
+    return _themeImageStore;
+}
+
+- (NSDateFormatter *)formatter
+{
+    if (! _formatter) {
+        _formatter = [[NSDateFormatter alloc] init];
+        _formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        _formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+    }
+    return _formatter;
 }
 
 @end

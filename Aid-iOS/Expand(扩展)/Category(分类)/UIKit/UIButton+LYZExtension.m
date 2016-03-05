@@ -55,6 +55,11 @@
 
 @implementation UIButton (LYZCommonButton)
 
++ (UIButton *)addButtonWithTarget:(id)target action:(SEL)action
+{
+    return [self initWithNormalImageName:@"icon_add_default" highlightImageName:@"icon_add_default" isBackground:NO target:target action:action];
+}
+
 + (UIButton *)menuButtonWithTarget:(id)target action:(SEL)action
 {
     return [self initWithNormalImageName:@"icon_menu_default" highlightImageName:@"icon_menu_focus" isBackground:NO target:target action:action];

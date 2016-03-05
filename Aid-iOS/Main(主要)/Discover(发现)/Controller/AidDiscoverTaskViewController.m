@@ -116,7 +116,7 @@ static const CGFloat AidThemeCellHeight = 70;
 - (void)setupPageNavigation
 {
 #warning button frame
-    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIButton *button = [UIButton addButtonWithTarget:self action:@selector(addItemBarAction:)];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     UIBarButtonItem *praiseItem = [[UIBarButtonItem alloc] initWithCustomView:self.praiseControl];
@@ -369,8 +369,9 @@ static const CGFloat AidThemeCellHeight = 70;
 - (AidOperateTaskView *)operaterView
 {
     if (! _operaterView) {
-        NSArray<NSString *> *titleNames = @[@"分享", @"评论", @"点赞", @"收藏"];
-        NSArray<NSString *> *imageNames = @[@"searchList_btn_delete_6P", @"searchList_btn_delete_6P", @"searchList_btn_delete_6P", @"searchList_btn_delete_6P"];
+        NSArray<NSString *> *titleNames = @[@"分享", @"评论", @"更多"];
+        NSArray<NSString *> *imageNames = @[@"icon_share_default", @"icon_news_default", @"icon_more_default"];
+
         
         _operaterView = [[AidOperateTaskView alloc] initWithFrame:CGRectMake(0, self.tableView.height - AidTabBarHeight, [LYZDeviceInfo screenWidth], AidTabBarHeight) titleNames:titleNames imageNames:imageNames];
         _operaterView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);

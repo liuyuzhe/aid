@@ -98,7 +98,7 @@ static const CGFloat AidDuringAnimation = 0.3;
 
 - (void)setupPageNavigation
 {
-    UIButton *button = [UIButton shareButtonWithTarget:self action:@selector(addItemBarAction:)];
+    UIButton *button = [UIButton addButtonWithTarget:self action:@selector(addItemBarAction:)];
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     self.navigationItem.rightBarButtonItem = addItem;
@@ -445,8 +445,8 @@ static const CGFloat AidDuringAnimation = 0.3;
 - (AidOperateTaskView *)operaterView
 {
     if (! _operaterView) {
-        NSArray<NSString *> *titleNames = @[@"分享", @"排序", @"更多"];
-        NSArray<NSString *> *imageNames = @[@"about_criticism", @"about_criticism", @"about_criticism"];
+        NSArray<NSString *> *titleNames = @[@"分享", @"评论", @"更多"];
+        NSArray<NSString *> *imageNames = @[@"icon_share_default", @"icon_news_default", @"icon_more_default"];
         
         _operaterView = [[AidOperateTaskView alloc] initWithFrame:CGRectMake(0, [LYZDeviceInfo screenHeight] - AidTabBarHeight, [LYZDeviceInfo screenWidth], AidTabBarHeight) titleNames:titleNames imageNames:imageNames];
         _operaterView.backgroundColor =  LYZColorRGB(239/255.0, 239/255.0, 244/255.0);

@@ -27,4 +27,7 @@
 // go to `Build Phases` and add `sqlite3` into your library list.
 #import "CTPersistance.h"
 
+#import "FMDB.h"
+#import "YTKKeyValueStore.h"
+
 #endif /* AidPrefixHeader_pch */

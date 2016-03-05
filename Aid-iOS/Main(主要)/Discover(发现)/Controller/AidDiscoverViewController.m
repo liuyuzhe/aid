@@ -23,7 +23,6 @@
     UIView *contentView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view = contentView;
     
-#warning title显示存在问题
     self.title = @"发现";
     self.view.backgroundColor = [UIColor whiteColor];
     

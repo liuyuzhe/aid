@@ -19,6 +19,7 @@
 
 @interface UIButton (LYZCommonButton)
 
++ (UIButton *)addButtonWithTarget:(id)target action:(SEL)action;
 + (UIButton *)menuButtonWithTarget:(id)target action:(SEL)action;
 + (UIButton *)shareButtonWithTarget:(id)target action:(SEL)action;
 + (UIButton *)backButtonWithTarget:(id)target action:(SEL)action;

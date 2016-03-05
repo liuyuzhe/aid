@@ -116,7 +116,13 @@ static const CGFloat AidViewDefaultInset = 5;
 - (void)setThemeRecord:(AidThemeRecord *)themeRecord
 {
     _themeRecord = themeRecord;
-    
+//    
+//    static NSString * const AidThemeImageTableName = @"themeImageTable";
+//    YTKKeyValueStore  *themeImageStore = [[YTKKeyValueStore alloc] initDBWithName:@"themeImage.db"];
+//    
+//    NSData *queryUser = [themeImageStore getObjectById:themeRecord.imageName fromTable:AidThemeImageTableName];
+//    self.themeImageView.image = [UIImage imageWithData:queryUser];
+//    
     self.themeImageView.image = [UIImage imageNamed:themeRecord.imageName];
     self.themeNameLabel.text = themeRecord.name;
     self.themeDescribeLabel.text = themeRecord.describe;

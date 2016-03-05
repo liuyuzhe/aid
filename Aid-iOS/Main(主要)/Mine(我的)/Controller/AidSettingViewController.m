@@ -99,6 +99,9 @@ static const CGFloat AidSettingCellHeight = 44;
     AidSettingCell *cell = [AidSettingCell cellWithTableView:tableView];
     
     if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            cell.textLabel.text = @"清理缓存";
+        }
     }
     else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
@@ -209,7 +212,7 @@ static const CGFloat AidSettingCellHeight = 44;
     if (! _logoutButton) {
         _logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _logoutButton.frame = CGRectMake(0, 0, [LYZDeviceInfo screenWidth], AidTabBarHeight);
-        [_logoutButton setTitle:@"登陆" forState:UIControlStateNormal];
+        [_logoutButton setTitle:@"退 出" forState:UIControlStateNormal];
         [_logoutButton setBackgroundImage:[[UIImage imageNamed:@"btn_default_red"] stretchImageWithEdge:2] forState:UIControlStateNormal];
         [_logoutButton setBackgroundImage:[[UIImage imageNamed:@"btn_focus_red"] stretchImageWithEdge:2] forState:UIControlStateHighlighted];
     }

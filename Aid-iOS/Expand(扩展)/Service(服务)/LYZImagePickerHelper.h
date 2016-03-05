@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^LYZImagePickerCompledBlock)(UIImage *image, NSDictionary *info);
+typedef void(^LYZImagePickerCompletedBlock)(UIImage *image, NSDictionary *info);
 
 @interface LYZImagePickerHelper : NSObject
 
-- (void)showOnViewController:(UIViewController *)viewController withSourceType:(UIImagePickerControllerSourceType)sourceType compled:(LYZImagePickerCompledBlock)compled;
+- (void)showOnViewController:(UIViewController *)viewController withSourceType:(UIImagePickerControllerSourceType)sourceType completed:(LYZImagePickerCompletedBlock)completed;
+
+- (void)showOnViewController:(UIViewController *)viewController completed:(LYZImagePickerCompletedBlock)completed;
 
 @end
