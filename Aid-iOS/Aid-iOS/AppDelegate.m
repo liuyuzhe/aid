@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
+
 #import "AidMainTabBarController.h"
+
+#import "UMSocial.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +21,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     AidMainTabBarController *tabbarVC = [[AidMainTabBarController alloc] init];
@@ -29,12 +30,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-//    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
-//    [UINavigationBar appearance].barTintColor = [UIColor purpleColor];
-//    [UINavigationBar appearance].titleTextAttributes = @{
-//                                               NSForegroundColorAttributeName : [UIColor whiteColor],
-//                                               NSFontAttributeName : [UIFont systemFontOfSize:16]
-//                                               };
+    
+    [UMSocialData setAppKey:AidUMAppKey];    
+    
     return YES;
 }
 

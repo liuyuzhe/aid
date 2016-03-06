@@ -10,6 +10,7 @@
 #import "AidAddTaskViewController.h"
 #import "AidEditTaskViewController.h"
 
+#import "UMSocial.h"
 #import "CTPersistance.h"
 
 #import "AidTaskCell.h"
@@ -312,6 +313,12 @@ static const CGFloat AidDuringAnimation = 0.3;
 - (void)multipleButtonTouched:(UIButton *)button withIndex:(NSInteger)index
 {
     if (index == 0) {
+        [UMSocialSnsService presentSnsIconSheetView:self
+                                             appKey:AidUMAppKey
+                                          shareText:@"你要分享的文字"
+                                         shareImage:[UIImage imageNamed:@"angle-mask"]
+                                    shareToSnsNames:@[UMShareToSina, UMShareToTencent, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQzone, UMShareToQQ, UMShareToRenren, UMShareToWechatSession, UMShareToDouban, UMShareToEmail, UMShareToSms]
+                                           delegate:self];
     }
 }
 

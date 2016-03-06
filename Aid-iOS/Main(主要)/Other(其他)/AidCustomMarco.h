@@ -36,4 +36,6 @@
 #define AidNormalBoldFont [UIFont boldSystemFontOfSize:17.0f]
 #define AidSmallBoldFont [UIFont boldSystemFontOfSize:15.0f]
 
+static NSString *const AidUMAppKey = @"56d8ee7167e58e5f55002bbd";
+
 #endif
