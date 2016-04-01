@@ -534,7 +534,6 @@ static CGFloat const AidCoverViewBorder = 5; /**< 遮盖视图边缘 */
         self.coverView.width = coverW;
         self.coverView.left = label.left - AidCoverViewBorder;
     }];
-    
 }
 
 #pragma mark - notification response

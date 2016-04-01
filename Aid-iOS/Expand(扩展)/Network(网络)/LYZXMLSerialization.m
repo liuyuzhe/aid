@@ -11,8 +11,8 @@
 
 @interface LYZXMLSerialization () <NSXMLParserDelegate>
 
-@property (nonatomic,strong)    NSMutableArray *stacks;
-@property (nonatomic,strong)    NSError *error;
+@property (nonatomic, strong) NSMutableArray *stacks;
+@property (nonatomic, strong) NSError *error;
 
 - (NSDictionary *)parse:(NSXMLParser *)parser
                 options:(LYZXMLReadingOptions)options

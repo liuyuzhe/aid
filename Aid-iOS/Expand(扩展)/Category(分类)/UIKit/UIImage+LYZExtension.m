@@ -12,6 +12,7 @@
 #import "LYZMemoryCache.h"
 #import "LYZMathMacro.h"
 
+@import CoreGraphics;
 @implementation UIImage (LYZExtension)
 
 #pragma maek - public method
@@ -41,6 +42,7 @@
     return image;
 }
 
+
 - (UIImage *)subimageInRect:(CGRect)rect
 {
     CGFloat scale = MAX(self.scale, 1);
@@ -57,42 +59,6 @@
     CGImageRelease(subimageRef);
     
     return smallImage;
-}
-
-- (UIImage *)horizontalStretchImageWithEdge:(CGFloat)edge
-{
-    UIEdgeInsets insets = {0, edge, 0, edge};
-    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-}
-
-- (UIImage *)verticalStretchImageWithEdge:(CGFloat)edge
-{
-    UIEdgeInsets insets = {edge, 0, edge, 0};
-    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-}
-
-- (UIImage *)stretchImageWithEdge:(CGFloat)edge
-{
-    UIEdgeInsets insets = {edge, edge, edge, edge};
-    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-}
-
-- (UIImage *)horizontalTileImageWithEdge:(CGFloat)edge
-{
-    UIEdgeInsets insets = {0, edge, 0, edge};
-    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-}
-
-- (UIImage *)verticalTileImageWithEdge:(CGFloat)edge
-{
-    UIEdgeInsets insets = {edge, 0, edge, 0};
-    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-}
-
-- (UIImage *)tileImageWithEdge:(CGFloat)edge
-{
-    UIEdgeInsets insets = {edge, edge, edge, edge};
-    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
 }
 
 - (UIImage *)imageRotatedByRadians:(CGFloat)radians
@@ -140,13 +106,14 @@
     CGRect rect = (CGRect){0.f, 0.f, sizeToFit};
     
     UIGraphicsBeginImageContextWithOptions(sizeToFit, NO, UIScreen.mainScreen.scale);
-    CGContextAddPath(UIGraphicsGetCurrentContext(),
-                     [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);
-    CGContextClip(UIGraphicsGetCurrentContext());
+
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextAddPath(context, [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);
+    CGContextClip(context);
     
     [self drawInRect:rect];
-    UIImage *output = UIGraphicsGetImageFromCurrentImageContext();
     
+    UIImage *output = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return output;
@@ -199,6 +166,46 @@
     
     return scaledImage;
 }
+
+#pragma mark -
+
+- (UIImage *)horizontalStretchImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {0, edge, 0, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)verticalStretchImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, 0, edge, 0};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)stretchImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, edge, edge, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)horizontalTileImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {0, edge, 0, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)verticalTileImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, 0, edge, 0};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+- (UIImage *)tileImageWithEdge:(CGFloat)edge
+{
+    UIEdgeInsets insets = {edge, edge, edge, edge};
+    return [self resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+}
+
+#pragma mark -
 
 - (UIImage *)fixOrientation
 {
