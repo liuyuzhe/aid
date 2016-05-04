@@ -10,7 +10,11 @@
 
 @interface NSString (LYZEncodeAndDecode)
 
-- (NSData *)base64EncodedData;
+- (NSData *)base64EncodeData; // base64加密,封包处理
+- (NSString *)base64EncodeString; // base64加密,封包处理
+
+- (NSData *)base64DecodeData; // base64解密,封包处理
+- (NSString *)base64DecodeString; // base64解密,封包处理
 
 #pragma mark -
 

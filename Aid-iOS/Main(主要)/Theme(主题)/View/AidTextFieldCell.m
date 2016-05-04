@@ -61,7 +61,7 @@ static const CGFloat AidDefaultTitleWidth = 90;
     return self;
 }
 
-#pragma mark - public method
+#pragma mark - public methods
 
 - (void)focusTextField
 {

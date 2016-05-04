@@ -21,7 +21,7 @@
 
 @implementation LYZImagePickerHelper
 
-#pragma mark - public method
+#pragma mark - public methods
 
 - (void)showOnViewController:(UIViewController *)viewController withSourceType:(UIImagePickerControllerSourceType)sourceType completed:(LYZImagePickerCompletedBlock)completed
 {

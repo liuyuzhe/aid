@@ -27,7 +27,7 @@
     return  self;
 }
 
-- (instancetype)init
+-(instancetype)init
 {
     return [self initWithFrame:CGRectZero];
 }

@@ -35,7 +35,7 @@
     }
 }
 
-#pragma mark - public method
+#pragma mark - public methods
 
 - (void)addTabBarButtonWithItem:(UITabBarItem *)item
 {

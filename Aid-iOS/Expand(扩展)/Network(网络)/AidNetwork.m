@@ -12,7 +12,7 @@
 
 @implementation AidNetwork
 
-#pragma mark - public method
+#pragma mark - public methods
 
 + (AidURLSessionTask *)getWithUrl:(NSString *)url
                           success:(AidResponseSuccess)success
@@ -196,7 +196,7 @@
     return session;
 }
 
-#pragma mark - private method
+#pragma mark - private methods
 
 + (AFHTTPSessionManager *)sessionManager
 {

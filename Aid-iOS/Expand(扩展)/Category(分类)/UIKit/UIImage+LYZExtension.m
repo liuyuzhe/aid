@@ -15,7 +15,7 @@
 @import CoreGraphics;
 @implementation UIImage (LYZExtension)
 
-#pragma maek - public method
+#pragma maek - public methods
 
 + (UIImage *)imageWithColor:(UIColor *)color
 {
@@ -234,7 +234,7 @@
     return [self decodeImage:image];
 }
 
-#pragma maek - private method
+#pragma maek - private methods
 
 - (CGRect)convertRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode
 {

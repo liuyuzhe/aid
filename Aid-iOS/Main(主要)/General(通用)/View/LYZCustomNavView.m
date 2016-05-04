@@ -66,12 +66,12 @@
 {
     __weak UIView *weakSelf = self;
     
-    [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf);
         make.left.equalTo(weakSelf).offset(20);
     }];
     
-    [self.completeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_completeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(weakSelf);
         make.right.equalTo(weakSelf).offset(-20);
     }];

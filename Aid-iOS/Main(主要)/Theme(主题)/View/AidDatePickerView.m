@@ -38,7 +38,7 @@
     return [self initWithFrame:CGRectZero];
 }
 
-#pragma mark - public method
+#pragma mark - public methods
 
 #pragma mark - life cycle helper
 

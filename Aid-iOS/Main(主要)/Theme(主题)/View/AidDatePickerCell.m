@@ -46,7 +46,7 @@
     return self;
 }
 
-#pragma mark - public method
+#pragma mark - public methods
 
 -(void)highlight
 {

@@ -20,7 +20,7 @@ static char kWhenPanBlockKey;
 
 @implementation UIView (LYZAddGestureBlock)
 
-#pragma mark - public method
+#pragma mark - public methods
 
 - (void)tappedGesture:(AidGestureRecognizerSuccess)block
 {

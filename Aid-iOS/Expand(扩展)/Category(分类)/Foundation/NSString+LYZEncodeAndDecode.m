@@ -13,9 +13,42 @@ static NSString * const LYZURLEncodingCharactersToBeEscaped = @"!*\'();:@&=+$,/?
 
 @implementation NSString (LYZEncodeAndDecode)
 
-- (NSData *)base64EncodedData
+#pragma mark -
+
+- (NSData *)base64EncodeData
 {
-    return [[NSData alloc] initWithBase64EncodedString:self options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    // base64 封包
+    NSUInteger paddedLength = self.length + (4 - self.length % 4);
+    NSString *correctString = [self stringByPaddingToLength:paddedLength withString:@"=" startingAtIndex:0];
+    
+    NSData *myData = [correctString dataUsingEncoding:NSUTF8StringEncoding];
+    return [myData base64EncodedDataWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
+
+- (NSString *)base64EncodeString
+{
+    // base64 封包
+    NSUInteger paddedLength = self.length + (4 - self.length % 4);
+    NSString *correctString = [self stringByPaddingToLength:paddedLength withString:@"=" startingAtIndex:0];
+    
+    NSData *myData = [correctString dataUsingEncoding:NSUTF8StringEncoding];
+    return [myData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
+
+- (NSData *)base64DecodeData
+{
+    // base64 封包
+    NSUInteger paddedLength = self.length + (4 - self.length % 4);
+    NSString *correctString = [self stringByPaddingToLength:paddedLength withString:@"=" startingAtIndex:0];
+    
+    return [[NSData alloc] initWithBase64EncodedString:correctString options:NSDataBase64DecodingIgnoreUnknownCharacters];
+}
+
+- (NSString *)base64DecodeString
+{
+    NSString *decodedString = [[NSString alloc] initWithData:[self base64EncodedData] encoding:NSUTF8StringEncoding];
+    
+    return decodedString;
 }
 
 #pragma mark -

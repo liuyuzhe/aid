@@ -21,7 +21,7 @@
 
 IS_SINGLETON(LYZLocationHelper)
 
-#pragma maek - public method
+#pragma maek - public methods
 
 - (void)startLocation
 {

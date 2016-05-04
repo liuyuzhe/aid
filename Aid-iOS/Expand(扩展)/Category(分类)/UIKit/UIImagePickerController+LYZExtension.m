@@ -53,7 +53,7 @@
     
 }
 
-#pragma mark - private method
+#pragma mark - private methods
 
 + (BOOL)supportsMedia:(NSString *)mediaType sourceType:(UIImagePickerControllerSourceType)sourceType
 {
