@@ -46,7 +46,7 @@ static NSString * const LYZURLEncodingCharactersToBeEscaped = @"!*\'();:@&=+$,/?
 
 - (NSString *)base64DecodeString
 {
-    NSString *decodedString = [[NSString alloc] initWithData:[self base64EncodedData] encoding:NSUTF8StringEncoding];
+    NSString *decodedString = [[NSString alloc] initWithData:[self base64DecodeData] encoding:NSUTF8StringEncoding];
     
     return decodedString;
 }
