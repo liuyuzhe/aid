@@ -55,4 +55,6 @@
 
 - (UIView *)getFirstResponder;
 
+- (UIViewController *)viewController;
+
 @end
