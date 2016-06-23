@@ -15,8 +15,9 @@
 
 #define LYZMAXLOGLEVEL LYZLOGLEVEL_INFO
 
+// 文件名 函数名 行号
 #ifdef DEBUG
-#define LYZPRINT(xx, ...)  NSLog(@"%s(%d): " xx, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define LYZPRINT(xx, ...)  NSLog(@"%s %s(%d): " xx, __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
 #define LYZPRINT(xx, ...)  ((void)0)
 #endif

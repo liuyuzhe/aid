@@ -17,14 +17,17 @@
 + (BOOL)removeItemAtPath:(NSString *)path;
 + (BOOL)removeItemsAtPaths:(NSArray *)paths;
 
-+ (NSData *)readFileAtPathAsData:(NSString *)path;
-+ (NSString *)readFileAtPathAsString:(NSString *)path;
+- (NSData *)readFileContent:(NSString *)path; // NSFileManager
+- (BOOL)writeFileAtPath:(NSString *)path useData:(NSData *)content; // NSFileManager
 
-+ (void)writeFileAtPath:(NSString *)path useData:(NSData *)content;
-+ (void)writeFileAtPath:(NSString *)path useString:(NSString *)content;
++ (NSData *)readFileAtPathAsData:(NSString *)path; // NSFileHandle 非线程安全
++ (NSString *)readFileAtPathAsString:(NSString *)path; // NSFileHandle 非线程安全
 
-+ (void)updateFileAtPath:(NSString *)path useData:(NSData *)content;
-+ (void)updateFileAtPath:(NSString *)path useString:(NSString *)content;
++ (void)writeFileAtPath:(NSString *)path useData:(NSData *)content; // NSFileHandle 非线程安全
++ (void)writeFileAtPath:(NSString *)path useString:(NSString *)content; // NSFileHandle 非线程安全
+
++ (void)updateFileAtPath:(NSString *)path useData:(NSData *)content; // NSFileHandle 非线程安全
++ (void)updateFileAtPath:(NSString *)path useString:(NSString *)content; // NSFileHandle 非线程安全
 
 @end
 
@@ -56,7 +59,6 @@
 + (BOOL)clearTemporaryDirectory;
 
 @end
-
 
 
 @interface LYZFileManager (ItemInformation)

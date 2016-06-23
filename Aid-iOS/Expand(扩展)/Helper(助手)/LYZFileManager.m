@@ -50,12 +50,24 @@
     return success;
 }
 
+- (NSData *)readFileContent:(NSString *)path
+{
+//    The methods of the shared NSFileManager object can be called from multiple threads safely. However, if you use a delegate to receive notifications about the status of move, copy, remove, and link operations, you should create a unique instance of the file manager object, assign your delegate to that object, and use that file manager to initiate your operations.
+    return [[[NSFileManager alloc] init] contentsAtPath:path];
+}
+
+- (BOOL)writeFileAtPath:(NSString *)path useData:(NSData *)content
+{
+//    The methods of the shared NSFileManager object can be called from multiple threads safely. However, if you use a delegate to receive notifications about the status of move, copy, remove, and link operations, you should create a unique instance of the file manager object, assign your delegate to that object, and use that file manager to initiate your operations.
+    return [[[NSFileManager alloc] init] createFileAtPath:path contents:content attributes:nil];
+}
+
 + (NSData *)readFileAtPathAsData:(NSString *)path
 {
     NSData *contents;
     
     if ([self isExistAtPath: path]) {
-        NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:path]; // 由于NSFileManager不是线程安全的，因此文件读写采用NSFileHandle实现
+        NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
         if (fileHandle) {
             contents = [[NSData alloc] initWithData:[fileHandle availableData]];
             [fileHandle closeFile];
@@ -82,7 +94,7 @@
         }
     }
     
-    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:path]; // 由于NSFileManager不是线程安全的，因此文件读写采用NSFileHandle实现
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:path];
     if (fileHandle) {
         [fileHandle writeData:content];
         [fileHandle closeFile];

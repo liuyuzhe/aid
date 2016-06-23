@@ -29,6 +29,14 @@
 
 #pragma mark -
 
+/** 读取文件内容 */
++ (NSString *)readFileContentAtPath:(NSString *)path;
+
+/** 写入文件内容 */
+- (BOOL)writeFileAtPath:(NSString *)path useData:(NSData *)content;
+
+#pragma mark -
+
 - (BOOL)equals:(NSString *)str;
 
 @end

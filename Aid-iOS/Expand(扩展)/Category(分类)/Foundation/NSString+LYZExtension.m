@@ -81,6 +81,18 @@
 
 #pragma mark -
 
++ (NSString *)readFileContentAtPath:(NSString *)path
+{
+    return [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+}
+
+- (BOOL)writeFileAtPath:(NSString *)path useData:(NSData *)content
+{
+    return [self writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+}
+
+#pragma mark -
+
 - (BOOL)equals:(NSString *)str
 {
     return [self compare:str] == NSOrderedSame;
