@@ -20,4 +20,49 @@ __strong typeof(weakSelf) strongSelf = weakSelf;
 #define LYZOnExit \
 __strong void(^block)(void) __attribute__((cleanup(blockCleanUp), unused)) = ^
 
+#ifndef NS_ENUM
+#define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
+#endif
+
+#ifndef NS_OPTIONS
+#define NS_OPTIONS(_type, _name) enum _name : _type _name; enum _name : _type
+#endif
+
+// dispatch_main_sync_safe(^{
+// });
+//
+#define dispatch_main_sync_safe(block)\
+if ([NSThread isMainThread]) {\
+block();\
+} else {\
+dispatch_sync(dispatch_get_main_queue(), block);\
+}
+
+#define dispatch_main_async_safe(block)\
+if ([NSThread isMainThread]) {\
+block();\
+} else {\
+dispatch_async(dispatch_get_main_queue(), block);\
+}
+
+void dispatchOnMainSyncSafe(dispatch_block_t block)
+{
+    if ([NSThread isMainThread]) {
+        block();
+    }
+    else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
+
+void dispatchOnMainAsyncSafe(dispatch_block_t block)
+{
+    if ([NSThread isMainThread]) {
+        block();
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), block);
+    }
+}
+
 #endif /* LYZFoundationMacro_h */
