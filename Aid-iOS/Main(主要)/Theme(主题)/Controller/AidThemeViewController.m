@@ -330,7 +330,7 @@ static const CGFloat AidThemeCellHeight = 110;
     addThemeVC.modalPresentationStyle = UIModalPresentationFormSheet; // 弹出风格
     addThemeVC.delegate = self;
     
-    [self presentViewController:addThemeVC animated:YES completion:nil];
+    [self presentViewController:addThemeVC animated:NO completion:nil];
 }
 
 

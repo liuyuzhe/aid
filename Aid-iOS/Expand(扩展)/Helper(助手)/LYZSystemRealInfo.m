@@ -7,6 +7,7 @@
 //
 
 #import <sys/sysctl.h>
+#import <sys/utsname.h>
 #import <mach/mach.h>
 
 #import "LYZSystemRealInfo.h"
@@ -107,6 +108,15 @@
 }
 
 #pragma mark - LYZDeviceInfo helper
+
++ (NSString *)getDeviceVersionInfo
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *platform = [NSString stringWithFormat:@"%s", systemInfo.machine];
+    
+    return platform;
+}
 
 + (NSUInteger)getSysInfo:(uint)typeSpecifier
 {

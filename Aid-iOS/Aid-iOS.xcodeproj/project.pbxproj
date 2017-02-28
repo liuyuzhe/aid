@@ -1978,7 +1978,7 @@
 				TargetAttributes = {
 					C44D534E1BAD8B260035E9B2 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = KZ7SHVB3AK;
+						DevelopmentTeam = M9YUM8R2CT;
 					};
 					C44D53671BAD8B260035E9B2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -2556,7 +2556,7 @@
 					"$(PROJECT_DIR)/Vendor(第三方)/umeng_ios_social_sdk_5.0.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Vendor(第三方)/umeng_ios_social_sdk_5.0.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liuyuzhe.Aid-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.liuyuzhe.Aid-iOS1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2589,7 +2589,7 @@
 					"$(PROJECT_DIR)/Vendor(第三方)/umeng_ios_social_sdk_5.0.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Vendor(第三方)/umeng_ios_social_sdk_5.0.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liuyuzhe.Aid-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.liuyuzhe.Aid-iOS1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
