@@ -99,7 +99,7 @@
     
     // 完成按钮
     _completeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _cancelButton.showsTouchWhenHighlighted = YES; // 按下会发光
+    _completeButton.showsTouchWhenHighlighted = YES; // 按下会发光
 //    _completeButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
 //    _completeButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_completeButton setTitle:@"完成" forState:UIControlStateNormal];
